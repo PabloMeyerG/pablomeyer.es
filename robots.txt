@@ -1,0 +1,25 @@
+# robots.txt — pablomeyer.es
+# Permite indexación completa a buscadores legítimos.
+
+User-agent: *
+Allow: /
+Disallow: /assets/downloads/
+
+# Bloquear crawlers de IA agresivos (opcional — coméntalo si quieres permitirlos)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap
+Sitemap: https://pablomeyer.es/sitemap.xml

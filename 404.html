@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Página no encontrada · Pablo Meyer</title>
+<meta name="description" content="La página que buscas no existe. Vuelve al portfolio de Pablo Meyer.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#111110">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --yellow: #F5D000;
+    --yellow-dark: #C9A900;
+    --black: #111110;
+    --gray: #6B6B6A;
+    --bg: #EDECEA;
+    --white: #FFFFFF;
+    --font: 'Figtree', sans-serif;
+  }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); background: var(--black); color: var(--white);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 40px 24px; position: relative; overflow: hidden;
+  }
+  body::before {
+    content: ''; position: absolute; right: -160px; top: -160px;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,208,0,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  body::after {
+    content: ''; position: absolute; left: -120px; bottom: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,208,0,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .wrap { max-width: 720px; text-align: center; position: relative; z-index: 1; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); margin-bottom: 24px;
+  }
+  .big-num {
+    font-size: clamp(120px, 24vw, 240px); font-weight: 900; line-height: 0.85;
+    letter-spacing: -0.05em; margin-bottom: 24px;
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .title {
+    font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -0.025em;
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .desc {
+    font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 40px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow); color: var(--black); font-size: 15px; font-weight: 700;
+    padding: 16px 30px; border-radius: 50px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: var(--white); font-size: 15px; font-weight: 600;
+    padding: 16px 30px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.2);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+  .footer-mini {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-size: 12px; color: rgba(255,255,255,0.35);
+  }
+  .footer-mini a {
+    color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-mini a:hover { color: var(--yellow); }
+  @media (max-width: 540px) {
+    .actions { flex-direction: column; align-items: stretch; }
+    .actions a { justify-content: center; }
+    .footer-mini { position: static; transform: none; margin-top: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <p class="eyebrow">Error 404</p>
+  <h1 class="big-num">404</h1>
+  <p class="title">Esta página no existe.</p>
+  <p class="desc">O la URL está mal escrita, o la página se mudó. Lo que sí sigue ahí es el portfolio entero — vuelve al inicio o escríbeme directamente.</p>
+  <div class="actions">
+    <a href="/" class="btn-primary">← Volver al inicio</a>
+    <a href="/index.html#hablemos" class="btn-secondary">Escribirme</a>
+  </div>
+</main>
+
+<p class="footer-mini">
+  © <span id="copy-year">2026</span> · Pablo Meyer · <a href="mailto:pablo.meyer00@gmail.com">pablo.meyer00@gmail.com</a>
+</p>
+
+<script>
+  const yearEl = document.getElementById('copy-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

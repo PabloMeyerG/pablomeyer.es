@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach App — Caso UX/UI · Pablo Meyer</title>
+<meta name="description" content="Caso de estudio UX/UI: Coach, una app de entrenamiento y nutrición que encaja la rutina del usuario, no la impone. Diseñada por Pablo Meyer.">
+<meta name="author" content="Pablo Meyer">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- Canonical + hreflang -->
+<link rel="canonical" href="https://pablomeyer.es/projects/coach.html">
+<link rel="alternate" hreflang="es" href="https://pablomeyer.es/projects/coach.html">
+<link rel="alternate" hreflang="en" href="https://pablomeyer.es/projects/coach.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://pablomeyer.es/projects/coach.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coach App — Caso 02 · Pablo Meyer">
+<meta property="og:description" content="UX/UI para una app de fitness y nutrición que encaja la rutina del usuario, no la impone.">
+<meta property="og:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:url" content="https://pablomeyer.es/projects/coach.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Pablo Meyer">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coach App — Caso 02">
+<meta name="twitter:description" content="UX/UI para una app de fitness y nutrición.">
+<meta name="twitter:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#111110">
+
+<!-- Schema.org · CreativeWork -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Coach App",
+  "headline": "Coach — App de fitness · Caso UX/UI",
+  "description": "UX/UI para una app de fitness y nutrición que encaja la rutina del usuario, no la impone.",
+  "image": "https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg",
+  "datePublished": "2025",
+  "url": "https://pablomeyer.es/projects/coach.html",
+  "inLanguage": "es-ES",
+  "creator": {
+    "@type": "Person",
+    "name": "Pablo Meyer",
+    "url": "https://pablomeyer.es/"
+  },
+  "about": ["UX/UI", "Diseño de producto", "Mobile", "Design system"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo" aria-label="Pablo Meyer — Inicio">
+    <img src="../assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+    <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+    <li><a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a></li>
+  </ul>
+  <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
+    <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+    <a href="../index.html#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <div class="case-topbar">
+      <a href="../index.html#proyectos" data-i18n="topbar.back">← Proyectos</a>
+      <span data-i18n="topbar.year">2025 · Caso 02</span>
+    </div>
+
+    <h1 class="case-title fade-up">
+      <span class="title-mark">Coach</span>
+      <span class="sep">·</span>
+      <span>App</span>
+    </h1>
+
+    <div class="case-tags fade-up">
+      <span class="tag" data-i18n="tag.ux">UX/UI</span>
+      <span class="tag" data-i18n="tag.product">Producto</span>
+      <span class="tag" data-i18n="tag.mobile">Mobile</span>
+    </div>
+
+    <div class="case-meta-row fade-up">
+      <div><p class="meta-label" data-i18n="meta.type">Tipo</p><p class="meta-value" data-i18n="meta.type.val">App móvil · iOS</p></div>
+      <div><p class="meta-label" data-i18n="meta.year">Año</p><p class="meta-value">2025</p></div>
+      <div><p class="meta-label" data-i18n="meta.role">Rol</p><p class="meta-value">UX · UI · Branding</p></div>
+      <div><p class="meta-label" data-i18n="meta.duration">Duración</p><p class="meta-value" data-i18n="meta.duration.val">4 semanas</p></div>
+    </div>
+  </div>
+</header>
+
+<section class="case-cover">
+  <div class="cover-bar">
+    <a href="iki.html" data-i18n="cover.prev">← Proyecto anterior</a>
+    <a href="galeria.html" data-i18n="cover.next">Siguiente proyecto →</a>
+  </div>
+  <div class="cover-bleed fade-up">
+    <picture><source srcset="../assets/img/projects/coach/hero-coach.webp" type="image/webp"><img src="../assets/img/projects/coach/hero-coach.jpg" alt="Coach — pantalla principal de la app" fetchpriority="high" decoding="async"></picture>
+  </div>
+</section>
+
+<section class="case-reto">
+  <div class="container">
+    <div class="reto-grid">
+      <div class="fade-up">
+        <p class="eyebrow" data-i18n="reto.eyebrow">El reto</p>
+        <h2 class="reto-title" data-i18n="reto.title">Una app de fitness que no haga sentir mal al usuario por no abrirla.</h2>
+        <div class="reto-body">
+          <p data-i18n="reto.p1">El ejercicio pedía diseñar una app móvil de principio a fin: research, arquitectura, sistema y UI. Elegí fitness y nutrición porque es un sector saturado y ruidoso — la mayoría de apps prometen disciplina militar y le hablan al usuario como si tuviera 25 años, dos horas libres y un gimnasio en casa. Nada de eso es la realidad.</p>
+          <p data-i18n="reto.p2">El research dejó claro lo evidente: la gente abandona estas apps porque les recuerdan lo que no están haciendo. Coach se construyó alrededor de la idea contraria — <em>encajar</em> la rutina del usuario, no imponerla. Cada pantalla tenía que quitar fricción, no añadirla. Una jerarquía clara, un onboarding que pregunta antes de exigir, y un dashboard que prioriza el "qué toca hoy" antes que el "cuánto te falta".</p>
+        </div>
+      </div>
+
+      <aside class="detalles-card fade-up">
+        <h3 data-i18n="det.title">Detalles</h3>
+        <dl>
+          <div class="row"><dt data-i18n="det.sector">Sector</dt><dd data-i18n="det.sector.val">Fitness · Wellness</dd></div>
+          <div class="row"><dt data-i18n="det.tools">Herramientas</dt><dd>Figma · AI</dd></div>
+          <div class="row"><dt data-i18n="det.deliv">Entregables</dt><dd data-i18n="det.deliv.val">Wireframes · DS · UI</dd></div>
+          <div class="row"><dt data-i18n="det.scope">Alcance</dt><dd data-i18n="det.scope.val">App mobile completa</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="case-gallery">
+  <div class="container">
+    <div class="case-gallery-header fade-up">
+      <p class="eyebrow" data-i18n="g1.eyebrow">Investigación</p>
+      <h2 class="reto-title" data-i18n="g1.title">Objetivos del producto.</h2>
+      <p class="gallery-intro" data-i18n="g1.intro">Antes de abrir Figma, definimos qué tenía que conseguir Coach a nivel de negocio y de usuario, y cuáles eran los puntos críticos de la competencia.</p>
+    </div>
+
+    <div class="gallery-stack">
+      <div class="gallery-row-3 fade-up">
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/objetivo.webp" type="image/webp"><img src="../assets/img/projects/coach/objetivo.png" alt="Objetivos del proyecto Coach" loading="lazy" decoding="async"></picture>
+          <figcaption>Objetivos</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Wireframe.webp" type="image/webp"><img src="../assets/img/projects/coach/Wireframe.jpg" alt="Wireframes de Coach" loading="lazy" decoding="async"></picture>
+          <figcaption>Wireframes</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/design%20sistem.webp" type="image/webp"><img src="../assets/img/projects/coach/design%20sistem.jpg" alt="Design system de Coach" loading="lazy" decoding="async"></picture>
+          <figcaption>Design system</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-decisions">
+  <div class="container">
+    <p class="eyebrow fade-up" data-i18n="dec.eyebrow">Decisiones clave</p>
+    <h2 class="reto-title fade-up" data-i18n="dec.title">Tres decisiones que ordenan toda la app.</h2>
+
+    <div class="decisions-grid">
+      <div class="decision-card fade-up">
+        <p class="decision-num">01</p>
+        <p class="decision-title" data-i18n="dec.c1.t">Onboarding que pregunta, no exige.</p>
+        <p class="decision-desc" data-i18n="dec.c1.d">El usuario decide cuánto tiempo tiene, qué objetivos persigue y qué tipo de plan quiere. La app se adapta a él — no al revés.</p>
+      </div>
+      <div class="decision-card fade-up">
+        <p class="decision-num">02</p>
+        <p class="decision-title" data-i18n="dec.c2.t">Home centrada en hoy.</p>
+        <p class="decision-desc" data-i18n="dec.c2.d">La primera pantalla muestra lo que toca ahora, no estadísticas acumuladas. Sin gráficas que recuerden lo que no se hizo.</p>
+      </div>
+      <div class="decision-card fade-up">
+        <p class="decision-num">03</p>
+        <p class="decision-title" data-i18n="dec.c3.t">Una sola acción primaria por pantalla.</p>
+        <p class="decision-desc" data-i18n="dec.c3.d">Cada vista sabe qué le toca. Si no aporta a la siguiente acción, se mueve a un segundo nivel. Menos ruido, menos decisiones que tomar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-gallery">
+  <div class="container">
+    <div class="case-gallery-header fade-up">
+      <p class="eyebrow" data-i18n="g2.eyebrow">Producto final</p>
+      <h2 class="reto-title" data-i18n="g2.title">Pantallas.</h2>
+      <p class="gallery-intro" data-i18n="g2.intro">Onboarding, dashboard, planes de entrenamiento, nutrición y sesión activa. Mismo lenguaje visual en todas, pero con prioridades distintas según lo que el usuario espera ver al abrir.</p>
+    </div>
+
+    <div class="gallery-stack">
+      <!-- Trío 1: entrada -->
+      <div class="gallery-row-3 fade-up">
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Onboarding.webp" type="image/webp"><img src="../assets/img/projects/coach/Onboarding.png" alt="Pantalla de onboarding" loading="lazy" decoding="async"></picture>
+          <figcaption>Onboarding</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Intro.webp" type="image/webp"><img src="../assets/img/projects/coach/Intro.jpg" alt="Pantalla de intro" loading="lazy" decoding="async"></picture>
+          <figcaption>Intro</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Home.webp" type="image/webp"><img src="../assets/img/projects/coach/Home.jpg" alt="Pantalla home" loading="lazy" decoding="async"></picture>
+          <figcaption>Home</figcaption>
+        </figure>
+      </div>
+
+      <!-- Trío 2: sesión y módulos -->
+      <div class="gallery-row-3 fade-up">
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Workout.webp" type="image/webp"><img src="../assets/img/projects/coach/Workout.jpg" alt="Pantalla Workout" loading="lazy" decoding="async"></picture>
+          <figcaption>Workout · sesión</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Sport.webp" type="image/webp"><img src="../assets/img/projects/coach/Sport.jpg" alt="Pantalla Sport" loading="lazy" decoding="async"></picture>
+          <figcaption>Sport</figcaption>
+        </figure>
+        <figure class="gallery-figure shot">
+          <picture><source srcset="../assets/img/projects/coach/Food.webp" type="image/webp"><img src="../assets/img/projects/coach/Food.jpg" alt="Pantalla Food" loading="lazy" decoding="async"></picture>
+          <figcaption>Food</figcaption>
+        </figure>
+      </div>
+
+      <!-- Day training como pieza individual -->
+      <figure class="gallery-figure shot fade-up gallery-figure-solo">
+        <picture><source srcset="../assets/img/projects/coach/Daytraning.webp" type="image/webp"><img src="../assets/img/projects/coach/Daytraning.jpg" alt="Pantalla Day Training" loading="lazy" decoding="async"></picture>
+        <figcaption>Day training</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="case-process">
+  <div class="container">
+    <div class="case-gallery-header fade-up">
+      <p class="eyebrow" data-i18n="proc.eyebrow">Proceso</p>
+      <h2 class="reto-title" data-i18n="proc.title">De la investigación a la UI final.</h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card fade-up" data-num="01">
+        <p class="process-num">01</p>
+        <p class="process-title" data-i18n="proc.c1.t">Research</p>
+        <p class="process-desc" data-i18n="proc.c1.d">Análisis de competencia, perfiles de usuario y mapa de fricciones. Por qué la gente entra, por qué se va.</p>
+      </div>
+      <div class="process-card fade-up" data-num="02">
+        <p class="process-num">02</p>
+        <p class="process-title" data-i18n="proc.c2.t">Wireframes</p>
+        <p class="process-desc" data-i18n="proc.c2.d">Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes de pixel.</p>
+      </div>
+      <div class="process-card fade-up" data-num="03">
+        <p class="process-num">03</p>
+        <p class="process-title" data-i18n="proc.c3.t">Design system</p>
+        <p class="process-desc" data-i18n="proc.c3.d">Tipografía, color, componentes y estados. Coherencia obligatoria entre pantallas.</p>
+      </div>
+      <div class="process-card fade-up" data-num="04">
+        <p class="process-num">04</p>
+        <p class="process-title" data-i18n="proc.c4.t">UI final</p>
+        <p class="process-desc" data-i18n="proc.c4.d">Pantallas en alta fidelidad, prototipo navegable y handoff listo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next-project-block">
+  <a href="galeria.html" class="next-project-link">
+    <p class="next-project-eyebrow" data-i18n="next.eyebrow">Siguiente proyecto · 03</p>
+    <div class="next-project-row">
+      <h2 class="next-project-title"><span class="hl" data-i18n="next.title.a">Galería</span> <span data-i18n="next.title.b">de piezas</span> <span class="arrow">→</span></h2>
+      <div class="next-project-preview">
+        <picture><source srcset="../assets/img/projects/galeria/galeriahero.webp" type="image/webp"><img src="../assets/img/projects/galeria/galeriahero.jpg" alt="Preview Galería" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+    <div class="next-project-bottom">
+      <span data-i18n="next.tag">Cartelería · Packaging · Redes · 2023 — 2025</span>
+      <span data-i18n="next.cta">Ver caso →</span>
+    </div>
+  </a>
+</section>
+
+<section class="case-cta">
+  <div class="container">
+    <div class="case-cta-row">
+      <h2 class="case-cta-title" data-i18n="cta.title">¿Proyecto similar?<br>Hablamos.</h2>
+      <a href="../index.html#hablemos" class="case-cta-btn" data-i18n="cta.btn">Contactar →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="../index.html" class="footer-logo">Pablo <em>Meyer</em></a>
+    <p class="footer-copy">© <span id="copy-year">2026</span> Pablo Meyer</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:pablo.meyer00@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const yearEl = document.getElementById('copy-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Barra de progreso de scroll
+  const progress = document.getElementById('scroll-progress');
+  if (progress) {
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const total = h.scrollHeight - h.clientHeight;
+      const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+</script>
+
+<script src="../assets/js/i18n.js" defer></script>
+<script defer>
+window.pmI18nReady(function () {
+  pmI18n.apply({
+    es: {
+      'nav.about': 'Sobre mí',
+      'nav.projects': 'Proyectos',
+      'nav.contact': 'Contacto',
+      'nav.cta': 'Hablemos',
+      'topbar.back': '← Proyectos',
+      'topbar.year': '2025 · Caso 02',
+      'tag.ux': 'UX/UI',
+      'tag.product': 'Producto',
+      'tag.mobile': 'Mobile',
+      'meta.type': 'Tipo',
+      'meta.type.val': 'App móvil · iOS',
+      'meta.year': 'Año',
+      'meta.role': 'Rol',
+      'meta.duration': 'Duración',
+      'meta.duration.val': '4 semanas',
+      'cover.prev': '← Proyecto anterior',
+      'cover.next': 'Siguiente proyecto →',
+      'reto.eyebrow': 'El reto',
+      'reto.title': 'Una app de fitness que no haga sentir mal al usuario por no abrirla.',
+      'reto.p1': 'El ejercicio pedía diseñar una app móvil de principio a fin: research, arquitectura, sistema y UI. Elegí fitness y nutrición porque es un sector saturado y ruidoso — la mayoría de apps prometen disciplina militar y le hablan al usuario como si tuviera 25 años, dos horas libres y un gimnasio en casa. Nada de eso es la realidad.',
+      'reto.p2': 'El research dejó claro lo evidente: la gente abandona estas apps porque les recuerdan lo que no están haciendo. Coach se construyó alrededor de la idea contraria — <em>encajar</em> la rutina del usuario, no imponerla. Cada pantalla tenía que quitar fricción, no añadirla. Una jerarquía clara, un onboarding que pregunta antes de exigir, y un dashboard que prioriza el "qué toca hoy" antes que el "cuánto te falta".',
+      'det.title': 'Detalles',
+      'det.sector': 'Sector',
+      'det.sector.val': 'Fitness · Wellness',
+      'det.tools': 'Herramientas',
+      'det.deliv': 'Entregables',
+      'det.deliv.val': 'Wireframes · DS · UI',
+      'det.scope': 'Alcance',
+      'det.scope.val': 'App mobile completa',
+      'g1.eyebrow': 'Investigación',
+      'g1.title': 'Objetivos del producto.',
+      'g1.intro': 'Antes de abrir Figma, definimos qué tenía que conseguir Coach a nivel de negocio y de usuario, y cuáles eran los puntos críticos de la competencia.',
+      'dec.eyebrow': 'Decisiones clave',
+      'dec.title': 'Tres decisiones que ordenan toda la app.',
+      'dec.c1.t': 'Onboarding que pregunta, no exige.',
+      'dec.c1.d': 'El usuario decide cuánto tiempo tiene, qué objetivos persigue y qué tipo de plan quiere. La app se adapta a él — no al revés.',
+      'dec.c2.t': 'Home centrada en hoy.',
+      'dec.c2.d': 'La primera pantalla muestra lo que toca ahora, no estadísticas acumuladas. Sin gráficas que recuerden lo que no se hizo.',
+      'dec.c3.t': 'Una sola acción primaria por pantalla.',
+      'dec.c3.d': 'Cada vista sabe qué le toca. Si no aporta a la siguiente acción, se mueve a un segundo nivel. Menos ruido, menos decisiones que tomar.',
+      'g2.eyebrow': 'Producto final',
+      'g2.title': 'Pantallas.',
+      'g2.intro': 'Onboarding, dashboard, planes de entrenamiento, nutrición y sesión activa. Mismo lenguaje visual en todas, pero con prioridades distintas según lo que el usuario espera ver al abrir.',
+      'proc.eyebrow': 'Proceso',
+      'proc.title': 'De la investigación a la UI final.',
+      'proc.c1.t': 'Research',
+      'proc.c1.d': 'Análisis de competencia, perfiles de usuario y mapa de fricciones. Por qué la gente entra, por qué se va.',
+      'proc.c2.t': 'Wireframes',
+      'proc.c2.d': 'Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes de pixel.',
+      'proc.c3.t': 'Design system',
+      'proc.c3.d': 'Tipografía, color, componentes y estados. Coherencia obligatoria entre pantallas.',
+      'proc.c4.t': 'UI final',
+      'proc.c4.d': 'Pantallas en alta fidelidad, prototipo navegable y handoff listo.',
+      'next.eyebrow': 'Siguiente proyecto · 03',
+      'next.title.a': 'Galería',
+      'next.title.b': 'de piezas',
+      'next.tag': 'Cartelería · Packaging · Redes · 2023 — 2025',
+      'next.cta': 'Ver caso →',
+      'cta.title': '¿Proyecto similar?<br>Hablamos.',
+      'cta.btn': 'Contactar →'
+    },
+    en: {
+      'nav.about': 'About',
+      'nav.projects': 'Work',
+      'nav.contact': 'Contact',
+      'nav.cta': "Let's talk",
+      'topbar.back': '← Work',
+      'topbar.year': '2025 · Case 02',
+      'tag.ux': 'UX/UI',
+      'tag.product': 'Product',
+      'tag.mobile': 'Mobile',
+      'meta.type': 'Type',
+      'meta.type.val': 'Mobile app · iOS',
+      'meta.year': 'Year',
+      'meta.role': 'Role',
+      'meta.duration': 'Duration',
+      'meta.duration.val': '4 weeks',
+      'cover.prev': '← Previous project',
+      'cover.next': 'Next project →',
+      'reto.eyebrow': 'The challenge',
+      'reto.title': "A fitness app that doesn't make the user feel bad for not opening it.",
+      'reto.p1': "The brief was to design a mobile app end to end: research, architecture, system and UI. I picked fitness and nutrition because it's a saturated and noisy space — most apps promise military discipline and talk to the user as if they were 25, with two free hours and a gym at home. None of that is reality.",
+      'reto.p2': 'The research made the obvious obvious: people drop these apps because they remind them of what they\'re not doing. Coach was built around the opposite idea — <em>fit</em> the user\'s routine, not impose one. Every screen had to remove friction, not add. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what\'s on today" before "how far you still are".',
+      'det.title': 'Details',
+      'det.sector': 'Sector',
+      'det.sector.val': 'Fitness · Wellness',
+      'det.tools': 'Tools',
+      'det.deliv': 'Deliverables',
+      'det.deliv.val': 'Wireframes · DS · UI',
+      'det.scope': 'Scope',
+      'det.scope.val': 'Full mobile app',
+      'g1.eyebrow': 'Research',
+      'g1.title': 'Product goals.',
+      'g1.intro': 'Before opening Figma, we defined what Coach had to achieve at business and user level, and which were the critical pain points of the competition.',
+      'dec.eyebrow': 'Key decisions',
+      'dec.title': 'Three decisions that organise the whole app.',
+      'dec.c1.t': 'Onboarding that asks, not demands.',
+      'dec.c1.d': "The user decides how much time they have, what goals they're chasing and what kind of plan they want. The app adapts to them — not the other way round.",
+      'dec.c2.t': 'Home focused on today.',
+      'dec.c2.d': "The first screen shows what's on now, not stacked stats. No charts to remind you of what didn't get done.",
+      'dec.c3.t': 'One primary action per screen.',
+      'dec.c3.d': "Every view knows its job. Anything that doesn't feed the next action moves to a second level. Less noise, fewer decisions to make.",
+      'g2.eyebrow': 'Final product',
+      'g2.title': 'Screens.',
+      'g2.intro': 'Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open.',
+      'proc.eyebrow': 'Process',
+      'proc.title': 'From research to final UI.',
+      'proc.c1.t': 'Research',
+      'proc.c1.d': "Competitive audit, user profiles and friction map. Why people start, why they leave.",
+      'proc.c2.t': 'Wireframes',
+      'proc.c2.d': 'Architecture, flows and priorities in low fidelity. Decisions before pixels.',
+      'proc.c3.t': 'Design system',
+      'proc.c3.d': 'Type, color, components and states. Mandatory consistency across screens.',
+      'proc.c4.t': 'Final UI',
+      'proc.c4.d': 'High-fidelity screens, navigable prototype and handoff ready.',
+      'next.eyebrow': 'Next project · 03',
+      'next.title.a': 'Gallery',
+      'next.title.b': 'of pieces',
+      'next.tag': 'Posters · Packaging · Social · 2023 — 2025',
+      'next.cta': 'View case →',
+      'cta.title': 'Similar project?<br>Let’s talk.',
+      'cta.btn': 'Contact →'
+    }
+  });
+});
+</script>
+
+</body>
+</html>
