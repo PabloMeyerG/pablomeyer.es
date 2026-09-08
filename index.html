@@ -80,7 +80,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/PabloMeyer-800.webp" type="image/webp" fetchpriority="high">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,6 +96,8 @@
     --font: 'Figtree', sans-serif;
     --radius: 20px;
     --radius-sm: 12px;
+    --rule: rgba(17,17,16,0.14);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 90px; }
@@ -115,16 +117,21 @@
   }
   .skip-link:focus { top: 0; }
 
+  /* Revelado al hacer scroll — en CSS, no en estilos inline desde JS,
+     para que prefers-reduced-motion pueda anularlo de verdad */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+  .reveal.is-in { opacity: 1; transform: none; }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    .fade-up { opacity: 1 !important; transform: none !important; }
+    .fade-up, .reveal { opacity: 1 !important; transform: none !important; }
   }
 
   /* NAV */
   nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    z-index: 100; width: calc(100% - 48px); max-width: 1100px;
+    z-index: 100; width: calc(100% - 48px); max-width: 1180px;
     background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px); border-radius: 50px;
     padding: 10px 14px; display: flex; align-items: center;
@@ -185,7 +192,7 @@
 
   .mobile-menu {
     display: none; position: fixed; top: 74px; left: 50%; transform: translateX(-50%) translateY(-8px);
-    z-index: 99; width: calc(100% - 24px); max-width: 1100px;
+    z-index: 99; width: calc(100% - 24px); max-width: 1180px;
     background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-radius: 24px; padding: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease;
@@ -199,14 +206,9 @@
   .mobile-menu a:hover, .mobile-menu a:active { background: rgba(0,0,0,0.05); }
 
   /* SECTIONS — cada sección al menos pantalla completa */
-  section {
-    display: flex; align-items: center;
-    padding: 120px 24px 100px;
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
+  section { display: block; padding: 112px 24px 96px; }
 
-  .container { width: 100%; max-width: 1100px; margin: 0 auto; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; }
 
   /* HIGHLIGHT — banda baja, no tapa el punto de la í */
   .hl {
@@ -243,45 +245,59 @@
   .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
   /* HERO — pantalla completa al cargar */
-  #hero {
-    background: var(--bg);
-    padding-top: 110px;
-    padding-bottom: 60px;
-  }
+  #hero { background: var(--bg); padding: 124px 24px 72px; }
 
-  .hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center; width: 100%; }
+  .hero-inner {
+    display: grid; grid-template-columns: minmax(0,1fr) clamp(280px, 26vw, 400px);
+    gap: clamp(32px, 4vw, 68px); align-items: end; width: 100%;
+  }
 
   .hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--gray); margin-bottom: 20px; text-transform: uppercase; }
 
-  .hero-title { font-size: clamp(52px, 7vw, 88px); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 28px; }
+  .hero-title {
+    font-size: clamp(56px, 9.4vw, 140px); font-weight: 900;
+    line-height: 0.84; letter-spacing: -0.045em; margin-bottom: 32px;
+  }
 
+  /* Tercera línea en contorno: acento gráfico sin gastar amarillo */
   .hero-title .line-gray { color: #B0AEAA; }
+  @supports (-webkit-text-stroke: 1px #000) {
+    .hero-title .line-gray {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: clamp(1.5px, 0.19vw, 3px) var(--black);
+    }
+  }
 
-  .hero-desc { font-size: 16px; line-height: 1.7; color: #444; max-width: 420px; margin-bottom: 40px; }
+  .hero-desc { font-size: 16px; line-height: 1.7; color: #444; max-width: 460px; margin-bottom: 36px; }
 
   .hero-desc strong { color: var(--black); font-weight: 700; }
 
-  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
 
-  .hero-stats { display: flex; gap: 36px; }
+  /* Lista de disciplinas al pie del hero (ref. Studio 99) */
+  .hero-disciplines { display: flex; flex-direction: column; gap: 2px; }
+  .hero-disciplines li {
+    list-style: none; font-size: clamp(17px, 1.5vw, 21px); font-weight: 700;
+    letter-spacing: -0.015em; color: #B5B3AE; transition: color 0.3s var(--ease);
+  }
+  .hero-disciplines li:first-child { color: var(--black); }
+  .hero-disciplines:hover li { color: #B5B3AE; }
+  .hero-disciplines li:hover { color: var(--black); }
 
-  .stat-num { font-size: 22px; font-weight: 900; color: var(--black); letter-spacing: -0.02em; }
+  .hero-photo-wrap { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
 
-  .stat-label { font-size: 11px; color: var(--gray); letter-spacing: 0.06em; font-weight: 500; margin-top: 2px; }
+  /* Sin esquinas redondeadas: la foto es un bloque, como en las referencias */
+  .hero-photo { width: 100%; aspect-ratio: 4/5; background: var(--gray-light); overflow: hidden; }
 
-  .hero-photo-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .hero-photo { width: 100%; max-width: 360px; aspect-ratio: 3/4; background: var(--gray-light); border-radius: var(--radius); overflow: hidden; }
+  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-start; }
 
-  .hero-photo img, .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; padding: 7px 13px; border-radius: 50px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
 
-  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .badge-available { background: transparent; color: var(--black); border: 1.5px solid var(--gray-light); }
 
-  .badge { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 7px 14px; border-radius: 50px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
-
-  .badge-available { background: var(--yellow); color: var(--black); }
-
-  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--black); animation: pulse 2s ease-in-out infinite; }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow-dark); animation: pulse 2s ease-in-out infinite; }
 
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
@@ -291,109 +307,129 @@
   #sobre-mi { background: var(--bg); }
 
   .about-grid {
-    display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: start;
+    display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    gap: clamp(36px, 6vw, 96px); align-items: start;
   }
 
-  .about-photo {
-    width: 100%; max-width: 360px; aspect-ratio: 3/4;
-    background: var(--gray-light); border-radius: var(--radius); overflow: hidden;
-  }
+  /* Ficha técnica en columna, estilo pie de página editorial */
+  .about-specs { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+  .about-specs div { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .about-specs dt { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
+  .about-specs dd { font-size: 14px; font-weight: 600; color: var(--black); line-height: 1.5; }
 
-  .about-body p { font-size: 17px; line-height: 1.75; color: #333; margin-bottom: 22px; max-width: 560px; }
+  .about-body p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: #333; margin-bottom: 24px; max-width: 640px; }
+  .about-body p:first-child { font-size: clamp(21px, 2.1vw, 28px); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; }
 
   .about-body strong { color: var(--black); font-weight: 700; }
 
   .about-buttons { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
 
-  .about-meta { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
+  .about-buttons { margin-top: 40px; }
 
   /* QUE HAGO */
   #que-hago { background: var(--bg); }
 
-  .section-header { margin-bottom: 56px; }
+  .section-header { margin-bottom: clamp(40px, 5vw, 68px); }
 
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
 
-  .section-title { font-size: clamp(44px, 6vw, 76px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; }
+  .section-title { font-size: clamp(40px, 5.6vw, 88px); font-weight: 900; line-height: 0.94; letter-spacing: -0.038em; }
 
-  .disciplines-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .disciplines-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
 
-  .discipline-card { background: var(--white); border-radius: var(--radius); padding: 36px; transition: transform 0.2s, box-shadow 0.2s; }
+  .discipline-card {
+    padding: clamp(28px, 3vw, 44px) clamp(20px, 2.2vw, 34px) clamp(32px, 3.4vw, 52px);
+    border-left: 1px solid var(--rule);
+    transition: background 0.45s var(--ease), color 0.45s var(--ease);
+  }
+  .discipline-card:first-child { border-left: none; }
 
-  .discipline-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  /* Numeral fino y enorme: el contraste de peso hace el trabajo, no el color */
+  .card-num {
+    font-size: clamp(58px, 6.4vw, 108px); font-weight: 200; line-height: 0.82;
+    letter-spacing: -0.05em; color: var(--black); margin-bottom: clamp(24px, 2.6vw, 40px);
+    transition: color 0.45s var(--ease);
+  }
+  .card-num span { font-size: 0.2em; font-weight: 700; letter-spacing: 0.06em; vertical-align: super; color: var(--gray); }
 
-  .card-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 16px; }
+  .card-title { font-size: clamp(19px, 1.7vw, 24px); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 12px; }
 
-  .card-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
-
-  .card-desc { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 24px; }
+  .card-desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 26px; transition: color 0.45s var(--ease); }
 
   .card-list { list-style: none; }
 
-  .card-list li { font-size: 14px; color: var(--black); padding: 10px 0; border-bottom: 1px solid var(--gray-light); display: flex; align-items: center; gap: 10px; }
-
+  .card-list li {
+    font-size: 13px; color: var(--black); padding: 9px 0;
+    border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 10px;
+    transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
+  }
   .card-list li:last-child { border-bottom: none; }
+  .card-list li::before { content: '\2192'; color: var(--gray); font-size: 12px; flex-shrink: 0; transition: color 0.45s var(--ease); }
 
-  .card-list li::before { content: '→'; color: var(--gray); font-size: 13px; flex-shrink: 0; }
+  /* La columna activa se invierte, como en la referencia de Facture */
+  .discipline-card:hover, .discipline-card:focus-within { background: var(--black); color: var(--white); }
+  .discipline-card:hover .card-num,
+  .discipline-card:hover .card-title,
+  .discipline-card:hover .card-list li { color: var(--white); }
+  .discipline-card:hover .card-desc { color: rgba(255,255,255,0.6); }
+  .discipline-card:hover .card-num span,
+  .discipline-card:hover .card-list li::before { color: var(--yellow); }
+  .discipline-card:hover .card-list li { border-color: rgba(255,255,255,0.16); }
 
   /* PROYECTOS — puede crecer por encima del viewport por la lista */
-  #proyectos { background: var(--bg); align-items: flex-start; padding-top: 120px; padding-bottom: 120px; }
+  #proyectos { background: var(--bg); }
   #proyectos .container { width: 100%; }
 
-  .projects-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 56px; gap: 40px; }
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(40px, 4vw, 60px); gap: 40px; }
 
-  .projects-title { font-size: clamp(52px, 7vw, 88px); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; }
+  .projects-title { font-size: clamp(44px, 6.4vw, 96px); font-weight: 900; line-height: 0.9; letter-spacing: -0.042em; }
 
   .projects-meta { text-align: right; padding-top: 8px; }
 
   .projects-meta p { font-size: 13px; color: var(--gray); line-height: 1.6; font-family: 'Courier New', monospace; }
 
-  .projects-list { display: flex; flex-direction: column; }
+  .projects-list { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
 
   .project-row {
-    display: grid; grid-template-columns: 56px 1fr 180px 120px; align-items: center;
-    gap: 32px; padding: 32px 8px; border-top: 1px solid rgba(0,0,0,0.12);
-    text-decoration: none; color: var(--black); transition: background 0.15s; border-radius: 8px;
+    display: grid;
+    grid-template-columns: 44px minmax(0,1fr) clamp(170px, 19vw, 250px) minmax(150px, 200px);
+    align-items: center; gap: clamp(18px, 2.6vw, 44px);
+    padding: 20px 0; border-top: 1px solid var(--rule);
+    text-decoration: none; color: var(--black);
+    transition: padding-left 0.5s var(--ease);
   }
+  .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 16px; }
 
-  .project-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.12); }
+  .project-index { font-size: 12px; color: var(--gray); font-family: 'Courier New', monospace; align-self: start; padding-top: 6px; }
 
-  .project-row:hover { background: rgba(0,0,0,0.03); }
+  .project-name { font-size: clamp(26px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.032em; line-height: 1.02; margin-bottom: 12px; }
 
-  .project-row:hover .project-arrow { transform: translateX(6px); }
+  .project-tags { display: flex; gap: 7px; flex-wrap: wrap; }
 
-  .project-index { font-size: 13px; color: var(--gray); font-family: 'Courier New', monospace; }
+  .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.11em; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--rule); color: var(--gray); text-transform: uppercase; }
 
-  .project-name { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
-
-  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-
-  .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 50px; border: 1.5px solid rgba(0,0,0,0.2); color: var(--gray); text-transform: uppercase; }
-
-  .project-type { font-size: 13px; color: var(--gray); line-height: 1.5; text-align: right; }
-
-  .project-cta { display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 14px; font-weight: 600; }
-
-  .project-arrow { transition: transform 0.2s; font-size: 18px; }
-
-  /* Preview flotante al pasar por un proyecto (solo desktop con puntero) */
-  .project-preview {
-    position: fixed; z-index: 90; width: 300px; aspect-ratio: 4 / 3;
-    border-radius: 16px; overflow: hidden; pointer-events: none;
-    opacity: 0; transform: scale(0.92) rotate(-2deg);
-    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.6, 0.2, 1);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-    background: var(--gray-light);
+  /* La miniatura SIEMPRE visible: sin ella el portfolio no enseña trabajo */
+  .project-thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-light); }
+  .project-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.02); transform: scale(1.06);
+    transition: filter 0.55s var(--ease), transform 0.8s var(--ease);
   }
-  .project-preview.on { opacity: 1; transform: scale(1) rotate(0deg); }
-  .project-preview img {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0; transition: opacity 0.18s ease;
-  }
-  .project-preview img.show { opacity: 1; }
-  @media (hover: none), (max-width: 900px), (prefers-reduced-motion: reduce) {
-    .project-preview { display: none; }
-  }
+  .project-row:hover .project-thumb img,
+  .project-row:focus .project-thumb img,
+  .project-row:focus-visible .project-thumb img { filter: none; transform: scale(1); }
+
+  .project-side { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; text-align: right; }
+
+  .project-type { font-size: 12px; color: var(--gray); line-height: 1.5; font-family: 'Courier New', monospace; }
+
+  .project-cta { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; }
+
+  .project-arrow { transition: transform 0.45s var(--ease); font-size: 17px; display: inline-block; }
+  .project-row:hover .project-arrow, .project-row:focus .project-arrow, .project-row:focus-visible .project-arrow { transform: translateX(8px); }
 
   /* HABLEMOS */
   #hablemos { background: var(--black); }
@@ -408,8 +444,8 @@
   .contact-title .hl {
     background: var(--yellow);
     color: var(--black);
-    padding: 0.04em 0.16em;
-    border-radius: 8px;
+    padding: 0.02em 0.1em;
+    border-radius: 0;
   }
 
   .contact-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 44px; max-width: 320px; }
@@ -515,8 +551,8 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     /* En móvil dejamos respirar el contenido sin forzar 100vh — evita huecos enormes */
-    section { padding: 88px 20px 72px; min-height: auto; }
-    #hero { padding-top: 96px; padding-bottom: 48px; min-height: 100vh; min-height: 100dvh; }
+    section { padding: 92px 20px 76px; }
+    #hero { padding: 100px 20px 56px; }
 
     nav { width: calc(100% - 24px); top: 10px; padding: 8px 10px 8px 14px; }
     .nav-links { display: none; }
@@ -525,30 +561,45 @@
     .nav-logo-img { height: 28px; }
     .nav-cta { padding: 9px 18px; font-size: 13px; }
 
-    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
-    .hero-title { font-size: clamp(44px, 13vw, 64px); }
-    .hero-desc { font-size: 15px; max-width: 100%; margin-bottom: 32px; }
-    .hero-buttons { margin-bottom: 40px; }
-    .hero-stats { gap: 28px; }
-    .stat-num { font-size: 19px; }
-    .hero-photo-wrap { align-items: flex-start; }
-    .hero-photo { max-width: 260px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 34px; }
+    .hero-title { font-size: clamp(46px, 13.5vw, 76px); }
+    .hero-desc { font-size: 15px; max-width: 100%; margin-bottom: 30px; }
+    .hero-buttons { margin-bottom: 34px; }
+    .hero-disciplines li { font-size: 17px; }
+    .hero-photo { aspect-ratio: 4/5; max-width: 240px; }
 
     .section-header { margin-bottom: 36px; }
     .section-title, .projects-title { font-size: clamp(36px, 9vw, 52px); }
 
-    .about-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-photo { max-width: 220px; aspect-ratio: 3/4; border-radius: var(--radius); }
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
     .about-body p { font-size: 16px; }
+    .about-body p:first-child { font-size: 19px; }
+    .about-specs { max-width: 380px; }
 
-    .disciplines-grid { grid-template-columns: 1fr; gap: 14px; }
-    .discipline-card { padding: 28px 24px; }
+    /* En móvil las columnas se apilan: la regla pasa de vertical a horizontal */
+    .disciplines-grid { grid-template-columns: 1fr; border-bottom: none; }
+    .discipline-card { border-left: none; border-bottom: 1px solid var(--rule); padding: 30px 0 34px; }
+    .card-num { font-size: 62px; margin-bottom: 18px; }
+    .discipline-card:hover, .discipline-card:focus-within { background: transparent; color: var(--black); }
+    .discipline-card:hover .card-num, .discipline-card:hover .card-title, .discipline-card:hover .card-list li { color: var(--black); }
+    .discipline-card:hover .card-desc { color: var(--gray); }
+    .discipline-card:hover .card-num span, .discipline-card:hover .card-list li::before { color: var(--gray); }
+    .discipline-card:hover .card-list li { border-color: var(--rule); }
 
-    .projects-header { flex-direction: column; gap: 20px; margin-bottom: 36px; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
     .projects-meta { text-align: left; padding-top: 0; }
-    .project-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 24px 4px; }
-    .project-type, .project-cta { display: none; }
-    .project-name { font-size: 22px; }
+
+    /* La imagen manda en móvil: va arriba y a todo el ancho */
+    .project-row {
+      grid-template-columns: 1fr; gap: 16px; padding: 26px 0;
+      align-items: stretch;
+    }
+    .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 0; }
+    .project-index { display: none; }
+    .project-thumb { order: -1; aspect-ratio: 16/10; }
+    .project-thumb img { filter: none; transform: none; }
+    .project-name { font-size: 28px; margin-bottom: 10px; }
+    .project-side { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 12px; width: 100%; }
 
     .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
     .contact-title { font-size: clamp(38px, 10vw, 56px); }
@@ -566,19 +617,20 @@
 
   @media (max-width: 480px) {
     section { padding: 80px 16px 48px; }
-    .hero-title { font-size: clamp(40px, 11vw, 52px); }
-    .hero-stats { gap: 22px; flex-wrap: wrap; }
+    .hero-title { font-size: clamp(42px, 12vw, 58px); }
     .hero-buttons { gap: 10px; }
     .hero-buttons .btn-primary, .hero-buttons .btn-secondary { padding: 12px 20px; font-size: 14px; }
     .about-buttons { flex-direction: column; gap: 10px; align-items: stretch; }
     .about-buttons .btn-primary, .about-buttons .btn-secondary { justify-content: center; }
-    .project-row { padding: 20px 2px; }
-    .project-name { font-size: 19px; }
+    .project-row { padding: 22px 0; }
+    .project-name { font-size: 24px; }
     .tag { font-size: 9px; padding: 3px 8px; }
   }
 </style>
 </head>
 <body>
+
+<noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
 
 <a href="#hero" class="skip-link" data-i18n="nav.skip">Saltar al contenido</a>
 
@@ -611,7 +663,7 @@
     <div class="hero-inner">
       <div>
         <h1 class="hero-title fade-up" data-i18n="hero.title">
-          Diseño <span class="hl">Gráfico</span><br>
+          Diseño<br>Gráfico<br>
           Marketing<br>
           <span class="line-gray">&amp; UX/UI</span>
         </h1>
@@ -620,11 +672,11 @@
           <a href="#proyectos" class="btn-primary" data-i18n="hero.cta1">Ver Proyectos →</a>
           <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary" data-i18n="hero.cta2">Descargar CV</a>
         </div>
-        <div class="hero-stats fade-up">
-          <div><div class="stat-num">2+</div><div class="stat-label" data-i18n="hero.stat1">años diseñando</div></div>
-          <div><div class="stat-num">3</div><div class="stat-label" data-i18n="hero.stat3">casos de estudio</div></div>
-          <div><div class="stat-num">ES · DE · EN</div><div class="stat-label" data-i18n="hero.stat2">idiomas</div></div>
-        </div>
+        <ul class="hero-disciplines fade-up" data-i18n="hero.disciplines">
+          <li>Branding</li>
+          <li>UX / UI</li>
+          <li>Marketing digital</li>
+        </ul>
       </div>
       <div class="hero-photo-wrap fade-up">
         <div class="hero-photo">
@@ -633,6 +685,7 @@
         <div class="hero-badges">
           <span class="badge badge-available"><span class="badge-dot"></span><span data-i18n="hero.available">Disponible para proyectos</span></span>
           <span class="badge badge-location" data-i18n="badge.location">España · Remoto</span>
+          <span class="badge badge-location">ES · DE · EN</span>
         </div>
       </div>
     </div>
@@ -643,22 +696,22 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label" data-i18n="about.eyebrow">01 — Sobre mí</p>
-      <h2 class="section-title" data-i18n="about.title">Hola, soy <span class="hl">Pablo</span>.</h2>
+      <h2 class="section-title" data-i18n="about.title">Hola,<br>soy Pablo.</h2>
     </div>
 
     <div class="about-grid">
-      <div class="about-photo">
-        <picture><source srcset="assets/img/PabloMeyer-800.webp" type="image/webp"><img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer — retrato" width="800" height="1067" loading="lazy" decoding="async"></picture>
-      </div>
+      <dl class="about-specs">
+        <div><dt data-i18n="specs.role">Perfil</dt><dd data-i18n="specs.role.v">Diseñador gráfico y UX/UI</dd></div>
+        <div><dt data-i18n="specs.base">Base</dt><dd data-i18n="specs.base.v">España · Remoto</dd></div>
+        <div><dt data-i18n="specs.langs">Idiomas</dt><dd>Español · Deutsch · English</dd></div>
+        <div><dt data-i18n="specs.tools">Herramientas</dt><dd>Figma · Adobe CC · HTML/CSS</dd></div>
+      </dl>
       <div class="about-body">
         <p data-i18n="about.p1">Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.</p>
         <p data-i18n="about.p2">Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.</p>
         <div class="about-buttons">
           <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary" data-i18n="about.cta1">Descargar CV →</a>
           <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="btn-secondary" data-i18n="about.cta2">LinkedIn</a>
-        </div>
-        <div class="about-meta">
-          <span class="badge badge-location" style="width:fit-content;" data-i18n="badge.location">España · Remoto</span>
         </div>
       </div>
     </div>
@@ -669,23 +722,23 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label" data-i18n="work.eyebrow">02 — Qué hago</p>
-      <h2 class="section-title" data-i18n="work.title">Tres disciplinas, una<br>misma <span class="hl">obsesión</span>.</h2>
+      <h2 class="section-title" data-i18n="work.title">Tres disciplinas,<br>una misma obsesión.</h2>
     </div>
     <div class="disciplines-grid">
       <div class="discipline-card">
-        <p class="card-num">01 / 03</p>
+        <p class="card-num">01<span>/03</span></p>
         <h3 class="card-title" data-i18n="work.card1.title">Diseño Gráfico</h3>
         <p class="card-desc" data-i18n="work.card1.desc">Identidad visual, editorial y campañas. Sistemas de marca pensados para sostenerse mucho más allá del lanzamiento.</p>
         <ul class="card-list" data-i18n="work.card1.list"><li>Identidad visual</li><li>Editorial &amp; cartelería</li><li>Packaging</li><li>Sistemas de marca</li></ul>
       </div>
       <div class="discipline-card">
-        <p class="card-num">02 / 03</p>
+        <p class="card-num">02<span>/03</span></p>
         <h3 class="card-title" data-i18n="work.card2.title">Marketing Digital</h3>
         <p class="card-desc" data-i18n="work.card2.desc">Estrategia, contenido y campañas para que la marca llegue a quien tiene que llegar y no se diluya por el camino.</p>
         <ul class="card-list" data-i18n="work.card2.list"><li>Contenido para redes</li><li>Estrategia de marca</li><li>Campañas digitales</li><li>Email &amp; landing</li></ul>
       </div>
       <div class="discipline-card">
-        <p class="card-num">03 / 03</p>
+        <p class="card-num">03<span>/03</span></p>
         <h3 class="card-title" data-i18n="work.card3.title">UX / UI</h3>
         <p class="card-desc" data-i18n="work.card3.desc">Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.</p>
         <ul class="card-list" data-i18n="work.card3.list"><li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li></ul>
@@ -704,23 +757,56 @@
       <div class="projects-meta"><p data-i18n="projects.meta">3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.</p></div>
     </div>
     <div class="projects-list">
-      <a href="projects/iki.html" class="project-row" data-preview="assets/img/projects/iki/cover-iki.webp">
+      <a href="projects/iki.html" class="project-row">
         <span class="project-index">01</span>
-        <div><div class="project-name">IKI · ZenElegance</div><div class="project-tags"><span class="tag">Branding</span><span class="tag">Packaging</span><span class="tag">Identidad</span></div></div>
-        <div class="project-type">2025<br>Branding & Packaging</div>
-        <div class="project-cta">Ver caso <span class="project-arrow">→</span></div>
+        <div class="project-info">
+          <div class="project-name">IKI · ZenElegance</div>
+          <div class="project-tags"><span class="tag">Branding</span><span class="tag">Packaging</span><span class="tag">Identidad</span></div>
+        </div>
+        <div class="project-thumb">
+          <picture>
+            <source srcset="assets/img/projects/iki/cover-iki.webp" type="image/webp">
+            <img src="assets/img/projects/iki/cover-iki.jpg" alt="IKI · ZenElegance — rótulo de la marca" loading="lazy" decoding="async" width="800" height="600">
+          </picture>
+        </div>
+        <div class="project-side">
+          <div class="project-type">2025<br>Branding &amp; Packaging</div>
+          <div class="project-cta"><span data-i18n="projects.cta">Ver caso</span> <span class="project-arrow">→</span></div>
+        </div>
       </a>
-      <a href="projects/coach.html" class="project-row" data-preview="assets/img/projects/coach/cover-coach.webp">
+      <a href="projects/coach.html" class="project-row">
         <span class="project-index">02</span>
-        <div><div class="project-name">Coach App</div><div class="project-tags"><span class="tag">UX/UI</span><span class="tag">Producto</span><span class="tag">Mobile</span></div></div>
-        <div class="project-type">2025<br>UX/UI · Producto</div>
-        <div class="project-cta">Ver caso <span class="project-arrow">→</span></div>
+        <div class="project-info">
+          <div class="project-name">Coach App</div>
+          <div class="project-tags"><span class="tag">UX/UI</span><span class="tag">Producto</span><span class="tag">Mobile</span></div>
+        </div>
+        <div class="project-thumb">
+          <picture>
+            <source srcset="assets/img/projects/coach/objetivo.webp" type="image/webp">
+            <img src="assets/img/projects/coach/objetivo.png" alt="Coach App — la pantalla de resumen en uso" loading="lazy" decoding="async" width="1024" height="1280">
+          </picture>
+        </div>
+        <div class="project-side">
+          <div class="project-type">2025<br>UX/UI · Producto</div>
+          <div class="project-cta"><span data-i18n="projects.cta">Ver caso</span> <span class="project-arrow">→</span></div>
+        </div>
       </a>
-      <a href="projects/galeria.html" class="project-row" data-preview="assets/img/projects/galeria/galeriahero.webp">
+      <a href="projects/galeria.html" class="project-row">
         <span class="project-index">03</span>
-        <div><div class="project-name">Galería de piezas</div><div class="project-tags"><span class="tag">Cartelería</span><span class="tag">Packaging</span><span class="tag">Redes</span></div></div>
-        <div class="project-type">2023 — 2025<br>Selección gráfica</div>
-        <div class="project-cta">Ver caso <span class="project-arrow">→</span></div>
+        <div class="project-info">
+          <div class="project-name">Galería de piezas</div>
+          <div class="project-tags"><span class="tag">Cartelería</span><span class="tag">Packaging</span><span class="tag">Redes</span></div>
+        </div>
+        <div class="project-thumb">
+          <picture>
+            <source srcset="assets/img/projects/galeria/galeriahero.webp" type="image/webp">
+            <img src="assets/img/projects/galeria/galeriahero.jpg" alt="Selección de piezas gráficas" loading="lazy" decoding="async" width="800" height="600">
+          </picture>
+        </div>
+        <div class="project-side">
+          <div class="project-type">2023 — 2025<br>Selección gráfica</div>
+          <div class="project-cta"><span data-i18n="projects.cta">Ver caso</span> <span class="project-arrow">→</span></div>
+        </div>
       </a>
     </div>
   </div>
@@ -824,44 +910,6 @@
     });
   }
 
-  /* ===== Preview flotante de proyectos (desktop) ===== */
-  (() => {
-    const rows = document.querySelectorAll('.project-row[data-preview]');
-    if (!rows.length || !window.matchMedia('(hover: hover) and (min-width: 901px)').matches) return;
-    const box = document.createElement('div');
-    box.className = 'project-preview';
-    box.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(box);
-    const imgs = new Map();
-    rows.forEach(row => {
-      const img = document.createElement('img');
-      img.src = row.dataset.preview;
-      img.alt = '';
-      box.appendChild(img);
-      imgs.set(row, img);
-    });
-    let raf = null, x = 0, y = 0;
-    const move = e => {
-      x = e.clientX; y = e.clientY;
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        box.style.left = Math.min(x + 28, window.innerWidth - 320) + 'px';
-        box.style.top = Math.max(12, y - 110) + 'px';
-        raf = null;
-      });
-    };
-    rows.forEach(row => {
-      row.addEventListener('mouseenter', e => {
-        imgs.forEach(i => i.classList.remove('show'));
-        imgs.get(row).classList.add('show');
-        move(e);
-        box.classList.add('on');
-      });
-      row.addEventListener('mousemove', move);
-      row.addEventListener('mouseleave', () => box.classList.remove('on'));
-    });
-  })();
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.15 });
@@ -877,16 +925,15 @@
   const cardObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; }, 80);
+        entry.target.classList.add('is-in');
         cardObs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.discipline-card, .project-row').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  document.querySelectorAll('.discipline-card, .project-row').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 3) * 90 + 'ms';
     cardObs.observe(el);
   });
 
@@ -918,21 +965,19 @@
       'badge.location': 'España · Remoto',
       'form.sending': 'Enviando...',
       'form.error': 'Error — inténtalo de nuevo',
-      'hero.title': 'Diseño <span class="hl">Gráfico</span><br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
+      'hero.title': 'Diseño<br>Gráfico<br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
       'hero.desc': 'Soy <strong>Pablo Meyer</strong>, diseñador gráfico y UX/UI. Hago marcas y productos digitales que se entienden a la primera — branding, comunicación y UX/UI que resuelven, no decoran.',
       'hero.cta1': 'Ver Proyectos →',
       'hero.cta2': 'Descargar CV',
-      'hero.stat1': 'años diseñando',
-      'hero.stat2': 'idiomas',
-      'hero.stat3': 'casos de estudio',
+      'hero.disciplines': '<li>Branding</li><li>UX / UI</li><li>Marketing digital</li>',
       'about.eyebrow': '01 — Sobre mí',
-      'about.title': 'Hola, soy <span class="hl">Pablo</span>.',
+      'about.title': 'Hola,<br>soy Pablo.',
       'about.p1': 'Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.',
       'about.p2': 'Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.',
       'about.cta1': 'Descargar CV →',
       'about.cta2': 'LinkedIn',
       'work.eyebrow': '02 — Qué hago',
-      'work.title': 'Tres disciplinas, una<br>misma <span class="hl">obsesión</span>.',
+      'work.title': 'Tres disciplinas,<br>una misma obsesión.',
       'work.card1.title': 'Diseño Gráfico',
       'work.card1.desc': 'Identidad visual, editorial y campañas. Sistemas de marca pensados para sostenerse mucho más allá del lanzamiento.',
       'work.card1.list': '<li>Identidad visual</li><li>Editorial &amp; cartelería</li><li>Packaging</li><li>Sistemas de marca</li>',
@@ -943,6 +988,13 @@
       'work.card3.desc': 'Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li>',
       'projects.eyebrow': '03 — Proyectos seleccionados',
+      'projects.cta': 'Ver caso',
+      'specs.role': 'Perfil',
+      'specs.role.v': 'Diseñador gráfico y UX/UI',
+      'specs.base': 'Base',
+      'specs.base.v': 'España · Remoto',
+      'specs.langs': 'Idiomas',
+      'specs.tools': 'Herramientas',
       'projects.title': 'Trabajo<br>reciente.',
       'projects.meta': '3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.',
       'contact.eyebrow': '04 — Hablemos',
@@ -977,21 +1029,19 @@
       'badge.location': 'Spain · Remote',
       'form.sending': 'Sending...',
       'form.error': 'Error — try again',
-      'hero.title': 'Graphic <span class="hl">Design</span><br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
+      'hero.title': 'Graphic<br>Design<br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
       'hero.desc': "I'm <strong>Pablo Meyer</strong>, a graphic and UX/UI designer. I make brands and digital products that make sense at first glance — branding, communication and UX/UI that solve, not decorate.",
       'hero.cta1': 'View projects →',
       'hero.cta2': 'Download CV',
-      'hero.stat1': 'years in design',
-      'hero.stat2': 'languages',
-      'hero.stat3': 'case studies',
+      'hero.disciplines': '<li>Branding</li><li>UX / UI</li><li>Digital marketing</li>',
       'about.eyebrow': '01 — About',
-      'about.title': "Hi, I'm <span class=\"hl\">Pablo</span>.",
+      'about.title': "Hi,<br>I'm Pablo.",
       'about.p1': "I design brands, content and digital products with one goal: they should work without a manual. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in a single discipline.",
       'about.p2': "I understand the problem before opening Figma. Every brand has a truth of its own; my job is to find it and translate it into a system that holds everywhere — from logo to product, from poster to feed.",
       'about.cta1': 'Download CV →',
       'about.cta2': 'LinkedIn',
       'work.eyebrow': '02 — What I do',
-      'work.title': 'Three disciplines,<br>one <span class="hl">obsession</span>.',
+      'work.title': 'Three disciplines,<br>one obsession.',
       'work.card1.title': 'Graphic Design',
       'work.card1.desc': 'Visual identity, editorial and campaigns. Brand systems built to hold long after launch.',
       'work.card1.list': '<li>Visual identity</li><li>Editorial &amp; posters</li><li>Packaging</li><li>Brand systems</li>',
@@ -1002,6 +1052,13 @@
       'work.card3.desc': 'User-centered product design, with the brand stitched into every wireframe from day one.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototyping in Figma</li><li>Interface design</li><li>Design systems</li>',
       'projects.eyebrow': '03 — Selected work',
+      'projects.cta': 'View case',
+      'specs.role': 'Profile',
+      'specs.role.v': 'Graphic & UX/UI designer',
+      'specs.base': 'Based in',
+      'specs.base.v': 'Spain · Remote',
+      'specs.langs': 'Languages',
+      'specs.tools': 'Tools',
       'projects.title': 'Recent<br>work.',
       'projects.meta': '3 published cases · 2023 — 2026<br>branding, product, graphic.',
       'contact.eyebrow': "04 — Let's talk",
