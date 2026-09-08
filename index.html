@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pablo Meyer — Diseñador en Madrid · Branding, UX/UI y Marketing Digital</title>
-<meta name="description" content="Diseñador en Madrid. Branding, UX/UI y marketing digital. Pablo Meyer diseña marcas y productos digitales que se entienden a la primera. Portfolio + casos de estudio.">
+<title>Pablo Meyer — Diseñador gráfico y UX/UI · Branding y Marketing Digital</title>
+<meta name="description" content="Pablo Meyer, diseñador gráfico y UX/UI en España, disponible en remoto. Branding, UX/UI y marketing digital: marcas y productos digitales que se entienden a la primera. Portfolio y casos de estudio.">
 <meta name="author" content="Pablo Meyer">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -16,12 +16,12 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Pablo Meyer — Diseñador en Madrid · Branding, UX/UI y Marketing">
+<meta property="og:title" content="Pablo Meyer — Diseñador gráfico y UX/UI · Branding y Marketing">
 <meta property="og:description" content="Diseño marcas y productos digitales que se entienden a la primera. Branding, comunicación y UX/UI que resuelven, no decoran.">
-<meta property="og:image" content="https://pablomeyer.es/assets/img/PabloMeyer.jpg">
+<meta property="og:image" content="https://pablomeyer.es/assets/img/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pablo Meyer, diseñador en Madrid">
+<meta property="og:image:alt" content="Pablo Meyer, diseñador gráfico y UX/UI">
 <meta property="og:url" content="https://pablomeyer.es/">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
@@ -29,9 +29,9 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pablo Meyer — Diseñador en Madrid · Branding, UX/UI y Marketing">
+<meta name="twitter:title" content="Pablo Meyer — Diseñador gráfico y UX/UI · Branding y Marketing">
 <meta name="twitter:description" content="Diseño marcas y productos digitales que se entienden a la primera.">
-<meta name="twitter:image" content="https://pablomeyer.es/assets/img/PabloMeyer.jpg">
+<meta name="twitter:image" content="https://pablomeyer.es/assets/img/og-cover.jpg">
 
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -59,7 +59,6 @@
       "knowsLanguage": ["es", "de", "en"],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Madrid",
         "addressCountry": "ES"
       },
       "sameAs": [
@@ -82,6 +81,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/PabloMeyer-800.webp" type="image/webp" fetchpriority="high">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -101,6 +101,25 @@
   html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
   body { font-family: var(--font); background: var(--bg); color: var(--black); overflow-x: hidden; }
+
+  ::selection { background: var(--yellow); color: var(--black); }
+
+  /* Accesibilidad: foco visible con teclado */
+  :focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 3px; border-radius: 4px; }
+
+  .skip-link {
+    position: absolute; top: -60px; left: 16px; z-index: 300;
+    background: var(--black); color: var(--white); font-size: 13px; font-weight: 700;
+    padding: 12px 20px; border-radius: 0 0 12px 12px; text-decoration: none;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .fade-up { opacity: 1 !important; transform: none !important; }
+  }
 
   /* NAV */
   nav {
@@ -149,6 +168,35 @@
     min-width: 36px;
   }
   .lang-toggle:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  /* Menú móvil */
+  .nav-burger {
+    display: none; background: transparent; border: none; cursor: pointer;
+    width: 40px; height: 40px; border-radius: 50%;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  }
+  .nav-burger span {
+    display: block; width: 18px; height: 2px; background: var(--black);
+    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 74px; left: 50%; transform: translateX(-50%) translateY(-8px);
+    z-index: 99; width: calc(100% - 24px); max-width: 1100px;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px; padding: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+  .mobile-menu a {
+    display: block; text-decoration: none; color: var(--black);
+    font-size: 17px; font-weight: 700; padding: 14px 16px; border-radius: 14px;
+    transition: background 0.15s;
+  }
+  .mobile-menu a:hover, .mobile-menu a:active { background: rgba(0,0,0,0.05); }
 
   /* SECTIONS — cada sección al menos pantalla completa */
   section {
@@ -328,6 +376,25 @@
 
   .project-arrow { transition: transform 0.2s; font-size: 18px; }
 
+  /* Preview flotante al pasar por un proyecto (solo desktop con puntero) */
+  .project-preview {
+    position: fixed; z-index: 90; width: 300px; aspect-ratio: 4 / 3;
+    border-radius: 16px; overflow: hidden; pointer-events: none;
+    opacity: 0; transform: scale(0.92) rotate(-2deg);
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.6, 0.2, 1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+    background: var(--gray-light);
+  }
+  .project-preview.on { opacity: 1; transform: scale(1) rotate(0deg); }
+  .project-preview img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0; transition: opacity 0.18s ease;
+  }
+  .project-preview img.show { opacity: 1; }
+  @media (hover: none), (max-width: 900px), (prefers-reduced-motion: reduce) {
+    .project-preview { display: none; }
+  }
+
   /* HABLEMOS */
   #hablemos { background: var(--black); }
 
@@ -453,6 +520,8 @@
 
     nav { width: calc(100% - 24px); top: 10px; padding: 8px 10px 8px 14px; }
     .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .mobile-menu { display: block; }
     .nav-logo-img { height: 28px; }
     .nav-cta { padding: 9px 18px; font-size: 13px; }
 
@@ -511,9 +580,11 @@
 </head>
 <body>
 
+<a href="#hero" class="skip-link" data-i18n="nav.skip">Saltar al contenido</a>
+
 <nav>
   <a href="#hero" class="nav-logo" aria-label="Pablo Meyer — Inicio">
-    <img src="assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img">
+    <img src="assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img" width="32" height="32">
   </a>
   <ul class="nav-links">
     <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
@@ -523,8 +594,17 @@
   <div class="nav-right">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
     <a href="#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+  <a href="#hablemos" data-i18n="nav.contact">Contacto</a>
+</div>
 
 <section id="hero">
   <div class="container">
@@ -535,22 +615,24 @@
           Marketing<br>
           <span class="line-gray">&amp; UX/UI</span>
         </h1>
-        <p class="hero-desc fade-up" data-i18n="hero.desc">Soy <strong>Pablo Meyer</strong>. Diseño marcas y productos digitales que se entienden a la primera. Branding, comunicación y UX/UI que resuelven, no decoran.</p>
+        <p class="hero-desc fade-up" data-i18n="hero.desc">Soy <strong>Pablo Meyer</strong>, diseñador gráfico y UX/UI. Hago marcas y productos digitales que se entienden a la primera — branding, comunicación y UX/UI que resuelven, no decoran.</p>
         <div class="hero-buttons fade-up">
           <a href="#proyectos" class="btn-primary" data-i18n="hero.cta1">Ver Proyectos →</a>
           <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary" data-i18n="hero.cta2">Descargar CV</a>
         </div>
         <div class="hero-stats fade-up">
           <div><div class="stat-num">2+</div><div class="stat-label" data-i18n="hero.stat1">años diseñando</div></div>
+          <div><div class="stat-num">3</div><div class="stat-label" data-i18n="hero.stat3">casos de estudio</div></div>
           <div><div class="stat-num">ES · DE · EN</div><div class="stat-label" data-i18n="hero.stat2">idiomas</div></div>
         </div>
       </div>
       <div class="hero-photo-wrap fade-up">
         <div class="hero-photo">
-          <picture><source srcset="assets/img/PabloMeyer.webp" type="image/webp"><img src="assets/img/PabloMeyer.jpg" alt="Pablo Meyer" fetchpriority="high" decoding="async"></picture>
+          <picture><source srcset="assets/img/PabloMeyer-800.webp" type="image/webp"><img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer, diseñador gráfico y UX/UI" width="800" height="1067" fetchpriority="high" decoding="async"></picture>
         </div>
         <div class="hero-badges">
-          <span class="badge badge-location">Madrid · ES</span>
+          <span class="badge badge-available"><span class="badge-dot"></span><span data-i18n="hero.available">Disponible para proyectos</span></span>
+          <span class="badge badge-location" data-i18n="badge.location">España · Remoto</span>
         </div>
       </div>
     </div>
@@ -566,17 +648,17 @@
 
     <div class="about-grid">
       <div class="about-photo">
-        <picture><source srcset="assets/img/PabloMeyer.webp" type="image/webp"><img src="assets/img/PabloMeyer.jpg" alt="Pablo Meyer — retrato" loading="lazy" decoding="async"></picture>
+        <picture><source srcset="assets/img/PabloMeyer-800.webp" type="image/webp"><img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer — retrato" width="800" height="1067" loading="lazy" decoding="async"></picture>
       </div>
       <div class="about-body">
-        <p data-i18n="about.p1">Diseño marcas, contenidos y productos digitales con un mismo objetivo: que se entiendan rápido y resuelvan el problema. Trabajo branding, comunicación y <strong>UX/UI</strong> porque casi nunca un problema de marca vive solo en una disciplina.</p>
-        <p data-i18n="about.p2">Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia y mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.</p>
+        <p data-i18n="about.p1">Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.</p>
+        <p data-i18n="about.p2">Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.</p>
         <div class="about-buttons">
           <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary" data-i18n="about.cta1">Descargar CV →</a>
           <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="btn-secondary" data-i18n="about.cta2">LinkedIn</a>
         </div>
         <div class="about-meta">
-          <span class="badge badge-location" style="width:fit-content;">Madrid · ES</span>
+          <span class="badge badge-location" style="width:fit-content;" data-i18n="badge.location">España · Remoto</span>
         </div>
       </div>
     </div>
@@ -622,19 +704,19 @@
       <div class="projects-meta"><p data-i18n="projects.meta">3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.</p></div>
     </div>
     <div class="projects-list">
-      <a href="projects/iki.html" class="project-row">
+      <a href="projects/iki.html" class="project-row" data-preview="assets/img/projects/iki/cover-iki.webp">
         <span class="project-index">01</span>
         <div><div class="project-name">IKI · ZenElegance</div><div class="project-tags"><span class="tag">Branding</span><span class="tag">Packaging</span><span class="tag">Identidad</span></div></div>
         <div class="project-type">2025<br>Branding & Packaging</div>
         <div class="project-cta">Ver caso <span class="project-arrow">→</span></div>
       </a>
-      <a href="projects/coach.html" class="project-row">
+      <a href="projects/coach.html" class="project-row" data-preview="assets/img/projects/coach/cover-coach.webp">
         <span class="project-index">02</span>
         <div><div class="project-name">Coach App</div><div class="project-tags"><span class="tag">UX/UI</span><span class="tag">Producto</span><span class="tag">Mobile</span></div></div>
         <div class="project-type">2025<br>UX/UI · Producto</div>
         <div class="project-cta">Ver caso <span class="project-arrow">→</span></div>
       </a>
-      <a href="projects/galeria.html" class="project-row">
+      <a href="projects/galeria.html" class="project-row" data-preview="assets/img/projects/galeria/galeriahero.webp">
         <span class="project-index">03</span>
         <div><div class="project-name">Galería de piezas</div><div class="project-tags"><span class="tag">Cartelería</span><span class="tag">Packaging</span><span class="tag">Redes</span></div></div>
         <div class="project-type">2023 — 2025<br>Selección gráfica</div>
@@ -650,7 +732,7 @@
       <div>
         <p class="contact-eyebrow" data-i18n="contact.eyebrow">04 — Hablemos</p>
         <h2 class="contact-title" data-i18n="contact.title">¿Tienes un<br>proyecto?<br><span class="hl">Hablamos.</span></h2>
-        <p class="contact-tagline" data-i18n="contact.tagline">Cuéntame en qué andas. Suelo responder en menos de 24h — sin filtros ni formularios de ventas.</p>
+        <p class="contact-tagline" data-i18n="contact.tagline">Cuéntame qué tienes entre manos — un proyecto, una idea, una duda. Sin formularios eternos ni respuestas automáticas: te contesto yo.</p>
         <p class="contact-direct-label" data-i18n="contact.direct">Contacto directo</p>
         <a href="mailto:pablo.meyer00@gmail.com" class="contact-direct-link">
           <span class="link-icon">
@@ -676,12 +758,12 @@
           <p class="form-title" data-i18n="form.title">Mándame un mensaje</p>
           <form id="contact-form" action="https://formspree.io/f/meeqggqp" method="POST">
             <div class="fg-row">
-              <div class="fg"><label data-i18n="form.name">Nombre</label><input type="text" name="nombre" data-i18n-placeholder="form.name.ph" placeholder="Tu nombre" required></div>
-              <div class="fg"><label data-i18n="form.email">E-mail</label><input type="email" name="email" data-i18n-placeholder="form.email.ph" placeholder="tu@email.com" required></div>
+              <div class="fg"><label for="f-nombre" data-i18n="form.name">Nombre</label><input id="f-nombre" type="text" name="nombre" autocomplete="name" data-i18n-placeholder="form.name.ph" placeholder="Tu nombre" required></div>
+              <div class="fg"><label for="f-email" data-i18n="form.email">E-mail</label><input id="f-email" type="email" name="email" autocomplete="email" data-i18n-placeholder="form.email.ph" placeholder="tu@email.com" required></div>
             </div>
             <div class="fg">
-              <label data-i18n="form.subject">Asunto</label>
-              <select name="asunto" class="fg-select" required>
+              <label for="f-asunto" data-i18n="form.subject">Asunto</label>
+              <select id="f-asunto" name="asunto" class="fg-select" required>
                 <option value="" data-i18n="form.subject.opt0">Elige un tema…</option>
                 <option value="Branding" data-i18n="form.subject.opt1">Branding · Identidad visual</option>
                 <option value="UX/UI" data-i18n="form.subject.opt2">UX/UI · Producto digital</option>
@@ -689,13 +771,13 @@
                 <option value="Otro" data-i18n="form.subject.opt4">Otro · Hablamos</option>
               </select>
             </div>
-            <div class="fg"><label data-i18n="form.message">Mensaje</label><textarea name="mensaje" data-i18n-placeholder="form.message.ph" placeholder="Cuéntame brevemente lo que tienes en mente..." required></textarea></div>
+            <div class="fg"><label for="f-mensaje" data-i18n="form.message">Mensaje</label><textarea id="f-mensaje" name="mensaje" data-i18n-placeholder="form.message.ph" placeholder="Cuéntame brevemente lo que tienes en mente..." required></textarea></div>
             <div class="form-footer">
               <span class="form-note" data-i18n="form.note">Respondo en menos de 24h</span>
               <button type="submit" class="btn-primary" data-i18n="form.submit">Enviar →</button>
             </div>
           </form>
-          <div id="form-success" data-i18n="form.success">✓ Mensaje enviado. Te escribo pronto.</div>
+          <div id="form-success" role="status" data-i18n="form.success">✓ Mensaje enviado. Te escribo pronto.</div>
         </div>
       </div>
     </div>
@@ -722,6 +804,63 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  /* ===== Menú móvil ===== */
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (burger && mobileMenu) {
+    const closeMenu = () => {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('click', e => {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+  }
+
+  /* ===== Preview flotante de proyectos (desktop) ===== */
+  (() => {
+    const rows = document.querySelectorAll('.project-row[data-preview]');
+    if (!rows.length || !window.matchMedia('(hover: hover) and (min-width: 901px)').matches) return;
+    const box = document.createElement('div');
+    box.className = 'project-preview';
+    box.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(box);
+    const imgs = new Map();
+    rows.forEach(row => {
+      const img = document.createElement('img');
+      img.src = row.dataset.preview;
+      img.alt = '';
+      box.appendChild(img);
+      imgs.set(row, img);
+    });
+    let raf = null, x = 0, y = 0;
+    const move = e => {
+      x = e.clientX; y = e.clientY;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        box.style.left = Math.min(x + 28, window.innerWidth - 320) + 'px';
+        box.style.top = Math.max(12, y - 110) + 'px';
+        raf = null;
+      });
+    };
+    rows.forEach(row => {
+      row.addEventListener('mouseenter', e => {
+        imgs.forEach(i => i.classList.remove('show'));
+        imgs.get(row).classList.add('show');
+        move(e);
+        box.classList.add('on');
+      });
+      row.addEventListener('mousemove', move);
+      row.addEventListener('mouseleave', () => box.classList.remove('on'));
+    });
+  })();
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -774,16 +913,22 @@
       'nav.projects': 'Proyectos',
       'nav.contact': 'Contacto',
       'nav.cta': 'Hablemos',
+      'nav.skip': 'Saltar al contenido',
+      'hero.available': 'Disponible para proyectos',
+      'badge.location': 'España · Remoto',
+      'form.sending': 'Enviando...',
+      'form.error': 'Error — inténtalo de nuevo',
       'hero.title': 'Diseño <span class="hl">Gráfico</span><br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
-      'hero.desc': 'Soy <strong>Pablo Meyer</strong>. Diseño marcas y productos digitales que se entienden a la primera. Branding, comunicación y UX/UI que resuelven, no decoran.',
+      'hero.desc': 'Soy <strong>Pablo Meyer</strong>, diseñador gráfico y UX/UI. Hago marcas y productos digitales que se entienden a la primera — branding, comunicación y UX/UI que resuelven, no decoran.',
       'hero.cta1': 'Ver Proyectos →',
       'hero.cta2': 'Descargar CV',
       'hero.stat1': 'años diseñando',
       'hero.stat2': 'idiomas',
+      'hero.stat3': 'casos de estudio',
       'about.eyebrow': '01 — Sobre mí',
       'about.title': 'Hola, soy <span class="hl">Pablo</span>.',
-      'about.p1': 'Diseño marcas, contenidos y productos digitales con un mismo objetivo: que se entiendan rápido y resuelvan el problema. Trabajo branding, comunicación y <strong>UX/UI</strong> porque casi nunca un problema de marca vive solo en una disciplina.',
-      'about.p2': 'Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia y mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.',
+      'about.p1': 'Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.',
+      'about.p2': 'Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.',
       'about.cta1': 'Descargar CV →',
       'about.cta2': 'LinkedIn',
       'work.eyebrow': '02 — Qué hago',
@@ -802,7 +947,7 @@
       'projects.meta': '3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.',
       'contact.eyebrow': '04 — Hablemos',
       'contact.title': '¿Tienes un<br>proyecto?<br><span class="hl">Hablamos.</span>',
-      'contact.tagline': 'Cuéntame en qué andas. Suelo responder en menos de 24h — sin filtros ni formularios de ventas.',
+      'contact.tagline': 'Cuéntame qué tienes entre manos — un proyecto, una idea, una duda. Sin formularios eternos ni respuestas automáticas: te contesto yo.',
       'contact.direct': 'Contacto directo',
       'form.title': 'Mándame un mensaje',
       'form.name': 'Nombre',
@@ -827,16 +972,22 @@
       'nav.projects': 'Work',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
+      'nav.skip': 'Skip to content',
+      'hero.available': 'Available for projects',
+      'badge.location': 'Spain · Remote',
+      'form.sending': 'Sending...',
+      'form.error': 'Error — try again',
       'hero.title': 'Graphic <span class="hl">Design</span><br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
-      'hero.desc': "I'm <strong>Pablo Meyer</strong>. I design brands and digital products that make sense at first sight. Branding, communication and UX/UI that solve — not just decorate.",
+      'hero.desc': "I'm <strong>Pablo Meyer</strong>, a graphic and UX/UI designer. I make brands and digital products that make sense at first glance — branding, communication and UX/UI that solve, not decorate.",
       'hero.cta1': 'View projects →',
       'hero.cta2': 'Download CV',
       'hero.stat1': 'years in design',
       'hero.stat2': 'languages',
+      'hero.stat3': 'case studies',
       'about.eyebrow': '01 — About',
       'about.title': "Hi, I'm <span class=\"hl\">Pablo</span>.",
-      'about.p1': "I design brands, content and digital products with one goal: making them clear, fast and useful. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in just one discipline.",
-      'about.p2': "I understand the problem before opening Figma. Every brand has its own truth — my job is to find it and translate it into a system that holds across every touchpoint, from logo to product, from poster to feed.",
+      'about.p1': "I design brands, content and digital products with one goal: they should work without a manual. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in a single discipline.",
+      'about.p2': "I understand the problem before opening Figma. Every brand has a truth of its own; my job is to find it and translate it into a system that holds everywhere — from logo to product, from poster to feed.",
       'about.cta1': 'Download CV →',
       'about.cta2': 'LinkedIn',
       'work.eyebrow': '02 — What I do',
@@ -855,7 +1006,7 @@
       'projects.meta': '3 published cases · 2023 — 2026<br>branding, product, graphic.',
       'contact.eyebrow': "04 — Let's talk",
       'contact.title': "Got a<br>project?<br><span class=\"hl\">Let's talk.</span>",
-      'contact.tagline': "Tell me what you're up to. I usually reply within 24h — no filters, no sales forms.",
+      'contact.tagline': "Tell me what you're working on — a project, an idea, a question. No endless forms, no canned replies: you'll hear back from me.",
       'contact.direct': 'Direct contact',
       'form.title': 'Send me a message',
       'form.name': 'Name',
@@ -892,8 +1043,13 @@
     if (langToggle) langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
     try { localStorage.setItem('lang', lang); } catch(e) {}
   };
+  /* Prioridad: ?lang= en la URL (para hreflang/SEO) > preferencia guardada > es */
   let initialLang = 'es';
-  try { initialLang = localStorage.getItem('lang') || 'es'; } catch(e) {}
+  try {
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    if (urlLang === 'en' || urlLang === 'es') initialLang = urlLang;
+    else initialLang = localStorage.getItem('lang') || 'es';
+  } catch(e) {}
   setLang(initialLang);
   if (langToggle) {
     langToggle.addEventListener('click', () => {
@@ -907,15 +1063,16 @@
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Enviando...';
+    const t = key => (i18n[document.documentElement.lang] || i18n.es)[key];
+    btn.textContent = t('form.sending');
     btn.disabled = true;
     try {
       const res = await fetch(form.action, {
         method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
       });
       if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
-      else { btn.textContent = 'Error — inténtalo de nuevo'; btn.disabled = false; }
-    } catch { btn.textContent = 'Error — inténtalo de nuevo'; btn.disabled = false; }
+      else { btn.textContent = t('form.error'); btn.disabled = false; }
+    } catch { btn.textContent = t('form.error'); btn.disabled = false; }
   });
 </script>
 </body>

@@ -20,6 +20,11 @@
   var STORAGE = 'lang';
 
   function getLang() {
+    /* Prioridad: ?lang= en la URL (hreflang/SEO) > preferencia guardada > atributo lang */
+    try {
+      var q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'es' || q === 'en') return q;
+    } catch (e) {}
     try {
       var s = localStorage.getItem(STORAGE);
       if (s === 'es' || s === 'en') return s;

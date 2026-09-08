@@ -68,6 +68,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link" data-i18n="nav.skip">Saltar al contenido</a>
+
 <div class="scroll-progress" id="scroll-progress"></div>
 
 <nav>
@@ -82,10 +84,19 @@
   <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
     <a href="../index.html#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="case-hero">
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+  <a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a>
+</div>
+
+<header class="case-hero" id="main">
   <div class="container">
     <div class="case-topbar">
       <a href="../index.html#proyectos" data-i18n="topbar.back">← Proyectos</a>
@@ -150,7 +161,7 @@
 
 <section class="pull-quote">
   <div class="container">
-    <p class="pull-quote-text fade-up" data-i18n="quote.text">Las piezas sueltas son el sitio donde se equivoca uno barato. Los proyectos grandes son donde no puedes.</p>
+    <p class="pull-quote-text fade-up" data-i18n="quote.text">Las piezas sueltas son el sitio donde equivocarse sale barato. Los proyectos grandes son donde ya no puedes.</p>
     <p class="pull-quote-attr fade-up" data-i18n="quote.attr">— Sobre el sentido de la galería</p>
   </div>
 </section>
@@ -160,7 +171,7 @@
     <div class="case-gallery-header fade-up">
       <p class="eyebrow" data-i18n="g.eyebrow">Selección</p>
       <h2 class="reto-title" data-i18n="g.title">Piezas.</h2>
-      <p class="gallery-intro" data-i18n="g.intro">Toca cualquiera para verla en grande. Cada pieza lleva su propio acento — pero todas pasan por el mismo filtro: qué hay que decir, cómo decirlo y dónde decirlo.</p>
+      <p class="gallery-intro" data-i18n="g.intro">Abre cualquiera para verla en grande. Cada pieza lleva su propio acento — pero todas pasan por el mismo filtro: qué hay que decir, cómo decirlo y dónde decirlo.</p>
     </div>
 
     <div class="gallery-masonry" id="gallery-masonry">
@@ -238,6 +249,24 @@
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* Menú móvil */
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (burger && mobileMenu) {
+    const closeMenu = () => {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('click', e => {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+  }
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -262,8 +291,8 @@
   }
 </script>
 
-<script src="../assets/js/i18n.js" defer></script>
-<script defer>
+<script src="../assets/js/i18n.js"></script>
+<script>
 window.pmI18nReady(function () {
   pmI18n.apply({
     es: {
@@ -271,6 +300,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Proyectos',
       'nav.contact': 'Contacto',
       'nav.cta': 'Hablemos',
+      'nav.skip': 'Saltar al contenido',
       'topbar.back': '← Proyectos',
       'topbar.year': '2023 — 2025 · Caso 03',
       'title.b': 'Piezas',
@@ -296,11 +326,11 @@ window.pmI18nReady(function () {
       'det.disc.val': 'Cartel · Social · Pack',
       'det.tools': 'Herramientas',
       'det.period': 'Periodo',
-      'quote.text': 'Las piezas sueltas son el sitio donde se equivoca uno barato. Los proyectos grandes son donde no puedes.',
+      'quote.text': 'Las piezas sueltas son el sitio donde equivocarse sale barato. Los proyectos grandes son donde ya no puedes.',
       'quote.attr': '— Sobre el sentido de la galería',
       'g.eyebrow': 'Selección',
       'g.title': 'Piezas.',
-      'g.intro': 'Toca cualquiera para verla en grande. Cada pieza lleva su propio acento — pero todas pasan por el mismo filtro: qué hay que decir, cómo decirlo y dónde decirlo.',
+      'g.intro': 'Abre cualquiera para verla en grande. Cada pieza lleva su propio acento — pero todas pasan por el mismo filtro: qué hay que decir, cómo decirlo y dónde decirlo.',
       'next.eyebrow': 'Volver al inicio · Caso 01',
       'next.tag': 'Branding · Packaging · 2025',
       'next.cta': 'Ver caso →',
@@ -312,6 +342,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Work',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
+      'nav.skip': 'Skip to content',
       'topbar.back': '← Work',
       'topbar.year': '2023 — 2025 · Case 03',
       'title.b': 'Pieces',
@@ -330,7 +361,7 @@ window.pmI18nReady(function () {
       'cover.back': 'Back to work →',
       'reto.eyebrow': 'About the gallery',
       'reto.title': 'The parallel log.',
-      'reto.p1': "While long projects polish the system, one-offs are the lab. Posters for festivals, conceptual packaging, editorial posts, campaign explorations — each one is an excuse to try a new technique, a different sector or a different way of thinking the brand.",
+      'reto.p1': "While long projects polish the system, one-offs are the lab. Posters for festivals, conceptual packaging, editorial posts, campaign explorations — each one is an excuse to try a new technique, a different sector or a different way of thinking about brand.",
       'reto.p2': "They don't sit on a 40-page brief. They have an idea, a surface and a day. They work as a visual gym: if you don't train the eye when there's nothing on the line, you'll lack range when the big project comes. Here's part of that range.",
       'det.title': 'Details',
       'det.disc': 'Disciplines',
@@ -341,7 +372,7 @@ window.pmI18nReady(function () {
       'quote.attr': '— On what the gallery is for',
       'g.eyebrow': 'Selection',
       'g.title': 'Pieces.',
-      'g.intro': 'Tap any piece to see it full-size. Each one has its own accent — but all run through the same filter: what to say, how to say it and where.',
+      'g.intro': 'Open any piece to see it full-size. Each one has its own accent — but all run through the same filter: what to say, how to say it and where.',
       'next.eyebrow': 'Back to the start · Case 01',
       'next.tag': 'Branding · Packaging · 2025',
       'next.cta': 'View case →',

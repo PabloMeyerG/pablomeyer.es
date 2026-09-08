@@ -67,6 +67,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link" data-i18n="nav.skip">Saltar al contenido</a>
+
 <div class="scroll-progress" id="scroll-progress"></div>
 
 <nav>
@@ -81,10 +83,19 @@
   <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
     <a href="../index.html#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="case-hero">
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+  <a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a>
+</div>
+
+<header class="case-hero" id="main">
   <div class="container">
     <div class="case-topbar">
       <a href="../index.html#proyectos" data-i18n="topbar.back">← Proyectos</a>
@@ -152,7 +163,7 @@
     <div class="case-gallery-header fade-up">
       <p class="eyebrow" data-i18n="g1.eyebrow">Investigación</p>
       <h2 class="reto-title" data-i18n="g1.title">Objetivos del producto.</h2>
-      <p class="gallery-intro" data-i18n="g1.intro">Antes de abrir Figma, definimos qué tenía que conseguir Coach a nivel de negocio y de usuario, y cuáles eran los puntos críticos de la competencia.</p>
+      <p class="gallery-intro" data-i18n="g1.intro">Antes de tocar una pantalla, definí qué tenía que conseguir Coach a nivel de negocio y de usuario — y dónde estaba fallando la competencia.</p>
     </div>
 
     <div class="gallery-stack">
@@ -265,7 +276,7 @@
       <div class="process-card fade-up" data-num="02">
         <p class="process-num">02</p>
         <p class="process-title" data-i18n="proc.c2.t">Wireframes</p>
-        <p class="process-desc" data-i18n="proc.c2.d">Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes de pixel.</p>
+        <p class="process-desc" data-i18n="proc.c2.d">Arquitectura, flujos y prioridades en baja fidelidad. Las decisiones, antes del píxel.</p>
       </div>
       <div class="process-card fade-up" data-num="03">
         <p class="process-num">03</p>
@@ -321,6 +332,24 @@
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* Menú móvil */
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (burger && mobileMenu) {
+    const closeMenu = () => {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('click', e => {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+  }
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -345,8 +374,8 @@
   }
 </script>
 
-<script src="../assets/js/i18n.js" defer></script>
-<script defer>
+<script src="../assets/js/i18n.js"></script>
+<script>
 window.pmI18nReady(function () {
   pmI18n.apply({
     es: {
@@ -354,6 +383,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Proyectos',
       'nav.contact': 'Contacto',
       'nav.cta': 'Hablemos',
+      'nav.skip': 'Saltar al contenido',
       'topbar.back': '← Proyectos',
       'topbar.year': '2025 · Caso 02',
       'tag.ux': 'UX/UI',
@@ -381,7 +411,7 @@ window.pmI18nReady(function () {
       'det.scope.val': 'App mobile completa',
       'g1.eyebrow': 'Investigación',
       'g1.title': 'Objetivos del producto.',
-      'g1.intro': 'Antes de abrir Figma, definimos qué tenía que conseguir Coach a nivel de negocio y de usuario, y cuáles eran los puntos críticos de la competencia.',
+      'g1.intro': 'Antes de tocar una pantalla, definí qué tenía que conseguir Coach a nivel de negocio y de usuario — y dónde estaba fallando la competencia.',
       'dec.eyebrow': 'Decisiones clave',
       'dec.title': 'Tres decisiones que ordenan toda la app.',
       'dec.c1.t': 'Onboarding que pregunta, no exige.',
@@ -398,7 +428,7 @@ window.pmI18nReady(function () {
       'proc.c1.t': 'Research',
       'proc.c1.d': 'Análisis de competencia, perfiles de usuario y mapa de fricciones. Por qué la gente entra, por qué se va.',
       'proc.c2.t': 'Wireframes',
-      'proc.c2.d': 'Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes de pixel.',
+      'proc.c2.d': 'Arquitectura, flujos y prioridades en baja fidelidad. Las decisiones, antes del píxel.',
       'proc.c3.t': 'Design system',
       'proc.c3.d': 'Tipografía, color, componentes y estados. Coherencia obligatoria entre pantallas.',
       'proc.c4.t': 'UI final',
@@ -416,6 +446,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Work',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
+      'nav.skip': 'Skip to content',
       'topbar.back': '← Work',
       'topbar.year': '2025 · Case 02',
       'tag.ux': 'UX/UI',
@@ -432,7 +463,7 @@ window.pmI18nReady(function () {
       'reto.eyebrow': 'The challenge',
       'reto.title': "A fitness app that doesn't make the user feel bad for not opening it.",
       'reto.p1': "The brief was to design a mobile app end to end: research, architecture, system and UI. I picked fitness and nutrition because it's a saturated and noisy space — most apps promise military discipline and talk to the user as if they were 25, with two free hours and a gym at home. None of that is reality.",
-      'reto.p2': 'The research made the obvious obvious: people drop these apps because they remind them of what they\'re not doing. Coach was built around the opposite idea — <em>fit</em> the user\'s routine, not impose one. Every screen had to remove friction, not add. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what\'s on today" before "how far you still are".',
+      'reto.p2': 'The research made the obvious obvious: people drop these apps because they remind them of what they\'re not doing. Coach was built around the opposite idea — <em>fit</em> the user\'s routine, not impose one. Every screen had to remove friction, not add it. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what\'s on today" before "how far you still are".',
       'det.title': 'Details',
       'det.sector': 'Sector',
       'det.sector.val': 'Fitness · Wellness',
@@ -443,7 +474,7 @@ window.pmI18nReady(function () {
       'det.scope.val': 'Full mobile app',
       'g1.eyebrow': 'Research',
       'g1.title': 'Product goals.',
-      'g1.intro': 'Before opening Figma, we defined what Coach had to achieve at business and user level, and which were the critical pain points of the competition.',
+      'g1.intro': 'Before touching a single screen, I defined what Coach had to achieve at business and user level — and where the competition was failing.',
       'dec.eyebrow': 'Key decisions',
       'dec.title': 'Three decisions that organise the whole app.',
       'dec.c1.t': 'Onboarding that asks, not demands.',
@@ -454,7 +485,7 @@ window.pmI18nReady(function () {
       'dec.c3.d': "Every view knows its job. Anything that doesn't feed the next action moves to a second level. Less noise, fewer decisions to make.",
       'g2.eyebrow': 'Final product',
       'g2.title': 'Screens.',
-      'g2.intro': 'Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open.',
+      'g2.intro': 'Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open it.',
       'proc.eyebrow': 'Process',
       'proc.title': 'From research to final UI.',
       'proc.c1.t': 'Research',

@@ -67,6 +67,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link" data-i18n="nav.skip">Saltar al contenido</a>
+
 <div class="scroll-progress" id="scroll-progress"></div>
 
 <nav>
@@ -81,10 +83,19 @@
   <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
     <a href="../index.html#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="case-hero">
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+  <a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a>
+</div>
+
+<header class="case-hero" id="main">
   <div class="container">
     <div class="case-topbar">
       <a href="../index.html#proyectos" data-i18n="topbar.back">← Proyectos</a>
@@ -152,7 +163,7 @@
     <div class="case-gallery-header fade-up">
       <p class="eyebrow" data-i18n="g1.eyebrow">Identidad</p>
       <h2 class="reto-title" data-i18n="g1.title">El logotipo.</h2>
-      <p class="gallery-intro" data-i18n="g1.intro">Construido sobre una proporción cuadrada y un peso tipográfico contundente, pensado para resistir tanto a tamaño grande como reducido a icono.</p>
+      <p class="gallery-intro" data-i18n="g1.intro">Construido sobre una proporción cuadrada y un peso tipográfico contundente. Pensado para funcionar igual en una fachada que reducido a icono.</p>
     </div>
 
     <div class="gallery-stack">
@@ -309,6 +320,24 @@
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* Menú móvil */
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (burger && mobileMenu) {
+    const closeMenu = () => {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('click', e => {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+  }
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -333,8 +362,8 @@
   }
 </script>
 
-<script src="../assets/js/i18n.js" defer></script>
-<script defer>
+<script src="../assets/js/i18n.js"></script>
+<script>
 window.pmI18nReady(function () {
   pmI18n.apply({
     es: {
@@ -342,6 +371,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Proyectos',
       'nav.contact': 'Contacto',
       'nav.cta': 'Hablemos',
+      'nav.skip': 'Saltar al contenido',
       'topbar.back': '← Proyectos',
       'topbar.year': '2025 · Caso 01',
       'tag.branding': 'Branding',
@@ -369,7 +399,7 @@ window.pmI18nReady(function () {
       'det.scope.val': 'Sistema completo',
       'g1.eyebrow': 'Identidad',
       'g1.title': 'El logotipo.',
-      'g1.intro': 'Construido sobre una proporción cuadrada y un peso tipográfico contundente, pensado para resistir tanto a tamaño grande como reducido a icono.',
+      'g1.intro': 'Construido sobre una proporción cuadrada y un peso tipográfico contundente. Pensado para funcionar igual en una fachada que reducido a icono.',
       'dec.eyebrow': 'Decisiones clave',
       'dec.title': 'Tres elecciones que sostienen el sistema.',
       'dec.c1.t': 'Logotipo cuadrado, peso máximo.',
@@ -402,6 +432,7 @@ window.pmI18nReady(function () {
       'nav.projects': 'Work',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
+      'nav.skip': 'Skip to content',
       'topbar.back': '← Work',
       'topbar.year': '2025 · Case 01',
       'tag.branding': 'Branding',
@@ -429,7 +460,7 @@ window.pmI18nReady(function () {
       'det.scope.val': 'Full system',
       'g1.eyebrow': 'Identity',
       'g1.title': 'The wordmark.',
-      'g1.intro': 'Built on a squared proportion and a heavy type weight, made to hold up at large size and shrink down to an icon without losing presence.',
+      'g1.intro': 'Built on a squared proportion and a heavy type weight. Made to work the same on a storefront and shrunk down to an icon.',
       'dec.eyebrow': 'Key decisions',
       'dec.title': 'Three choices that hold the system together.',
       'dec.c1.t': 'Square wordmark, maximum weight.',
