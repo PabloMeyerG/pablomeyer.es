@@ -199,11 +199,6 @@
   .cv-download { margin-top: clamp(32px, 4vw, 48px); }
 
   /* ================= PROYECTOS ================= */
-  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: clamp(40px, 4vw, 60px); }
-  .projects-title { font-size: var(--t-h1); font-weight: 900; line-height: 0.9; letter-spacing: -0.042em; }
-  .projects-meta { text-align: right; }
-  .projects-meta p { font-family: var(--mono); font-size: 12px; color: var(--gray); line-height: 1.6; }
-
   .projects-list { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
 
   .project-row {
@@ -247,7 +242,6 @@
   #contact .hl { background: none; color: var(--accent); padding: 0; }
   #contact .form-note { color: rgba(255,255,255,0.32); }
   .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
-  .contact-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 20px; }
   .contact-title { font-size: clamp(40px, 5.2vw, 76px); font-weight: 900; letter-spacing: -0.038em; line-height: 0.96; color: var(--white); margin-bottom: var(--s-el); }
   .contact-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 44px; max-width: 340px; }
   .contact-direct-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 8px; }
@@ -332,8 +326,6 @@
     .discipline-card:hover .card-num span, .discipline-card:hover .card-list li::before { color: var(--gray); }
     .discipline-card:hover .card-list li { border-color: var(--rule); }
 
-    .projects-header { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
-    .projects-meta { text-align: left; }
     /* La imagen manda en móvil: va arriba y a todo el ancho */
     .project-row { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; align-items: stretch; }
     .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 0; }
@@ -424,12 +416,9 @@
 
 <section id="work">
   <div class="container">
-    <div class="projects-header">
-      <div>
-        <p class="section-label" data-i18n="projects.eyebrow">01 — Trabajo seleccionado</p>
-        <h2 class="projects-title fade-up" data-i18n="projects.title">Trabajo<br>reciente.</h2>
-      </div>
-      <div class="projects-meta"><p data-i18n="projects.meta">3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.</p></div>
+    <div class="section-head">
+      <h2 class="section-title fade-up" data-i18n="work.title">Trabajo reciente.</h2>
+      <p class="section-meta fade-up" data-i18n="work.meta">3 casos · 2023 — 2026<br>branding · producto · gráfica</p>
     </div>
     <div class="projects-list">
       <a href="projects/iki.html" class="project-row">
@@ -489,9 +478,9 @@
 
 <section id="about">
   <div class="container">
-    <div class="section-header">
-      <p class="section-label" data-i18n="about.eyebrow">02 — Sobre mí</p>
-      <h2 class="section-title fade-up" data-i18n="about.title">Hola,<br>soy Pablo.</h2>
+    <div class="section-head">
+      <h2 class="section-title fade-up" data-i18n="about.title">Tres disciplinas,<br>un mismo criterio.</h2>
+      <p class="section-meta fade-up" data-i18n="about.meta">Pablo Meyer<br>gráfico · marketing · UX/UI</p>
     </div>
 
     <div class="about-grid">
@@ -537,9 +526,9 @@
 
 <section id="cv">
   <div class="container">
-    <div class="section-header">
-      <p class="section-label fade-up" data-i18n="cv.eyebrow">03 — CV</p>
-      <h2 class="section-title fade-up" data-i18n="cv.title">Dónde he<br>trabajado.</h2>
+    <div class="section-head">
+      <h2 class="section-title fade-up" data-i18n="cv.title">Dónde he trabajado.</h2>
+      <p class="section-meta fade-up" data-i18n="cv.meta">4 posiciones · 2022 — hoy<br>in-house y agencia</p>
     </div>
 
     <ol class="cv-roles">
@@ -602,9 +591,8 @@
   <div class="container">
     <div class="contact-wrap">
       <div>
-        <p class="contact-eyebrow" data-i18n="contact.eyebrow">04 — Hablemos</p>
-        <h2 class="contact-title" data-i18n="contact.title">¿Tienes un<br>proyecto?<br><span class="hl">Hablamos.</span></h2>
-        <p class="contact-tagline" data-i18n="contact.tagline">Cuéntame qué tienes entre manos — un proyecto, una idea, una duda. Sin formularios eternos ni respuestas automáticas: te contesto yo.</p>
+        <h2 class="contact-title fade-up" data-i18n="contact.title">¿Te queda<br>alguna <span class="hl">pregunta?</span></h2>
+        <p class="contact-tagline fade-up" data-i18n="contact.tagline">Arriba está casi todo. Si falta algo — el CV completo, referencias, disponibilidad o el detalle de un caso — escríbeme y te contesto yo, no un formulario.</p>
         <p class="contact-direct-label" data-i18n="contact.direct">Contacto directo</p>
         <a href="mailto:pablo.meyer00@gmail.com" class="contact-direct-link">
           <span class="link-icon">
@@ -637,10 +625,10 @@
               <label for="f-asunto" data-i18n="form.subject">Asunto</label>
               <select id="f-asunto" name="asunto" class="fg-select" required>
                 <option value="" data-i18n="form.subject.opt0">Elige un tema…</option>
-                <option value="Branding" data-i18n="form.subject.opt1">Branding · Identidad visual</option>
-                <option value="UX/UI" data-i18n="form.subject.opt2">UX/UI · Producto digital</option>
-                <option value="Marketing" data-i18n="form.subject.opt3">Marketing digital</option>
-                <option value="Otro" data-i18n="form.subject.opt4">Otro · Hablamos</option>
+                <option value="Oferta" data-i18n="form.subject.opt1">Oferta o proceso de selección</option>
+                <option value="Caso" data-i18n="form.subject.opt2">Dudas sobre un caso</option>
+                <option value="Freelance" data-i18n="form.subject.opt3">Proyecto freelance</option>
+                <option value="Otro" data-i18n="form.subject.opt4">Otro</option>
               </select>
             </div>
             <div class="fg"><label for="f-mensaje" data-i18n="form.message">Mensaje</label><textarea id="f-mensaje" name="mensaje" data-i18n-placeholder="form.message.ph" placeholder="Cuéntame brevemente lo que tienes en mente..." required></textarea></div>
@@ -736,6 +724,19 @@
 
   sections.forEach(s => activeObs.observe(s));
 
+  /* El nav arranca casi transparente y se cierra al separarse del top */
+  (() => {
+    const bar = document.querySelector('nav');
+    if (!bar) return;
+    let raf = null;
+    const sync = () => {
+      raf = null;
+      bar.classList.toggle('stuck', window.scrollY > 24);
+    };
+    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(sync); }, { passive: true });
+    sync();
+  })();
+
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -749,7 +750,6 @@
       'nav.cta': 'Hablemos',
       'nav.skip': 'Saltar al contenido',
       'hero.available': 'Disponible',
-      'badge.location': 'España · Remoto',
       'form.sending': 'Enviando...',
       'form.error': 'Error — inténtalo de nuevo',
       'hero.title': 'Diseño<br>Gráfico<br>Marketing<br><span class="outline">&amp; UX/UI</span>',
@@ -759,13 +759,12 @@
       'info.status': 'Estado',
       'info.disciplines': 'Disciplinas',
       'info.disciplines.v': 'Branding · UX/UI · Marketing',
-      'about.eyebrow': '02 — Sobre mí',
-      'about.title': 'Hola,<br>soy Pablo.',
+      'about.title': 'Tres disciplinas,<br>un mismo criterio.',
+      'about.meta': 'Pablo Meyer<br>gráfico · marketing · UX/UI',
       'about.p1': 'Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.',
       'about.p2': 'Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.',
       'about.cta1': 'Descargar CV →',
       'about.cta2': 'LinkedIn',
-      'work.eyebrow': '02 — Qué hago',
       'work.title': 'Tres disciplinas,<br>una misma obsesión.',
       'work.card1.title': 'Diseño Gráfico',
       'work.card1.desc': 'Identidad visual, editorial y campañas. Sistemas de marca pensados para sostenerse mucho más allá del lanzamiento.',
@@ -776,9 +775,10 @@
       'work.card3.title': 'UX / UI',
       'work.card3.desc': 'Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li>',
-      'projects.eyebrow': '01 — Trabajo seleccionado',
-      'cv.eyebrow': '03 — CV',
-      'cv.title': 'Dónde he<br>trabajado.',
+      'work.title': 'Trabajo reciente.',
+      'work.meta': '3 casos · 2023 — 2026<br>branding · producto · gráfica',
+      'cv.title': 'Dónde he trabajado.',
+      'cv.meta': '4 posiciones · 2022 — hoy<br>in-house y agencia',
       'cv.edu': 'Formación',
       'cv.tools': 'Herramientas',
       'cv.langs': 'Idiomas',
@@ -790,11 +790,8 @@
       'specs.base.v': 'España · Remoto',
       'specs.langs': 'Idiomas',
       'specs.tools': 'Herramientas',
-      'projects.title': 'Trabajo<br>reciente.',
-      'projects.meta': '3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.',
-      'contact.eyebrow': '04 — Hablemos',
-      'contact.title': '¿Tienes un<br>proyecto?<br><span class="hl">Hablamos.</span>',
-      'contact.tagline': 'Cuéntame qué tienes entre manos — un proyecto, una idea, una duda. Sin formularios eternos ni respuestas automáticas: te contesto yo.',
+      'contact.title': '¿Te queda<br>alguna <span class="hl">pregunta?</span>',
+      'contact.tagline': 'Arriba está casi todo. Si falta algo — el CV completo, referencias, disponibilidad o el detalle de un caso — escríbeme y te contesto yo, no un formulario.',
       'contact.direct': 'Contacto directo',
       'form.title': 'Mándame un mensaje',
       'form.name': 'Nombre',
@@ -806,13 +803,12 @@
       'form.success': '✓ Mensaje enviado. Te escribo pronto.',
       'form.name.ph': 'Tu nombre',
       'form.email.ph': 'tu@email.com',
-      'form.subject.ph': '¿De qué va el proyecto?',
       'form.message.ph': 'Cuéntame brevemente lo que tienes en mente...',
       'form.subject.opt0': 'Elige un tema…',
-      'form.subject.opt1': 'Branding · Identidad visual',
-      'form.subject.opt2': 'UX/UI · Producto digital',
-      'form.subject.opt3': 'Marketing digital',
-      'form.subject.opt4': 'Otro · Hablamos',
+      'form.subject.opt1': 'Oferta o proceso de selección',
+      'form.subject.opt2': 'Dudas sobre un caso',
+      'form.subject.opt3': 'Proyecto freelance',
+      'form.subject.opt4': 'Otro',
     },
     en: {
       'nav.work': 'Work',
@@ -822,7 +818,6 @@
       'nav.cta': "Let's talk",
       'nav.skip': 'Skip to content',
       'hero.available': 'Available',
-      'badge.location': 'Spain · Remote',
       'form.sending': 'Sending...',
       'form.error': 'Error — try again',
       'hero.title': 'Graphic<br>Design<br>Marketing<br><span class="outline">&amp; UX/UI</span>',
@@ -832,13 +827,12 @@
       'info.status': 'Status',
       'info.disciplines': 'Disciplines',
       'info.disciplines.v': 'Branding · UX/UI · Marketing',
-      'about.eyebrow': '02 — About',
-      'about.title': "Hi,<br>I'm Pablo.",
+      'about.title': 'Three disciplines,<br>one way of working.',
+      'about.meta': 'Pablo Meyer<br>graphic · marketing · UX/UI',
       'about.p1': "I design brands, content and digital products with one goal: they should work without a manual. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in a single discipline.",
       'about.p2': "I understand the problem before opening Figma. Every brand has a truth of its own; my job is to find it and translate it into a system that holds everywhere — from logo to product, from poster to feed.",
       'about.cta1': 'Download CV →',
       'about.cta2': 'LinkedIn',
-      'work.eyebrow': '02 — What I do',
       'work.title': 'Three disciplines,<br>one obsession.',
       'work.card1.title': 'Graphic Design',
       'work.card1.desc': 'Visual identity, editorial and campaigns. Brand systems built to hold long after launch.',
@@ -849,9 +843,10 @@
       'work.card3.title': 'UX / UI',
       'work.card3.desc': 'User-centered product design, with the brand stitched into every wireframe from day one.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototyping in Figma</li><li>Interface design</li><li>Design systems</li>',
-      'projects.eyebrow': '01 — Selected work',
-      'cv.eyebrow': '03 — CV',
-      'cv.title': 'Where I have<br>worked.',
+      'work.title': 'Recent work.',
+      'work.meta': '3 cases · 2023 — 2026<br>branding · product · graphic',
+      'cv.title': 'Where I have worked.',
+      'cv.meta': '4 roles · 2022 — today<br>in-house and agency',
       'cv.edu': 'Education',
       'cv.tools': 'Tools',
       'cv.langs': 'Languages',
@@ -863,11 +858,9 @@
       'specs.base.v': 'Spain · Remote',
       'specs.langs': 'Languages',
       'specs.tools': 'Tools',
-      'projects.title': 'Recent<br>work.',
-      'projects.meta': '3 published cases · 2023 — 2026<br>branding, product, graphic.',
-      'contact.eyebrow': "04 — Let's talk",
-      'contact.title': "Got a<br>project?<br><span class=\"hl\">Let's talk.</span>",
-      'contact.tagline': "Tell me what you're working on — a project, an idea, a question. No endless forms, no canned replies: you'll hear back from me.",
+
+      'contact.title': 'Still have<br>a <span class="hl">question?</span>',
+      'contact.tagline': "Most of it is above. If something is missing — the full CV, references, availability or the detail of a case — write to me and I answer, not a form.",
       'contact.direct': 'Direct contact',
       'form.title': 'Send me a message',
       'form.name': 'Name',
@@ -879,13 +872,12 @@
       'form.success': '✓ Message sent. Talk soon.',
       'form.name.ph': 'Your name',
       'form.email.ph': 'you@email.com',
-      'form.subject.ph': "What's the project about?",
       'form.message.ph': 'Tell me briefly what you have in mind...',
       'form.subject.opt0': 'Pick a topic…',
-      'form.subject.opt1': 'Branding · Visual identity',
-      'form.subject.opt2': 'UX/UI · Digital product',
-      'form.subject.opt3': 'Digital marketing',
-      'form.subject.opt4': 'Other · Let’s talk',
+      'form.subject.opt1': 'Role or hiring process',
+      'form.subject.opt2': 'Questions about a case',
+      'form.subject.opt3': 'Freelance project',
+      'form.subject.opt4': 'Other',
     }
   };
 
