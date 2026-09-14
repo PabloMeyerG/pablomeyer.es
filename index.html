@@ -85,7 +85,7 @@
 <link rel="preload" as="image" href="assets/img/PabloMeyer-800.webp" type="image/webp" fetchpriority="high">
 <style>
   /* ================= HERO ================= */
-  #hero { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; padding: 118px 24px 30px; }
+  #hero { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; padding: 116px clamp(20px,4vw,48px) 30px; }
   #hero .container { display: flex; flex-direction: column; flex: 1; }
 
   .hero-stage { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -94,7 +94,7 @@
      Para cambiarla basta con sustituir el archivo: el encuadre lo fija
      object-position, pensado para un plano medio con la cara en el tercio superior. */
   .hero-photo {
-    position: absolute; right: -2%; bottom: 0; z-index: 0;
+    position: absolute; right: 0; bottom: 0; z-index: 0;
     width: clamp(300px, 33vw, 460px); height: 82%;
     overflow: hidden;
     /* El borde izquierdo se disuelve en el fondo: así el titular la cruza
@@ -110,7 +110,7 @@
   .hero-title { position: relative; z-index: 2; pointer-events: none; }
 
   .hero-aside { position: relative; z-index: 3; max-width: 390px; margin-top: 36px; }
-  .hero-desc { font-size: 15px; line-height: 1.65; color: #444; margin-bottom: 22px; }
+  .hero-desc { font-size: 16px; line-height: 1.6; color: var(--ink-soft); letter-spacing: -0.011em; margin-bottom: 24px; }
   .hero-desc strong { color: var(--black); font-weight: 700; }
   .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -122,7 +122,7 @@
   .about-specs dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
   .about-specs dd { font-size: 14px; font-weight: 600; line-height: 1.5; }
 
-  .about-body p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: #333; margin-bottom: var(--s-el); max-width: 640px; }
+  .about-body p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.65; color: var(--ink-soft); letter-spacing: -0.011em; margin-bottom: var(--s-el); max-width: 620px; }
   .about-body p:first-child { font-size: var(--t-lead); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; }
   .about-body strong { color: var(--black); font-weight: 700; }
   .about-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
@@ -162,7 +162,7 @@
   .discipline-card:hover .card-list li { color: var(--white); }
   .discipline-card:hover .card-desc { color: rgba(255,255,255,0.6); }
   .discipline-card:hover .card-num span,
-  .discipline-card:hover .card-list li::before { color: var(--yellow); }
+  .discipline-card:hover .card-list li::before { color: var(--accent); }
   .discipline-card:hover .card-list li { border-color: var(--rule-dark); }
 
   /* Las disciplinas ya no son sección propia: viven dentro de Sobre mí */
@@ -182,7 +182,7 @@
   .cv-org { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 4px; }
   .cv-role-title { font-size: 14px; font-weight: 600; color: var(--gray); margin-bottom: 16px; }
   .cv-tasks { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-  .cv-tasks li { font-size: 14px; line-height: 1.55; color: #444; display: flex; gap: 10px; }
+  .cv-tasks li { font-size: 14px; line-height: 1.55; color: var(--ink-soft); letter-spacing: -0.006em; display: flex; gap: 10px; }
   .cv-tasks li::before { content: '\2014'; color: var(--gray); flex-shrink: 0; }
 
   /* Pie del CV: formación, herramientas e idiomas en columnas con regla */
@@ -225,7 +225,7 @@
   .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.11em; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--rule); color: var(--gray); text-transform: uppercase; }
 
   /* La miniatura SIEMPRE visible: sin ella el portfolio no enseña trabajo */
-  .project-thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-light); }
+  .project-thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-light); border: 1px solid var(--rule); }
   .project-thumb img {
     width: 100%; height: 100%; object-fit: cover;
     filter: grayscale(1) contrast(1.02); transform: scale(1.06);
@@ -243,6 +243,9 @@
 
   /* ================= HABLEMOS ================= */
   #contact { background: var(--black); }
+  /* Sobre negro el amarillo se lee a 13.11:1: aquí es texto, no bloque */
+  #contact .hl { background: none; color: var(--accent); padding: 0; }
+  #contact .form-note { color: rgba(255,255,255,0.32); }
   .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
   .contact-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 20px; }
   .contact-title { font-size: clamp(40px, 5.2vw, 76px); font-weight: 900; letter-spacing: -0.038em; line-height: 0.96; color: var(--white); margin-bottom: var(--s-el); }
@@ -255,13 +258,13 @@
     border-bottom: 1px solid rgba(255,255,255,0.08);
     transition: color var(--dur-fast), gap var(--dur-fast) var(--ease);
   }
-  .contact-direct-link:hover { color: var(--yellow); gap: 20px; }
+  .contact-direct-link:hover { color: var(--accent); gap: 20px; }
   .link-icon {
     width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     transition: background var(--dur-fast), color var(--dur-fast);
   }
-  .contact-direct-link:hover .link-icon { background: var(--yellow); color: var(--black); }
+  .contact-direct-link:hover .link-icon { background: var(--accent); color: var(--black); }
 
   .contact-socials { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
   .social-btn {
@@ -273,7 +276,7 @@
   .social-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
   /* Contenedores en ángulo recto, controles en cápsula: esa es la regla */
-  .contact-form-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: clamp(24px, 3vw, 36px); }
+  .contact-form-card { background: rgba(255,255,255,0.03); border: 1px solid var(--rule-dark); padding: clamp(24px, 3vw, 36px); }
   .form-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 28px; }
   .fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
   .fg label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
@@ -283,7 +286,7 @@
     outline: none; width: 100%; transition: border-color var(--dur-fast), background var(--dur-fast);
   }
   .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.22); }
-  .fg input:focus, .fg textarea:focus { border-color: var(--yellow); background: rgba(255,255,255,0.09); }
+  .fg input:focus, .fg textarea:focus { border-color: var(--accent); background: rgba(255,255,255,0.09); }
   .fg textarea { min-height: 110px; resize: none; }
   .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .fg-select {
@@ -291,13 +294,13 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23F5D000' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
     background-repeat: no-repeat; background-position: right 16px center;
   }
-  .fg-select:focus { border-color: var(--yellow); background-color: rgba(255,255,255,0.09); }
+  .fg-select:focus { border-color: var(--accent); background-color: rgba(255,255,255,0.09); }
   .fg-select option { background: #1A1A18; color: var(--white); }
   .form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; gap: 16px; }
   .form-note { font-size: 12px; color: rgba(255,255,255,0.25); }
   #form-success {
     display: none; background: rgba(245,208,0,0.1); border: 1px solid rgba(245,208,0,0.25);
-    padding: 14px 18px; color: var(--yellow); font-size: 14px; font-weight: 600;
+    padding: 14px 18px; color: var(--accent); font-size: 14px; font-weight: 600;
     margin-top: 16px; text-align: center;
   }
 

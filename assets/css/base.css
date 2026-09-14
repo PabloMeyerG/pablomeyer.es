@@ -8,18 +8,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Color — neutro + un acento. El amarillo se gasta con cuentagotas */
-  --yellow: #F5D000;
-  --yellow-dark: #C9A900;
-  --black: #111110;
-  --gray: #6B6B6A;
-  --gray-light: #E8E7E2;
-  --bg: #EDECEA;
+  /* Blanco, negro y amarillo.
+     REGLA DE USO: el amarillo sobre blanco da 1.51:1 — no vale como
+     texto ni como marca fina. Solo como relleno con texto negro
+     encima (13.11:1). Sobre negro sí funciona como texto (13.11:1).
+     Para texto o iconos amarillos sobre blanco, usar --accent-ink. */
+  --accent: #F5D000;
+  --accent-deep: #C9A900;   /* hover de rellenos amarillos */
+  --accent-ink: #8F7600;    /* amarillo legible sobre blanco: 4.41:1 */
+  --accent-soft: #F5D000;   /* sobre negro el amarillo base ya es legible */
+  --black: #0A0A0A;
+  --gray: #6E6E73;
+  --gray-light: #F4F4F6;
+  --bg: #FFFFFF;
   --white: #FFFFFF;
+  --ink-soft: #45454A;
 
-  /* Regla editorial: el separador que estructura todo el sitio */
-  --rule: rgba(17, 17, 16, 0.14);
-  --rule-dark: rgba(255, 255, 255, 0.16);
+  /* Filete fino, no línea gruesa: es lo que da el aire de producto */
+  --rule: rgba(0, 0, 0, 0.09);
+  --rule-strong: rgba(0, 0, 0, 0.16);
+  --rule-dark: rgba(255, 255, 255, 0.13);
 
   /* Escala tipográfica */
   --font: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -47,21 +55,22 @@
   --dur-slow: 0.8s;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
 body {
   font-family: var(--font);
   background: var(--bg);
   color: var(--black);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 img { max-width: 100%; display: block; }
 
-::selection { background: var(--yellow); color: var(--black); }
+::selection { background: var(--accent); color: var(--black); }
 
-:focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; border-radius: 2px; }
 
 .skip-link {
   position: absolute; top: -60px; left: 16px; z-index: 300;
@@ -106,7 +115,7 @@ section { display: block; padding: var(--s-section) 24px; }
 .section-header .section-label { display: block; margin-bottom: 16px; }
 
 /* Resalte amarillo — reservado para la llamada a la acción */
-.hl { background: var(--yellow); color: var(--black); padding: 0.02em 0.1em; }
+.hl { background: var(--accent); color: var(--black); padding: 0.02em 0.1em; }
 
 /* ---------- Botones ---------- */
 .btn-primary, .btn-secondary {
@@ -115,34 +124,35 @@ section { display: block; padding: var(--s-section) 24px; }
   cursor: pointer; font-family: var(--font); border: none;
   transition: background var(--dur-fast), color var(--dur-fast), transform var(--dur-fast) var(--ease);
 }
-.btn-primary { background: var(--yellow); color: var(--black); }
-.btn-primary:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: var(--black); }
+.btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
 .btn-secondary { background: transparent; color: var(--black); font-weight: 600; border: 2px solid var(--black); }
 .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* ---------- Nav ---------- */
 nav {
-  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-  z-index: 100; width: calc(100% - 48px); max-width: var(--container);
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-radius: 50px; padding: 10px 14px;
+  position: fixed; top: 0; left: 0; right: 0; transform: none;
+  z-index: 100; width: 100%; max-width: none;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0; padding: 0 clamp(20px, 4vw, 48px); height: 56px;
   display: flex; align-items: center; justify-content: space-between;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  box-shadow: none;
 }
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
 .nav-logo-img { height: 32px; width: auto; display: block; transition: transform var(--dur-fast) var(--ease); }
 .nav-logo:hover .nav-logo-img { transform: scale(1.04); }
 .nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { text-decoration: none; color: var(--black); font-size: 14px; font-weight: 500; opacity: 0.45; transition: opacity var(--dur-fast); }
-.nav-links a:hover, .nav-links a.active { opacity: 1; font-weight: 700; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: 13px; font-weight: 500; letter-spacing: -0.005em; opacity: 0.55; transition: opacity var(--dur-fast); }
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
 .nav-right { display: flex; align-items: center; gap: 10px; }
 .nav-cta {
-  background: var(--yellow); color: var(--black); font-size: 14px; font-weight: 700;
-  padding: 10px 22px; border-radius: 50px; text-decoration: none;
+  background: var(--accent); color: var(--black); font-size: 13px; font-weight: 700;
+  padding: 8px 18px; border-radius: 50px; text-decoration: none;
   transition: background var(--dur-fast), transform var(--dur-fast) var(--ease);
 }
-.nav-cta:hover { background: var(--yellow-dark); transform: scale(1.03); }
+.nav-cta:hover { background: var(--accent-deep); transform: scale(1.03); }
 .lang-toggle {
   background: transparent; border: 1.5px solid rgba(0,0,0,0.15); color: var(--black);
   font-size: 11px; font-weight: 700; padding: 7px 11px; border-radius: 50px;
@@ -162,7 +172,7 @@ nav {
 .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .mobile-menu {
-  display: none; position: fixed; top: 74px; left: 50%;
+  display: none; position: fixed; top: 56px; left: 50%;
   transform: translateX(-50%) translateY(-8px);
   z-index: 99; width: calc(100% - 24px); max-width: var(--container);
   background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
@@ -184,7 +194,7 @@ nav {
 .infobar > div:first-child { border-left: none; padding-left: 0; }
 .infobar dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
 .infobar dd { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
-.infobar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow-dark); display: inline-block; margin-right: 7px; animation: pulse 2s ease-in-out infinite; }
+.infobar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-ink); display: inline-block; margin-right: 7px; animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 /* ---------- Revelado al scroll ----------
@@ -205,24 +215,24 @@ nav {
 footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
 .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-logo { font-size: 15px; font-weight: 700; color: var(--white); text-decoration: none; }
-.footer-logo em { font-style: normal; background: var(--yellow); color: var(--black); padding: 1px 8px; border-radius: 50px; }
+.footer-logo em { font-style: normal; background: var(--accent); color: var(--black); padding: 1px 8px; border-radius: 50px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--dur-fast); }
-.footer-links a:hover { color: var(--yellow); }
+.footer-links a:hover { color: var(--accent-soft); }
 
 /* ---------- Barra de progreso de lectura (páginas de caso) ---------- */
-.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--yellow); z-index: 200; transition: width 0.05s linear; }
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); z-index: 200; transition: width 0.05s linear; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   :root { --container: 100%; }
   .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
   section { padding: clamp(56px, 11vw, 76px) 20px; }
-  nav { width: calc(100% - 24px); top: 10px; padding: 8px 10px 8px 14px; }
+  nav { padding: 0 20px; height: 52px; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
-  .mobile-menu { display: block; }
+  .mobile-menu { display: block; top: 52px; width: calc(100% - 20px); border-radius: 16px; }
   .nav-logo-img { height: 28px; }
   .nav-cta { padding: 9px 18px; font-size: 13px; }
   .infobar { grid-template-columns: 1fr 1fr; }

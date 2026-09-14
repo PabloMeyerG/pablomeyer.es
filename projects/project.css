@@ -14,7 +14,7 @@
   color: rgba(255,255,255,0.45);
 }
 .case-topbar a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--dur-fast); }
-.case-topbar a:hover { color: var(--yellow); }
+.case-topbar a:hover { color: var(--accent); }
 
 .case-title {
   font-size: clamp(52px, 8.6vw, 132px); font-weight: 900; line-height: 0.88;
@@ -23,7 +23,7 @@
   margin-bottom: clamp(28px, 3vw, 40px);
 }
 /* La marca del proyecto es el único amarillo del hero */
-.title-mark { background: var(--yellow); color: var(--black); padding: 0.04em 0.2em; line-height: 1; }
+.title-mark { background: var(--accent); color: var(--black); padding: 0.04em 0.2em; line-height: 1; }
 .case-title .sep { color: rgba(255,255,255,0.4); font-weight: 400; }
 
 .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(48px, 6vw, 76px); }
@@ -91,7 +91,7 @@
 }
 .decision-card:first-child { border-left: none; }
 .decision-card:hover { background: rgba(255,255,255,0.05); }
-.decision-num { font-size: clamp(48px, 5vw, 84px); font-weight: 200; line-height: 0.85; letter-spacing: -0.05em; color: var(--yellow); margin-bottom: 26px; }
+.decision-num { font-size: clamp(48px, 5vw, 84px); font-weight: 200; line-height: 0.85; letter-spacing: -0.05em; color: var(--accent); margin-bottom: 26px; }
 .decision-title { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--white); line-height: 1.2; }
 .decision-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.6); }
 
@@ -154,7 +154,7 @@
 .process-title { font-size: 18px; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 10px; }
 .process-desc { font-size: var(--t-small); color: var(--gray); line-height: 1.6; transition: color var(--dur) var(--ease); }
 .process-card:hover { background: var(--black); color: var(--white); }
-.process-card:hover .process-num { color: var(--yellow); }
+.process-card:hover .process-num { color: var(--accent); }
 .process-card:hover .process-desc { color: rgba(255,255,255,0.6); }
 
 /* ---------- Siguiente proyecto ---------- */
@@ -181,10 +181,10 @@
   font-size: var(--t-small); color: rgba(255,255,255,0.45);
 }
 .next-project-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--dur-fast); }
-.next-project-bottom a:hover { color: var(--yellow); }
+.next-project-bottom a:hover { color: var(--accent); }
 
 /* ---------- CTA ---------- */
-.case-cta { background: var(--yellow); padding: clamp(56px, 7vw, 76px) 24px; }
+.case-cta { background: var(--accent); padding: clamp(56px, 7vw, 76px) 24px; }
 .case-cta-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 28px; }
 .case-cta-title { font-size: clamp(28px, 3.6vw, 46px); font-weight: 900; letter-spacing: -0.032em; line-height: 1.02; color: var(--black); }
 .case-cta-btn {
