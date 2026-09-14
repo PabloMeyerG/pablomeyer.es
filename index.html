@@ -81,264 +81,54 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
 <link rel="preload" as="image" href="assets/img/PabloMeyer-800.webp" type="image/webp" fetchpriority="high">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ================= HERO ================= */
+  #hero { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; padding: 118px 24px 30px; }
+  #hero .container { display: flex; flex-direction: column; flex: 1; }
 
-  :root {
-    --yellow: #F5D000;
-    --yellow-dark: #C9A900;
-    --black: #111110;
-    --gray: #6B6B6A;
-    --gray-light: #E8E7E2;
-    --bg: #EDECEA;
-    --white: #FFFFFF;
-    --font: 'Figtree', sans-serif;
-    --radius: 20px;
-    --radius-sm: 12px;
-    --rule: rgba(17,17,16,0.14);
-    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  .hero-stage { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+  /* La foto sangra hasta el pie del hero y el titular la cruza por delante.
+     Para cambiarla basta con sustituir el archivo: el encuadre lo fija
+     object-position, pensado para un plano medio con la cara en el tercio superior. */
+  .hero-photo {
+    position: absolute; right: -2%; bottom: 0; z-index: 0;
+    width: clamp(300px, 33vw, 460px); height: 82%;
+    overflow: hidden;
+    /* El borde izquierdo se disuelve en el fondo: así el titular la cruza
+       y sigue leyéndose, en vez de quedar cortado por un canto duro */
+    -webkit-mask-image: linear-gradient(95deg, transparent 0%, rgba(0,0,0,0.25) 20%, #000 58%);
+            mask-image: linear-gradient(95deg, transparent 0%, rgba(0,0,0,0.25) 20%, #000 58%);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;
+    filter: grayscale(1) contrast(1.12) brightness(1.06);
   }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  .hero-title { position: relative; z-index: 2; pointer-events: none; }
 
-  body { font-family: var(--font); background: var(--bg); color: var(--black); overflow-x: hidden; }
-
-  ::selection { background: var(--yellow); color: var(--black); }
-
-  /* Accesibilidad: foco visible con teclado */
-  :focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 3px; border-radius: 4px; }
-
-  .skip-link {
-    position: absolute; top: -60px; left: 16px; z-index: 300;
-    background: var(--black); color: var(--white); font-size: 13px; font-weight: 700;
-    padding: 12px 20px; border-radius: 0 0 12px 12px; text-decoration: none;
-    transition: top 0.2s;
-  }
-  .skip-link:focus { top: 0; }
-
-  /* Revelado al hacer scroll — en CSS, no en estilos inline desde JS,
-     para que prefers-reduced-motion pueda anularlo de verdad */
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-  .reveal.is-in { opacity: 1; transform: none; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    .fade-up, .reveal { opacity: 1 !important; transform: none !important; }
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    z-index: 100; width: calc(100% - 48px); max-width: 1180px;
-    background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px); border-radius: 50px;
-    padding: 10px 14px; display: flex; align-items: center;
-    justify-content: space-between; box-shadow: 0 2px 24px rgba(0,0,0,0.08);
-  }
-
-  .nav-logo { text-decoration: none; display: flex; align-items: center; }
-
-  .nav-logo-img {
-    height: 32px; width: auto; display: block;
-    transition: transform 0.15s ease;
-  }
-
-  .nav-logo:hover .nav-logo-img { transform: scale(1.04); }
-
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-
-  .nav-links a {
-    text-decoration: none; color: var(--black); font-size: 14px; font-weight: 500;
-    opacity: 0.45; transition: opacity 0.2s;
-  }
-
-  .nav-links a:hover, .nav-links a.active { opacity: 1; font-weight: 700; }
-
-  .nav-cta {
-    background: var(--yellow); color: var(--black); font-size: 14px; font-weight: 700;
-    padding: 10px 22px; border-radius: 50px; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .nav-cta:hover { background: var(--yellow-dark); transform: scale(1.03); }
-
-  .nav-right { display: flex; align-items: center; gap: 10px; }
-
-  .lang-toggle {
-    background: transparent; border: 1.5px solid rgba(0,0,0,0.15);
-    color: var(--black); font-size: 11px; font-weight: 700;
-    padding: 7px 11px; border-radius: 50px; cursor: pointer;
-    font-family: var(--font); letter-spacing: 0.1em;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-    min-width: 36px;
-  }
-  .lang-toggle:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-
-  /* Menú móvil */
-  .nav-burger {
-    display: none; background: transparent; border: none; cursor: pointer;
-    width: 40px; height: 40px; border-radius: 50%;
-    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-  }
-  .nav-burger span {
-    display: block; width: 18px; height: 2px; background: var(--black);
-    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
-  }
-  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu {
-    display: none; position: fixed; top: 74px; left: 50%; transform: translateX(-50%) translateY(-8px);
-    z-index: 99; width: calc(100% - 24px); max-width: 1180px;
-    background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-radius: 24px; padding: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  .mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-  .mobile-menu a {
-    display: block; text-decoration: none; color: var(--black);
-    font-size: 17px; font-weight: 700; padding: 14px 16px; border-radius: 14px;
-    transition: background 0.15s;
-  }
-  .mobile-menu a:hover, .mobile-menu a:active { background: rgba(0,0,0,0.05); }
-
-  /* SECTIONS — cada sección al menos pantalla completa */
-  section { display: block; padding: 112px 24px 96px; }
-
-  .container { width: 100%; max-width: 1180px; margin: 0 auto; }
-
-  /* HIGHLIGHT — banda baja, no tapa el punto de la í */
-  .hl {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 38%,
-      var(--yellow) 38%,
-      var(--yellow) 92%,
-      transparent 92%
-    );
-    display: inline;
-    padding: 0 0.04em;
-    -webkit-box-decoration-break: clone; box-decoration-break: clone;
-  }
-
-  /* BUTTONS */
-  .btn-primary {
-    background: var(--yellow); color: var(--black); font-size: 15px; font-weight: 700;
-    padding: 14px 28px; border-radius: 50px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; font-family: var(--font);
-  }
-
-  .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-2px); }
-
-  .btn-secondary {
-    background: transparent; color: var(--black); font-size: 15px; font-weight: 600;
-    padding: 14px 28px; border-radius: 50px; border: 2px solid var(--black);
-    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-  }
-
-  .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
-
-  /* HERO — pantalla completa al cargar */
-  #hero { background: var(--bg); padding: 124px 24px 72px; }
-
-  .hero-inner {
-    display: grid; grid-template-columns: minmax(0,1fr) clamp(280px, 26vw, 400px);
-    gap: clamp(32px, 4vw, 68px); align-items: end; width: 100%;
-  }
-
-  .hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--gray); margin-bottom: 20px; text-transform: uppercase; }
-
-  .hero-title {
-    font-size: clamp(56px, 9.4vw, 140px); font-weight: 900;
-    line-height: 0.84; letter-spacing: -0.045em; margin-bottom: 32px;
-  }
-
-  /* Tercera línea en contorno: acento gráfico sin gastar amarillo */
-  .hero-title .line-gray { color: #B0AEAA; }
-  @supports (-webkit-text-stroke: 1px #000) {
-    .hero-title .line-gray {
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: clamp(1.5px, 0.19vw, 3px) var(--black);
-    }
-  }
-
-  .hero-desc { font-size: 16px; line-height: 1.7; color: #444; max-width: 460px; margin-bottom: 36px; }
-
+  .hero-aside { position: relative; z-index: 3; max-width: 390px; margin-top: 36px; }
+  .hero-desc { font-size: 15px; line-height: 1.65; color: #444; margin-bottom: 22px; }
   .hero-desc strong { color: var(--black); font-weight: 700; }
+  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
-  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  /* ================= SOBRE MÍ ================= */
+  .about-grid { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
 
-  /* Lista de disciplinas al pie del hero (ref. Studio 99) */
-  .hero-disciplines { display: flex; flex-direction: column; gap: 2px; }
-  .hero-disciplines li {
-    list-style: none; font-size: clamp(17px, 1.5vw, 21px); font-weight: 700;
-    letter-spacing: -0.015em; color: #B5B3AE; transition: color 0.3s var(--ease);
-  }
-  .hero-disciplines li:first-child { color: var(--black); }
-  .hero-disciplines:hover li { color: #B5B3AE; }
-  .hero-disciplines li:hover { color: var(--black); }
-
-  .hero-photo-wrap { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
-
-  /* Sin esquinas redondeadas: la foto es un bloque, como en las referencias */
-  .hero-photo { width: 100%; aspect-ratio: 4/5; background: var(--gray-light); overflow: hidden; }
-
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-start; }
-
-  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; padding: 7px 13px; border-radius: 50px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
-
-  .badge-available { background: transparent; color: var(--black); border: 1.5px solid var(--gray-light); }
-
-  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow-dark); animation: pulse 2s ease-in-out infinite; }
-
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-  .badge-location { background: var(--white); color: var(--black); border: 1.5px solid var(--gray-light); }
-
-  /* SOBRE MI */
-  #sobre-mi { background: var(--bg); }
-
-  .about-grid {
-    display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-    gap: clamp(36px, 6vw, 96px); align-items: start;
-  }
-
-  /* Ficha técnica en columna, estilo pie de página editorial */
   .about-specs { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
-  .about-specs div { padding: 14px 0; border-bottom: 1px solid var(--rule); }
-  .about-specs dt { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
-  .about-specs dd { font-size: 14px; font-weight: 600; color: var(--black); line-height: 1.5; }
+  .about-specs > div { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .about-specs dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
+  .about-specs dd { font-size: 14px; font-weight: 600; line-height: 1.5; }
 
-  .about-body p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: #333; margin-bottom: 24px; max-width: 640px; }
-  .about-body p:first-child { font-size: clamp(21px, 2.1vw, 28px); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; }
-
+  .about-body p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: #333; margin-bottom: var(--s-el); max-width: 640px; }
+  .about-body p:first-child { font-size: var(--t-lead); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; }
   .about-body strong { color: var(--black); font-weight: 700; }
+  .about-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
 
-  .about-buttons { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
-
-  .about-buttons { margin-top: 40px; }
-
-  /* QUE HAGO */
-  #que-hago { background: var(--bg); }
-
-  .section-header { margin-bottom: clamp(40px, 5vw, 68px); }
-
-  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
-
-  .section-title { font-size: clamp(40px, 5.6vw, 88px); font-weight: 900; line-height: 0.94; letter-spacing: -0.038em; }
-
-  .disciplines-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  }
+  /* ================= QUÉ HAGO ================= */
+  .disciplines-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 
   .discipline-card {
     padding: clamp(28px, 3vw, 44px) clamp(20px, 2.2vw, 34px) clamp(32px, 3.4vw, 52px);
@@ -347,29 +137,25 @@
   }
   .discipline-card:first-child { border-left: none; }
 
-  /* Numeral fino y enorme: el contraste de peso hace el trabajo, no el color */
+  /* El contraste de peso hace el trabajo, no el color */
   .card-num {
-    font-size: clamp(58px, 6.4vw, 108px); font-weight: 200; line-height: 0.82;
-    letter-spacing: -0.05em; color: var(--black); margin-bottom: clamp(24px, 2.6vw, 40px);
-    transition: color 0.45s var(--ease);
+    font-size: var(--t-num); font-weight: 200; line-height: 0.82; letter-spacing: -0.05em;
+    margin-bottom: clamp(24px, 2.6vw, 40px); transition: color 0.45s var(--ease);
   }
   .card-num span { font-size: 0.2em; font-weight: 700; letter-spacing: 0.06em; vertical-align: super; color: var(--gray); }
 
-  .card-title { font-size: clamp(19px, 1.7vw, 24px); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 12px; }
-
+  .card-title { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 12px; }
   .card-desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 26px; transition: color 0.45s var(--ease); }
-
   .card-list { list-style: none; }
-
   .card-list li {
-    font-size: 13px; color: var(--black); padding: 9px 0;
-    border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 10px;
+    font-size: var(--t-small); padding: 9px 0; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 10px;
     transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
   }
   .card-list li:last-child { border-bottom: none; }
   .card-list li::before { content: '\2192'; color: var(--gray); font-size: 12px; flex-shrink: 0; transition: color 0.45s var(--ease); }
 
-  /* La columna activa se invierte, como en la referencia de Facture */
+  /* La columna activa se invierte (ref. Facture) */
   .discipline-card:hover, .discipline-card:focus-within { background: var(--black); color: var(--white); }
   .discipline-card:hover .card-num,
   .discipline-card:hover .card-title,
@@ -377,19 +163,46 @@
   .discipline-card:hover .card-desc { color: rgba(255,255,255,0.6); }
   .discipline-card:hover .card-num span,
   .discipline-card:hover .card-list li::before { color: var(--yellow); }
-  .discipline-card:hover .card-list li { border-color: rgba(255,255,255,0.16); }
+  .discipline-card:hover .card-list li { border-color: var(--rule-dark); }
 
-  /* PROYECTOS — puede crecer por encima del viewport por la lista */
-  #proyectos { background: var(--bg); }
-  #proyectos .container { width: 100%; }
+  /* Las disciplinas ya no son sección propia: viven dentro de Sobre mí */
+  .disciplines-wrap { margin-top: clamp(48px, 6vw, 80px); }
 
-  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(40px, 4vw, 60px); gap: 40px; }
+  /* ================= CV ================= */
+  #cv { background: var(--bg); }
 
-  .projects-title { font-size: clamp(44px, 6.4vw, 96px); font-weight: 900; line-height: 0.9; letter-spacing: -0.042em; }
+  .cv-roles { list-style: none; border-top: 1px solid var(--rule); }
+  .cv-role {
+    display: grid; grid-template-columns: 200px minmax(0,1fr);
+    gap: clamp(20px, 3vw, 56px);
+    padding: clamp(24px, 2.6vw, 34px) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cv-when { font-family: var(--mono); font-size: 12px; color: var(--gray); padding-top: 6px; }
+  .cv-org { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 4px; }
+  .cv-role-title { font-size: 14px; font-weight: 600; color: var(--gray); margin-bottom: 16px; }
+  .cv-tasks { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .cv-tasks li { font-size: 14px; line-height: 1.55; color: #444; display: flex; gap: 10px; }
+  .cv-tasks li::before { content: '\2014'; color: var(--gray); flex-shrink: 0; }
 
-  .projects-meta { text-align: right; padding-top: 8px; }
+  /* Pie del CV: formación, herramientas e idiomas en columnas con regla */
+  .cv-foot { display: grid; grid-template-columns: 1.5fr 1fr 1fr; border-bottom: 1px solid var(--rule); }
+  .cv-foot > div { padding: clamp(24px, 2.6vw, 36px) clamp(18px, 2vw, 30px); border-left: 1px solid var(--rule); }
+  .cv-foot > div:first-child { border-left: none; padding-left: 0; }
+  .cv-foot h3 { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .cv-edu { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+  .cv-edu strong { display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 4px; }
+  .cv-edu span { font-size: var(--t-small); color: var(--gray); }
+  .cv-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cv-list li { font-size: 14px; font-weight: 600; }
+  .cv-list li span { font-weight: 500; color: var(--gray); }
+  .cv-download { margin-top: clamp(32px, 4vw, 48px); }
 
-  .projects-meta p { font-size: 13px; color: var(--gray); line-height: 1.6; font-family: 'Courier New', monospace; }
+  /* ================= PROYECTOS ================= */
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: clamp(40px, 4vw, 60px); }
+  .projects-title { font-size: var(--t-h1); font-weight: 900; line-height: 0.9; letter-spacing: -0.042em; }
+  .projects-meta { text-align: right; }
+  .projects-meta p { font-family: var(--mono); font-size: 12px; color: var(--gray); line-height: 1.6; }
 
   .projects-list { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
 
@@ -399,184 +212,114 @@
     align-items: center; gap: clamp(18px, 2.6vw, 44px);
     padding: 20px 0; border-top: 1px solid var(--rule);
     text-decoration: none; color: var(--black);
-    transition: padding-left 0.5s var(--ease);
+    transition: padding-left var(--dur) var(--ease);
   }
   .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 16px; }
 
-  .project-index { font-size: 12px; color: var(--gray); font-family: 'Courier New', monospace; align-self: start; padding-top: 6px; }
+  /* min-width:0 evita que un nombre largo desborde la columna del grid */
+  .project-info { min-width: 0; }
 
-  .project-name { font-size: clamp(26px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.032em; line-height: 1.02; margin-bottom: 12px; }
-
+  .project-index { font-family: var(--mono); font-size: 12px; color: var(--gray); align-self: start; padding-top: 6px; }
+  .project-name { font-size: var(--t-h2); font-weight: 800; letter-spacing: -0.032em; line-height: 1.02; margin-bottom: 12px; }
   .project-tags { display: flex; gap: 7px; flex-wrap: wrap; }
-
   .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.11em; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--rule); color: var(--gray); text-transform: uppercase; }
 
   /* La miniatura SIEMPRE visible: sin ella el portfolio no enseña trabajo */
   .project-thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-light); }
   .project-thumb img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    width: 100%; height: 100%; object-fit: cover;
     filter: grayscale(1) contrast(1.02); transform: scale(1.06);
-    transition: filter 0.55s var(--ease), transform 0.8s var(--ease);
+    transition: filter 0.55s var(--ease), transform var(--dur-slow) var(--ease);
   }
   .project-row:hover .project-thumb img,
   .project-row:focus .project-thumb img,
   .project-row:focus-visible .project-thumb img { filter: none; transform: scale(1); }
 
   .project-side { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; text-align: right; }
-
-  .project-type { font-size: 12px; color: var(--gray); line-height: 1.5; font-family: 'Courier New', monospace; }
-
-  .project-cta { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; }
-
-  .project-arrow { transition: transform 0.45s var(--ease); font-size: 17px; display: inline-block; }
+  .project-type { font-family: var(--mono); font-size: 12px; color: var(--gray); line-height: 1.5; }
+  .project-cta { display: flex; align-items: center; gap: 8px; font-size: var(--t-small); font-weight: 700; }
+  .project-arrow { display: inline-block; font-size: 17px; transition: transform 0.45s var(--ease); }
   .project-row:hover .project-arrow, .project-row:focus .project-arrow, .project-row:focus-visible .project-arrow { transform: translateX(8px); }
 
-  /* HABLEMOS */
-  #hablemos { background: var(--black); }
-
-  .contact-wrap { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-
-  .contact-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 20px; }
-
-  .contact-title { font-size: clamp(44px, 5vw, 68px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.0; color: var(--white); margin-bottom: 24px; }
-
-  /* En la sección negra el highlight vuelve a ser sólido para que se lea bien */
-  .contact-title .hl {
-    background: var(--yellow);
-    color: var(--black);
-    padding: 0.02em 0.1em;
-    border-radius: 0;
-  }
-
-  .contact-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 44px; max-width: 320px; }
-
-  .contact-direct-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 8px; }
+  /* ================= HABLEMOS ================= */
+  #contact { background: var(--black); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
+  .contact-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 20px; }
+  .contact-title { font-size: clamp(40px, 5.2vw, 76px); font-weight: 900; letter-spacing: -0.038em; line-height: 0.96; color: var(--white); margin-bottom: var(--s-el); }
+  .contact-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 44px; max-width: 340px; }
+  .contact-direct-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 8px; }
 
   .contact-direct-link {
     display: flex; align-items: center; gap: 14px; text-decoration: none;
     color: var(--white); font-size: 15px; font-weight: 600; padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s, gap 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color var(--dur-fast), gap var(--dur-fast) var(--ease);
   }
-
   .contact-direct-link:hover { color: var(--yellow); gap: 20px; }
-
   .link-icon {
     width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    transition: background 0.2s, color 0.2s;
+    transition: background var(--dur-fast), color var(--dur-fast);
   }
-
   .contact-direct-link:hover .link-icon { background: var(--yellow); color: var(--black); }
 
   .contact-socials { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
-
   .social-btn {
     display: flex; align-items: center; gap: 7px; text-decoration: none;
-    color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.5); font-size: var(--t-small); font-weight: 600;
     padding: 9px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50px;
-    transition: color 0.2s, border-color 0.2s;
+    transition: color var(--dur-fast), border-color var(--dur-fast);
   }
-
   .social-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
-  .contact-form-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius); padding: 32px;
-  }
-
+  /* Contenedores en ángulo recto, controles en cápsula: esa es la regla */
+  .contact-form-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: clamp(24px, 3vw, 36px); }
   .form-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 28px; }
-
   .fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
-
-  .fg label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
-
-  .fg input, .fg textarea {
+  .fg label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+  .fg input, .fg textarea, .fg-select {
     background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px; padding: 13px 16px; font-family: var(--font); font-size: 15px;
-    color: var(--white); outline: none; transition: border-color 0.2s, background 0.2s; resize: none; width: 100%;
+    padding: 13px 16px; font-family: var(--font); font-size: 15px; color: var(--white);
+    outline: none; width: 100%; transition: border-color var(--dur-fast), background var(--dur-fast);
   }
-
   .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.22); }
-
   .fg input:focus, .fg textarea:focus { border-color: var(--yellow); background: rgba(255,255,255,0.09); }
-
-  .fg textarea { min-height: 110px; }
-
+  .fg textarea { min-height: 110px; resize: none; }
   .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
   .fg-select {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px; padding: 13px 16px; font-family: var(--font); font-size: 15px;
-    color: var(--white); outline: none; transition: border-color 0.2s, background 0.2s; width: 100%;
-    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer; padding-right: 42px;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23F5D000' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
     background-repeat: no-repeat; background-position: right 16px center;
-    padding-right: 42px; cursor: pointer;
   }
   .fg-select:focus { border-color: var(--yellow); background-color: rgba(255,255,255,0.09); }
   .fg-select option { background: #1A1A18; color: var(--white); }
-
   .form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; gap: 16px; }
-
   .form-note { font-size: 12px; color: rgba(255,255,255,0.25); }
-
   #form-success {
     display: none; background: rgba(245,208,0,0.1); border: 1px solid rgba(245,208,0,0.25);
-    border-radius: 10px; padding: 14px 18px; color: var(--yellow); font-size: 14px; font-weight: 600;
+    padding: 14px 18px; color: var(--yellow); font-size: 14px; font-weight: 600;
     margin-top: 16px; text-align: center;
   }
 
-  /* FOOTER */
-  footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
-
-  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-
-  .footer-logo { font-size: 15px; font-weight: 700; color: var(--white); text-decoration: none; }
-
-  .footer-logo em { font-style: normal; background: var(--yellow); color: var(--black); padding: 1px 8px; border-radius: 50px; }
-
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
-
-  .footer-links { display: flex; gap: 24px; }
-
-  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-
-  .footer-links a:hover { color: var(--yellow); }
-
-  /* ANIMATIONS */
-  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* RESPONSIVE */
+  /* ================= RESPONSIVE ================= */
   @media (max-width: 900px) {
-    /* En móvil dejamos respirar el contenido sin forzar 100vh — evita huecos enormes */
-    section { padding: 92px 20px 76px; }
-    #hero { padding: 100px 20px 56px; }
-
-    nav { width: calc(100% - 24px); top: 10px; padding: 8px 10px 8px 14px; }
-    .nav-links { display: none; }
-    .nav-burger { display: flex; }
-    .mobile-menu { display: block; }
-    .nav-logo-img { height: 28px; }
-    .nav-cta { padding: 9px 18px; font-size: 13px; }
-
-    .hero-inner { grid-template-columns: 1fr; gap: 34px; }
-    .hero-title { font-size: clamp(46px, 13.5vw, 76px); }
-    .hero-desc { font-size: 15px; max-width: 100%; margin-bottom: 30px; }
-    .hero-buttons { margin-bottom: 34px; }
-    .hero-disciplines li { font-size: 17px; }
-    .hero-photo { aspect-ratio: 4/5; max-width: 240px; }
-
-    .section-header { margin-bottom: 36px; }
-    .section-title, .projects-title { font-size: clamp(36px, 9vw, 52px); }
+    #hero { padding: 100px 20px 24px; }
+    .hero-title { font-size: clamp(46px, 13.5vw, 76px); mix-blend-mode: normal; }
+    /* En móvil la foto deja de superponerse: pasa a bloque propio */
+    .hero-photo { position: static; width: 100%; max-width: 260px; height: auto; aspect-ratio: 4/5; margin-top: 28px; }
+    .hero-aside { max-width: 100%; margin-top: 26px; }
 
     .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    .about-specs { max-width: 380px; }
     .about-body p { font-size: 16px; }
     .about-body p:first-child { font-size: 19px; }
-    .about-specs { max-width: 380px; }
 
-    /* En móvil las columnas se apilan: la regla pasa de vertical a horizontal */
+    .cv-role { grid-template-columns: 1fr; gap: 10px; }
+    .cv-when { padding-top: 0; }
+    .cv-foot { grid-template-columns: 1fr; border-bottom: none; }
+    .cv-foot > div { border-left: none; border-bottom: 1px solid var(--rule); padding: 24px 0; }
+    .cv-download .btn-primary { width: 100%; justify-content: center; }
+
     .disciplines-grid { grid-template-columns: 1fr; border-bottom: none; }
     .discipline-card { border-left: none; border-bottom: 1px solid var(--rule); padding: 30px 0 34px; }
     .card-num { font-size: 62px; margin-bottom: 18px; }
@@ -587,13 +330,9 @@
     .discipline-card:hover .card-list li { border-color: var(--rule); }
 
     .projects-header { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
-    .projects-meta { text-align: left; padding-top: 0; }
-
+    .projects-meta { text-align: left; }
     /* La imagen manda en móvil: va arriba y a todo el ancho */
-    .project-row {
-      grid-template-columns: 1fr; gap: 16px; padding: 26px 0;
-      align-items: stretch;
-    }
+    .project-row { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; align-items: stretch; }
     .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 0; }
     .project-index { display: none; }
     .project-thumb { order: -1; aspect-ratio: 16/10; }
@@ -602,29 +341,17 @@
     .project-side { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 12px; width: 100%; }
 
     .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
-    .contact-title { font-size: clamp(38px, 10vw, 56px); }
     .contact-tagline { margin-bottom: 36px; max-width: 100%; }
-    .contact-form-card { padding: 24px 20px; }
     .fg-row { grid-template-columns: 1fr; gap: 0; }
     .form-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     .form-footer .btn-primary { width: 100%; justify-content: center; }
-    .contact-direct-link { font-size: 14px; gap: 12px; padding: 12px 0; }
-    .contact-socials { gap: 8px; }
-    .social-btn { padding: 8px 14px; font-size: 12px; }
-
-    .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
   }
 
   @media (max-width: 480px) {
-    section { padding: 80px 16px 48px; }
     .hero-title { font-size: clamp(42px, 12vw, 58px); }
-    .hero-buttons { gap: 10px; }
-    .hero-buttons .btn-primary, .hero-buttons .btn-secondary { padding: 12px 20px; font-size: 14px; }
-    .about-buttons { flex-direction: column; gap: 10px; align-items: stretch; }
+    .about-buttons { flex-direction: column; align-items: stretch; }
     .about-buttons .btn-primary, .about-buttons .btn-secondary { justify-content: center; }
-    .project-row { padding: 22px 0; }
     .project-name { font-size: 24px; }
-    .tag { font-size: 9px; padding: 3px 8px; }
   }
 </style>
 </head>
@@ -639,13 +366,14 @@
     <img src="assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img" width="32" height="32">
   </a>
   <ul class="nav-links">
-    <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
-    <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
-    <li><a href="#hablemos" data-i18n="nav.contact">Contacto</a></li>
+    <li><a href="#work" data-i18n="nav.work">Work</a></li>
+    <li><a href="#about" data-i18n="nav.about">About</a></li>
+    <li><a href="#cv" data-i18n="nav.cv">CV</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
-    <a href="#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
     <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -653,106 +381,50 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
-  <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
-  <a href="#hablemos" data-i18n="nav.contact">Contacto</a>
+  <a href="#work" data-i18n="nav.work">Work</a>
+  <a href="#about" data-i18n="nav.about">About</a>
+  <a href="#cv" data-i18n="nav.cv">CV</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
 </div>
 
 <section id="hero">
   <div class="container">
-    <div class="hero-inner">
-      <div>
-        <h1 class="hero-title fade-up" data-i18n="hero.title">
-          Diseño<br>Gráfico<br>
-          Marketing<br>
-          <span class="line-gray">&amp; UX/UI</span>
-        </h1>
+    <div class="hero-stage">
+      <div class="hero-photo fade-up">
+        <picture>
+          <source srcset="assets/img/PabloMeyer-800.webp" type="image/webp">
+          <img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer, diseñador gráfico y UX/UI" width="800" height="1067" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+
+      <h1 class="hero-title display fade-up" data-i18n="hero.title">
+        Diseño<br>Gráfico<br>Marketing<br><span class="outline">&amp; UX/UI</span>
+      </h1>
+
+      <div class="hero-aside">
         <p class="hero-desc fade-up" data-i18n="hero.desc">Soy <strong>Pablo Meyer</strong>, diseñador gráfico y UX/UI. Hago marcas y productos digitales que se entienden a la primera — branding, comunicación y UX/UI que resuelven, no decoran.</p>
         <div class="hero-buttons fade-up">
-          <a href="#proyectos" class="btn-primary" data-i18n="hero.cta1">Ver Proyectos →</a>
+          <a href="#work" class="btn-primary" data-i18n="hero.cta1">Ver Proyectos →</a>
           <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary" data-i18n="hero.cta2">Descargar CV</a>
         </div>
-        <ul class="hero-disciplines fade-up" data-i18n="hero.disciplines">
-          <li>Branding</li>
-          <li>UX / UI</li>
-          <li>Marketing digital</li>
-        </ul>
-      </div>
-      <div class="hero-photo-wrap fade-up">
-        <div class="hero-photo">
-          <picture><source srcset="assets/img/PabloMeyer-800.webp" type="image/webp"><img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer, diseñador gráfico y UX/UI" width="800" height="1067" fetchpriority="high" decoding="async"></picture>
-        </div>
-        <div class="hero-badges">
-          <span class="badge badge-available"><span class="badge-dot"></span><span data-i18n="hero.available">Disponible para proyectos</span></span>
-          <span class="badge badge-location" data-i18n="badge.location">España · Remoto</span>
-          <span class="badge badge-location">ES · DE · EN</span>
-        </div>
       </div>
     </div>
+
+    <dl class="infobar fade-up">
+      <div><dt data-i18n="info.status">Estado</dt><dd><span class="dot"></span><span data-i18n="hero.available">Disponible</span></dd></div>
+      <div><dt data-i18n="specs.base">Base</dt><dd data-i18n="specs.base.v">España · Remoto</dd></div>
+      <div><dt data-i18n="specs.langs">Idiomas</dt><dd>ES · DE · EN</dd></div>
+      <div><dt data-i18n="info.disciplines">Disciplinas</dt><dd data-i18n="info.disciplines.v">Branding · UX/UI · Marketing</dd></div>
+    </dl>
   </div>
 </section>
 
-<section id="sobre-mi">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-label" data-i18n="about.eyebrow">01 — Sobre mí</p>
-      <h2 class="section-title" data-i18n="about.title">Hola,<br>soy Pablo.</h2>
-    </div>
-
-    <div class="about-grid">
-      <dl class="about-specs">
-        <div><dt data-i18n="specs.role">Perfil</dt><dd data-i18n="specs.role.v">Diseñador gráfico y UX/UI</dd></div>
-        <div><dt data-i18n="specs.base">Base</dt><dd data-i18n="specs.base.v">España · Remoto</dd></div>
-        <div><dt data-i18n="specs.langs">Idiomas</dt><dd>Español · Deutsch · English</dd></div>
-        <div><dt data-i18n="specs.tools">Herramientas</dt><dd>Figma · Adobe CC · HTML/CSS</dd></div>
-      </dl>
-      <div class="about-body">
-        <p data-i18n="about.p1">Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.</p>
-        <p data-i18n="about.p2">Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.</p>
-        <div class="about-buttons">
-          <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary" data-i18n="about.cta1">Descargar CV →</a>
-          <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="btn-secondary" data-i18n="about.cta2">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="que-hago">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-label" data-i18n="work.eyebrow">02 — Qué hago</p>
-      <h2 class="section-title" data-i18n="work.title">Tres disciplinas,<br>una misma obsesión.</h2>
-    </div>
-    <div class="disciplines-grid">
-      <div class="discipline-card">
-        <p class="card-num">01<span>/03</span></p>
-        <h3 class="card-title" data-i18n="work.card1.title">Diseño Gráfico</h3>
-        <p class="card-desc" data-i18n="work.card1.desc">Identidad visual, editorial y campañas. Sistemas de marca pensados para sostenerse mucho más allá del lanzamiento.</p>
-        <ul class="card-list" data-i18n="work.card1.list"><li>Identidad visual</li><li>Editorial &amp; cartelería</li><li>Packaging</li><li>Sistemas de marca</li></ul>
-      </div>
-      <div class="discipline-card">
-        <p class="card-num">02<span>/03</span></p>
-        <h3 class="card-title" data-i18n="work.card2.title">Marketing Digital</h3>
-        <p class="card-desc" data-i18n="work.card2.desc">Estrategia, contenido y campañas para que la marca llegue a quien tiene que llegar y no se diluya por el camino.</p>
-        <ul class="card-list" data-i18n="work.card2.list"><li>Contenido para redes</li><li>Estrategia de marca</li><li>Campañas digitales</li><li>Email &amp; landing</li></ul>
-      </div>
-      <div class="discipline-card">
-        <p class="card-num">03<span>/03</span></p>
-        <h3 class="card-title" data-i18n="work.card3.title">UX / UI</h3>
-        <p class="card-desc" data-i18n="work.card3.desc">Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.</p>
-        <ul class="card-list" data-i18n="work.card3.list"><li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="proyectos">
+<section id="work">
   <div class="container">
     <div class="projects-header">
       <div>
-        <p class="section-label" data-i18n="projects.eyebrow">03 — Proyectos seleccionados</p>
-        <h2 class="projects-title" data-i18n="projects.title">Trabajo<br>reciente.</h2>
+        <p class="section-label" data-i18n="projects.eyebrow">01 — Trabajo seleccionado</p>
+        <h2 class="projects-title fade-up" data-i18n="projects.title">Trabajo<br>reciente.</h2>
       </div>
       <div class="projects-meta"><p data-i18n="projects.meta">3 casos publicados · 2023 — 2026<br>branding, producto, gráfica.</p></div>
     </div>
@@ -812,7 +484,118 @@
   </div>
 </section>
 
-<section id="hablemos">
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label" data-i18n="about.eyebrow">02 — Sobre mí</p>
+      <h2 class="section-title fade-up" data-i18n="about.title">Hola,<br>soy Pablo.</h2>
+    </div>
+
+    <div class="about-grid">
+      <dl class="about-specs">
+        <div><dt data-i18n="specs.role">Perfil</dt><dd data-i18n="specs.role.v">Diseñador gráfico y UX/UI</dd></div>
+        <div><dt data-i18n="specs.base">Base</dt><dd data-i18n="specs.base.v">España · Remoto</dd></div>
+        <div><dt data-i18n="specs.langs">Idiomas</dt><dd>Español · Deutsch · English</dd></div>
+        <div><dt data-i18n="specs.tools">Herramientas</dt><dd>Figma · Adobe CC · HTML/CSS</dd></div>
+      </dl>
+      <div class="about-body">
+        <p data-i18n="about.p1">Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.</p>
+        <p data-i18n="about.p2">Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.</p>
+        <div class="about-buttons">
+          <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary" data-i18n="about.cta1">Descargar CV →</a>
+          <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="btn-secondary" data-i18n="about.cta2">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="disciplines-wrap fade-up">
+      <div class="disciplines-grid">
+      <div class="discipline-card">
+        <p class="card-num">01<span>/03</span></p>
+        <h3 class="card-title" data-i18n="work.card1.title">Diseño Gráfico</h3>
+        <p class="card-desc" data-i18n="work.card1.desc">Identidad visual, editorial y campañas. Sistemas de marca pensados para sostenerse mucho más allá del lanzamiento.</p>
+        <ul class="card-list" data-i18n="work.card1.list"><li>Identidad visual</li><li>Editorial &amp; cartelería</li><li>Packaging</li><li>Sistemas de marca</li></ul>
+      </div>
+      <div class="discipline-card">
+        <p class="card-num">02<span>/03</span></p>
+        <h3 class="card-title" data-i18n="work.card2.title">Marketing Digital</h3>
+        <p class="card-desc" data-i18n="work.card2.desc">Estrategia, contenido y campañas para que la marca llegue a quien tiene que llegar y no se diluya por el camino.</p>
+        <ul class="card-list" data-i18n="work.card2.list"><li>Contenido para redes</li><li>Estrategia de marca</li><li>Campañas digitales</li><li>Email &amp; landing</li></ul>
+      </div>
+      <div class="discipline-card">
+        <p class="card-num">03<span>/03</span></p>
+        <h3 class="card-title" data-i18n="work.card3.title">UX / UI</h3>
+        <p class="card-desc" data-i18n="work.card3.desc">Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.</p>
+        <ul class="card-list" data-i18n="work.card3.list"><li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label fade-up" data-i18n="cv.eyebrow">03 — CV</p>
+      <h2 class="section-title fade-up" data-i18n="cv.title">Dónde he<br>trabajado.</h2>
+    </div>
+
+    <ol class="cv-roles">
+      <li class="cv-role fade-up">
+        <div class="cv-when">nov 2025 — presente</div>
+        <div>
+          <h3 class="cv-org">Xtone · Porcelanosa Grupo</h3>
+          <p class="cv-role-title">Diseñador gráfico y digital</p>
+          <ul class="cv-tasks"><li>Diseño de material gráfico y creatividades para RRSS y campañas digitales.</li><li>Desarrollo de piezas de packaging y merchandising corporativo.</li><li>Coherencia visual de la marca en todos los formatos y puntos de contacto.</li></ul>
+        </div>
+      </li>
+      <li class="cv-role fade-up">
+        <div class="cv-when">ago 2025 — nov 2025</div>
+        <div>
+          <h3 class="cv-org">Montosa</h3>
+          <p class="cv-role-title">Diseñador gráfico</p>
+          <ul class="cv-tasks"><li>Diseño de packaging, cartelería y material corporativo.</li><li>Maquetación de presentaciones comerciales y materiales internos.</li><li>Edición de vídeo para comunicación interna y externa.</li></ul>
+        </div>
+      </li>
+      <li class="cv-role fade-up">
+        <div class="cv-when">ago 2024 — ago 2025</div>
+        <div>
+          <h3 class="cv-org">Educa Projects</h3>
+          <p class="cv-role-title">Diseñador gráfico y marketing visual</p>
+          <ul class="cv-tasks"><li>Rediseño y adaptación de la identidad visual de la marca.</li><li>Gestión y seguimiento de campañas en Meta Ads.</li><li>Edición de vídeo y contenido visual para redes sociales.</li></ul>
+        </div>
+      </li>
+      <li class="cv-role fade-up">
+        <div class="cv-when">feb 2022 — abr 2022</div>
+        <div>
+          <h3 class="cv-org">Quasar Dynamics</h3>
+          <p class="cv-role-title">Diseñador gráfico y 3D artist · Prácticas</p>
+          <ul class="cv-tasks"><li>Contenido visual para videojuegos y experiencias digitales.</li><li>Modelos 3D y texturas para proyectos interactivos.</li></ul>
+        </div>
+      </li>
+    </ol>
+
+    <div class="cv-foot fade-up">
+      <div>
+        <h3 data-i18n="cv.edu">Formación</h3>
+        <ul class="cv-edu"><li><strong>Máster en Marketing Digital</strong><span>CEI Escuela de Diseño y Marketing · oct 2025 — actual</span></li><li><strong>Título Superior en Diseño Digital</strong><span>CEI Escuela de Diseño y Marketing · oct 2022 — nov 2024</span></li><li><strong>Técnico Superior en Animación 3D, Juegos y Entornos Interactivos</strong><span>ISEP CEU · sep 2020 — jun 2022</span></li></ul>
+      </div>
+      <div>
+        <h3 data-i18n="cv.tools">Herramientas</h3>
+        <ul class="cv-list"><li>InDesign</li><li>Photoshop</li><li>Illustrator</li><li>After Effects</li><li>Premiere Pro</li><li>Figma</li><li>Meta Ads</li></ul>
+      </div>
+      <div>
+        <h3 data-i18n="cv.langs">Idiomas</h3>
+        <ul class="cv-list"><li>Español <span>· Nativo</span></li><li>English <span>· Profesional</span></li><li>Deutsch <span>· Profesional</span></li></ul>
+      </div>
+    </div>
+
+    <div class="cv-download fade-up">
+      <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary" data-i18n="cv.cta">Descargar CV en PDF →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
   <div class="container">
     <div class="contact-wrap">
       <div>
@@ -956,21 +739,24 @@
   /* ===== I18N (ES/EN) ===== */
   const i18n = {
     es: {
-      'nav.about': 'Sobre mí',
-      'nav.projects': 'Proyectos',
-      'nav.contact': 'Contacto',
+      'nav.work': 'Work',
+      'nav.about': 'About',
+      'nav.cv': 'CV',
+      'nav.contact': 'Contact',
       'nav.cta': 'Hablemos',
       'nav.skip': 'Saltar al contenido',
-      'hero.available': 'Disponible para proyectos',
+      'hero.available': 'Disponible',
       'badge.location': 'España · Remoto',
       'form.sending': 'Enviando...',
       'form.error': 'Error — inténtalo de nuevo',
-      'hero.title': 'Diseño<br>Gráfico<br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
+      'hero.title': 'Diseño<br>Gráfico<br>Marketing<br><span class="outline">&amp; UX/UI</span>',
       'hero.desc': 'Soy <strong>Pablo Meyer</strong>, diseñador gráfico y UX/UI. Hago marcas y productos digitales que se entienden a la primera — branding, comunicación y UX/UI que resuelven, no decoran.',
       'hero.cta1': 'Ver Proyectos →',
       'hero.cta2': 'Descargar CV',
-      'hero.disciplines': '<li>Branding</li><li>UX / UI</li><li>Marketing digital</li>',
-      'about.eyebrow': '01 — Sobre mí',
+      'info.status': 'Estado',
+      'info.disciplines': 'Disciplinas',
+      'info.disciplines.v': 'Branding · UX/UI · Marketing',
+      'about.eyebrow': '02 — Sobre mí',
       'about.title': 'Hola,<br>soy Pablo.',
       'about.p1': 'Diseño marcas, contenidos y productos digitales con un mismo objetivo: que funcionen sin manual de instrucciones. Trabajo branding, comunicación y <strong>UX/UI</strong> a la vez porque casi ningún problema de marca vive en una sola disciplina.',
       'about.p2': 'Antes de abrir Figma, entiendo el problema. Cada marca tiene una verdad propia; mi trabajo es encontrarla y traducirla a un sistema que aguante todos los soportes — del logo al producto, del cartel al feed.',
@@ -987,7 +773,13 @@
       'work.card3.title': 'UX / UI',
       'work.card3.desc': 'Diseño de producto centrado en el usuario, con la marca cosida al diseño desde el primer wireframe.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototipos en Figma</li><li>Diseño de interfaz</li><li>Sistemas de diseño</li>',
-      'projects.eyebrow': '03 — Proyectos seleccionados',
+      'projects.eyebrow': '01 — Trabajo seleccionado',
+      'cv.eyebrow': '03 — CV',
+      'cv.title': 'Dónde he<br>trabajado.',
+      'cv.edu': 'Formación',
+      'cv.tools': 'Herramientas',
+      'cv.langs': 'Idiomas',
+      'cv.cta': 'Descargar CV en PDF →',
       'projects.cta': 'Ver caso',
       'specs.role': 'Perfil',
       'specs.role.v': 'Diseñador gráfico y UX/UI',
@@ -1020,21 +812,24 @@
       'form.subject.opt4': 'Otro · Hablamos',
     },
     en: {
+      'nav.work': 'Work',
       'nav.about': 'About',
-      'nav.projects': 'Work',
+      'nav.cv': 'CV',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
       'nav.skip': 'Skip to content',
-      'hero.available': 'Available for projects',
+      'hero.available': 'Available',
       'badge.location': 'Spain · Remote',
       'form.sending': 'Sending...',
       'form.error': 'Error — try again',
-      'hero.title': 'Graphic<br>Design<br>Marketing<br><span class="line-gray">&amp; UX/UI</span>',
+      'hero.title': 'Graphic<br>Design<br>Marketing<br><span class="outline">&amp; UX/UI</span>',
       'hero.desc': "I'm <strong>Pablo Meyer</strong>, a graphic and UX/UI designer. I make brands and digital products that make sense at first glance — branding, communication and UX/UI that solve, not decorate.",
       'hero.cta1': 'View projects →',
       'hero.cta2': 'Download CV',
-      'hero.disciplines': '<li>Branding</li><li>UX / UI</li><li>Digital marketing</li>',
-      'about.eyebrow': '01 — About',
+      'info.status': 'Status',
+      'info.disciplines': 'Disciplines',
+      'info.disciplines.v': 'Branding · UX/UI · Marketing',
+      'about.eyebrow': '02 — About',
       'about.title': "Hi,<br>I'm Pablo.",
       'about.p1': "I design brands, content and digital products with one goal: they should work without a manual. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in a single discipline.",
       'about.p2': "I understand the problem before opening Figma. Every brand has a truth of its own; my job is to find it and translate it into a system that holds everywhere — from logo to product, from poster to feed.",
@@ -1051,7 +846,13 @@
       'work.card3.title': 'UX / UI',
       'work.card3.desc': 'User-centered product design, with the brand stitched into every wireframe from day one.',
       'work.card3.list': '<li>Wireframes &amp; flows</li><li>Prototyping in Figma</li><li>Interface design</li><li>Design systems</li>',
-      'projects.eyebrow': '03 — Selected work',
+      'projects.eyebrow': '01 — Selected work',
+      'cv.eyebrow': '03 — CV',
+      'cv.title': 'Where I have<br>worked.',
+      'cv.edu': 'Education',
+      'cv.tools': 'Tools',
+      'cv.langs': 'Languages',
+      'cv.cta': 'Download CV as PDF →',
       'projects.cta': 'View case',
       'specs.role': 'Profile',
       'specs.role.v': 'Graphic & UX/UI designer',

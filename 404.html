@@ -12,90 +12,58 @@
 <meta name="theme-color" content="#111110">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --yellow: #F5D000;
-    --yellow-dark: #C9A900;
-    --black: #111110;
-    --gray: #6B6B6A;
-    --bg: #EDECEA;
-    --white: #FFFFFF;
-    --font: 'Figtree', sans-serif;
-  }
-  html, body { height: 100%; }
+  /* Mismo lenguaje editorial que el resto del sitio: sin degradados ni halos */
   body {
-    font-family: var(--font); background: var(--black); color: var(--white);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    min-height: 100vh; padding: 40px 24px; position: relative; overflow: hidden;
+    background: var(--black); color: var(--white);
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 96px 24px 32px;
   }
-  body::before {
-    content: ''; position: absolute; right: -160px; top: -160px;
-    width: 480px; height: 480px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(245,208,0,0.18), transparent 70%);
-    pointer-events: none;
-  }
-  body::after {
-    content: ''; position: absolute; left: -120px; bottom: -120px;
-    width: 360px; height: 360px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(245,208,0,0.1), transparent 70%);
-    pointer-events: none;
-  }
-  .wrap { max-width: 720px; text-align: center; position: relative; z-index: 1; }
-  .eyebrow {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.45); margin-bottom: 24px;
-  }
+  .wrap { width: 100%; max-width: var(--container); margin: 0 auto; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+  .eyebrow-404 { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+
+  /* El 404 en contorno: el mismo recurso que el "& UX/UI" de la home */
   .big-num {
-    font-size: clamp(120px, 24vw, 240px); font-weight: 900; line-height: 0.85;
-    letter-spacing: -0.05em; margin-bottom: 24px;
-    background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-dark) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    color: transparent;
+    font-size: clamp(120px, 26vw, 300px); font-weight: 900;
+    line-height: 0.78; letter-spacing: -0.06em; margin-bottom: 40px;
+    color: rgba(255,255,255,0.25);
   }
-  .title {
-    font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -0.025em;
-    line-height: 1.1; margin-bottom: 20px;
+  @supports (-webkit-text-stroke: 1px #fff) {
+    .big-num { -webkit-text-fill-color: transparent; -webkit-text-stroke: clamp(2px, 0.3vw, 4px) var(--white); }
   }
-  .desc {
-    font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 40px;
-    max-width: 480px; margin-left: auto; margin-right: auto;
-  }
-  .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--yellow); color: var(--black); font-size: 15px; font-weight: 700;
-    padding: 16px 30px; border-radius: 50px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
-  .btn-secondary {
-    background: transparent; color: var(--white); font-size: 15px; font-weight: 600;
-    padding: 16px 30px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.2);
-    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    transition: border-color 0.2s, color 0.2s, transform 0.15s;
-  }
-  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+
+  .title { font-size: clamp(26px, 3.6vw, 44px); font-weight: 900; letter-spacing: -0.032em; line-height: 1.05; margin-bottom: 18px; }
+  .desc { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 40px; max-width: 480px; }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary:hover { background: var(--white); }
+  .btn-secondary { color: var(--white); border-color: rgba(255,255,255,0.25); }
+  .btn-secondary:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+
   .footer-mini {
-    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    max-width: var(--container); margin: 0 auto; width: 100%;
+    border-top: 1px solid var(--rule-dark); padding-top: 20px; margin-top: 56px;
     font-size: 12px; color: rgba(255,255,255,0.35);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   }
-  .footer-mini a {
-    color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s;
-  }
+  .footer-mini a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--dur-fast); }
   .footer-mini a:hover { color: var(--yellow); }
+
   @media (max-width: 540px) {
+    body { padding: 80px 20px 24px; }
     .actions { flex-direction: column; align-items: stretch; }
     .actions a { justify-content: center; }
-    .footer-mini { position: static; transform: none; margin-top: 32px; }
   }
 </style>
 </head>
 <body>
 
 <main class="wrap">
-  <p class="eyebrow">Error 404</p>
+  <p class="eyebrow-404">Error 404</p>
   <h1 class="big-num">404</h1>
   <p class="title">Esta página no existe.</p>
   <p class="desc">O la URL está mal escrita, o la página se mudó. Lo que sí sigue ahí es el portfolio entero — vuelve al inicio o escríbeme directamente.</p>
@@ -105,9 +73,10 @@
   </div>
 </main>
 
-<p class="footer-mini">
-  © <span id="copy-year">2026</span> · Pablo Meyer · <a href="mailto:pablo.meyer00@gmail.com">pablo.meyer00@gmail.com</a>
-</p>
+<div class="footer-mini">
+  <span>© <span id="copy-year">2026</span> · Pablo Meyer</span>
+  <a href="mailto:pablo.meyer00@gmail.com">pablo.meyer00@gmail.com</a>
+</div>
 
 <script>
   const yearEl = document.getElementById('copy-year');

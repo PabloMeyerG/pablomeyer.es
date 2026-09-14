@@ -1,0 +1,235 @@
+/* ============================================================
+   Pablo Meyer — sistema base
+   Tokens, tipografía, nav, botones y utilidades compartidas
+   por la home, las páginas de caso y la 404.
+   No añadir aquí nada específico de una sola página.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Color — neutro + un acento. El amarillo se gasta con cuentagotas */
+  --yellow: #F5D000;
+  --yellow-dark: #C9A900;
+  --black: #111110;
+  --gray: #6B6B6A;
+  --gray-light: #E8E7E2;
+  --bg: #EDECEA;
+  --white: #FFFFFF;
+
+  /* Regla editorial: el separador que estructura todo el sitio */
+  --rule: rgba(17, 17, 16, 0.14);
+  --rule-dark: rgba(255, 255, 255, 0.16);
+
+  /* Escala tipográfica */
+  --font: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Courier New', ui-monospace, monospace;
+  --t-display: clamp(56px, 11.6vw, 168px);
+  --t-h1:      clamp(44px, 6.4vw, 96px);
+  --t-h2:      clamp(26px, 3.4vw, 46px);
+  --t-h3:      clamp(19px, 1.7vw, 24px);
+  --t-num:     clamp(58px, 6.4vw, 108px);
+  --t-lead:    clamp(21px, 2.1vw, 28px);
+  --t-body:    16px;
+  --t-small:   13px;
+  --t-label:   10px;
+
+  /* Espaciado */
+  --s-section: clamp(72px, 9vw, 112px);
+  --s-block:   clamp(40px, 5vw, 68px);
+  --s-el:      24px;
+  --container: 1180px;
+
+  /* Movimiento — una sola curva en todo el sitio */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.25s;
+  --dur:      0.5s;
+  --dur-slow: 0.8s;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--yellow); color: var(--black); }
+
+:focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 3px; border-radius: 2px; }
+
+.skip-link {
+  position: absolute; top: -60px; left: 16px; z-index: 300;
+  background: var(--black); color: var(--white);
+  font-size: var(--t-small); font-weight: 700;
+  padding: 12px 20px; border-radius: 0 0 12px 12px; text-decoration: none;
+  transition: top var(--dur-fast);
+}
+.skip-link:focus { top: 0; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: var(--container); margin: 0 auto; }
+section { display: block; padding: var(--s-section) 24px; }
+
+/* ---------- Tipografía ---------- */
+.display {
+  font-size: var(--t-display); font-weight: 900;
+  line-height: 0.8; letter-spacing: -0.052em;
+}
+
+/* Contorno: acento gráfico que no gasta color */
+.outline { color: #B0AEAA; }
+@supports (-webkit-text-stroke: 1px #000) {
+  .outline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: clamp(1.5px, 0.22vw, 3.2px) var(--black);
+  }
+  .on-dark .outline, .outline.on-dark {
+    -webkit-text-stroke-color: var(--white);
+  }
+}
+
+.section-title { font-size: var(--t-h1); font-weight: 900; line-height: 0.94; letter-spacing: -0.038em; }
+.section-label, .eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--gray);
+}
+.lead { font-size: var(--t-lead); line-height: 1.45; letter-spacing: -0.015em; }
+.mono { font-family: var(--mono); font-size: 12px; color: var(--gray); }
+
+.section-header { margin-bottom: var(--s-block); }
+.section-header .section-label { display: block; margin-bottom: 16px; }
+
+/* Resalte amarillo — reservado para la llamada a la acción */
+.hl { background: var(--yellow); color: var(--black); padding: 0.02em 0.1em; }
+
+/* ---------- Botones ---------- */
+.btn-primary, .btn-secondary {
+  font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 50px;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer; font-family: var(--font); border: none;
+  transition: background var(--dur-fast), color var(--dur-fast), transform var(--dur-fast) var(--ease);
+}
+.btn-primary { background: var(--yellow); color: var(--black); }
+.btn-primary:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: var(--black); font-weight: 600; border: 2px solid var(--black); }
+.btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
+
+/* ---------- Nav ---------- */
+nav {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 100; width: calc(100% - 48px); max-width: var(--container);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-radius: 50px; padding: 10px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo-img { height: 32px; width: auto; display: block; transition: transform var(--dur-fast) var(--ease); }
+.nav-logo:hover .nav-logo-img { transform: scale(1.04); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: 14px; font-weight: 500; opacity: 0.45; transition: opacity var(--dur-fast); }
+.nav-links a:hover, .nav-links a.active { opacity: 1; font-weight: 700; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-cta {
+  background: var(--yellow); color: var(--black); font-size: 14px; font-weight: 700;
+  padding: 10px 22px; border-radius: 50px; text-decoration: none;
+  transition: background var(--dur-fast), transform var(--dur-fast) var(--ease);
+}
+.nav-cta:hover { background: var(--yellow-dark); transform: scale(1.03); }
+.lang-toggle {
+  background: transparent; border: 1.5px solid rgba(0,0,0,0.15); color: var(--black);
+  font-size: 11px; font-weight: 700; padding: 7px 11px; border-radius: 50px;
+  cursor: pointer; font-family: var(--font); letter-spacing: 0.1em; min-width: 36px;
+  transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+}
+.lang-toggle:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+.nav-burger {
+  display: none; background: transparent; border: none; cursor: pointer;
+  width: 40px; height: 40px; border-radius: 50%;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.nav-burger span { display: block; width: 18px; height: 2px; background: var(--black); border-radius: 2px; transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast); }
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 74px; left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  z-index: 99; width: calc(100% - 24px); max-width: var(--container);
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px; padding: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.mobile-menu a {
+  display: block; text-decoration: none; color: var(--black);
+  font-size: 17px; font-weight: 700; padding: 14px 16px; border-radius: 14px;
+  transition: background var(--dur-fast);
+}
+.mobile-menu a:hover, .mobile-menu a:active { background: rgba(0,0,0,0.05); }
+
+/* ---------- Barra de información (ref. Studio Mimi) ---------- */
+.infobar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
+.infobar > div { padding: 16px 0 0 20px; border-left: 1px solid var(--rule); }
+.infobar > div:first-child { border-left: none; padding-left: 0; }
+.infobar dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.infobar dd { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.infobar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow-dark); display: inline-block; margin-right: 7px; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ---------- Revelado al scroll ----------
+   En CSS y no en estilos inline desde JS, para que
+   prefers-reduced-motion pueda anularlo de verdad. */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.fade-up.visible { opacity: 1; transform: none; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .fade-up, .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ---------- Footer ---------- */
+footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-logo { font-size: 15px; font-weight: 700; color: var(--white); text-decoration: none; }
+.footer-logo em { font-style: normal; background: var(--yellow); color: var(--black); padding: 1px 8px; border-radius: 50px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--dur-fast); }
+.footer-links a:hover { color: var(--yellow); }
+
+/* ---------- Barra de progreso de lectura (páginas de caso) ---------- */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--yellow); z-index: 200; transition: width 0.05s linear; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  :root { --container: 100%; }
+  .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
+  section { padding: clamp(56px, 11vw, 76px) 20px; }
+  nav { width: calc(100% - 24px); top: 10px; padding: 8px 10px 8px 14px; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .mobile-menu { display: block; }
+  .nav-logo-img { height: 28px; }
+  .nav-cta { padding: 9px 18px; font-size: 13px; }
+  .infobar { grid-template-columns: 1fr 1fr; }
+  .infobar > div { padding: 14px 0 14px 16px; border-bottom: 1px solid var(--rule); }
+  .infobar > div:nth-child(odd) { border-left: none; padding-left: 0; }
+  .infobar > div:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 480px) {
+  .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 14px; }
+}

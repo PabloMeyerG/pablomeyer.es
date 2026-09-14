@@ -62,8 +62,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="project.css">
+<noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -76,13 +78,14 @@
     <img src="../assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img">
   </a>
   <ul class="nav-links">
-    <li><a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
-    <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
-    <li><a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a></li>
+    <li><a href="../index.html#work" data-i18n="nav.work">Work</a></li>
+    <li><a href="../index.html#about" data-i18n="nav.about">About</a></li>
+    <li><a href="../index.html#cv" data-i18n="nav.cv">CV</a></li>
+    <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
     <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
-    <a href="../index.html#hablemos" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
+    <a href="../index.html#contact" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
     <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -90,15 +93,16 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html#sobre-mi" data-i18n="nav.about">Sobre mí</a>
-  <a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a>
-  <a href="../index.html#hablemos" data-i18n="nav.contact">Contacto</a>
+  <a href="../index.html#work" data-i18n="nav.work">Work</a>
+  <a href="../index.html#about" data-i18n="nav.about">About</a>
+  <a href="../index.html#cv" data-i18n="nav.cv">CV</a>
+  <a href="../index.html#contact" data-i18n="nav.contact">Contact</a>
 </div>
 
 <header class="case-hero" id="main">
   <div class="container">
     <div class="case-topbar">
-      <a href="../index.html#proyectos" data-i18n="topbar.back">← Proyectos</a>
+      <a href="../index.html#work" data-i18n="topbar.back">← Proyectos</a>
       <span data-i18n="topbar.year">2025 · Caso 01</span>
     </div>
 
@@ -125,7 +129,7 @@
 
 <section class="case-cover">
   <div class="cover-bar">
-    <a href="../index.html#proyectos" data-i18n="cover.back">← Volver a proyectos</a>
+    <a href="../index.html#work" data-i18n="cover.back">← Volver a proyectos</a>
     <a href="coach.html" data-i18n="cover.next">Siguiente proyecto →</a>
   </div>
   <div class="cover-bleed fade-up">
@@ -300,7 +304,7 @@
   <div class="container">
     <div class="case-cta-row">
       <h2 class="case-cta-title" data-i18n="cta.title">¿Proyecto similar?<br>Hablamos.</h2>
-      <a href="../index.html#hablemos" class="case-cta-btn" data-i18n="cta.btn">Contactar →</a>
+      <a href="../index.html#contact" class="case-cta-btn" data-i18n="cta.btn">Contactar →</a>
     </div>
   </div>
 </section>
@@ -367,9 +371,10 @@
 window.pmI18nReady(function () {
   pmI18n.apply({
     es: {
-      'nav.about': 'Sobre mí',
-      'nav.projects': 'Proyectos',
-      'nav.contact': 'Contacto',
+      'nav.work': 'Work',
+      'nav.about': 'About',
+      'nav.cv': 'CV',
+      'nav.contact': 'Contact',
       'nav.cta': 'Hablemos',
       'nav.skip': 'Saltar al contenido',
       'topbar.back': '← Proyectos',
@@ -428,8 +433,9 @@ window.pmI18nReady(function () {
       'cta.btn': 'Contactar →'
     },
     en: {
+      'nav.work': 'Work',
       'nav.about': 'About',
-      'nav.projects': 'Work',
+      'nav.cv': 'CV',
       'nav.contact': 'Contact',
       'nav.cta': "Let's talk",
       'nav.skip': 'Skip to content',
