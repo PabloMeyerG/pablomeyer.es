@@ -5,16 +5,9 @@
    ============================================================ */
 
 /* ---------- Hero del caso ---------- */
-.case-hero { background: var(--black); color: var(--white); padding: 128px 24px 72px; }
-
-.case-topbar {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: clamp(48px, 6vw, 80px);
-  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-.case-topbar a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--dur-fast); }
-.case-topbar a:hover { color: var(--accent); }
+/* Sin fila superior (la vuelta la da «Back» en la cabecera): el titulo
+   arranca directamente, con aire suficiente bajo la capsula flotante */
+.case-hero { background: var(--black); color: var(--white); padding: 160px 24px 72px; }
 
 .case-title {
   font-size: clamp(52px, 8.6vw, 132px); font-weight: 900; line-height: 0.88;
@@ -37,7 +30,7 @@
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   padding-top: 28px; border-top: 1px solid var(--rule-dark);
 }
-.meta-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.meta-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 8px; }
 .meta-value { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; }
 
 /* ---------- Portada a sangre ---------- */
@@ -47,11 +40,13 @@
   font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
   padding: 30px 24px; max-width: var(--container); margin: 0 auto;
 }
-.cover-bar a { color: var(--gray); text-decoration: none; transition: color var(--dur-fast); }
+.cover-bar a { color: var(--gray); text-decoration: none; transition: color var(--dur-fast);
+  /* zona tactil de 44px sin cambiar el alto de la barra */
+  display: inline-flex; align-items: center; min-height: 44px; margin: -15px 0; }
 .cover-bar a:hover { color: var(--black); }
 
 .cover-bleed { position: relative; left: 50%; margin-left: -50vw; width: 100vw; max-width: 100vw; }
-.cover-bleed img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; background: var(--gray-light); }
+.cover-bleed img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; background: var(--gray-light); }
 
 /* ---------- Reto + ficha ---------- */
 .case-reto { background: var(--bg); padding: var(--s-section) 24px; }
@@ -75,7 +70,7 @@
 /* ---------- Cita ---------- */
 .pull-quote { background: var(--black); color: var(--white); padding: clamp(72px, 10vw, 120px) 24px; }
 .pull-quote-text { font-size: clamp(28px, 4.4vw, 56px); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; max-width: 900px; }
-.pull-quote-attr { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 28px; }
+.pull-quote-attr { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-top: 28px; }
 
 /* ---------- Decisiones ---------- */
 .case-decisions { background: var(--black); color: var(--white); padding: var(--s-section) 24px; }
@@ -118,7 +113,9 @@
 
 /* Slides verticales 4:5 (research, wireframes, pantallas): encajan sin recortar */
 .gallery-figure.shot { background: #F4F2EE; border: 1px solid rgba(0,0,0,0.05); aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; }
-.gallery-figure.shot img { width: 100%; height: 100%; object-fit: contain; padding: 22px; aspect-ratio: auto; }
+/* En absoluto: el height 100% no se resuelve contra una altura que sale
+   de aspect-ratio, y las capturas mas altas que 4:5 se salian recortadas. */
+.gallery-figure.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 22px; aspect-ratio: auto; }
 .gallery-figure.shot:hover img { transform: scale(1.02); }
 .gallery-figure.gallery-figure-solo { max-width: 520px; margin-inline: auto; }
 
@@ -166,7 +163,7 @@
   transition: padding var(--dur) var(--ease);
 }
 .next-project-link:hover, .next-project-link:focus-visible { padding-left: 40px; }
-.next-project-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+.next-project-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 24px; }
 .next-project-row { display: grid; grid-template-columns: 1fr 340px; gap: clamp(32px, 4vw, 48px); align-items: center; }
 .next-project-title { font-size: clamp(40px, 6.2vw, 92px); font-weight: 900; letter-spacing: -0.042em; line-height: 0.92; }
 .next-project-title .arrow { display: inline-block; transition: transform var(--dur) var(--ease); }
@@ -178,7 +175,7 @@
 .next-project-bottom {
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid var(--rule-dark); padding-top: 24px; margin-top: clamp(48px, 6vw, 72px);
-  font-size: var(--t-small); color: rgba(255,255,255,0.45);
+  font-size: var(--t-small); color: rgba(255,255,255,0.58);
 }
 .next-project-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--dur-fast); }
 .next-project-bottom a:hover { color: var(--accent); }
@@ -203,8 +200,7 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .case-hero { padding: 100px 20px 48px; }
-  .case-topbar { margin-bottom: 44px; }
+  .case-hero { padding: 120px 20px 48px; }
   .case-title { font-size: clamp(44px, 12vw, 76px); gap: 0.12em; }
   .case-meta-row { grid-template-columns: 1fr 1fr; gap: 20px; }
 
@@ -252,7 +248,7 @@
 }
 
 @media (max-width: 540px) {
-  .case-hero { padding: 92px 20px 40px; }
+  .case-hero { padding: 112px 20px 40px; }
   .case-title { font-size: clamp(38px, 11vw, 60px); }
   .meta-value { font-size: 14px; }
   .gallery-masonry { columns: 1; }

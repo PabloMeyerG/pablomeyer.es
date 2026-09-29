@@ -3,28 +3,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coach App — UX/UI Case Study · Pablo Meyer</title>
-<meta name="description" content="Caso de estudio UX/UI: Coach, una app de entrenamiento y nutrición que encaja la rutina del usuario, no la impone. Diseñada por Pablo Meyer.">
+<meta name="description" content="UX/UI case study: Coach, a training and nutrition app that fits the user's routine instead of imposing one. Designed by Pablo Meyer.">
 <meta name="author" content="Pablo Meyer">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <!-- Canonical -->
 <link rel="canonical" href="https://pablomeyer.es/projects/coach.html">
+<link rel="alternate" hreflang="en" href="https://pablomeyer.es/projects/coach.html">
+<link rel="alternate" hreflang="es" href="https://pablomeyer.es/es/projects/coach.html">
+<link rel="alternate" hreflang="x-default" href="https://pablomeyer.es/projects/coach.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coach App — Caso 02 · Pablo Meyer">
-<meta property="og:description" content="UX/UI para una app de fitness y nutrición que encaja la rutina del usuario, no la impone.">
+<meta property="og:title" content="Coach App — Case 02 · Pablo Meyer">
+<meta property="og:description" content="UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one.">
 <meta property="og:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="900">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="892">
 <meta property="og:url" content="https://pablomeyer.es/projects/coach.html">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
 <meta property="og:site_name" content="Pablo Meyer">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Coach App — Caso 02">
-<meta name="twitter:description" content="UX/UI para una app de fitness y nutrición.">
+<meta name="twitter:title" content="Coach App — Case 02">
+<meta name="twitter:description" content="UX/UI for a fitness and nutrition app.">
 <meta name="twitter:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
 
 <!-- Favicons -->
@@ -40,8 +44,8 @@
   "@context": "https://schema.org",
   "@type": "CreativeWork",
   "name": "Coach App",
-  "headline": "Coach — App de fitness · Caso UX/UI",
-  "description": "UX/UI para una app de fitness y nutrición que encaja la rutina del usuario, no la impone.",
+  "headline": "Coach — Fitness app · UX/UI case study",
+  "description": "UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one.",
   "image": "https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg",
   "datePublished": "2025",
   "url": "https://pablomeyer.es/projects/coach.html",
@@ -51,13 +55,13 @@
     "name": "Pablo Meyer",
     "url": "https://pablomeyer.es/"
   },
-  "about": ["UX/UI", "Diseño de producto", "Mobile", "Design system"]
+  "about": ["UX/UI", "Product design", "Mobile", "Design system"]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="project.css">
 <noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
@@ -68,39 +72,29 @@
 
 <div class="scroll-progress" id="scroll-progress" style="width: 0%;"></div>
 
-<nav>
-  <a href="../index.html" class="nav-logo" aria-label="Pablo Meyer — Home">
-    <img src="../assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img">
-  </a>
-  <ul class="nav-links">
-    <li><a href="../index.html#work">Work</a></li>
-    <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#cv">CV</a></li>
-    <li><a href="../index.html#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right" style="display:flex;align-items:center;gap:10px;">
-    
-    <a href="../index.html#contact" class="nav-cta">Let's talk</a>
-    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="nav-hero nav-case" aria-label="Main">
+<div class="nav-bar">
+<div class="nav-start">
+<a href="../#coach" class="nav-back" data-back aria-label="Back to projects"><span class="nav-back-arrow" aria-hidden="true">←</span> Back</a>
+<div class="nav-lang nav-lang--mini"><a href="../es/projects/coach.html" hreflang="es" lang="es" title="Ver esta página en español" data-lang-switch>ES</a></div>
+</div>
+<a href="../" class="nav-logo" aria-label="Pablo Meyer — Home">
+<img src="../assets/icons/logo-marca.svg" alt="" class="nav-logo-mark" width="58" height="58">
+</a>
+<div class="nav-end">
+<div class="nav-lang" role="group" aria-label="Language">
+<a href="coach.html" hreflang="en" lang="en" title="English" aria-current="true" data-lang-switch>EN</a><span class="nav-lang-sep" aria-hidden="true">/</span><a href="../es/projects/coach.html" hreflang="es" lang="es" title="Español" data-lang-switch>ES</a>
+</div>
+<a href="../#contact" class="nav-cta">Let's talk</a>
+</div>
+</div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html#work">Work</a>
-  <a href="../index.html#about">About</a>
-  <a href="../index.html#cv">CV</a>
-  <a href="../index.html#contact">Contact</a>
-</div>
 
-<header class="case-hero" id="main">
+
+<main id="main">
+<header class="case-hero">
   <div class="container">
-    <div class="case-topbar">
-      <a href="../index.html#work">← Work</a>
-      <span>2025 · Case 02</span>
-    </div>
-
     <h1 class="case-title fade-up">
       <span class="title-mark">Coach</span>
       <span class="sep">·</span>
@@ -128,7 +122,7 @@
     <a href="galeria.html">Next project →</a>
   </div>
   <div class="cover-bleed fade-up">
-    <picture><source srcset="../assets/img/projects/coach/hero-coach.webp" type="image/webp"><img src="../assets/img/projects/coach/hero-coach.jpg" alt="Coach — pantalla principal de la app" fetchpriority="high" decoding="async"></picture>
+    <picture><source srcset="../assets/img/projects/coach/hero-coach.webp" type="image/webp"><img src="../assets/img/projects/coach/hero-coach.jpg" width="1440" height="892" alt="Coach — main app screen" fetchpriority="high" decoding="async"></picture>
   </div>
 </section>
 
@@ -168,15 +162,15 @@
     <div class="gallery-stack">
       <div class="gallery-row-3 fade-up">
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/objetivo.webp" type="image/webp"><img src="../assets/img/projects/coach/objetivo.png" alt="Objetivos del proyecto Coach" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/objetivo.webp" type="image/webp"><img src="../assets/img/projects/coach/objetivo.png" width="1024" height="1280" alt="Coach project goals" loading="lazy" decoding="async"></picture>
           <figcaption>Goals</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Wireframe.webp" type="image/webp"><img src="../assets/img/projects/coach/Wireframe.jpg" alt="Wireframes de Coach" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Wireframe.webp" type="image/webp"><img src="../assets/img/projects/coach/Wireframe.jpg" width="1080" height="1350" alt="Coach wireframes" loading="lazy" decoding="async"></picture>
           <figcaption>Wireframes</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/design%20sistem.webp" type="image/webp"><img src="../assets/img/projects/coach/design%20sistem.jpg" alt="Design system de Coach" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/design%20sistem.webp" type="image/webp"><img src="../assets/img/projects/coach/design%20sistem.jpg" width="1080" height="1350" alt="Coach design system" loading="lazy" decoding="async"></picture>
           <figcaption>Design system</figcaption>
         </figure>
       </div>
@@ -221,15 +215,15 @@
       <!-- Trio 1: onboarding -->
       <div class="gallery-row-3 fade-up">
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Onboarding.webp" type="image/webp"><img src="../assets/img/projects/coach/Onboarding.png" alt="Pantalla de onboarding" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Onboarding.webp" type="image/webp"><img src="../assets/img/projects/coach/Onboarding.png" width="473" height="932" alt="Onboarding screen" loading="lazy" decoding="async"></picture>
           <figcaption>Onboarding</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Intro.webp" type="image/webp"><img src="../assets/img/projects/coach/Intro.jpg" alt="Pantalla de intro" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Intro.webp" type="image/webp"><img src="../assets/img/projects/coach/Intro.jpg" width="1080" height="1350" alt="Intro screen" loading="lazy" decoding="async"></picture>
           <figcaption>Intro</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Home.webp" type="image/webp"><img src="../assets/img/projects/coach/Home.jpg" alt="Pantalla home" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Home.webp" type="image/webp"><img src="../assets/img/projects/coach/Home.jpg" width="1080" height="1350" alt="Home screen" loading="lazy" decoding="async"></picture>
           <figcaption>Home</figcaption>
         </figure>
       </div>
@@ -237,22 +231,22 @@
       <!-- Trio 2: session and modules -->
       <div class="gallery-row-3 fade-up">
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Workout.webp" type="image/webp"><img src="../assets/img/projects/coach/Workout.jpg" alt="Pantalla Workout" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Workout.webp" type="image/webp"><img src="../assets/img/projects/coach/Workout.jpg" width="1080" height="1350" alt="Workout screen" loading="lazy" decoding="async"></picture>
           <figcaption>Workout · session</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Sport.webp" type="image/webp"><img src="../assets/img/projects/coach/Sport.jpg" alt="Pantalla Sport" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Sport.webp" type="image/webp"><img src="../assets/img/projects/coach/Sport.jpg" width="1080" height="1350" alt="Sport screen" loading="lazy" decoding="async"></picture>
           <figcaption>Sport</figcaption>
         </figure>
         <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Food.webp" type="image/webp"><img src="../assets/img/projects/coach/Food.jpg" alt="Pantalla Food" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="../assets/img/projects/coach/Food.webp" type="image/webp"><img src="../assets/img/projects/coach/Food.jpg" width="1080" height="1350" alt="Food screen" loading="lazy" decoding="async"></picture>
           <figcaption>Food</figcaption>
         </figure>
       </div>
 
       <!-- Day training como pieza individual -->
       <figure class="gallery-figure shot fade-up gallery-figure-solo">
-        <picture><source srcset="../assets/img/projects/coach/Daytraning.webp" type="image/webp"><img src="../assets/img/projects/coach/Daytraning.jpg" alt="Pantalla Day Training" loading="lazy" decoding="async"></picture>
+        <picture><source srcset="../assets/img/projects/coach/Daytraning.webp" type="image/webp"><img src="../assets/img/projects/coach/Daytraning.jpg" width="1080" height="1350" alt="Day Training screen" loading="lazy" decoding="async"></picture>
         <figcaption>Day training</figcaption>
       </figure>
     </div>
@@ -293,11 +287,11 @@
 
 <section class="next-project-block">
   <a href="galeria.html" class="next-project-link">
-    <p class="next-project-eyebrow">Next project · 03</p>
+    <p class="next-project-eyebrow">Next · Playground</p>
     <div class="next-project-row">
-      <h2 class="next-project-title"><span class="hl">Gallery</span> <span>of pieces</span> <span class="arrow">→</span></h2>
+      <h2 class="next-project-title"><span class="hl">Playground</span> <span class="arrow">→</span></h2>
       <div class="next-project-preview">
-        <picture><source srcset="../assets/img/projects/galeria/galeriahero.webp" type="image/webp"><img src="../assets/img/projects/galeria/galeriahero.jpg" alt="Selected pieces preview" loading="lazy" decoding="async"></picture>
+        <picture><source srcset="../assets/img/projects/galeria/galeriahero.webp" type="image/webp"><img src="../assets/img/projects/galeria/galeriahero.jpg" width="1536" height="892" alt="Playground preview" loading="lazy" decoding="async"></picture>
       </div>
     </div>
     <div class="next-project-bottom">
@@ -311,66 +305,27 @@
   <div class="container">
     <div class="case-cta-row">
       <h2 class="case-cta-title">Similar project?<br>Let’s talk.</h2>
-      <a href="../index.html#contact" class="case-cta-btn">Contact →</a>
+      <a href="../#contact" class="case-cta-btn">Contact →</a>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-inner">
-    <a href="../index.html" class="footer-logo">Pablo <em>Meyer</em></a>
     <p class="footer-copy">© <span id="copy-year">2026</span> Pablo Meyer</p>
+    <a href="../" class="footer-logo" aria-label="Pablo Meyer — Home">
+      <img src="../assets/icons/logo-marca.svg" alt="Pablo Meyer" class="footer-logo-img" width="32" height="32">
+    </a>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:pablo.meyer00@gmail.com">Email</a>
     </div>
   </div>
 </footer>
 
-<script>
-  const yearEl = document.getElementById('copy-year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* Menú móvil */
-  const burger = document.getElementById('nav-burger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (burger && mobileMenu) {
-    const closeMenu = () => {
-      mobileMenu.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-    };
-    burger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-    document.addEventListener('click', e => {
-      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
-    });
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Barra de progreso de scroll
-  const progress = document.getElementById('scroll-progress');
-  if (progress) {
-    const updateProgress = () => {
-      const h = document.documentElement;
-      const total = h.scrollHeight - h.clientHeight;
-      const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
-      progress.style.width = pct + '%';
-    };
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-  }
-</script>
+<script src="../assets/js/nav.js"></script>
+<script src="../assets/js/case.js"></script>
 
 </body></html>

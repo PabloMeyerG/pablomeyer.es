@@ -44,30 +44,20 @@ html.pm-lb-locked, html.pm-lb-locked body { overflow: hidden; }
   max-height: calc(100vh - 160px);
   width: auto;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-  background: #1a1a18;
+  /* Sin esquinas ni sombra: el marco negro del archivo se funde con
+     el fondo y la pieza queda sola */
+  background: #0a0a0a;
 }
 
+/* Pie: titulo · disciplina · contador, en una linea discreta */
 .pm-lb-caption {
-  font-family: 'Figtree', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  letter-spacing: 0.04em;
-  margin: 0;
-  max-width: 600px;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 14px;
+  font-family: var(--font, 'Figtree', sans-serif);
+  margin: 0; max-width: 600px; text-align: center;
 }
-
-.pm-lb-count {
-  font-family: 'Figtree', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.4);
-  margin: 0;
-}
+.pm-lb-title { font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+.pm-lb-meta { font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, 0.6); }
+.pm-lb-count { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgba(255, 255, 255, 0.4); }
 
 /* Buttons */
 .pm-lb-close,
@@ -111,10 +101,9 @@ html.pm-lb-locked, html.pm-lb-locked body { overflow: hidden; }
 
 /* Mobile small — botones laterales un punch más pequeño y el caption no se come la altura */
 @media (max-width: 480px) {
-  .pm-lb-prev, .pm-lb-next { width: 40px; height: 40px; font-size: 24px; }
+  .pm-lb-prev, .pm-lb-next { width: 44px; height: 44px; font-size: 24px; }
   .pm-lb-stage { padding: 56px 8px 60px; gap: 10px; }
   .pm-lb-img { max-height: calc(100vh - 130px); }
-  .pm-lb-caption { font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

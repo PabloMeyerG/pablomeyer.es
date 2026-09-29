@@ -2,30 +2,34 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pablo Meyer — Graphic &amp; UX/UI Designer · Branding and Digital Marketing</title>
-<meta name="description" content="Pablo Meyer, graphic and UX/UI designer based in Spain, available remotely. Branding, UX/UI and digital marketing: brands and digital products that make sense at first glance. Portfolio and case studies.">
+<title>Pablo Meyer — Graphic &amp; UX/UI Designer</title>
+<meta name="description" content="Pablo Meyer, graphic and UX/UI designer based in Spain, working remotely. Branding, packaging, apps and campaigns. Portfolio and case studies.">
 <meta name="author" content="Pablo Meyer">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <!-- Canonical -->
 <link rel="canonical" href="https://pablomeyer.es/">
+<link rel="alternate" hreflang="en" href="https://pablomeyer.es/">
+<link rel="alternate" hreflang="es" href="https://pablomeyer.es/es/">
+<link rel="alternate" hreflang="x-default" href="https://pablomeyer.es/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Pablo Meyer — Graphic &amp; UX/UI Designer · Branding and Marketing">
-<meta property="og:description" content="I design brands and digital products that make sense at first glance. Branding, communication and UX/UI that solve, not decorate.">
+<meta property="og:title" content="Pablo Meyer — Graphic &amp; UX/UI Designer">
+<meta property="og:description" content="Graphic and UX/UI designer based in Spain. Branding, packaging, apps and campaigns, from the first sketch to the files that go to print.">
 <meta property="og:image" content="https://pablomeyer.es/assets/img/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Pablo Meyer, graphic and UX/UI designer">
 <meta property="og:url" content="https://pablomeyer.es/">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
 <meta property="og:site_name" content="Pablo Meyer">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pablo Meyer — Graphic &amp; UX/UI Designer · Branding and Marketing">
-<meta name="twitter:description" content="I design brands and digital products that make sense at first glance.">
+<meta name="twitter:title" content="Pablo Meyer — Graphic &amp; UX/UI Designer">
+<meta name="twitter:description" content="Graphic and UX/UI designer. Branding, packaging, apps and campaigns.">
 <meta name="twitter:image" content="https://pablomeyer.es/assets/img/og-cover.jpg">
 
 <!-- Favicons -->
@@ -46,9 +50,9 @@
       "name": "Pablo Meyer",
       "givenName": "Pablo",
       "familyName": "Meyer",
-      "jobTitle": "Graphic, UX/UI and digital marketing designer",
+      "jobTitle": "Graphic & UX/UI Designer",
       "url": "https://pablomeyer.es/",
-      "image": "https://pablomeyer.es/assets/img/PabloMeyer.jpg",
+      "image": "https://pablomeyer.es/assets/img/PabloMeyer-1200.jpg",
       "email": "mailto:pablo.meyer00@gmail.com",
       "telephone": "+34640096537",
       "knowsLanguage": ["es", "de", "en"],
@@ -59,7 +63,7 @@
       "sameAs": [
         "https://www.linkedin.com/in/pablo-a-meyer-1b2800212/"
       ],
-      "knowsAbout": ["Branding", "Visual identity", "UX/UI", "Product design", "Digital marketing", "Packaging"]
+      "knowsAbout": ["Brand identity", "Graphic design", "UX/UI", "Digital design", "Packaging", "Digital marketing"]
     },
     {
       "@type": "WebSite",
@@ -75,681 +79,309 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="preload" as="image" href="assets/img/PabloMeyer-800.webp" type="image/webp" fetchpriority="high">
-<style>
-  /* ================= HERO ================= */
-  #hero { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; padding: 116px clamp(20px,4vw,48px) 30px; }
-  #hero .container { display: flex; flex-direction: column; flex: 1; }
-
-  .hero-stage { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-
-  /* La foto sangra hasta el pie del hero y el titular la cruza por delante.
-     Para cambiarla basta con sustituir el archivo: el encuadre lo fija
-     object-position, pensado para un plano medio con la cara en el tercio superior. */
-  .hero-photo {
-    position: absolute; right: 0; bottom: 0; z-index: 0;
-    width: clamp(300px, 33vw, 460px); height: 82%;
-    overflow: hidden;
-    /* El borde izquierdo se disuelve en el fondo: así el titular la cruza
-       y sigue leyéndose, en vez de quedar cortado por un canto duro */
-    -webkit-mask-image: linear-gradient(95deg, transparent 0%, rgba(0,0,0,0.25) 20%, #000 58%);
-            mask-image: linear-gradient(95deg, transparent 0%, rgba(0,0,0,0.25) 20%, #000 58%);
-  }
-  .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;
-    filter: grayscale(1) contrast(1.12) brightness(1.06);
-  }
-
-  .hero-title { position: relative; z-index: 2; pointer-events: none; }
-
-  .hero-aside { position: relative; z-index: 3; max-width: 390px; margin-top: 36px; }
-  .hero-desc { font-size: 16px; line-height: 1.6; color: var(--ink-soft); letter-spacing: -0.011em; margin-bottom: 24px; }
-  .hero-desc strong { color: var(--black); font-weight: 700; }
-  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  /* ================= SOBRE MÍ ================= */
-  .about-grid { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
-
-  .about-specs { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
-  .about-specs > div { padding: 14px 0; border-bottom: 1px solid var(--rule); }
-  .about-specs dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
-  .about-specs dd { font-size: 14px; font-weight: 600; line-height: 1.5; }
-
-  .about-body p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.65; color: var(--ink-soft); letter-spacing: -0.011em; margin-bottom: var(--s-el); max-width: 620px; }
-  .about-body p:first-child { font-size: var(--t-lead); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; }
-  .about-body strong { color: var(--black); font-weight: 700; }
-  .about-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
-
-  /* ================= QUÉ HAGO ================= */
-  .disciplines-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-
-  .discipline-card {
-    padding: clamp(28px, 3vw, 44px) clamp(20px, 2.2vw, 34px) clamp(32px, 3.4vw, 52px);
-    border-left: 1px solid var(--rule);
-    transition: background 0.45s var(--ease), color 0.45s var(--ease);
-  }
-  .discipline-card:first-child { border-left: none; }
-
-  /* El contraste de peso hace el trabajo, no el color */
-  .card-num {
-    font-size: var(--t-num); font-weight: 200; line-height: 0.82; letter-spacing: -0.05em;
-    margin-bottom: clamp(24px, 2.6vw, 40px); transition: color 0.45s var(--ease);
-  }
-  .card-num span { font-size: 0.2em; font-weight: 700; letter-spacing: 0.06em; vertical-align: super; color: var(--gray); }
-
-  .card-title { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 12px; }
-  .card-desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 26px; transition: color 0.45s var(--ease); }
-  .card-list { list-style: none; }
-  .card-list li {
-    font-size: var(--t-small); padding: 9px 0; border-bottom: 1px solid var(--rule);
-    display: flex; align-items: center; gap: 10px;
-    transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
-  }
-  .card-list li:last-child { border-bottom: none; }
-  .card-list li::before { content: '\2192'; color: var(--gray); font-size: 12px; flex-shrink: 0; transition: color 0.45s var(--ease); }
-
-  /* La columna activa se invierte (ref. Facture) */
-  .discipline-card:hover, .discipline-card:focus-within { background: var(--black); color: var(--white); }
-  .discipline-card:hover .card-num,
-  .discipline-card:hover .card-title,
-  .discipline-card:hover .card-list li { color: var(--white); }
-  .discipline-card:hover .card-desc { color: rgba(255,255,255,0.6); }
-  .discipline-card:hover .card-num span,
-  .discipline-card:hover .card-list li::before { color: var(--accent); }
-  .discipline-card:hover .card-list li { border-color: var(--rule-dark); }
-
-  /* Las disciplinas ya no son sección propia: viven dentro de Sobre mí */
-  .disciplines-wrap { margin-top: clamp(48px, 6vw, 80px); }
-
-  /* ================= CV ================= */
-  #cv { background: var(--bg); }
-
-  .cv-roles { list-style: none; border-top: 1px solid var(--rule); }
-  .cv-role {
-    display: grid; grid-template-columns: 200px minmax(0,1fr);
-    gap: clamp(20px, 3vw, 56px);
-    padding: clamp(24px, 2.6vw, 34px) 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .cv-when { font-family: var(--mono); font-size: 12px; color: var(--gray); padding-top: 6px; }
-  .cv-org { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; margin-bottom: 4px; }
-  .cv-role-title { font-size: 14px; font-weight: 600; color: var(--gray); margin-bottom: 16px; }
-  .cv-tasks { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-  .cv-tasks li { font-size: 14px; line-height: 1.55; color: var(--ink-soft); letter-spacing: -0.006em; display: flex; gap: 10px; }
-  .cv-tasks li::before { content: '\2014'; color: var(--gray); flex-shrink: 0; }
-
-  /* Pie del CV: formación, herramientas e idiomas en columnas con regla */
-  .cv-foot { display: grid; grid-template-columns: 1.5fr 1fr 1fr; border-bottom: 1px solid var(--rule); }
-  .cv-foot > div { padding: clamp(24px, 2.6vw, 36px) clamp(18px, 2vw, 30px); border-left: 1px solid var(--rule); }
-  .cv-foot > div:first-child { border-left: none; padding-left: 0; }
-  .cv-foot h3 { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
-  .cv-edu { list-style: none; display: flex; flex-direction: column; gap: 18px; }
-  .cv-edu strong { display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 4px; }
-  .cv-edu span { font-size: var(--t-small); color: var(--gray); }
-  .cv-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .cv-list li { font-size: 14px; font-weight: 600; }
-  .cv-list li span { font-weight: 500; color: var(--gray); }
-  .cv-download { margin-top: clamp(32px, 4vw, 48px); }
-
-  /* ================= PROYECTOS ================= */
-  .projects-list { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
-
-  .project-row {
-    display: grid;
-    grid-template-columns: 44px minmax(0,1fr) clamp(170px, 19vw, 250px) minmax(150px, 200px);
-    align-items: center; gap: clamp(18px, 2.6vw, 44px);
-    padding: 20px 0; border-top: 1px solid var(--rule);
-    text-decoration: none; color: var(--black);
-    transition: padding-left var(--dur) var(--ease);
-  }
-  .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 16px; }
-
-  /* min-width:0 evita que un nombre largo desborde la columna del grid */
-  .project-info { min-width: 0; }
-
-  .project-index { font-family: var(--mono); font-size: 12px; color: var(--gray); align-self: start; padding-top: 6px; }
-  .project-name { font-size: var(--t-h2); font-weight: 800; letter-spacing: -0.032em; line-height: 1.02; margin-bottom: 12px; }
-  .project-tags { display: flex; gap: 7px; flex-wrap: wrap; }
-  .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.11em; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--rule); color: var(--gray); text-transform: uppercase; }
-
-  /* La miniatura SIEMPRE visible: sin ella el portfolio no enseña trabajo */
-  .project-thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-light); border: 1px solid var(--rule); }
-  .project-thumb img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(1) contrast(1.02); transform: scale(1.06);
-    transition: filter 0.55s var(--ease), transform var(--dur-slow) var(--ease);
-  }
-  .project-row:hover .project-thumb img,
-  .project-row:focus .project-thumb img,
-  .project-row:focus-visible .project-thumb img { filter: none; transform: scale(1); }
-
-  .project-side { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; text-align: right; }
-  .project-type { font-family: var(--mono); font-size: 12px; color: var(--gray); line-height: 1.5; }
-  .project-cta { display: flex; align-items: center; gap: 8px; font-size: var(--t-small); font-weight: 700; }
-  .project-arrow { display: inline-block; font-size: 17px; transition: transform 0.45s var(--ease); }
-  .project-row:hover .project-arrow, .project-row:focus .project-arrow, .project-row:focus-visible .project-arrow { transform: translateX(8px); }
-
-  /* ================= HABLEMOS ================= */
-  #contact { background: var(--black); }
-  /* Sobre negro el amarillo se lee a 13.11:1: aquí es texto, no bloque */
-  #contact .hl { background: none; color: var(--accent); padding: 0; }
-  #contact .form-note { color: rgba(255,255,255,0.32); }
-  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
-  .contact-title { font-size: clamp(40px, 5.2vw, 76px); font-weight: 900; letter-spacing: -0.038em; line-height: 0.96; color: var(--white); margin-bottom: var(--s-el); }
-  .contact-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 44px; max-width: 340px; }
-  .contact-direct-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 8px; }
-
-  .contact-direct-link {
-    display: flex; align-items: center; gap: 14px; text-decoration: none;
-    color: var(--white); font-size: 15px; font-weight: 600; padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    transition: color var(--dur-fast), gap var(--dur-fast) var(--ease);
-  }
-  .contact-direct-link:hover { color: var(--accent); gap: 20px; }
-  .link-icon {
-    width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    transition: background var(--dur-fast), color var(--dur-fast);
-  }
-  .contact-direct-link:hover .link-icon { background: var(--accent); color: var(--black); }
-
-  .contact-socials { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
-  .social-btn {
-    display: flex; align-items: center; gap: 7px; text-decoration: none;
-    color: rgba(255,255,255,0.5); font-size: var(--t-small); font-weight: 600;
-    padding: 9px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50px;
-    transition: color var(--dur-fast), border-color var(--dur-fast);
-  }
-  .social-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
-
-  /* Contenedores en ángulo recto, controles en cápsula: esa es la regla */
-  .contact-form-card { background: rgba(255,255,255,0.03); border: 1px solid var(--rule-dark); padding: clamp(24px, 3vw, 36px); }
-  .form-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 28px; }
-  .fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
-  .fg label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
-  .fg input, .fg textarea, .fg-select {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    padding: 13px 16px; font-family: var(--font); font-size: 15px; color: var(--white);
-    outline: none; width: 100%; transition: border-color var(--dur-fast), background var(--dur-fast);
-  }
-  .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.22); }
-  .fg input:focus, .fg textarea:focus { border-color: var(--accent); background: rgba(255,255,255,0.09); }
-  .fg textarea { min-height: 110px; resize: none; }
-  .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .fg-select {
-    appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer; padding-right: 42px;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23F5D000' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
-    background-repeat: no-repeat; background-position: right 16px center;
-  }
-  .fg-select:focus { border-color: var(--accent); background-color: rgba(255,255,255,0.09); }
-  .fg-select option { background: #1A1A18; color: var(--white); }
-  .form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; gap: 16px; }
-  .form-note { font-size: 12px; color: rgba(255,255,255,0.25); }
-  #form-success {
-    display: none; background: rgba(245,208,0,0.1); border: 1px solid rgba(245,208,0,0.25);
-    padding: 14px 18px; color: var(--accent); font-size: 14px; font-weight: 600;
-    margin-top: 16px; text-align: center;
-  }
-
-  /* ================= RESPONSIVE ================= */
-  @media (max-width: 900px) {
-    #hero { padding: 100px 20px 24px; }
-    .hero-title { font-size: clamp(46px, 13.5vw, 76px); mix-blend-mode: normal; }
-    /* En móvil la foto deja de superponerse: pasa a bloque propio */
-    .hero-photo { position: static; width: 100%; max-width: 260px; height: auto; aspect-ratio: 4/5; margin-top: 28px; }
-    .hero-aside { max-width: 100%; margin-top: 26px; }
-
-    .about-grid { grid-template-columns: 1fr; gap: 30px; }
-    .about-specs { max-width: 380px; }
-    .about-body p { font-size: 16px; }
-    .about-body p:first-child { font-size: 19px; }
-
-    .cv-role { grid-template-columns: 1fr; gap: 10px; }
-    .cv-when { padding-top: 0; }
-    .cv-foot { grid-template-columns: 1fr; border-bottom: none; }
-    .cv-foot > div { border-left: none; border-bottom: 1px solid var(--rule); padding: 24px 0; }
-    .cv-download .btn-primary { width: 100%; justify-content: center; }
-
-    .disciplines-grid { grid-template-columns: 1fr; border-bottom: none; }
-    .discipline-card { border-left: none; border-bottom: 1px solid var(--rule); padding: 30px 0 34px; }
-    .card-num { font-size: 62px; margin-bottom: 18px; }
-    .discipline-card:hover, .discipline-card:focus-within { background: transparent; color: var(--black); }
-    .discipline-card:hover .card-num, .discipline-card:hover .card-title, .discipline-card:hover .card-list li { color: var(--black); }
-    .discipline-card:hover .card-desc { color: var(--gray); }
-    .discipline-card:hover .card-num span, .discipline-card:hover .card-list li::before { color: var(--gray); }
-    .discipline-card:hover .card-list li { border-color: var(--rule); }
-
-    /* La imagen manda en móvil: va arriba y a todo el ancho */
-    .project-row { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; align-items: stretch; }
-    .project-row:hover, .project-row:focus, .project-row:focus-visible { padding-left: 0; }
-    .project-index { display: none; }
-    .project-thumb { order: -1; aspect-ratio: 16/10; }
-    .project-thumb img { filter: none; transform: none; }
-    .project-name { font-size: 28px; margin-bottom: 10px; }
-    .project-side { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 12px; width: 100%; }
-
-    .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
-    .contact-tagline { margin-bottom: 36px; max-width: 100%; }
-    .fg-row { grid-template-columns: 1fr; gap: 0; }
-    .form-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .form-footer .btn-primary { width: 100%; justify-content: center; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { font-size: clamp(42px, 12vw, 58px); }
-    .about-buttons { flex-direction: column; align-items: stretch; }
-    .about-buttons .btn-primary, .about-buttons .btn-secondary { justify-content: center; }
-    .project-name { font-size: 24px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
-
 <noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
+<a href="#main" class="skip-link">Skip to content</a>
 
-<a href="#hero" class="skip-link">Skip to content</a>
-
-<nav>
-  <a href="#hero" class="nav-logo" aria-label="Pablo Meyer — Home">
-    <img src="assets/icons/logo.svg" alt="Pablo Meyer" class="nav-logo-img" width="32" height="32">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    
-    <a href="#contact" class="nav-cta">Let's talk</a>
-    <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="nav-hero" aria-label="Main">
+<div class="nav-bar">
+<ul class="nav-links">
+<li class="nav-indicator" aria-hidden="true"></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+</ul>
+<a href="#hero" class="nav-logo" aria-label="Pablo Meyer — Home">
+<img src="assets/icons/logo-marca.svg" alt="" class="nav-logo-mark" width="58" height="58">
+</a>
+<div class="nav-end">
+<div class="nav-lang" role="group" aria-label="Language">
+<a href="./" hreflang="en" lang="en" title="English" aria-current="true" data-lang-switch>EN</a><span class="nav-lang-sep" aria-hidden="true">/</span><a href="es/" hreflang="es" lang="es" title="Español" data-lang-switch>ES</a>
+</div>
+<a href="#contact" class="nav-cta">Let's talk</a>
+</div>
+<button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+<span></span><span></span>
+</button>
+</div>
+<div class="mobile-menu" id="mobile-menu">
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+<div class="nav-lang" role="group" aria-label="Language">
+<a href="./" hreflang="en" lang="en" title="English" aria-current="true" data-lang-switch>EN</a><span class="nav-lang-sep" aria-hidden="true">/</span><a href="es/" hreflang="es" lang="es" title="Español" data-lang-switch>ES</a>
+</div>
+</div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#work">Work</a>
-  <a href="#about">About</a>
-  <a href="#cv">CV</a>
-  <a href="#contact">Contact</a>
-</div>
-
+<main id="main">
 <section id="hero">
-  <div class="container">
-    <div class="hero-stage">
-      <div class="hero-photo fade-up">
-        <picture>
-          <source srcset="assets/img/PabloMeyer-800.webp" type="image/webp">
-          <img src="assets/img/PabloMeyer-800.jpg" alt="Pablo Meyer, graphic and UX/UI designer" width="800" height="1067" fetchpriority="high" decoding="async">
-        </picture>
-      </div>
 
-      <h1 class="hero-title display fade-up">Graphic<br>Design<br>Marketing<br><span class="outline">&amp; UX/UI</span></h1>
-
-      <div class="hero-aside">
-        <p class="hero-desc fade-up">I'm <strong>Pablo Meyer</strong>, a graphic and UX/UI designer. I make brands and digital products that make sense at first glance — branding, communication and UX/UI that solve, not decorate.</p>
-        <div class="hero-buttons fade-up">
-          <a href="#work" class="btn-primary">View projects →</a>
-          <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary">Download CV</a>
-        </div>
-      </div>
-    </div>
-
-    <dl class="infobar fade-up">
-      <div><dt>Status</dt><dd><span class="dot"></span><span>Available</span></dd></div>
-      <div><dt>Based in</dt><dd>Spain · Remote</dd></div>
-      <div><dt>Languages</dt><dd>ES · DE · EN</dd></div>
-      <div><dt>Disciplines</dt><dd>Branding · UX/UI · Marketing</dd></div>
-    </dl>
-  </div>
+<div class="container">
+<div class="hero-stage">
+<h1 class="hero-title display fade-up"><span>Graphic</span> <span class="outline">Designer</span></h1>
+<div class="hero-aside">
+<p class="hero-desc fade-up">I'm <strong>Pablo</strong>, a graphic and UX/UI designer. I design brands, packaging, campaigns and apps, most of it in-house for companies like Porcelanosa Grupo.</p>
+<div class="hero-buttons fade-up">
+<a href="#work" class="btn-primary">View projects →</a>
+<a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary">Download CV <span class="btn-note">(PDF)</span></a>
+</div>
+</div>
+</div>
+<ul class="factbar fade-up" aria-label="Availability, location, languages and disciplines">
+<li class="fact"><span class="dot" aria-hidden="true"></span>Available</li>
+<li class="fact">Spain · Remote</li>
+<li class="fact"><abbr title="Spanish, German and English">ES · DE · EN</abbr></li>
+<li class="fact">Brand Identity · Digital · UX/UI</li>
+</ul>
+</div>
 </section>
 
 <section id="work">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="section-title fade-up">Recent work.</h2>
-      <p class="section-meta fade-up">3 cases · 2023 — 2026<br>branding · product · graphic</p>
-    </div>
-    <div class="projects-list">
-      <a href="projects/iki.html" class="project-row">
-        <span class="project-index">01</span>
-        <div class="project-info">
-          <div class="project-name">IKI · ZenElegance</div>
-          <div class="project-tags"><span class="tag">Branding</span><span class="tag">Packaging</span><span class="tag">Identity</span></div>
-        </div>
-        <div class="project-thumb">
-          <picture>
-            <source srcset="assets/img/projects/iki/cover-iki.webp" type="image/webp">
-            <img src="assets/img/projects/iki/cover-iki.jpg" alt="IKI · ZenElegance — brand signage" loading="lazy" decoding="async" width="800" height="600">
-          </picture>
-        </div>
-        <div class="project-side">
-          <div class="project-type">2025<br>Branding &amp; Packaging</div>
-          <div class="project-cta"><span>View case</span> <span class="project-arrow">→</span></div>
-        </div>
-      </a>
-      <a href="projects/coach.html" class="project-row">
-        <span class="project-index">02</span>
-        <div class="project-info">
-          <div class="project-name">Coach App</div>
-          <div class="project-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">Mobile</span></div>
-        </div>
-        <div class="project-thumb">
-          <picture>
-            <source srcset="assets/img/projects/coach/objetivo.webp" type="image/webp">
-            <img src="assets/img/projects/coach/objetivo.png" alt="Coach App — the summary screen in use" loading="lazy" decoding="async" width="1024" height="1280">
-          </picture>
-        </div>
-        <div class="project-side">
-          <div class="project-type">2025<br>UX/UI · Product</div>
-          <div class="project-cta"><span>View case</span> <span class="project-arrow">→</span></div>
-        </div>
-      </a>
-      <a href="projects/galeria.html" class="project-row">
-        <span class="project-index">03</span>
-        <div class="project-info">
-          <div class="project-name">Selected pieces</div>
-          <div class="project-tags"><span class="tag">Posters</span><span class="tag">Packaging</span><span class="tag">Social</span></div>
-        </div>
-        <div class="project-thumb">
-          <picture>
-            <source srcset="assets/img/projects/galeria/galeriahero.webp" type="image/webp">
-            <img src="assets/img/projects/galeria/galeriahero.jpg" alt="A selection of graphic pieces" loading="lazy" decoding="async" width="800" height="600">
-          </picture>
-        </div>
-        <div class="project-side">
-          <div class="project-type">2023 — 2025<br>Graphic selection</div>
-          <div class="project-cta"><span>View case</span> <span class="project-arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<h2 class="section-title fade-up">Work.</h2>
+</div>
+</div>
+<div class="work-scroll" style="--count: 2">
+<div class="work-sticky">
+<div class="projects-list">
+
+<a href="projects/iki.html" id="iki" class="project-row is-lead fade-up">
+<div class="card-media">
+<picture>
+<source srcset="assets/img/projects/iki/cover-iki.webp" type="image/webp">
+<img src="assets/img/projects/iki/cover-iki.jpg" alt="IKI · ZenElegance — brand signage" width="1536" height="891" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="project-info">
+<span class="project-index">01</span>
+<h3 class="project-name">IKI · ZenElegance</h3>
+<div class="project-tags"><span class="tag">Brand Identity</span><span class="tag">Packaging</span><span class="tag">Art Direction</span></div>
+</div>
+<div class="project-side">
+<span class="project-meta">2025 · Conceptual brand<br>Brand Identity &amp; Packaging</span>
+<span class="project-cta">View case <span class="project-arrow">→</span></span>
+</div>
+</a>
+
+<a href="projects/coach.html" id="coach" class="project-row fade-up">
+<div class="card-media">
+<picture>
+<source srcset="assets/img/projects/coach/hero-coach.webp" type="image/webp">
+<img src="assets/img/projects/coach/hero-coach.jpg" alt="Coach App — product screens" width="1440" height="892" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="project-info">
+<span class="project-index">02</span>
+<h3 class="project-name">Coach App</h3>
+<div class="project-tags"><span class="tag">UX/UI</span><span class="tag">Product Design</span><span class="tag">Mobile</span></div>
+</div>
+<div class="project-side">
+<span class="project-meta">2025<br>UX/UI · Product Design</span>
+<span class="project-cta">View case <span class="project-arrow">→</span></span>
+</div>
+</a>
+
+</div>
+</div>
+<div class="work-runway" aria-hidden="true"></div>
+</div>
+
+<div class="work-more" id="playground">
+<div class="work-more-block">
+<a href="projects/galeria.html" class="work-more-link fade-up">
+<span class="work-more-label">Playground</span>
+<span>
+<span class="work-more-title">Posters, packaging &amp; visual experiments</span>
+<span class="work-more-desc">One-off pieces, experiments and personal work, 2023&nbsp;—&nbsp;2025.</span>
+</span>
+<span class="project-cta">Explore playground <span class="project-arrow">→</span></span>
+</a>
+<ul class="pg-grid fade-up" aria-label="Playground preview">
+<li class="pg-item"><a href="projects/galeria.html" class="pg-shot" style="--w:130%">
+<img src="assets/img/projects/galeria/Palo%20Market%20Fest.webp" alt="Palo Market Fest poster: food trucks, vinyl records and bold white type on orange" width="1080" height="1350" loading="lazy" decoding="async">
+<span class="tag" aria-hidden="true">Poster</span>
+</a></li>
+<li class="pg-item pg-item--wide"><a href="projects/galeria.html" class="pg-shot" style="--w:124%; --cy:49.6%">
+<img src="assets/img/projects/galeria/Stevebook.webp" alt="Editorial spread on Steve Jobs: a black page of body text beside a black-and-white portrait" width="1080" height="1350" loading="lazy" decoding="async">
+<span class="tag" aria-hidden="true">Editorial</span>
+</a></li>
+<li class="pg-item"><a href="projects/galeria.html" class="pg-shot" style="--w:168%; --cx:40.6%; --cy:48.4%">
+<img src="assets/img/projects/galeria/Utipic%20packaging.webp" alt="Utopick Caramel chocolate wrapper: paper-boat logo on a yellow and red pattern" width="1080" height="1350" loading="lazy" decoding="async">
+<span class="tag" aria-hidden="true">Packaging</span>
+</a></li>
+<li class="pg-item pg-item--extra"><a href="projects/galeria.html" class="pg-shot" style="--w:130%">
+<img src="assets/img/projects/galeria/Steve.webp" alt="Retro collage: Steve Jobs over an early Macintosh saying hello, on a neon grid" width="1080" height="1350" loading="lazy" decoding="async">
+<span class="tag" aria-hidden="true">Experiment</span>
+</a></li>
+</ul>
+</div>
+</div>
 </section>
 
 <section id="about">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="section-title fade-up">Three disciplines,<br>one way of working.</h2>
-      <p class="section-meta fade-up">Pablo Meyer<br>graphic · marketing · UX/UI</p>
-    </div>
+<div class="container">
+<div class="section-head">
+<h2 class="section-title fade-up">About.</h2>
+</div>
+<div class="about-main fade-up">
+<div class="about-portrait">
+<picture>
+<source srcset="assets/img/PabloMeyer-800.webp 800w, assets/img/PabloMeyer-1200.webp 1200w" sizes="(max-width: 900px) min(420px, 100vw), 443px" type="image/webp">
+<img src="assets/img/PabloMeyer-800.jpg" srcset="assets/img/PabloMeyer-800.jpg 800w, assets/img/PabloMeyer-1200.jpg 1200w" sizes="(max-width: 900px) min(420px, 100vw), 443px" alt="Portrait of Pablo Meyer" width="800" height="1067" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="about-body">
+<p>I work on both brand and product, from packaging and print files to user flows and screens in Figma. I like the projects where both have to fit together.</p>
+<p>Most of my work so far has been in-house: packaging, sales presentations, Meta Ads campaigns and the odd video edit, usually with a deadline attached. It taught me to ask what a piece is for before deciding how it looks.</p>
+<div class="about-buttons">
+<a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-secondary">Download CV <span class="btn-note">(PDF)</span></a>
+<a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn</a>
+</div>
+</div>
+</div>
 
-    <div class="about-grid">
-      <dl class="about-specs">
-        <div><dt>Profile</dt><dd>Graphic &amp; UX/UI designer</dd></div>
-        <div><dt>Based in</dt><dd>Spain · Remote</dd></div>
-        <div><dt>Languages</dt><dd>Spanish · German · English</dd></div>
-        <div><dt>Tools</dt><dd>Figma · Adobe CC · HTML/CSS</dd></div>
-      </dl>
-      <div class="about-body">
-        <p>I design brands, content and digital products with one goal: they should work without a manual. I work across branding, communication and <strong>UX/UI</strong> because brand problems rarely live in a single discipline.</p>
-        <p>I understand the problem before opening Figma. Every brand has a truth of its own; my job is to find it and translate it into a system that holds everywhere — from logo to product, from poster to feed.</p>
-        <div class="about-buttons">
-          <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary">Download CV →</a>
-          <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
-        </div>
-      </div>
-    </div>
+<div class="cv-foot fade-up">
+<div class="cv-edu-col">
+<h3>Education</h3>
+<ul class="cv-edu"><li><strong>Master's in Digital Marketing</strong><span>CEI Escuela de Diseño y Marketing · Oct 2025 — present</span></li><li><strong>Higher Diploma in Digital Design</strong><span>CEI Escuela de Diseño y Marketing · Oct 2022 — Nov 2024</span></li><li><strong>Higher Technician in 3D Animation, Games and Interactive Environments</strong><span>ISEP CEU · Sep 2020 — Jun 2022</span></li></ul>
+</div>
+<div class="cv-side">
+<div>
+<h3>Tools</h3>
+<ul class="cv-tools"><li><img src="assets/icons/tools/figma.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Figma</li><li><img src="assets/icons/tools/indesign.svg" alt="" width="56" height="56" loading="lazy" decoding="async">InDesign</li><li><img src="assets/icons/tools/photoshop.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Photoshop</li><li><img src="assets/icons/tools/illustrator.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Illustrator</li><li><img src="assets/icons/tools/premiere.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Premiere Pro</li><li><img src="assets/icons/tools/aftereffects.svg" alt="" width="56" height="56" loading="lazy" decoding="async">After Effects</li><li><img src="assets/icons/tools/metaads.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Meta Ads</li><li><img src="assets/icons/tools/googleads.svg" alt="" width="56" height="56" loading="lazy" decoding="async">Google Ads</li></ul>
+</div>
+<div>
+<h3>Languages</h3>
+<ul class="cv-langs"><li>Spanish <span>· Native</span></li><li>English <span>· Professional</span></li><li>German <span>· Professional</span></li></ul>
+</div>
+</div>
+</div>
 
-    <div class="disciplines-wrap fade-up">
-      <div class="disciplines-grid">
-      <div class="discipline-card">
-        <p class="card-num">01<span>/03</span></p>
-        <h3 class="card-title">Graphic Design</h3>
-        <p class="card-desc">Visual identity, editorial and campaigns. Brand systems built to hold long after launch.</p>
-        <ul class="card-list"><li>Visual identity</li><li>Editorial &amp; posters</li><li>Packaging</li><li>Brand systems</li></ul>
-      </div>
-      <div class="discipline-card">
-        <p class="card-num">02<span>/03</span></p>
-        <h3 class="card-title">Digital Marketing</h3>
-        <p class="card-desc">Strategy, content and campaigns so the brand reaches the right people without losing its voice.</p>
-        <ul class="card-list"><li>Social content</li><li>Brand strategy</li><li>Digital campaigns</li><li>Email &amp; landing</li></ul>
-      </div>
-      <div class="discipline-card">
-        <p class="card-num">03<span>/03</span></p>
-        <h3 class="card-title">UX / UI</h3>
-        <p class="card-desc">User-centered product design, with the brand stitched into every wireframe from day one.</p>
-        <ul class="card-list"><li>Wireframes &amp; flows</li><li>Prototyping in Figma</li><li>Interface design</li><li>Design systems</li></ul>
-      </div>
-    </div>
-  </div>
 </div></section>
 
-<section id="cv">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="section-title fade-up">Where I have worked.</h2>
-      <p class="section-meta fade-up">4 roles · 2022 — today<br>in-house and agency</p>
-    </div>
-
-    <ol class="cv-roles">
-      <li class="cv-role fade-up">
-        <div class="cv-when">Nov 2025 — present</div>
-        <div>
-          <h3 class="cv-org">Xtone · Porcelanosa Grupo</h3>
-          <p class="cv-role-title">Graphic &amp; digital designer</p>
-          <ul class="cv-tasks"><li>Graphic material and creatives for social media and digital campaigns.</li><li>Packaging and corporate merchandising pieces.</li><li>Visual consistency of the brand across every format and touchpoint.</li></ul>
-        </div>
-      </li>
-      <li class="cv-role fade-up">
-        <div class="cv-when">Aug 2025 — Nov 2025</div>
-        <div>
-          <h3 class="cv-org">Montosa</h3>
-          <p class="cv-role-title">Graphic designer</p>
-          <ul class="cv-tasks"><li>Packaging, poster and corporate material design.</li><li>Layout of sales presentations and internal materials.</li><li>Video editing for internal and external communication.</li></ul>
-        </div>
-      </li>
-      <li class="cv-role fade-up">
-        <div class="cv-when">Aug 2024 — Aug 2025</div>
-        <div>
-          <h3 class="cv-org">Educa Projects</h3>
-          <p class="cv-role-title">Graphic designer &amp; visual marketing</p>
-          <ul class="cv-tasks"><li>Redesign and rollout of the brand's visual identity.</li><li>Running and tracking Meta Ads campaigns.</li><li>Video editing and visual content for social media.</li></ul>
-        </div>
-      </li>
-      <li class="cv-role fade-up">
-        <div class="cv-when">Feb 2022 — Apr 2022</div>
-        <div>
-          <h3 class="cv-org">Quasar Dynamics</h3>
-          <p class="cv-role-title">Graphic designer &amp; 3D artist · Internship</p>
-          <ul class="cv-tasks"><li>Visual content for video games and digital experiences.</li><li>3D models and textures for interactive projects.</li></ul>
-        </div>
-      </li>
-    </ol>
-
-    <div class="cv-foot fade-up">
-      <div>
-        <h3>Education</h3>
-        <ul class="cv-edu"><li><strong>Master's in Digital Marketing</strong><span>CEI Escuela de Diseño y Marketing · Oct 2025 — present</span></li><li><strong>Higher Diploma in Digital Design</strong><span>CEI Escuela de Diseño y Marketing · Oct 2022 — Nov 2024</span></li><li><strong>Higher Technician in 3D Animation, Games and Interactive Environments</strong><span>ISEP CEU · Sep 2020 — Jun 2022</span></li></ul>
-      </div>
-      <div>
-        <h3>Tools</h3>
-        <ul class="cv-list"><li>InDesign</li><li>Photoshop</li><li>Illustrator</li><li>After Effects</li><li>Premiere Pro</li><li>Figma</li><li>Meta Ads</li></ul>
-      </div>
-      <div>
-        <h3>Languages</h3>
-        <ul class="cv-list"><li>Spanish <span>· Native</span></li><li>English <span>· Professional</span></li><li>German <span>· Professional</span></li></ul>
-      </div>
-    </div>
-
-    <div class="cv-download fade-up">
-      <a href="assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" class="btn-primary">Download CV as PDF →</a>
-    </div>
-  </div>
+<section id="experience">
+<div class="container">
+<div class="section-head">
+<h2 class="section-title fade-up">Experience.</h2>
+</div>
+<ol class="cv-roles">
+<li class="cv-role fade-up">
+<div class="cv-when">Nov 2025 — Jun 2026</div>
+<div>
+<h3 class="cv-org">Xtone · Porcelanosa Grupo</h3>
+<p class="cv-role-title">Graphic &amp; digital designer</p>
+<ul class="cv-tasks"><li>Graphic material and creatives for social media and digital campaigns.</li><li>Packaging and corporate merchandising pieces.</li><li>Visual consistency of the brand across every format and touchpoint.</li></ul>
+</div>
+</li>
+<li class="cv-role fade-up">
+<div class="cv-when">Aug 2025 — Nov 2025</div>
+<div>
+<h3 class="cv-org">Montosa</h3>
+<p class="cv-role-title">Graphic designer</p>
+<ul class="cv-tasks"><li>Packaging, poster and corporate material design.</li><li>Layout of sales presentations and internal materials.</li><li>Video editing for internal and external communication.</li></ul>
+</div>
+</li>
+<li class="cv-role fade-up">
+<div class="cv-when">Aug 2024 — Aug 2025</div>
+<div>
+<h3 class="cv-org">Educa Projects</h3>
+<p class="cv-role-title">Graphic designer &amp; visual marketing</p>
+<ul class="cv-tasks"><li>Redesign and rollout of the brand's visual identity.</li><li>Running and tracking Meta Ads campaigns.</li><li>Video editing and visual content for social media.</li></ul>
+</div>
+</li>
+<li class="cv-role fade-up">
+<div class="cv-when">Feb 2022 — Apr 2022</div>
+<div>
+<h3 class="cv-org">Quasar Dynamics</h3>
+<p class="cv-role-title">Graphic designer &amp; 3D artist · Internship</p>
+<ul class="cv-tasks"><li>Visual content for video games and digital experiences.</li><li>3D models and textures for interactive projects.</li></ul>
+</div>
+</li>
+</ol>
+</div>
 </section>
 
 <section id="contact">
-  <div class="container">
-    <div class="contact-wrap">
-      <div>
-        <h2 class="contact-title fade-up">Still have<br>a <span class="hl">question?</span></h2>
-        <p class="contact-tagline fade-up">Most of it is above. If something is missing — the full CV, references, availability or the detail of a case — write to me and I answer, not a form.</p>
-        <p class="contact-direct-label">Direct contact</p>
-        <a href="mailto:pablo.meyer00@gmail.com" class="contact-direct-link">
-          <span class="link-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 7 10-7"></path></svg>
-          </span>
-          pablo.meyer00@gmail.com
-        </a>
-        <a href="tel:+34640096537" class="contact-direct-link">
-          <span class="link-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"></path></svg>
-          </span>
-          +34 640 096 537
-        </a>
-        <div class="contact-socials">
-          <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn de Pablo Meyer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
-            LinkedIn
-          </a>
-        </div>
-      </div>
-      <div>
-        <div class="contact-form-card">
-          <p class="form-title">Send me a message</p>
-          <form id="contact-form" action="https://formspree.io/f/meeqggqp" method="POST">
-            <div class="fg-row">
-              <div class="fg"><label for="f-nombre">Name</label><input id="f-nombre" type="text" name="nombre" autocomplete="name" placeholder="Your name" required=""></div>
-              <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" required=""></div>
-            </div>
-            <div class="fg">
-              <label for="f-asunto">Subject</label>
-              <select id="f-asunto" name="asunto" class="fg-select" required="">
-                <option value="">Pick a topic…</option>
-                <option value="Oferta">Role or hiring process</option>
-                <option value="Caso">Questions about a case</option>
-                <option value="Freelance">Freelance project</option>
-                <option value="Otro">Other</option>
-              </select>
-            </div>
-            <div class="fg"><label for="f-mensaje">Message</label><textarea id="f-mensaje" name="mensaje" placeholder="Tell me briefly what you have in mind..." required=""></textarea></div>
-            <div class="form-footer">
-              <span class="form-note">I reply within 24h</span>
-              <button type="submit" class="btn-primary">Send →</button>
-            </div>
-          </form>
-          <div id="form-success" role="status">✓ Message sent. Talk soon.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="contact-wrap">
+<div>
+<h2 class="contact-title fade-up">Let's <span class="hl">talk.</span></h2>
+<p class="contact-tagline fade-up">Most of it is above. If you need references, my availability or more detail on a case, write to me. I answer myself, usually within a day.</p>
+<p class="contact-direct-label fade-up">Direct contact</p>
+<div class="direct-links fade-up">
+<a href="mailto:pablo.meyer00@gmail.com" class="contact-direct-link">
+<span class="link-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 7 10-7"></path></svg>
+</span>
+pablo.meyer00@gmail.com
+</a>
+<a href="tel:+34640096537" class="contact-direct-link">
+<span class="link-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"></path></svg>
+</span>
++34 640 096 537
+</a>
+<a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Pablo Meyer on LinkedIn">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+LinkedIn
+</a>
+</div>
+</div>
+<div>
+<div class="contact-form-card">
+<h3 class="form-title">Send me a message</h3>
+<form id="contact-form" action="https://formspree.io/f/meeqggqp" method="POST" novalidate>
+<div class="fg-row">
+<div class="fg"><label for="f-name">Name</label><input id="f-name" type="text" name="name" autocomplete="name" placeholder="Your name" required aria-describedby="f-name-err"><p class="fg-error" id="f-name-err">Tell me your name.</p></div>
+<div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" required aria-describedby="f-email-err"><p class="fg-error" id="f-email-err">Enter a valid email so I can reply.</p></div>
+</div>
+<div class="fg">
+<label for="f-subject">Subject</label>
+<select id="f-subject" name="subject" class="fg-select" required aria-describedby="f-subject-err">
+<option value="">Pick a topic…</option>
+<option value="Role">Role or hiring process</option>
+<option value="Case">Questions about a case</option>
+<option value="Freelance">Freelance project</option>
+<option value="Other">Other</option>
+</select>
+<p class="fg-error" id="f-subject-err">Pick a topic.</p>
+</div>
+<div class="fg"><label for="f-message">Message</label><textarea id="f-message" name="message" placeholder="Tell me briefly what you have in mind…" required aria-describedby="f-message-err"></textarea><p class="fg-error" id="f-message-err">Write a short message.</p></div>
+<div class="form-footer">
+<span class="form-note">I reply within 24h</span>
+<button type="submit" class="btn-primary">Send →</button>
+</div>
+<p class="form-error" id="form-error" role="alert"></p>
+</form>
+<p id="form-success" role="status" tabindex="-1" hidden>Message sent. I'll get back to you soon.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
+</main>
 
 <footer>
-  <div class="footer-inner">
-    <a href="#hero" class="footer-logo">Pablo <em>Meyer</em></a>
-    <p class="footer-copy">© <span id="copy-year">2026</span> Pablo Meyer</p>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:pablo.meyer00@gmail.com">Email</a>
-    </div>
-  </div>
+<div class="footer-inner">
+<p class="footer-copy">© <span id="copy-year">2026</span> Pablo Meyer</p>
+<a href="#hero" class="footer-logo" aria-label="Pablo Meyer — Home">
+<img src="assets/icons/logo-marca.svg" alt="Pablo Meyer" class="footer-logo-img" width="32" height="32">
+</a>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/pablo-a-meyer-1b2800212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a href="mailto:pablo.meyer00@gmail.com">Email</a>
+</div>
+</div>
 </footer>
 
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  /* ===== Menú móvil ===== */
-  const burger = document.getElementById('nav-burger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (burger && mobileMenu) {
-    const closeMenu = () => {
-      mobileMenu.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-    };
-    burger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-    document.addEventListener('click', e => {
-      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
-    });
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  setTimeout(() => {
-    document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 120);
-    });
-  }, 100);
-
-  const cardObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        cardObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.discipline-card, .project-row').forEach((el, i) => {
-    el.classList.add('reveal');
-    el.style.transitionDelay = (i % 3) * 90 + 'ms';
-    cardObs.observe(el);
-  });
-
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const activeObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
-      }
-    });
-  }, { threshold: 0.5 });
-
-  sections.forEach(s => activeObs.observe(s));
-
-  /* El nav arranca casi transparente y se cierra al separarse del top */
-  (() => {
-    const bar = document.querySelector('nav');
-    if (!bar) return;
-    let raf = null;
-    const sync = () => {
-      raf = null;
-      bar.classList.toggle('stuck', window.scrollY > 24);
-    };
-    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(sync); }, { passive: true });
-    sync();
-  })();
-
-  const yearEl = document.getElementById('copy-year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
-      else { btn.textContent = 'Error — try again'; btn.disabled = false; }
-    } catch { btn.textContent = 'Error — try again'; btn.disabled = false; }
-  });
-</script>
-
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/home.js"></script>
 
 </body></html>

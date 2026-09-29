@@ -33,7 +33,6 @@
   if (idea && !reduce) idea.classList.add('is-live');
 
   const closeImg = document.querySelector('.ik-close-img');
-  const nav = document.querySelector('nav');
   const bar = document.getElementById('scroll-progress');
 
   let ticking = false;
@@ -41,8 +40,6 @@
     ticking = false;
     const vh = window.innerHeight;
     const y = window.scrollY;
-
-    if (nav) nav.classList.toggle('stuck', y > 40);
 
     if (bar) {
       const h = document.documentElement;
@@ -74,21 +71,7 @@
   window.addEventListener('resize', req, { passive: true });
   onScroll();
 
-  /* Menú móvil (mismo comportamiento que el resto de casos) */
-  const burger = document.getElementById('nav-burger');
-  const menu = document.getElementById('mobile-menu');
-  if (burger && menu) {
-    const close = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); };
-    burger.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-    document.addEventListener('click', e => {
-      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) close();
-    });
-  }
+  /* Menú móvil y cabecera: assets/js/nav.js, la misma que la home */
 
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

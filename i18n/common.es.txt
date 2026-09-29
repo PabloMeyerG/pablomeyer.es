@@ -1,0 +1,14 @@
+# Comun a todas las paginas — EN ||| ES
+# Cabecera, footer y piezas repetidas. Se aplica antes que la tabla
+# de cada pagina (ver i18n/README.md).
+>Skip to content< ||| >Saltar al contenido<
+aria-label="Main" ||| aria-label="Principal"
+aria-label="Pablo Meyer — Home" ||| aria-label="Pablo Meyer — Inicio"
+role="group" aria-label="Language" ||| role="group" aria-label="Idioma"
+class="nav-cta">Let's talk< ||| class="nav-cta">Hablemos<
+aria-label="Open menu" ||| aria-label="Abrir menú"
+aria-label="Back to projects"><span class="nav-back-arrow" aria-hidden="true">←</span> Back</a> ||| aria-label="Volver a proyectos"><span class="nav-back-arrow" aria-hidden="true">←</span> Volver</a>
+# Bloque final de los casos
+Got something in mind?<br>Let’s talk. ||| ¿Tienes algo en mente?<br>Hablemos.
+Similar project?<br>Let’s talk. ||| ¿Un proyecto parecido?<br>Hablemos.
+class="case-cta-btn">Contact → ||| class="case-cta-btn">Contacto →

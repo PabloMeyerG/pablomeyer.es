@@ -6,14 +6,14 @@
 <title>404 — Page not found · Pablo Meyer</title>
 <meta name="description" content="The page you are looking for does not exist. Back to Pablo Meyer's portfolio.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#111110">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/base.css">
 <style>
   /* Mismo lenguaje editorial que el resto del sitio: sin degradados ni halos */
   body {
@@ -24,7 +24,7 @@
   }
   .wrap { width: 100%; max-width: var(--container); margin: 0 auto; flex: 1; display: flex; flex-direction: column; justify-content: center; }
 
-  .eyebrow-404 { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .eyebrow-404 { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 28px; }
 
   /* El 404 en contorno: el mismo recurso que el "& UX/UI" de la home */
   .big-num {
@@ -47,11 +47,11 @@
   .footer-mini {
     max-width: var(--container); margin: 0 auto; width: 100%;
     border-top: 1px solid var(--rule-dark); padding-top: 20px; margin-top: 56px;
-    font-size: 12px; color: rgba(255,255,255,0.35);
+    font-size: 12px; color: rgba(255,255,255,0.58);
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   }
   .footer-mini a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--dur-fast); }
-  .footer-mini a:hover { color: var(--yellow); }
+  .footer-mini a:hover { color: var(--accent); }
 
   @media (max-width: 540px) {
     body { padding: 80px 20px 24px; }
@@ -65,15 +65,15 @@
 <main class="wrap">
   <p class="eyebrow-404">Error 404</p>
   <h1 class="big-num">404</h1>
-  <p class="title">This page does not exist.</p>
-  <p class="desc">Either the URL is mistyped or the page has moved. The portfolio itself is still right where it was — head back home, or write to me directly.</p>
+  <p class="title" data-es="Esta página no existe.">This page does not exist.</p>
+  <p class="desc" data-es="O la dirección está mal escrita o la página se ha movido. El portfolio sigue donde estaba: vuelve al inicio o escríbeme directamente.">Either the URL is mistyped or the page has moved. The portfolio itself is still right where it was — head back home, or write to me directly.</p>
   <div class="actions">
-    <a href="/" class="btn-primary">← Back home</a>
-    <a href="/index.html#contact" class="btn-secondary">Write to me</a>
+    <a href="/" class="btn-primary" data-es="← Volver al inicio" data-es-href="/es/">← Back home</a>
+    <a href="/#contact" class="btn-secondary" data-es="Escríbeme" data-es-href="/es/#contact">Write to me</a>
   </div>
 </main>
 
-<div class="footer-mini">
+<div class="footer-mini" role="contentinfo">
   <span>© <span id="copy-year">2026</span> · Pablo Meyer</span>
   <a href="mailto:pablo.meyer00@gmail.com">pablo.meyer00@gmail.com</a>
 </div>
@@ -81,6 +81,15 @@
 <script>
   const yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* GitHub Pages sirve esta misma 404 para cualquier ruta que no existe.
+     Si la ruta pedida estaba bajo /es/, la pagina se pasa al castellano. */
+  if (/^\/es(\/|$)/.test(location.pathname)) {
+    document.documentElement.lang = 'es';
+    document.title = '404 — Página no encontrada · Pablo Meyer';
+    document.querySelectorAll('[data-es]').forEach(el => { el.textContent = el.dataset.es; });
+    document.querySelectorAll('[data-es-href]').forEach(el => { el.href = el.dataset.esHref; });
+  }
 </script>
 
 </body>

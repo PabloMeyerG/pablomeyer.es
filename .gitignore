@@ -12,3 +12,7 @@
 # Temporales
 *.log
 *.tmp
+*.bak
+
+# Claude / Cowork
+.claude/

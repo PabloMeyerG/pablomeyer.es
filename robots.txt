@@ -1,25 +1,11 @@
 # robots.txt — pablomeyer.es
-# Permite indexación completa a buscadores legítimos.
+# Indexacion completa, incluidos buscadores y asistentes de IA: el
+# portfolio existe para que lo encuentren. Solo se excluyen el PDF del CV
+# y las tablas de traduccion (/i18n/), que no son contenido.
 
 User-agent: *
 Allow: /
 Disallow: /assets/downloads/
+Disallow: /i18n/
 
-# Bloquear crawlers de IA agresivos (opcional — coméntalo si quieres permitirlos)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-# Sitemap
 Sitemap: https://pablomeyer.es/sitemap.xml

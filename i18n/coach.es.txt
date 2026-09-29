@@ -1,0 +1,83 @@
+# Coach — EN ||| ES
+# Traduccion fiel de la version actual (Coach se rediseñara mas adelante:
+# al cambiar el HTML EN, rehacer esta tabla).
+# --- Metadatos ---
+Coach App — UX/UI Case Study · Pablo Meyer ||| Coach App — Proyecto UX/UI · Pablo Meyer
+UX/UI case study: Coach, a training and nutrition app that fits the user's routine instead of imposing one. Designed by Pablo Meyer. ||| Proyecto UX/UI: Coach, una app de entrenamiento y nutrición que se adapta a la rutina del usuario en lugar de imponerle una. Diseñada por Pablo Meyer.
+Coach App — Case 02 · Pablo Meyer ||| Coach App — Proyecto 02 · Pablo Meyer
+content="Coach App — Case 02" ||| content="Coach App — Proyecto 02"
+UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one. ||| UX/UI para una app de fitness y nutrición que se adapta a la rutina del usuario en lugar de imponerle una.
+UX/UI for a fitness and nutrition app. ||| UX/UI para una app de fitness y nutrición.
+"headline": "Coach — Fitness app · UX/UI case study" ||| "headline": "Coach — App de fitness · Proyecto UX/UI"
+["UX/UI", "Product design", "Mobile", "Design system"] ||| ["UX/UI", "Diseño de producto", "Móvil", "Sistema de diseño"]
+# --- Hero ---
+<span class="tag">Product</span> ||| <span class="tag">Producto</span>
+<span class="tag">Mobile</span> ||| <span class="tag">Móvil</span>
+<p class="meta-label">Type</p><p class="meta-value">Mobile app · iOS</p> ||| <p class="meta-label">Tipo</p><p class="meta-value">App móvil · iOS</p>
+<p class="meta-label">Year</p> ||| <p class="meta-label">Año</p>
+<p class="meta-label">Role</p> ||| <p class="meta-label">Rol</p>
+<p class="meta-label">Duration</p><p class="meta-value">4 weeks</p> ||| <p class="meta-label">Duración</p><p class="meta-value">4 semanas</p>
+>← Previous project< ||| >← Proyecto anterior<
+>Next project →< ||| >Siguiente proyecto →<
+alt="Coach — main app screen" ||| alt="Coach — pantalla principal de la app"
+# --- Reto ---
+>The challenge< ||| >El reto<
+A fitness app that doesn't make the user feel bad for not opening it. ||| Una app de fitness que no te hace sentir mal por no abrirla.
+The brief was to design a mobile app end to end: research, architecture, system and UI. I picked fitness and nutrition because it's a saturated and noisy space — most apps promise military discipline and talk to the user as if they were 25, with two free hours and a gym at home. None of that is reality. ||| El encargo era diseñar una app móvil de principio a fin: investigación, arquitectura, sistema e interfaz. Elegí fitness y nutrición porque es un sector saturado y ruidoso: la mayoría de apps prometen disciplina militar y le hablan al usuario como si tuviera 25 años, dos horas libres y un gimnasio en casa. Nada de eso es real.
+The research made the obvious obvious: people drop these apps because they remind them of what they're not doing. Coach was built around the opposite idea — <em>fit</em> the user's routine, not impose one. Every screen had to remove friction, not add it. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what's on today" before "how far you still are". ||| La investigación confirmó lo evidente: la gente abandona estas apps porque le recuerdan lo que no está haciendo. Coach se construyó sobre la idea contraria: <em>adaptarse</em> a la rutina del usuario, no imponerle una. Cada pantalla tenía que quitar fricción, no añadirla. Jerarquía clara, un onboarding que pregunta antes de exigir y un panel que pone «qué toca hoy» por delante de «cuánto te falta».
+<h3>Details</h3> ||| <h3>Ficha</h3>
+<dt>Tools</dt> ||| <dt>Herramientas</dt>
+<dt>Deliverables</dt> ||| <dt>Entregables</dt>
+<dt>Scope</dt><dd>Full mobile app</dd> ||| <dt>Alcance</dt><dd>App móvil completa</dd>
+# --- Investigación ---
+<p class="eyebrow">Research</p> ||| <p class="eyebrow">Investigación</p>
+>Product goals.< ||| >Objetivos del producto.<
+Before touching a single screen, I defined what Coach had to achieve at business and user level — and where the competition was failing. ||| Antes de tocar una sola pantalla, definí qué tenía que conseguir Coach para el negocio y para el usuario, y dónde estaba fallando la competencia.
+alt="Coach project goals" ||| alt="Objetivos del proyecto Coach"
+<figcaption>Goals</figcaption> ||| <figcaption>Objetivos</figcaption>
+alt="Coach wireframes" ||| alt="Wireframes de Coach"
+alt="Coach design system" ||| alt="Sistema de diseño de Coach"
+<figcaption>Design system</figcaption> ||| <figcaption>Sistema de diseño</figcaption>
+# --- Decisiones ---
+>Key decisions< ||| >Decisiones clave<
+Three decisions that organise the whole app. ||| Tres decisiones que ordenan toda la app.
+Onboarding that asks, not demands. ||| Un onboarding que pregunta, no que exige.
+The user decides how much time they have, what goals they're chasing and what kind of plan they want. The app adapts to them — not the other way round. ||| El usuario decide cuánto tiempo tiene, qué objetivos persigue y qué tipo de plan quiere. La app se adapta a él, y no al revés.
+Home focused on today. ||| Una pantalla de inicio centrada en hoy.
+The first screen shows what's on now, not stacked stats. No charts to remind you of what didn't get done. ||| La primera pantalla enseña lo que toca ahora, no estadísticas apiladas. Ningún gráfico que te recuerde lo que no hiciste.
+One primary action per screen. ||| Una acción principal por pantalla.
+Every view knows its job. Anything that doesn't feed the next action moves to a second level. Less noise, fewer decisions to make. ||| Cada vista sabe para qué está. Lo que no lleva a la siguiente acción pasa a un segundo nivel. Menos ruido y menos decisiones que tomar.
+# --- Pantallas ---
+>Final product< ||| >Producto final<
+>Screens.< ||| >Pantallas.<
+Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open it. ||| Onboarding, panel, planes de entrenamiento, nutrición y sesión activa. El mismo lenguaje visual en todas, pero con prioridades distintas según lo que el usuario espera ver al abrirlas.
+alt="Onboarding screen" ||| alt="Pantalla de onboarding"
+alt="Intro screen" ||| alt="Pantalla de introducción"
+alt="Home screen" ||| alt="Pantalla de inicio"
+alt="Workout screen" ||| alt="Pantalla de entrenamiento"
+<figcaption>Workout · session</figcaption> ||| <figcaption>Entrenamiento · sesión</figcaption>
+alt="Sport screen" ||| alt="Pantalla de deporte"
+alt="Food screen" ||| alt="Pantalla de alimentación"
+alt="Day Training screen" ||| alt="Pantalla de entrenamiento del día"
+# --- Proceso ---
+<p class="eyebrow">Process</p> ||| <p class="eyebrow">Proceso</p>
+From research to final UI. ||| De la investigación a la interfaz final.
+<p class="process-title">Research</p> ||| <p class="process-title">Investigación</p>
+Competitive audit, user profiles and friction map. Why people start, why they leave. ||| Análisis de la competencia, perfiles de usuario y mapa de fricciones. Por qué la gente empieza y por qué lo deja.
+Architecture, flows and priorities in low fidelity. Decisions before pixels. ||| Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes que píxeles.
+<p class="process-title">Design system</p> ||| <p class="process-title">Sistema de diseño</p>
+Type, color, components and states. Mandatory consistency across screens. ||| Tipografía, color, componentes y estados. Coherencia obligatoria entre pantallas.
+<p class="process-title">Final UI</p> ||| <p class="process-title">Interfaz final</p>
+High-fidelity screens, navigable prototype and handoff ready. ||| Pantallas en alta fidelidad, prototipo navegable y entrega a desarrollo lista.
+# --- Siguiente ---
+>Next · Playground< ||| >Siguiente · Playground<
+alt="Playground preview" ||| alt="Vista previa de Playground"
+<span>Posters · Packaging · Social · 2023 — 2025</span> ||| <span>Carteles · Packaging · Redes · 2023 — 2025</span>
+<span>View case →</span> ||| <span>Ver proyecto →</span>
+# Pies de pantalla: la propia app esta en castellano ("Resumen", "Nutricion")
+<figcaption>Intro</figcaption> ||| <figcaption>Introducción</figcaption>
+<figcaption>Home</figcaption> ||| <figcaption>Inicio</figcaption>
+<figcaption>Sport</figcaption> ||| <figcaption>Deporte</figcaption>
+<figcaption>Food</figcaption> ||| <figcaption>Alimentación</figcaption>
+<figcaption>Day training</figcaption> ||| <figcaption>Entrenamiento del día</figcaption>
+<dd>Fitness · Wellness</dd> ||| <dd>Fitness · Bienestar</dd>

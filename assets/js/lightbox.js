@@ -1,15 +1,15 @@
 /* ===========================================================
-   Lightbox — Pablo Meyer (galería)
+   Lightbox — Pablo Meyer (Playground)
    -----------------------------------------------------------
-   Selecciona automáticamente .gallery-item dentro de
-   #gallery-masonry. Si JS falla, los <a> siguen funcionando
-   como descarga de la imagen original (fallback nativo).
+   Abre cualquier enlace con [data-lb]. El href es la imagen
+   grande: si el JS falla, el enlace sigue abriendo la pieza.
+   Pie de foto: data-title + data-meta del propio enlace.
 
-   Soporta:
-   - Click / tap para abrir
-   - ← / → para navegar
-   - ESC para cerrar
-   - Swipe horizontal en mobile
+   - Click / tap para abrir; click fuera de la imagen cierra
+   - ← / → y botones para navegar; swipe horizontal en tactil
+   - ESC cierra; el foco queda atrapado dentro mientras esta
+     abierto y vuelve a la pieza que se estaba viendo
+   - El body no hace scroll mientras esta abierto
    =========================================================== */
 
 (function () {
@@ -22,62 +22,65 @@
   }
 
   ready(function () {
-    var root = document.getElementById('gallery-masonry');
-    if (!root) return;
-
-    var items = Array.prototype.slice.call(root.querySelectorAll('.gallery-item'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('[data-lb]'));
     if (!items.length) return;
 
-    // Construir overlay
+    var T = document.documentElement.lang === 'es'
+      ? { close: 'Cerrar', prev: 'Pieza anterior', next: 'Pieza siguiente' }
+      : { close: 'Close', prev: 'Previous piece', next: 'Next piece' };
+
     var overlay = document.createElement('div');
     overlay.className = 'pm-lb';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-labelledby', 'pm-lb-title');
     overlay.innerHTML =
-      '<button class="pm-lb-close" type="button" aria-label="Cerrar">&times;</button>' +
-      '<button class="pm-lb-prev" type="button" aria-label="Anterior">&#8249;</button>' +
-      '<button class="pm-lb-next" type="button" aria-label="Siguiente">&#8250;</button>' +
+      '<button class="pm-lb-close" type="button" aria-label="' + T.close + '">&times;</button>' +
+      '<button class="pm-lb-prev" type="button" aria-label="' + T.prev + '">&#8249;</button>' +
+      '<button class="pm-lb-next" type="button" aria-label="' + T.next + '">&#8250;</button>' +
       '<div class="pm-lb-stage">' +
         '<picture class="pm-lb-pic">' +
-          '<source class="pm-lb-source" srcset="" type="image/webp">' +
-          '<img class="pm-lb-img" src="" alt="">' +
+          '<source class="pm-lb-source" type="image/webp">' +
+          '<img class="pm-lb-img" alt="">' +
         '</picture>' +
-        '<p class="pm-lb-caption" id="pm-lb-caption"></p>' +
-        '<p class="pm-lb-count" aria-hidden="true"></p>' +
+        '<p class="pm-lb-caption">' +
+          '<span class="pm-lb-title" id="pm-lb-title"></span>' +
+          '<span class="pm-lb-meta"></span>' +
+          '<span class="pm-lb-count" aria-hidden="true"></span>' +
+        '</p>' +
       '</div>';
 
     document.body.appendChild(overlay);
 
     var imgEl = overlay.querySelector('.pm-lb-img');
     var srcEl = overlay.querySelector('.pm-lb-source');
-    var capEl = overlay.querySelector('.pm-lb-caption');
+    var titleEl = overlay.querySelector('.pm-lb-title');
+    var metaEl = overlay.querySelector('.pm-lb-meta');
     var cntEl = overlay.querySelector('.pm-lb-count');
     var prevBtn = overlay.querySelector('.pm-lb-prev');
     var nextBtn = overlay.querySelector('.pm-lb-next');
     var closeBtn = overlay.querySelector('.pm-lb-close');
 
     var current = 0;
-    var lastFocus = null;
 
     function show(i) {
       current = (i + items.length) % items.length;
       var item = items[current];
-      var fullSrc = item.getAttribute('href') || '';
       var img = item.querySelector('img');
-      var alt = img ? img.getAttribute('alt') || '' : '';
-      var webpSource = item.querySelector('source');
-      var webpSrcset = webpSource ? webpSource.getAttribute('srcset') || '' : '';
+      var webp = item.querySelector('source');
 
-      imgEl.src = fullSrc;
-      imgEl.alt = alt;
-      srcEl.srcset = webpSrcset;
-      capEl.textContent = alt;
+      srcEl.srcset = webp ? webp.getAttribute('srcset') || '' : '';
+      imgEl.src = item.getAttribute('href') || '';
+      imgEl.alt = img ? img.getAttribute('alt') || '' : '';
+      titleEl.textContent = item.getAttribute('data-title') || '';
+      metaEl.textContent = item.getAttribute('data-meta') || '';
       cntEl.textContent = (current + 1) + ' / ' + items.length;
     }
 
+    function isOpen() { return overlay.classList.contains('pm-lb-visible'); }
+
     function open(i) {
-      lastFocus = document.activeElement;
       show(i);
       overlay.classList.add('pm-lb-visible');
       overlay.setAttribute('aria-hidden', 'false');
@@ -89,43 +92,51 @@
       overlay.classList.remove('pm-lb-visible');
       overlay.setAttribute('aria-hidden', 'true');
       document.documentElement.classList.remove('pm-lb-locked');
-      // limpiar src para liberar memoria en móviles
+      // Liberar la imagen grande (memoria en moviles)
       setTimeout(function () {
-        if (!overlay.classList.contains('pm-lb-visible')) {
+        if (!isOpen()) {
           imgEl.removeAttribute('src');
           srcEl.removeAttribute('srcset');
         }
       }, 250);
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
+      // Vuelve a la pieza que se estaba viendo (no a activeElement: en
+      // Safari un clic no enfoca el enlace)
+      items[current].focus();
     }
 
-    // Wire each item
     items.forEach(function (a, i) {
       a.addEventListener('click', function (e) {
-        // mantener fallback si Cmd/Ctrl/Shift/middle-click (abrir en nueva pestaña)
+        // Cmd/Ctrl/Shift/clic central: comportamiento nativo del enlace
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
         e.preventDefault();
         open(i);
       });
     });
 
-    // Controles
     closeBtn.addEventListener('click', close);
     prevBtn.addEventListener('click', function () { show(current - 1); });
     nextBtn.addEventListener('click', function () { show(current + 1); });
 
+    // Click en el fondo (no en la imagen, el pie ni los botones) cierra
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay || e.target.classList.contains('pm-lb-stage')) close();
     });
 
     document.addEventListener('keydown', function (e) {
-      if (!overlay.classList.contains('pm-lb-visible')) return;
+      if (!isOpen()) return;
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') show(current - 1);
       else if (e.key === 'ArrowRight') show(current + 1);
+      else if (e.key === 'Tab') {
+        // aria-modal: el foco no debe escaparse a la pagina de detras
+        var focusables = [closeBtn, prevBtn, nextBtn];
+        var at = focusables.indexOf(document.activeElement);
+        e.preventDefault();
+        var step = e.shiftKey ? -1 : 1;
+        focusables[(at + step + focusables.length) % focusables.length].focus();
+      }
     });
 
-    // Swipe (touch)
     var touchStartX = 0;
     var touchStartY = 0;
     overlay.addEventListener('touchstart', function (e) {

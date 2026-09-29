@@ -1,0 +1,44 @@
+# Playground — EN ||| ES
+# "Playground" no se traduce. Los titulos de las piezas son el texto que
+# aparece en cada pieza: se quedan como estan.
+# --- Metadatos ---
+<title>Playground — Posters, Packaging &amp; Visual Experiments · Pablo Meyer</title> ||| <title>Playground — Carteles, packaging y experimentos · Pablo Meyer</title>
+A collection of posters, packaging, editorial pieces and visual experiments by Pablo Meyer, 2023 — 2025. ||| Una selección de carteles, packaging, piezas editoriales y experimentos visuales de Pablo Meyer, 2023 — 2025.
+Posters, packaging, editorial pieces and visual experiments. The work that doesn't need a case study. ||| Carteles, packaging, piezas editoriales y experimentos visuales. El trabajo que no necesita un caso de estudio.
+content="A wall of posters, packaging and editorial pieces by Pablo Meyer" ||| content="Un muro de carteles, packaging y piezas editoriales de Pablo Meyer"
+content="Posters, packaging, editorial pieces and visual experiments." ||| content="Carteles, packaging, piezas editoriales y experimentos visuales."
+"headline": "Playground — posters, packaging & visual experiments" ||| "headline": "Playground — carteles, packaging y experimentación visual"
+"description": "A collection of posters, packaging, editorial pieces and visual experiments made between 2023 and 2025." ||| "description": "Una selección de carteles, packaging, piezas editoriales y experimentos visuales hechos entre 2023 y 2025."
+["Posters", "Packaging", "Editorial design", "Graphic design"] ||| ["Carteles", "Packaging", "Diseño editorial", "Diseño gráfico"]
+# --- Apertura ---
+>Posters, packaging &amp; visual experiments.< ||| >Carteles, packaging y experimentación visual.<
+One-off pieces, experiments and personal work, 2023&nbsp;—&nbsp;2025. ||| Piezas sueltas, experimentos y trabajo personal, 2023&nbsp;—&nbsp;2025.
+>Posters · Packaging · Editorial<br>Social · Experiments< ||| >Carteles · Packaging · Editorial<br>Redes · Experimentos<
+aria-label="Selected pieces" ||| aria-label="Piezas seleccionadas"
+aria-label="More pieces" ||| aria-label="Más piezas"
+aria-label="Final pieces" ||| aria-label="Últimas piezas"
+aria-label="Featured piece" ||| aria-label="Pieza destacada"
+# --- Disciplina de cada pieza (pie y lightbox) ---
+data-meta="Poster" ||| data-meta="Cartel"
+>Poster</span> ||| >Cartel</span>
+data-meta="Visual experiment" ||| data-meta="Experimento visual"
+>Visual experiment</span> ||| >Experimento visual</span>
+data-meta="Social" ||| data-meta="Redes"
+class="pg-piece-meta">Social</span> ||| class="pg-piece-meta">Redes</span>
+# --- Alt ---
+alt="Palo Market Fest poster: food trucks, vinyl records and bold white type on orange" ||| alt="Cartel de Palo Market Fest: food trucks, vinilos y tipografía blanca sobre naranja"
+alt="Editorial spread “Mente de Apple” on Steve Jobs: a black page of body text beside a black-and-white portrait" ||| alt="Doble página editorial «Mente de Apple» sobre Steve Jobs: una página negra de texto junto a un retrato en blanco y negro"
+alt="Retro collage: Steve Jobs leaning over an early Macintosh that says hello, on a neon grid with a runner below" ||| alt="Collage retro: Steve Jobs apoyado sobre un Macintosh antiguo que dice «hello», en una cuadrícula de neón con un corredor debajo"
+alt="Utopick Originals poster: paper-cut cacao illustration above a white label with the paper-boat logo" ||| alt="Cartel de Utopick Originals: ilustración de cacao en papel recortado sobre una etiqueta blanca con el logo del barco de papel"
+alt="Dazed-style cover of Post Malone in a white tank top over pink and orange brush strokes" ||| alt="Portada al estilo Dazed de Post Malone con camiseta de tirantes blanca sobre pinceladas rosas y naranjas"
+alt="Gucci-inspired perfume bottle with a floral label on a yellow field of red flowers" ||| alt="Frasco de perfume inspirado en Gucci con etiqueta floral sobre un fondo amarillo de flores rojas"
+alt="FastFood U.S.A. poster: a neon sign over orange halftone stars and stripes, with a burger below" ||| alt="Cartel FastFood U.S.A.: un rótulo de neón sobre barras y estrellas naranjas en semitono, con una hamburguesa debajo"
+alt="LeBron James poster: the number 23 and the quote “I like criticism, it makes you strong” in purple and gold" ||| alt="Cartel de LeBron James: el número 23 y la frase «I like criticism, it makes you strong» en morado y dorado"
+alt="Utopick Caramel chocolate wrapper laid flat: paper-boat logo on a yellow and red pattern, beside the nutrition panel" ||| alt="Envoltorio de chocolate Utopick Caramel desplegado: el logo del barco de papel sobre un patrón amarillo y rojo, junto a la tabla nutricional"
+# --- Nota ---
+>Small projects, quick ideas, different rules.< ||| >Proyectos pequeños, ideas rápidas, otras reglas.<
+>A place to try things without turning every piece into a case study.< ||| >Un sitio para probar cosas sin convertir cada pieza en un caso de estudio.<
+# --- Seguir explorando ---
+>Keep exploring< ||| >Seguir explorando<
+class="pg-more-kind">Brand Identity< ||| class="pg-more-kind">Identidad de marca<
+class="pg-more-kind">Product Design< ||| class="pg-more-kind">Diseño de producto<

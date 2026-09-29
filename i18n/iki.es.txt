@@ -1,0 +1,194 @@
+# IKI — EN ||| ES
+# Se traduce la narrativa del caso. NO se traduce lo que es parte del
+# diseño: esloganes de campaña, "Open here / Reuse me", el lookbook, el
+# especimen tipografico, la interfaz de la tienda y los posts.
+# --- Metadatos ---
+IKI — Brand Identity &amp; Art Direction | Pablo Meyer ||| IKI — Identidad de marca y dirección de arte | Pablo Meyer
+content="IKI — Brand Identity &amp; Art Direction"> ||| content="IKI — Identidad de marca y dirección de arte">
+IKI is a conceptual fashion identity exploring understated elegance through branding, packaging, art direction and digital design. ||| IKI es una identidad de moda conceptual que explora la elegancia discreta a través del branding, el packaging, la dirección de arte y el diseño digital.
+A conceptual fashion identity exploring understated elegance through branding, packaging, art direction and digital design. ||| Identidad de moda conceptual que explora la elegancia discreta a través del branding, el packaging, la dirección de arte y el diseño digital.
+content="IKI ZenElegance storefront sign" ||| content="Rótulo de la tienda IKI ZenElegance"
+A conceptual fashion identity: branding, packaging, art direction and digital. ||| Identidad de moda conceptual: branding, packaging, dirección de arte y digital.
+"headline": "IKI — Brand Identity & Art Direction" ||| "headline": "IKI — Identidad de marca y dirección de arte"
+["Brand identity", "Art direction", "Packaging", "Digital design"] ||| ["Identidad de marca", "Dirección de arte", "Packaging", "Diseño digital"]
+# --- Hero ---
+aria-label="Disciplines" ||| aria-label="Disciplinas"
+<li>Brand Identity</li> ||| <li>Identidad de marca</li>
+<li>Art Direction</li> ||| <li>Dirección de arte</li>
+alt="Black IKI hang tag with the white ZenElegance logo, hanging next to two blank white tags" ||| alt="Etiqueta colgante negra de IKI con el logotipo ZenElegance en blanco, junto a dos etiquetas blancas sin imprimir"
+>Hang tag — Collection 01< ||| >Etiqueta colgante — Collection 01<
+# --- 01 Resumen ---
+>01 — Overview< ||| >01 — Resumen<
+IKI is a conceptual fashion brand built around the Japanese idea of <em>iki</em>: understated elegance, simplicity and conscious living. ||| IKI es una marca de moda conceptual construida en torno a la idea japonesa de <em>iki</em>: elegancia discreta, sencillez y vida consciente.
+The identity explores the balance between contemporary minimalism and a quieter, more tactile approach to fashion. ||| La identidad busca el equilibrio entre el minimalismo contemporáneo y una forma de entender la moda más tranquila y táctil.
+<dt>Role</dt><dd>Brand Designer</dd> ||| <dt>Rol</dt><dd>Diseñador de marca</dd>
+<dt>Scope</dt><dd>Identity / Packaging / Art Direction / Digital</dd> ||| <dt>Alcance</dt><dd>Identidad / Packaging / Dirección de arte / Digital</dd>
+<dt>Project</dt><dd>Conceptual brand</dd> ||| <dt>Proyecto</dt><dd>Marca conceptual</dd>
+<dt>Year</dt> ||| <dt>Año</dt>
+# --- 02 El nombre ---
+>02 — The name< ||| >02 — El nombre<
+Understated<br>elegance. ||| Elegancia<br>discreta.
+The name comes from <em>iki</em>, a Japanese ideal of style that doesn’t announce itself — authentic, simple, without display. The identity is built to behave the same way. ||| El nombre viene de <em>iki</em>, un ideal japonés de estilo que no se anuncia: auténtico, sencillo, sin ostentación. La identidad está pensada para comportarse igual.
+<li>Elegance</li> ||| <li>Elegancia</li>
+# --- 03 Principios ---
+>03 — Principles< ||| >03 — Principios<
+Three rules decide what stays — and what goes. ||| Tres reglas deciden qué se queda y qué se va.
+>Minimalism< ||| >Minimalismo<
+Visual simplicity and intentional design. ||| Sencillez visual y diseño con intención.
+>Consciousness< ||| >Consciencia<
+A considered approach to materials, production and consumption. ||| Una mirada atenta a los materiales, la producción y el consumo.
+>Timeless elegance< ||| >Elegancia atemporal<
+A visual language designed to exist beyond short-term trends. ||| Un lenguaje visual pensado para durar más allá de las tendencias.
+# --- 04 Logotipo ---
+>04 — Logo system< ||| >04 — Sistema de logotipo<
+Three letters. <em>Nothing extra.</em> ||| Tres letras. <em>Nada más.</em>
+A narrow sans wordmark over a monospaced tagline. Two states — black on white, white on black — and the wordmark alone when space runs short. ||| Un logotipo de palo seco estrecho sobre un tagline monoespaciado. Dos versiones —negro sobre blanco y blanco sobre negro— y el logotipo solo cuando falta espacio.
+<span class="ik-label">Primary</span> ||| <span class="ik-label">Principal</span>
+>Black on white — preferred< ||| >Negro sobre blanco — preferente<
+<span class="ik-label">Reversed</span> ||| <span class="ik-label">Negativo</span>
+<span class="ik-label">Wordmark</span> ||| <span class="ik-label">Logotipo</span>
+>No tagline< ||| >Sin tagline<
+>Clear space< ||| >Área de respeto<
+>3 × stem on every side< ||| >3 × asta por cada lado<
+>Minimum size — shown at 1:1< ||| >Tamaño mínimo — a escala 1:1<
+>Below 70 px the tagline drops< ||| >Por debajo de 70 px se quita el tagline<
+>Misuse< ||| >Usos incorrectos<
+>Don’t rotate< ||| >No girar<
+>Don’t recolour< ||| >No cambiar el color<
+>Don’t outline< ||| >No usar en contorno<
+>Don’t stretch< ||| >No deformar<
+aria-label="IKI ZenElegance primary logo" ||| aria-label="Logotipo principal de IKI ZenElegance"
+aria-label="IKI logo reversed, white on black" ||| aria-label="Logotipo de IKI en negativo, blanco sobre negro"
+aria-label="IKI wordmark without tagline" ||| aria-label="Logotipo de IKI sin tagline"
+aria-label="Clear space diagram: three stem widths around the logo on every side" ||| aria-label="Esquema del área de respeto: tres anchos de asta alrededor del logotipo por cada lado"
+aria-label="Logo at 70 pixels" ||| aria-label="Logotipo a 70 píxeles"
+aria-label="Wordmark at 37 pixels" ||| aria-label="Logotipo sin tagline a 37 píxeles"
+# --- 05 Tipografía (el especimen se queda en ingles) ---
+>05 — Typography< ||| >05 — Tipografía<
+The monospaced typography introduces a subtle utilitarian and editorial contrast to IKI’s restrained visual language. ||| La tipografía monoespaciada aporta un contraste sutil, utilitario y editorial al lenguaje visual contenido de IKI.
+<dt>Display<br>42 pt / −30</dt> ||| <dt>Titular<br>42 pt / −30</dt>
+<dt>Body<br>14 pt / −30</dt> ||| <dt>Texto<br>14 pt / −30</dt>
+<dt>Support</dt> ||| <dt>Apoyo</dt>
+aria-label="Character set" ||| aria-label="Juego de caracteres"
+# --- 06 Color y material ---
+>06 — Colour &amp; material< ||| >06 — Color y material<
+Black and white carry the brand. <em>Colour is for cloth.</em> ||| El blanco y el negro sostienen la marca. <em>El color es para el tejido.</em>
+>Core</span> ||| >Base</span>
+<span>Textile reference</span><span>Swatch book</span> ||| <span>Referencia textil</span><span>Muestrario</span>
+Textile palette ||| Paleta textil
+Six muted tones reserved for fabric. They never appear in the logo — only in what people wear. ||| Seis tonos apagados reservados para el tejido. Nunca aparecen en el logotipo, solo en lo que la gente lleva puesto.
+alt="Hands arranging a fabric swatch book in blue-grey and stone tones" ||| alt="Manos ordenando un muestrario de tejidos en tonos gris azulado y piedra"
+# --- 07 Dirección de arte ---
+>07 — Art direction< ||| >07 — Dirección de arte<
+Natural light. Neutral rooms. <em>The garment first.</em> ||| Luz natural. Espacios neutros. <em>La prenda, primero.</em>
+aria-label="Photography principles" ||| aria-label="Principios de fotografía"
+<li>Natural light</li><li>Neutral environments</li><li>Texture</li><li>Restrained composition</li><li>Product-focused</li> ||| <li>Luz natural</li><li>Entornos neutros</li><li>Textura</li><li>Composición contenida</li><li>El producto, protagonista</li>
+<span>Embroidered cap</span><span>Soft daylight, flat backdrop</span> ||| <span>Gorra bordada</span><span>Luz de día suave, fondo liso</span>
+<span>Casting</span><span>Stone, white, grey</span> ||| <span>Casting</span><span>Piedra, blanco, gris</span>
+<span>Reference</span><span>Silhouette</span> ||| <span>Referencia</span><span>Silueta</span>
+<span>Reference</span><span>Product as subject</span> ||| <span>Referencia</span><span>El producto como tema</span>
+<span>Reference</span><span>Texture over pattern</span> ||| <span>Referencia</span><span>Textura antes que estampado</span>
+Casting and styling references selected for the brand book’s photography guide — the brief for every shoot. ||| Referencias de casting y estilismo seleccionadas para la guía de fotografía del manual de marca: el brief de cada sesión.
+alt="Model in a navy sweater wearing a washed black IKI cap against a pale wall" ||| alt="Modelo con jersey azul marino y gorra IKI negro lavado contra una pared clara"
+alt="Portrait of a model in a stone overshirt and grey IKI cap" ||| alt="Retrato de un modelo con sobrecamisa color piedra y gorra IKI gris"
+alt="Full-length model in black T-shirt and trousers on a white background" ||| alt="Modelo de cuerpo entero con camiseta y pantalón negros sobre fondo blanco"
+alt="Stack of folded white, black and grey T-shirts" ||| alt="Pila de camisetas dobladas en blanco, negro y gris"
+alt="Model in olive overshirt and light denim on white" ||| alt="Modelo con sobrecamisa verde oliva y vaquero claro sobre blanco"
+# --- 08 Puntos de contacto ---
+>08 — Touchpoints< ||| >08 — Puntos de contacto<
+Small objects, <em>same rules.</em> ||| Objetos pequeños, <em>mismas reglas.</em>
+Business card, thank-you card, label and envelope — black, white and one typeface, so each piece reads as part of the same set. ||| Tarjeta de visita, tarjeta de agradecimiento, etiqueta y sobre: negro, blanco y una sola tipografía, para que cada pieza se lea como parte del mismo conjunto.
+<span>Thank-you card</span><span>150 × 105 mm</span> ||| <span>Tarjeta de agradecimiento</span><span>150 × 105 mm</span>
+<span>Hang tag &amp; business card</span><span>Black board, white print</span> ||| <span>Etiqueta colgante y tarjeta de visita</span><span>Cartón negro, impresión en blanco</span>
+<span>Business card</span><span>85 × 55 mm — 300 g/m²</span> ||| <span>Tarjeta de visita</span><span>85 × 55 mm — 300 g/m²</span>
+<span>Envelope</span><span>324 × 229 mm</span> ||| <span>Sobre</span><span>324 × 229 mm</span>
+<span>Label</span><span>50 × 50 mm</span> ||| <span>Etiqueta</span><span>50 × 50 mm</span>
+Woven neck label — the wordmark alone, as the minimum-size rule asks. ||| Etiqueta tejida de cuello: solo el logotipo, como pide la regla de tamaño mínimo.
+aria-label="Woven neck label with the IKI wordmark" ||| aria-label="Etiqueta tejida de cuello con el logotipo de IKI"
+alt="Black IKI thank-you cards scattered around a white card with a handwritten-style note set in Cutive Mono" ||| alt="Tarjetas de agradecimiento negras de IKI alrededor de una tarjeta blanca con una nota compuesta en Cutive Mono"
+alt="Black IKI business card and hang tag on a desk, over printed logo sketches and layouts" ||| alt="Tarjeta de visita y etiqueta colgante negras de IKI sobre una mesa, encima de bocetos y maquetas impresas del logotipo"
+alt="IKI business card resting in a white moulded tray" ||| alt="Tarjeta de visita de IKI en una bandeja blanca moldeada"
+alt="Two white envelopes with the IKI logo in the corner" ||| alt="Dos sobres blancos con el logotipo de IKI en la esquina"
+alt="Round IKI stickers on a pale grey surface" ||| alt="Pegatinas redondas de IKI sobre una superficie gris claro"
+# --- 09 Packaging ("Open here / Reuse me" es el texto impreso: se queda) ---
+<span>Mailer box</span><span>Kraft, one ink</span> ||| <span>Caja de envío</span><span>Kraft, una tinta</span>
+<span>Unboxing</span><span>Tissue, woven labels</span> ||| <span>Unboxing</span><span>Papel de seda, etiquetas tejidas</span>
+The box speaks twice. Outside, one instruction: <em>open here</em>. Inside, one request: <em>reuse me</em>. Everything else is the material. ||| La caja habla dos veces. Fuera, una instrucción: <em>open here</em>. Dentro, una petición: <em>reuse me</em>. Todo lo demás es el material.
+<dd>Kraft board — 340 g/m²</dd> ||| <dd>Cartón kraft — 340 g/m²</dd>
+<dt>Size</dt> ||| <dt>Medidas</dt>
+<span>Inside</span><span>“Reuse me”</span> ||| <span>Interior</span><span>«Reuse me»</span>
+<span>Tote bag</span><span>DTG print</span> ||| <span>Tote bag</span><span>Impresión DTG</span>
+alt="Closed kraft mailer box printed with the IKI logo and “Open here”" ||| alt="Caja de envío kraft cerrada con el logotipo de IKI y «Open here» impresos"
+alt="Open IKI box with white, teal and black T-shirts folded on tissue paper" ||| alt="Caja IKI abierta con camisetas blancas, verde azulado y negras dobladas sobre papel de seda"
+alt="Flat dieline of the IKI mailer box with cut and fold lines, logo on the lid and “Open here” on the front flap" ||| alt="Troquel plano de la caja de envío de IKI con líneas de corte y hendido, el logotipo en la tapa y «Open here» en la solapa delantera"
+alt="Open kraft box with “Reuse me” printed inside the base" ||| alt="Caja kraft abierta con «Reuse me» impreso en el fondo"
+alt="Model carrying a natural cotton tote bag with the IKI logo" ||| alt="Modelo con una tote bag de algodón natural con el logotipo de IKI"
+# --- 10 Campaña (los esloganes se quedan en ingles) ---
+>10 — Campaign< ||| >10 — Campaña<
+Three lines. <em>One voice.</em> ||| Tres frases. <em>Una voz.</em>
+A poster family on a shared grid: logo top-left, line bottom, the same rule and folio. Background and crop change; the system doesn’t. ||| Una familia de carteles sobre la misma retícula: logotipo arriba a la izquierda, frase abajo, el mismo filete y el mismo folio. Cambian el fondo y el encuadre; el sistema no.
+aria-label="Campaign poster: Less, but better. Model in a burgundy tee walking on a pale background" ||| aria-label="Cartel de campaña «Less, but better»: modelo con camiseta granate caminando sobre fondo claro"
+aria-label="Campaign poster: Quietly distinct. Fabric swatch window on stone grey" ||| aria-label="Cartel de campaña «Quietly distinct»: ventana con muestra de tejido sobre gris piedra"
+aria-label="Campaign poster: Zen elegance. Seated model working on a laptop on a white background" ||| aria-label="Cartel de campaña «Zen elegance»: modelo sentado trabajando con un portátil sobre fondo blanco"
+<span>Campaign 01</span> ||| <span>Campaña 01</span>
+<span>Campaign 02</span> ||| <span>Campaña 02</span>
+<span>Campaign 03</span> ||| <span>Campaña 03</span>
+# --- 11 Exterior ---
+>11 — Out of home< ||| >11 — Exterior<
+Flat first, <em>then the street.</em> ||| Primero en plano, <em>luego en la calle.</em>
+<span>MUPI — artwork</span> ||| <span>MUPI — arte final</span>
+<span>In context</span><span>Bus shelter</span> ||| <span>En contexto</span><span>Marquesina</span>
+One figure, one logo, one QR. The frame lines come from the print ad, so the street and the magazine share a layout. ||| Una figura, un logotipo, un QR. Las líneas del marco vienen del anuncio impreso, así que la calle y la revista comparten maqueta.
+<dt>Format</dt> ||| <dt>Formato</dt>
+<dt>Stock</dt> ||| <dt>Papel</dt>
+<span>At dusk</span> ||| <span>Al atardecer</span>
+alt="Flat MUPI poster design: IKI logo, QR code and a model walking inside a thin frame" ||| alt="Diseño en plano del MUPI: logotipo de IKI, código QR y una modelo caminando dentro de un marco fino"
+alt="IKI MUPI posters installed in a bus shelter on a tree-lined street" ||| alt="MUPIs de IKI instalados en la marquesina de una calle arbolada"
+alt="Backlit IKI MUPI at dusk on a quiet street" ||| alt="MUPI retroiluminado de IKI al atardecer en una calle tranquila"
+# --- 12 Editorial (el lookbook se queda en ingles) ---
+A lookbook study: cover and two spreads, set in the brand’s monospace with generous margins and a single image per idea. ||| Un estudio de lookbook: portada y dos dobles páginas, compuestas con la monoespaciada de la marca, márgenes generosos y una sola imagen por idea.
+aria-label="Lookbook cover: IKI masthead, model in black and the headline Quiet form" ||| aria-label="Portada del lookbook: cabecera de IKI, modelo de negro y el titular «Quiet form»"
+aria-label="Spread 01: black-and-white photo of a tailor cutting cloth, facing page headed Form, texture, silence" ||| aria-label="Doble página 01: foto en blanco y negro de un sastre cortando tela, junto a una página titulada «Form, texture, silence»"
+aria-label="Spread 02: headline Less, better on a white page, facing two product photos" ||| aria-label="Doble página 02: titular «Less, better» en una página blanca, frente a dos fotos de producto"
+<span>Cover</span><span>210 × 297 mm</span> ||| <span>Portada</span><span>210 × 297 mm</span>
+<span>Spread 01</span><span>Image / text</span> ||| <span>Doble página 01</span><span>Imagen / texto</span>
+<span>Spread 02</span><span>Type / image</span> ||| <span>Doble página 02</span><span>Tipografía / imagen</span>
+# --- 13 Digital (la interfaz de la tienda se queda en ingles) ---
+The shop, <em>in the same voice.</em> ||| La tienda, <em>con la misma voz.</em>
+Oversized wordmark, a single rail of garments and monospaced controls. The e-commerce borrows the print grid instead of a template. ||| Logotipo a gran tamaño, una sola fila de prendas y controles monoespaciados. El e-commerce toma la retícula del impreso en lugar de una plantilla.
+alt="IKI e-commerce homepage: large wordmark, T-shirts in seven tones on a rail, filters and a product grid" ||| alt="Home del e-commerce de IKI: logotipo grande, camisetas en siete tonos en fila, filtros y una rejilla de producto"
+<span>Desktop — Home / Collection</span> ||| <span>Escritorio — Home / Colección</span>
+<dt>Home</dt><dd>Wordmark at full height, one rail of garments</dd> ||| <dt>Home</dt><dd>Logotipo a toda altura, una fila de prendas</dd>
+<dt>Collection</dt><dd>Black monospaced filters, three-up grid</dd> ||| <dt>Colección</dt><dd>Filtros negros monoespaciados, rejilla de tres</dd>
+<dt>Product</dt><dd>Neutral backdrop, garment centred</dd> ||| <dt>Producto</dt><dd>Fondo neutro, prenda centrada</dd>
+Nothing on the page is decoration: the logo does the branding, the clothes do the rest. On mobile the rail becomes the hero and the grid drops to two columns. ||| Nada en la página es decoración: el logotipo hace la marca y la ropa hace el resto. En móvil, la fila de prendas pasa a ser el hero y la rejilla baja a dos columnas.
+aria-label="Mobile adaptation of the IKI shop: wordmark header, rail of T-shirts and a two-column product grid" ||| aria-label="Adaptación móvil de la tienda de IKI: cabecera con el logotipo, fila de camisetas y rejilla de producto a dos columnas"
+<span>Mobile</span><span>Adaptation</span> ||| <span>Móvil</span><span>Adaptación</span>
+Tablet — the same home in context. ||| Tablet: la misma home, en contexto.
+alt="IKI homepage on a tablet with keyboard, on a stone table in warm light" ||| alt="Home de IKI en una tablet con teclado, sobre una mesa de piedra con luz cálida"
+# --- 14 Redes (los posts se quedan en ingles) ---
+>14 — Social< ||| >14 — Redes sociales<
+A feed that reads <em>like a lookbook.</em> ||| Un feed que se lee <em>como un lookbook.</em>
+Image, product, type, repeat. Posts alternate so the grid never turns into a catalogue. ||| Imagen, producto, tipografía y vuelta a empezar. Los posts se alternan para que la rejilla nunca se convierta en un catálogo.
+<figcaption><span>Fashion</span></figcaption> ||| <figcaption><span>Moda</span></figcaption>
+<figcaption><span>Product</span></figcaption> ||| <figcaption><span>Producto</span></figcaption>
+<figcaption><span>Typography</span></figcaption> ||| <figcaption><span>Tipografía</span></figcaption>
+<figcaption><span>Brand statement</span></figcaption> ||| <figcaption><span>Manifiesto de marca</span></figcaption>
+<figcaption><span>Campaign</span></figcaption> ||| <figcaption><span>Campaña</span></figcaption>
+<figcaption><span>Texture</span></figcaption> ||| <figcaption><span>Textura</span></figcaption>
+aria-label="Typographic post: Less, but better." ||| aria-label="Post tipográfico: «Less, but better»."
+aria-label="Brand statement post on beige: Calm, balance, everyday essential" ||| aria-label="Post de manifiesto de marca sobre beige: «Calm, balance, everyday essential»"
+alt="Model in washed black seated on a white stool" ||| alt="Modelo de negro lavado sentado en un taburete blanco"
+alt="Folded T-shirts with IKI labels inside a kraft box" ||| alt="Camisetas dobladas con etiquetas IKI dentro de una caja kraft"
+alt="Campaign artwork: model walking beside the IKI logo" ||| alt="Arte de campaña: modelo caminando junto al logotipo de IKI"
+alt="Close crop of an oversized brown T-shirt" ||| alt="Detalle de una camiseta oversize marrón"
+On the phone, the profile grid keeps the same rhythm: one image, one product, one line of type. ||| En el móvil, la rejilla del perfil mantiene el mismo ritmo: una imagen, un producto, una línea de texto.
+<span>Profile</span><span>@iki_zenelegance</span> ||| <span>Perfil</span><span>@iki_zenelegance</span>
+alt="Phone on a white plinth showing the IKI Instagram profile grid" ||| alt="Móvil sobre un pedestal blanco con la rejilla del perfil de Instagram de IKI"
+# --- Cierre y siguiente proyecto ---
+aria-label="Closing" ||| aria-label="Cierre"
+<span>Brand Identity / Art Direction / Digital</span> ||| <span>Identidad de marca / Dirección de arte / Digital</span>
+>Next project · 02< ||| >Siguiente proyecto · 02<
+alt="Preview of the Coach App case" ||| alt="Vista previa del proyecto Coach App"
+<span>UX/UI · Product · 2025</span> ||| <span>UX/UI · Producto · 2025</span>
+<span>View case →</span> ||| <span>Ver proyecto →</span>

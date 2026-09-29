@@ -40,13 +40,17 @@
   --t-lead:    clamp(21px, 2.1vw, 28px);
   --t-body:    16px;
   --t-small:   13px;
-  --t-label:   10px;
+  --t-label:   11px;   /* 10 se quedaba en microtexto en rotulos y chips */
 
   /* Espaciado */
   --s-section: clamp(72px, 9vw, 112px);
   --s-block:   clamp(40px, 5vw, 68px);
   --s-el:      24px;
-  --container: 1180px;
+  /* El contenido ya no va a 1180: el frame v2 lo lleva a los bordes.
+     1328 es exactamente lo que queda a 1440 restando los 24 de la
+     seccion y los 32 del contenedor, y ademas pone un techo para que en
+     una pantalla de 27" las lineas no se hagan ilegibles. */
+  --container: 1328px;
 
   /* Movimiento — una sola curva en todo el sitio */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -70,7 +74,11 @@ img { max-width: 100%; display: block; }
 
 ::selection { background: var(--accent); color: var(--black); }
 
-:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; border-radius: 2px; }
+/* Anillo negro sobre claro (el amarillo oscuro daba menos de 3:1 contra
+   blanco) y amarillo sobre las zonas oscuras. */
+:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; border-radius: 2px; }
+#contact :focus-visible, footer :focus-visible, .case-hero :focus-visible,
+.next-project-block :focus-visible, .pm-lb :focus-visible { outline-color: var(--accent); }
 
 .skip-link {
   position: absolute; top: -60px; left: 16px; z-index: 300;
@@ -131,7 +139,7 @@ section { display: block; padding: var(--s-section) 24px; }
 
 /* ---------- Botones ---------- */
 .btn-primary, .btn-secondary {
-  font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 50px;
+  font-size: 15px; font-weight: 700; padding: 12px 24px; border-radius: 50px;
   text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
   cursor: pointer; font-family: var(--font); border: none;
   transition: background var(--dur-fast), color var(--dur-fast), transform var(--dur-fast) var(--ease);
@@ -142,52 +150,21 @@ section { display: block; padding: var(--s-section) 24px; }
 .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
 /* ---------- Nav ---------- */
-/* Cápsula flotante, pero translúcida: al llegar arriba del todo es
-   casi invisible y se va cerrando a medida que bajas (clase .stuck). */
-nav {
-  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-  z-index: 100; width: calc(100% - 40px); max-width: var(--container);
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px);
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 50px; padding: 8px 8px 8px 18px; height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
-  box-shadow: none;
-  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
-              box-shadow var(--dur) var(--ease), top var(--dur) var(--ease);
-}
-nav.stuck {
-  top: 10px;
-  background: rgba(255,255,255,0.82);
-  border-color: rgba(0,0,0,0.08);
-  box-shadow: 0 6px 28px rgba(0,0,0,0.07);
-}
+/* Piezas comunes. La cabecera en si es .nav-hero (mas abajo), la misma
+   en la home y en las paginas de caso. */
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
-.nav-logo-img { height: 34px; width: auto; display: block; transition: transform var(--dur-fast) var(--ease); }
-.nav-logo:hover .nav-logo-img { transform: scale(1.04); }
-.nav-logo-mark { display: none; }
-@media (max-width: 560px) {
-  /* No cabe la placa entera junto a EN + CTA + menu: queda solo el simbolo */
-  .nav-logo-full { display: none; }
-  .nav-logo-mark { display: block; }
-}
 .nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { text-decoration: none; color: var(--black); font-size: 13px; font-weight: 500; letter-spacing: -0.005em; opacity: 0.55; transition: opacity var(--dur-fast); }
-.nav-links a:hover, .nav-links a.active { opacity: 1; }
-.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: 14px; font-weight: 500; letter-spacing: -0.005em; opacity: 1; transition: opacity var(--dur-fast); }
+/* Texto pequeno, zona de toque grande: 40px de alto sin mover el dibujo */
+.nav-links a { display: inline-flex; align-items: center; min-height: 40px; white-space: nowrap; }
+.nav-links a:hover { opacity: 0.55; }
+.nav-links a.active { opacity: 1; }
 .nav-cta {
   background: var(--black); color: var(--white); font-size: 13px; font-weight: 700;
-  padding: 8px 18px; border-radius: 50px; text-decoration: none;
+  line-height: 1.4; padding: 8px 18px; border-radius: 50px; text-decoration: none;
   transition: background var(--dur-fast), transform var(--dur-fast) var(--ease);
 }
 .nav-cta:hover { background: #242422; transform: scale(1.03); }
-.lang-toggle {
-  background: transparent; border: 1.5px solid rgba(0,0,0,0.15); color: var(--black);
-  font-size: 11px; font-weight: 700; padding: 7px 11px; border-radius: 50px;
-  cursor: pointer; font-family: var(--font); letter-spacing: 0.1em; min-width: 36px;
-  transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
-}
-.lang-toggle:hover { background: var(--black); color: var(--white); border-color: var(--black); }
 
 .nav-burger {
   display: none; background: transparent; border: none; cursor: pointer;
@@ -195,20 +172,7 @@ nav.stuck {
   flex-direction: column; align-items: center; justify-content: center; gap: 5px;
 }
 .nav-burger span { display: block; width: 18px; height: 2px; background: var(--black); border-radius: 2px; transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast); }
-.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.mobile-menu {
-  display: none; position: fixed; top: 80px; left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-  z-index: 99; width: calc(100% - 24px); max-width: var(--container);
-  background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-radius: 24px; padding: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-  opacity: 0; pointer-events: none;
-  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
-}
-.mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
 .mobile-menu a {
   display: block; text-decoration: none; color: var(--black);
   font-size: 17px; font-weight: 700; padding: 14px 16px; border-radius: 14px;
@@ -216,13 +180,265 @@ nav.stuck {
 }
 .mobile-menu a:hover, .mobile-menu a:active { background: rgba(0,0,0,0.05); }
 
-/* ---------- Barra de información (ref. Studio Mimi) ---------- */
-.infobar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
-.infobar > div { padding: 16px 0 0 20px; border-left: 1px solid var(--rule); }
-.infobar > div:first-child { border-left: none; padding-left: 0; }
-.infobar dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-.infobar dd { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
-.infobar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-ink); display: inline-block; margin-right: 7px; animation: pulse 2s ease-in-out infinite; }
+/* ---------- Cabecera (.nav-hero) ----------
+   .nav-hero es el carril: sticky, ancho y posicion. .nav-bar es la fila.
+   En escritorio la fila reparte tres piezas con una rejilla 1fr - auto - 1fr,
+   que mantiene la placa PM en el centro optico aunque los lados midan
+   distinto; al bajar se agrupan en una capsula flotante y la capsula
+   interior de los enlaces se disuelve, asi que nunca hay dos pildoras
+   anidadas. En la home es sticky, no fixed: no hay salto de layout. En
+   los casos flota encima del hero (.nav-case, mas abajo). */
+.nav-hero {
+  position: sticky; top: 16px; left: auto; transform: none; z-index: 100;
+  display: block; height: auto; padding: 0;
+  background: none; border: none; box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  width: min(1344px, calc(100% - 2 * clamp(20px, 4vw, 48px)));
+  max-width: none;
+  margin: 16px auto 0;
+  border-radius: 50px;
+  transition: width 0.55s var(--ease), top var(--dur) var(--ease),
+              border-radius var(--dur) var(--ease), background var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.nav-hero.stuck {
+  top: 12px;
+  width: min(520px, calc(100% - 2 * clamp(20px, 4vw, 48px)));
+}
+/* En castellano los enlaces miden mas (Proyectos · Sobre mi ·
+   Experiencia): la capsula recogida se abre un poco para que no se
+   partan ni se peguen al sello. Solo ES; la inglesa no cambia. */
+:lang(es) .nav-hero.stuck { width: min(600px, calc(100% - 2 * clamp(20px, 4vw, 48px))); }
+
+/* Paginas de caso: el hero arranca en el borde superior, asi que la
+   cabecera flota encima (fixed) en vez de ir en el flujo. */
+.nav-hero.nav-case { position: fixed; left: 0; right: 0; margin: 0 auto; }
+
+/* En los casos, a la izquierda va «Back» en vez de los enlaces de
+   seccion: dentro de un proyecto la pregunta es como volver, no a que
+   seccion ir. Mismo cuerpo que los enlaces y pildora gris al pasar. */
+.nav-back {
+  grid-area: 1 / 1; justify-self: start;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px;
+  padding: 0 16px; border-radius: 50px;
+  color: var(--black); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: -0.005em;
+  transition: background var(--dur-fast), height 0.55s var(--ease), padding 0.55s var(--ease);
+}
+.nav-back:hover { background: rgba(10, 10, 10, 0.07); }
+@media (min-width: 901px) {
+  /* Arriba, las tres piezas van sueltas como en la home: «Back» en su
+     propia pildora blanca (asi se lee sobre los heros negros), el sello
+     en el centro y la llamada negra a la derecha. Al recogerse, la
+     capsula de .stuck las agrupa y «Back» vuelve a ser solo texto. */
+  .nav-case .nav-back { height: 58px; padding: 0 28px; background: var(--white); }
+  .nav-case .nav-back:hover { background: var(--gray-light); }
+  .nav-case.stuck .nav-back { height: 40px; padding: 0 16px; background: none; }
+  .nav-case.stuck .nav-back:hover { background: rgba(10, 10, 10, 0.07); }
+}
+/* La llamada negra, suelta sobre un hero negro, se quedaba sin borde:
+   filete blanco al 40% (3:1 contra el negro, como .social-btn). Sobre
+   blanco no se ve, y en la capsula recogida sobra. */
+.nav-case:not(.stuck) .nav-cta { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+.nav-back-arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.nav-back:hover .nav-back-arrow { transform: translateX(-3px); }
+
+.nav-bar {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  height: 58px;
+  padding: 0 6px 0 0;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  transition: height 0.55s var(--ease), gap 0.55s var(--ease), padding 0.55s var(--ease),
+              background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.nav-hero.stuck .nav-bar {
+  height: 50px;
+  gap: 12px;
+  padding: 0 6px 0 8px;
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+}
+
+/* Colocacion explicita en la rejilla: asi el movil reordena las piezas
+   sin tocar el HTML — la llamada se va a la primera columna. */
+.nav-hero .nav-links  { grid-area: 1 / 1; justify-self: start; }
+.nav-hero .nav-logo   { grid-area: 1 / 2; justify-self: center; }
+.nav-hero .nav-end    { grid-area: 1 / 3; justify-self: end; display: flex; align-items: center; gap: 14px; }
+.nav-hero .nav-start  { grid-area: 1 / 1; justify-self: start; display: flex; align-items: center; gap: 4px; }
+.nav-hero .nav-burger { grid-area: 1 / 3; justify-self: end; display: none; }
+
+/* ---------- Marca ----------
+   Solo el sello PM. Suelto mide lo mismo de alto que la placa de antes
+   (58px) y al recogerse la cabecera baja a 36: una sola pieza que cambia
+   de tamano, sin relevos ni fundidos. */
+.nav-hero .nav-logo-mark {
+  display: block; flex-shrink: 0; width: 58px; height: 58px;
+  transition: width 0.55s var(--ease), height 0.55s var(--ease), transform var(--dur-fast) var(--ease);
+}
+.nav-hero.stuck .nav-logo-mark { width: 36px; height: 36px; }
+.nav-hero .nav-logo:hover .nav-logo-mark { transform: scale(1.04); }
+
+/* La capsula de los enlaces solo existe mientras el nav esta suelto.
+   Es blanca sobre blanco a proposito: al principio solo se leen las
+   palabras y la capsula no aparece hasta que hay algo detras. */
+.nav-hero .nav-links {
+  position: relative;
+  align-items: center; gap: 28px;
+  height: 58px; padding: 0 28px;
+  background: var(--white);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              height 0.55s var(--ease), padding 0.55s var(--ease), gap 0.55s var(--ease);
+}
+.nav-hero.stuck .nav-links {
+  background: none; border-color: transparent;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  height: 34px; padding: 0 4px; gap: 20px;
+}
+.nav-hero .nav-links li { position: relative; z-index: 1; }
+
+/* Pildora que viaja a la seccion activa.
+   Gris y no amarilla a proposito: el amarillo ya lo gasta la placa PM. */
+.nav-hero .nav-links li.nav-indicator {
+  position: absolute; left: 0; top: 50%;
+  width: 0; height: 30px; margin-top: -15px;
+  border-radius: 50px;
+  background: rgba(10, 10, 10, 0.07);
+  opacity: 0; pointer-events: none; z-index: 0;
+  transition: transform 0.45s var(--ease), width 0.45s var(--ease), opacity var(--dur-fast);
+}
+.nav-hero .nav-links li.nav-indicator.on { opacity: 1; }
+
+.nav-hero .nav-cta { padding: 14px 24px; transition: padding 0.55s var(--ease), background var(--dur-fast), transform var(--dur-fast) var(--ease); }
+.nav-hero.stuck .nav-cta { padding: 10px 18px; }
+
+/* ---------- Selector de idioma ----------
+   EN / ES junto a la llamada. Cada enlace lleva a la misma pagina en el
+   otro idioma. El activo va en negro, negrita y subrayado (no solo
+   color); el otro, en gris. Nada de banderas ni desplegables. */
+.nav-lang { display: flex; align-items: center; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; }
+.nav-lang a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 32px; min-height: 40px; padding: 0 4px;
+  color: var(--gray); text-decoration: none; transition: color var(--dur-fast);
+}
+.nav-lang a:hover { color: var(--black); }
+.nav-lang a[aria-current] {
+  color: var(--black); font-weight: 700;
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px;
+}
+.nav-lang-sep { color: var(--rule-strong); }
+/* Version corta (solo el otro idioma) para la cabecera movil de los casos */
+.nav-lang--mini { display: none; }
+.nav-lang--mini a { color: var(--ink-soft); } /* gris base sobre la capsula movil no llega a 4.5:1 */
+@media (min-width: 901px) {
+  /* En los casos, suelto sobre heros negros: pildora blanca como «Back» */
+  .nav-case .nav-end .nav-lang { height: 46px; padding: 0 10px; border-radius: 50px; background: var(--white); transition: background var(--dur) var(--ease); }
+  .nav-case.stuck .nav-end .nav-lang { height: auto; padding: 0; background: none; }
+}
+
+.nav-hero .mobile-menu { display: none; }
+
+/* ---------- Capsula movil ----------
+   Del componente «Nav - mobile capsule»: la llamada a la izquierda, la
+   marca PM en el centro y el menu a la derecha. Al abrir no sale un panel
+   aparte: la tarjeta blanca crece por detras de la fila y las esquinas
+   pasan de 50 a 30, asi que se lee como una sola pieza que se despliega.
+   Va en absoluto para que abrir el menu no empuje el hero hacia abajo. */
+@media (max-width: 900px) {
+  .nav-hero {
+    width: calc(100% - 24px); margin-top: 10px; top: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+  }
+  .nav-hero.stuck { width: calc(100% - 24px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); }
+  .nav-hero.menu-open { border-radius: 30px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); }
+
+  .nav-bar, .nav-hero.stuck .nav-bar {
+    height: 56px; gap: 12px; padding: 0 20px 0 14px;
+    background: none; border-color: transparent; box-shadow: none;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  .nav-hero .nav-links { display: none; }
+  /* En movil el sello no cambia de tamano */
+  .nav-hero .nav-logo-mark, .nav-hero.stuck .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-hero .nav-end { grid-area: 1 / 1; justify-self: start; }
+  .nav-hero .nav-cta, .nav-hero.stuck .nav-cta { padding: 8px 18px; }
+  /* El selector de la fila no cabe en la capsula movil: en la home va
+     dentro del menu y en los casos, corto, junto a «Back» */
+  .nav-end .nav-lang { display: none; }
+  .nav-lang--mini { display: flex; }
+  /* Casos: sin menu, «Back» a la izquierda y la llamada vuelve a la derecha */
+  .nav-hero.nav-case .nav-end { grid-area: 1 / 3; justify-self: end; }
+  .nav-back { padding: 0 12px; margin-left: -8px; }
+  .nav-hero .nav-burger { display: flex; }
+
+  /* Dos barras, no tres: es lo que hay dibujado, y al abrir se cruzan */
+  .nav-hero .nav-burger { gap: 5px; }
+  .nav-hero .nav-burger span { height: 3px; }
+  .nav-hero .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+  .nav-hero .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 1; transform: translateY(-4px) rotate(-45deg); }
+
+  /* z-index -1: la tarjeta se pinta por encima del fondo de la capsula
+     pero por debajo de la fila, asi que tapa las esquinas de 50 sin
+     tapar los botones. El relleno superior deja hueco a la fila. */
+  .nav-hero .mobile-menu {
+    display: flex; flex-direction: column; gap: 8px;
+    position: absolute; top: 0; left: 0; right: 0; bottom: auto;
+    width: auto; max-width: none;
+    background: var(--white); border-radius: 30px;
+    box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+    padding: 80px 32px 24px;
+    z-index: -1;
+    opacity: 0; pointer-events: none; visibility: hidden; transform: translateY(-10px);
+    transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), visibility 0s linear var(--dur-fast);
+  }
+  .nav-hero .mobile-menu.open { opacity: 1; pointer-events: auto; visibility: visible; transform: translateY(0); transition-delay: 0s; }
+  .nav-hero .mobile-menu a {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 4px 10px; border-radius: 14px;
+    font-size: 20px; font-weight: 700; text-align: center;
+  }
+  .nav-hero .mobile-menu .nav-lang { justify-content: center; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .nav-hero .mobile-menu .nav-lang a { min-width: 48px; font-size: 15px; font-weight: 500; }
+  .nav-hero .mobile-menu .nav-lang a[aria-current] { font-weight: 700; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-hero .nav-links li.nav-indicator { transition: opacity 0.01ms; }
+}
+
+/* ---------- Barra de datos del hero ----------
+   Antes era una tabla de cuatro celdas con filetes y rótulos en
+   versalitas. Ahora son cápsulas sueltas que se envuelven solas: sin
+   retícula que romper en móvil y sin rótulos, porque el dato se explica
+   solo. El punto de disponibilidad es el único color de la fila. */
+.factbar { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.fact {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 18px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50px;
+  font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--black);
+  white-space: nowrap;
+}
+.fact .dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent-ink);
+  /* Tres latidos y quieto: un parpadeo infinito distrae de la lectura */
+  animation: pulse 2s ease-in-out 3;
+}
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 /* ---------- Revelado al scroll ----------
@@ -243,10 +459,10 @@ nav.stuck {
 footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
 .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-logo { display: block; text-decoration: none; }
-.footer-logo-img { height: 30px; width: auto; display: block; }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-logo-img { height: 32px; width: 32px; display: block; }
+.footer-copy { font-size: var(--t-small); font-weight: 500; color: rgba(255,255,255,0.48); }
 .footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--dur-fast); }
+.footer-links a { display: inline-block; padding: 12px 0; font-size: var(--t-small); font-weight: 500; color: rgba(255,255,255,0.58); text-decoration: none; transition: color var(--dur-fast); }
 .footer-links a:hover { color: var(--accent-soft); }
 
 /* ---------- Barra de progreso de lectura (páginas de caso) ---------- */
@@ -259,17 +475,8 @@ footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
   .section-meta { text-align: left; padding-bottom: 0; }
   .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
   section { padding: clamp(56px, 11vw, 76px) 20px; }
-  nav { width: calc(100% - 24px); top: 10px; padding: 8px 8px 8px 14px; height: 52px; }
-  .nav-links { display: none; }
-  .nav-burger { display: flex; }
-  .mobile-menu { display: block; top: 70px; width: calc(100% - 24px); border-radius: 20px; }
-  .nav-logo-img { height: 30px; }
-  .nav-cta { padding: 9px 18px; font-size: 13px; }
-  .infobar { grid-template-columns: 1fr 1fr; }
-  .infobar > div { padding: 14px 0 14px 16px; border-bottom: 1px solid var(--rule); }
-  .infobar > div:nth-child(odd) { border-left: none; padding-left: 0; }
-  .infobar > div:nth-last-child(-n+2) { border-bottom: none; }
 }
 @media (max-width: 480px) {
   .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 14px; }
+  .fact { font-size: 13px; padding: 9px 15px; gap: 8px; }
 }

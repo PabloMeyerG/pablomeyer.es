@@ -146,10 +146,9 @@
   display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
   padding: 120px var(--ik-m) clamp(32px, 4vw, 56px);
 }
-.ik-hero-meta { display: flex; justify-content: space-between; gap: 24px; }
-.ik-hero-meta a { color: inherit; text-decoration: none; }
-.ik-hero-meta a:hover { color: var(--ik-white); }
-.ik-hero-title { margin: 0; width: min(100%, 460px); overflow: hidden; }
+/* margin-block auto: con solo titulo y pie, space-between subiria el logo
+   arriba del todo; asi sigue centrado en su columna */
+.ik-hero-title { margin: auto 0; width: min(100%, 460px); overflow: hidden; }
 .ik-hero-title .ik-logo { color: var(--ik-white); }
 .ik-hero-foot { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
 .ik-hero-foot ul { list-style: none; display: grid; gap: 4px; }
@@ -171,7 +170,7 @@
 .js .ik-hero-media { animation: ik-open 1.25s var(--ik-ease) 0.1s both; }
 .js .ik-hero-media img { animation: ik-settle 2.2s var(--ik-ease) 0.1s both; }
 .js .ik-hero-title .ik-logo { animation: ik-rise 1.1s var(--ik-ease) 0.35s both; }
-.js .ik-hero-meta, .js .ik-hero-foot { animation: ik-fade 1s ease 0.8s both; }
+.js .ik-hero-foot { animation: ik-fade 1s ease 0.8s both; }
 
 @media (max-width: 900px) {
   .ik-hero { grid-template-columns: 1fr; grid-template-rows: auto minmax(52svh, 1fr); }
@@ -733,6 +732,6 @@
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .js .ik-rv, .js .ik-mask, .js .ik-mask img { opacity: 1 !important; transform: none !important; clip-path: none !important; }
-  .js .ik-hero-media, .js .ik-hero-media img, .js .ik-hero-title .ik-logo, .js .ik-hero-meta, .js .ik-hero-foot { animation: none !important; }
+  .js .ik-hero-media, .js .ik-hero-media img, .js .ik-hero-title .ik-logo, .js .ik-hero-foot { animation: none !important; }
   .ik-close-img { inset: 0; }
 }

@@ -1,0 +1,109 @@
+# Home — EN ||| ES
+# Pares literales que convierten index.html (EN) en es/index.html.
+# Si cambia el copy EN, actualizar aqui y regenerar (ver i18n/README.md).
+# --- Metadatos ---
+Pablo Meyer — Graphic &amp; UX/UI Designer ||| Pablo Meyer — Diseñador gráfico y UX/UI
+Pablo Meyer, graphic and UX/UI designer based in Spain, working remotely. Branding, packaging, apps and campaigns. Portfolio and case studies. ||| Pablo Meyer, diseñador gráfico y UX/UI en España, disponible en remoto. Branding, packaging, apps y campañas. Portfolio y proyectos.
+Graphic and UX/UI designer based in Spain. Branding, packaging, apps and campaigns, from the first sketch to the files that go to print. ||| Diseñador gráfico y UX/UI en España. Branding, packaging, apps y campañas, desde el primer boceto hasta los archivos que van a imprenta.
+content="Pablo Meyer, graphic and UX/UI designer" ||| content="Pablo Meyer, diseñador gráfico y UX/UI"
+Graphic and UX/UI designer. Branding, packaging, apps and campaigns. ||| Diseñador gráfico y UX/UI. Branding, packaging, apps y campañas.
+"jobTitle": "Graphic & UX/UI Designer" ||| "jobTitle": "Diseñador gráfico y UX/UI"
+["Brand identity", "Graphic design", "UX/UI", "Digital design", "Packaging", "Digital marketing"] ||| ["Identidad de marca", "Diseño gráfico", "UX/UI", "Diseño digital", "Packaging", "Marketing digital"]
+# --- Cabecera ---
+href="#work">Work</a> ||| href="#work">Proyectos</a>
+href="#about">About</a> ||| href="#about">Sobre mí</a>
+href="#experience">Experience</a> ||| href="#experience">Experiencia</a>
+href="#contact">Contact</a> ||| href="#contact">Contacto</a>
+# --- Hero ---
+<span>Graphic</span> <span class="outline">Designer</span> ||| <span>Diseñador</span> <span class="outline">gráfico</span>
+I'm <strong>Pablo</strong>, a graphic and UX/UI designer. I design brands, packaging, campaigns and apps, most of it in-house for companies like Porcelanosa Grupo. ||| Soy <strong>Pablo</strong>, diseñador gráfico y UX/UI. Diseño marcas, packaging, campañas y apps, casi siempre en plantilla, para empresas como Porcelanosa Grupo.
+>View projects →< ||| >Ver proyectos →<
+# CV: solo existe en ingles. TODO: Add Spanish CV (assets/downloads/CV-PabloMeyer-ES.pdf)
+download="CV-PabloMeyer.pdf" class= ||| download="CV-PabloMeyer.pdf" hreflang="en" class=
+>Download CV <span class="btn-note">(PDF)</span></a> ||| >Descargar CV <span class="btn-note">(PDF, en inglés)</span></a>
+aria-label="Availability, location, languages and disciplines" ||| aria-label="Disponibilidad, ubicación, idiomas y disciplinas"
+</span>Available</li> ||| </span>Disponible</li>
+<li class="fact">Spain · Remote</li> ||| <li class="fact">España · En remoto</li>
+<abbr title="Spanish, German and English"> ||| <abbr title="Español, alemán e inglés">
+<li class="fact">Brand Identity · Digital · UX/UI</li> ||| <li class="fact">Identidad de marca · Digital · UX/UI</li>
+# --- Proyectos ---
+>Work.</h2> ||| >Proyectos.</h2>
+alt="IKI · ZenElegance — brand signage" ||| alt="IKI · ZenElegance — rótulo de la marca"
+<span class="tag">Brand Identity</span> ||| <span class="tag">Identidad de marca</span>
+<span class="tag">Art Direction</span> ||| <span class="tag">Dirección de arte</span>
+<span class="tag">Product Design</span> ||| <span class="tag">Diseño de producto</span>
+<span class="tag">Mobile</span> ||| <span class="tag">Móvil</span>
+2025 · Conceptual brand<br>Brand Identity &amp; Packaging ||| 2025 · Marca conceptual<br>Identidad de marca y packaging
+>View case <span class="project-arrow"> ||| >Ver proyecto <span class="project-arrow">
+alt="Coach App — product screens" ||| alt="Coach App — pantallas de la app"
+2025<br>UX/UI · Product Design ||| 2025<br>UX/UI · Diseño de producto
+# --- Playground ---
+>Posters, packaging &amp; visual experiments< ||| >Carteles, packaging y experimentación visual<
+One-off pieces, experiments and personal work, 2023&nbsp;—&nbsp;2025. ||| Piezas sueltas, experimentos y trabajo personal, 2023&nbsp;—&nbsp;2025.
+>Explore playground <span ||| >Explorar Playground <span
+aria-label="Playground preview" ||| aria-label="Muestra de Playground"
+alt="Palo Market Fest poster: food trucks, vinyl records and bold white type on orange" ||| alt="Cartel de Palo Market Fest: food trucks, vinilos y tipografía blanca sobre naranja"
+alt="Editorial spread on Steve Jobs: a black page of body text beside a black-and-white portrait" ||| alt="Doble página editorial sobre Steve Jobs: una página negra de texto junto a un retrato en blanco y negro"
+alt="Utopick Caramel chocolate wrapper: paper-boat logo on a yellow and red pattern" ||| alt="Envoltorio de chocolate Utopick Caramel: el logo del barco de papel sobre un patrón amarillo y rojo"
+alt="Retro collage: Steve Jobs over an early Macintosh saying hello, on a neon grid" ||| alt="Collage retro: Steve Jobs sobre un Macintosh antiguo que dice «hello», en una cuadrícula de neón"
+aria-hidden="true">Poster< ||| aria-hidden="true">Cartel<
+aria-hidden="true">Experiment< ||| aria-hidden="true">Experimento<
+# --- Sobre mí ---
+>About.</h2> ||| >Sobre mí.</h2>
+I work on both brand and product, from packaging and print files to user flows and screens in Figma. I like the projects where both have to fit together. ||| Trabajo tanto en marca como en producto: del packaging y los archivos de imprenta a los flujos de usuario y las pantallas en Figma. Me gustan los proyectos en los que las dos cosas tienen que encajar.
+Most of my work so far has been in-house: packaging, sales presentations, Meta Ads campaigns and the odd video edit, usually with a deadline attached. It taught me to ask what a piece is for before deciding how it looks. ||| Hasta ahora, casi todo mi trabajo ha sido en plantilla: packaging, presentaciones comerciales, campañas de Meta Ads y algún montaje de vídeo, normalmente con la fecha de entrega encima. Eso me enseñó a preguntarme para qué sirve una pieza antes de decidir cómo se ve.
+<h3>Education</h3> ||| <h3>Formación</h3>
+<strong>Master's in Digital Marketing</strong> ||| <strong>Máster en Marketing Digital</strong>
+Oct 2025 — present ||| Oct 2025 — actualidad
+<strong>Higher Diploma in Digital Design</strong> ||| <strong>Título Superior en Diseño Digital</strong>
+<strong>Higher Technician in 3D Animation, Games and Interactive Environments</strong> ||| <strong>Técnico Superior en Animaciones 3D, Juegos y Entornos Interactivos</strong>
+<h3>Tools</h3> ||| <h3>Herramientas</h3>
+<h3>Languages</h3> ||| <h3>Idiomas</h3>
+<li>Spanish <span>· Native</span></li> ||| <li>Español <span>· Nativo</span></li>
+<li>English <span>· Professional</span></li> ||| <li>Inglés <span>· Profesional</span></li>
+<li>German <span>· Professional</span></li> ||| <li>Alemán <span>· Profesional</span></li>
+# --- Experiencia ---
+>Experience.</h2> ||| >Experiencia.</h2>
+>Aug 2025 — Nov 2025< ||| >Ago 2025 — Nov 2025<
+>Aug 2024 — Aug 2025< ||| >Ago 2024 — Ago 2025<
+>Feb 2022 — Apr 2022< ||| >Feb 2022 — Abr 2022<
+>Graphic &amp; digital designer< ||| >Diseñador gráfico y digital<
+Graphic material and creatives for social media and digital campaigns. ||| Material gráfico y creatividades para redes sociales y campañas digitales.
+Packaging and corporate merchandising pieces. ||| Packaging y piezas de merchandising corporativo.
+Visual consistency of the brand across every format and touchpoint. ||| Coherencia visual de la marca en todos los formatos y puntos de contacto.
+>Graphic designer</p> ||| >Diseñador gráfico</p>
+Packaging, poster and corporate material design. ||| Diseño de packaging, cartelería y material corporativo.
+Layout of sales presentations and internal materials. ||| Maquetación de presentaciones comerciales y materiales internos.
+Video editing for internal and external communication. ||| Edición de vídeo para comunicación interna y externa.
+>Graphic designer &amp; visual marketing< ||| >Diseñador gráfico y marketing visual<
+Redesign and rollout of the brand's visual identity. ||| Rediseño e implantación de la identidad visual de la marca.
+Running and tracking Meta Ads campaigns. ||| Gestión y seguimiento de campañas de Meta Ads.
+Video editing and visual content for social media. ||| Edición de vídeo y contenido visual para redes sociales.
+>Graphic designer &amp; 3D artist · Internship< ||| >Diseñador gráfico y artista 3D · Prácticas<
+Visual content for video games and digital experiences. ||| Contenido visual para videojuegos y experiencias digitales.
+3D models and textures for interactive projects. ||| Modelos 3D y texturas para proyectos interactivos.
+# --- Contacto ---
+Let's <span class="hl">talk.</span> ||| <span class="hl">Hablemos.</span>
+Most of it is above. If you need references, my availability or more detail on a case, write to me. I answer myself, usually within a day. ||| Casi todo está aquí arriba. Si necesitas referencias, saber mi disponibilidad o más detalle de algún proyecto, escríbeme. Te contesto yo mismo, normalmente en menos de un día.
+>Direct contact< ||| >Contacto directo<
+aria-label="Pablo Meyer on LinkedIn" ||| aria-label="Pablo Meyer en LinkedIn"
+>Send me a message< ||| >Escríbeme<
+for="f-name">Name< ||| for="f-name">Nombre<
+placeholder="Your name" ||| placeholder="Tu nombre"
+placeholder="you@email.com" ||| placeholder="tu@email.com"
+>Tell me your name.< ||| >Dime tu nombre.<
+>Enter a valid email so I can reply.< ||| >Escribe un email válido para poder responderte.<
+for="f-subject">Subject< ||| for="f-subject">Asunto<
+>Pick a topic…< ||| >Elige un tema…<
+>Role or hiring process< ||| >Puesto o proceso de selección<
+>Questions about a case< ||| >Preguntas sobre un proyecto<
+>Freelance project< ||| >Proyecto freelance<
+value="Other">Other< ||| value="Other">Otro<
+>Pick a topic.< ||| >Elige un tema.<
+for="f-message">Message< ||| for="f-message">Mensaje<
+placeholder="Tell me briefly what you have in mind…" ||| placeholder="Cuéntame brevemente qué tienes en mente…"
+>Write a short message.< ||| >Escribe un mensaje corto.<
+>I reply within 24h< ||| >Respondo en menos de 24 h<
+>Send →< ||| >Enviar →<
+>Message sent. I'll get back to you soon.< ||| >Mensaje enviado. Te responderé lo antes posible.<
+alt="Portrait of Pablo Meyer" ||| alt="Retrato de Pablo Meyer"

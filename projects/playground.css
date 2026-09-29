@@ -1,0 +1,126 @@
+/* ============================================================
+   Playground — archivo visual, no caso de estudio.
+   Tokens, cabecera, botones y footer vienen de base.css; de
+   project.css solo se usa el bloque «Let's talk» (.case-cta).
+   ============================================================ */
+
+.pg { padding: 0 24px; }
+.pg .container { max-width: var(--container); margin: 0 auto; }
+
+/* ---------- Apertura ----------
+   Mismo peso que Work. / About. de la home, sin ficha ni metadatos:
+   titulo, una linea y las disciplinas. El trabajo empieza enseguida. */
+.pg-hero { padding: clamp(136px, 14vw, 176px) 24px clamp(36px, 4vw, 56px); }
+.pg-hero .container { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px 48px; }
+.pg-hero h1 { font-size: var(--t-h1); font-weight: 900; line-height: 0.94; letter-spacing: -0.038em; grid-column: 1 / -1; }
+.pg-lead { font-size: var(--t-lead); line-height: 1.3; letter-spacing: -0.015em; max-width: 30ch; }
+.pg-lead span { display: block; font-size: 16px; line-height: 1.6; color: var(--ink-soft); letter-spacing: -0.011em; margin-top: 8px; }
+.pg-kinds { font-family: var(--mono); font-size: 12px; line-height: 1.65; color: var(--gray); text-align: right; }
+
+/* ---------- Pieza ----------
+   Los archivos llevan la obra sobre un marco negro con halo incrustado.
+   Se recorta hasta el borde de la obra: --w es el zoom (130% en los
+   carteles 4:5) y --cx / --cy el centro de la obra dentro del archivo. */
+.pg-piece { margin: 0; }
+.pg-shot {
+  position: relative; display: block; overflow: hidden;
+  aspect-ratio: 5 / 7; background: var(--gray-light); cursor: pointer;
+}
+.pg-shot img {
+  position: absolute; left: 50%; top: 50%;
+  width: var(--w, 130%); max-width: none; height: auto;
+  transform: translate(calc(var(--cx, 50%) * -1), calc(var(--cy, 50%) * -1));
+  transition: transform 0.7s var(--ease);
+}
+.pg-shot:hover img, .pg-shot:focus-visible img {
+  transform: translate(calc(var(--cx, 50%) * -1), calc(var(--cy, 50%) * -1)) scale(1.02);
+}
+.pg-shot--wide { aspect-ratio: 141 / 100; }
+.pg-shot--square { aspect-ratio: 26 / 25; }  /* envoltorio plano, casi cuadrado */
+
+/* Titulo + disciplina. Nada mas: no son casos de estudio. */
+.pg-piece figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin-top: 12px; }
+.pg-piece-title { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.pg-piece-meta { font-size: 13px; font-weight: 500; color: var(--gray); }
+
+/* ---------- Composicion de apertura ----------
+   Cartel grande a la izquierda; a la derecha la doble pagina y dos
+   piezas pequenas debajo. Las dos columnas miden casi lo mismo por
+   proporcion (5:7 a seis columnas = doble pagina + dos 5:7 a tres). */
+.pg-open { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px 16px; }
+.pg-open .o-a { grid-column: 1 / 7; grid-row: 1 / 3; display: flex; flex-direction: column; }
+.pg-open .o-b { grid-column: 7 / 13; grid-row: 1; }
+.pg-open .o-c { grid-column: 7 / 10; grid-row: 2; align-self: end; }
+.pg-open .o-d { grid-column: 10 / 13; grid-row: 2; align-self: end; }
+/* El cartel grande ocupa el alto que dejan las otras dos filas: se
+   mide a si mismo (container) y el zoom cubre alto y ancho a la vez */
+.pg-open .o-a .pg-shot { flex: 1; aspect-ratio: auto; min-height: 0; container-type: size; }
+.pg-open .o-a .pg-shot img { width: max(var(--w, 130%), 92cqh); }
+
+/* ---------- Nota ----------
+   La idea del laboratorio, en dos lineas y no en dos parrafos. */
+.pg-note { padding: clamp(64px, 8vw, 112px) 24px; }
+.pg-note p { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; line-height: 1.25; max-width: 34ch; }
+.pg-note p span { display: block; font-size: 16px; font-weight: 500; line-height: 1.6; color: var(--ink-soft); letter-spacing: -0.011em; margin-top: 8px; }
+
+/* ---------- Parejas ----------
+   Dos piezas por fila, de distinto ancho y con la segunda desplazada:
+   ritmo sin caer en masonry. La segunda pareja invierte el gesto. */
+.pg-pair { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.pg-pair + .pg-pair { margin-top: clamp(64px, 8vw, 112px); }
+.pg-pair--a .pg-piece:nth-child(1) { grid-column: 1 / 6; }
+.pg-pair--a .pg-piece:nth-child(2) { grid-column: 8 / 12; margin-top: clamp(64px, 10vw, 160px); }
+.pg-pair--b .pg-piece:nth-child(1) { grid-column: 2 / 6; margin-top: clamp(64px, 10vw, 160px); }
+.pg-pair--b .pg-piece:nth-child(2) { grid-column: 7 / 13; }
+
+/* ---------- Pieza destacada ----------
+   La pausa: banda negra a todo el ancho con una sola pieza grande,
+   recortada como las demas (el marco del archivo se notaba como un
+   rectangulo con halo sobre el negro de la banda). Alto limitado a la
+   pantalla para que se vea entera de una vez. */
+.pg-feature { background: var(--black); color: var(--white); margin: clamp(80px, 10vw, 144px) 0; padding: clamp(40px, 6vw, 88px) 24px; }
+.pg-feature .pg-piece { width: min(560px, 100%, calc((100svh - 200px) * 5 / 7)); margin: 0 auto; }
+.pg-feature .pg-shot { background: var(--black); }
+.pg-feature .pg-piece-meta { color: rgba(255, 255, 255, 0.6); }
+.pg-feature figcaption { justify-content: center; }
+.pg-feature :focus-visible { outline-color: var(--accent); }
+
+/* ---------- Seguir explorando ----------
+   Vuelta a los casos grandes: dos filas con filete, sin imagen. */
+.pg-more { padding: clamp(80px, 10vw, 144px) 24px clamp(72px, 9vw, 120px); }
+.pg-more h2 { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+.pg-more ul { list-style: none; border-top: 1px solid var(--rule); }
+.pg-more li { border-bottom: 1px solid var(--rule); }
+.pg-more a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  padding: clamp(20px, 2.4vw, 30px) 0; color: var(--black); text-decoration: none;
+}
+.pg-more-name { font-size: var(--t-h2); font-weight: 900; letter-spacing: -0.035em; line-height: 1; }
+.pg-more-kind { font-size: 14px; font-weight: 600; color: var(--gray); margin-left: auto; }
+.pg-more .project-arrow { display: inline-block; font-size: 20px; transition: transform 0.45s var(--ease); }
+.pg-more a:hover .project-arrow, .pg-more a:focus-visible .project-arrow { transform: translateX(8px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .pg, .pg-note, .pg-more { padding-left: 20px; padding-right: 20px; }
+  .pg-hero { padding: 120px 20px 32px; }
+  .pg-hero .container { grid-template-columns: 1fr; }
+  .pg-kinds { text-align: left; }
+  .pg-feature { padding-left: 20px; padding-right: 20px; }
+}
+
+/* Movil: sin asimetrias. Cartel y doble pagina a todo el ancho, las
+   dos pequenas en pareja; el resto de piezas, una por fila. */
+@media (max-width: 700px) {
+  .pg-open { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+  .pg-open .o-a, .pg-open .o-b { grid-column: 1 / -1; grid-row: auto; display: block; }
+  .pg-open .o-c, .pg-open .o-d { grid-column: auto; grid-row: auto; }
+  .pg-open .o-a .pg-shot { aspect-ratio: 5 / 7; container-type: normal; }
+  .pg-open .o-a .pg-shot img { width: var(--w, 130%); }
+
+  .pg-pair { grid-template-columns: 1fr; gap: 40px; }
+  .pg-pair .pg-piece:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+  .pg-pair + .pg-pair { margin-top: 40px; }
+  .pg-more a { flex-wrap: wrap; gap: 6px 16px; }
+  .pg-more-kind { margin-left: 0; order: 3; flex-basis: 100%; }
+}

@@ -1,0 +1,431 @@
+/* ============================================================
+   Home — estilos propios de la portada (EN y ES).
+   Antes iban en un <style> dentro de index.html; aqui los
+   comparten / y /es/ sin duplicarlos.
+   ============================================================ */
+
+/* ================= HERO ================= */
+/* La cabecera va arriba (16px + 58 de alto = 74) y el hero ocupa el
+   resto de la pantalla. La foto B/N se retiro del hero (2026-09-22).
+   Rejilla 1fr · auto · 1fr: el bloque del titular queda en el centro
+   exacto del espacio restante y los chips se apoyan abajo, en la
+   tercera fila, sin empujarlo hacia arriba. */
+#hero {
+  position: relative;
+  min-height: calc(100vh - 74px); min-height: calc(100dvh - 74px);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 24px clamp(20px,4vw,48px);
+}
+#hero .container { display: grid; grid-template-rows: 1fr auto 1fr; flex: 1; }
+#hero .factbar { grid-row: 3; align-self: end; }
+
+.hero-stage { grid-row: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+
+/* Titular a una línea: una palabra maciza y otra en contorno */
+.hero-title {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 26px;
+  font-size: clamp(46px, 10.56vw, 152px);
+  line-height: 0.8; letter-spacing: -0.052em;
+}
+
+.hero-aside { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.hero-desc { font-size: 16px; line-height: 1.6; color: var(--ink-soft); letter-spacing: -0.011em; max-width: 521px; text-align: center; }
+.hero-desc strong { color: var(--black); font-weight: 700; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+#hero .factbar { padding-top: clamp(28px, 3vw, 40px); }
+.fact abbr { text-decoration: none; }
+/* Formato del archivo junto a la descarga: sin sorpresas al pulsar */
+.btn-note { font-weight: 500; opacity: 0.7; }
+
+
+/* ================= SOBRE MÍ ================= */
+
+/* El retrato entra a la izquierda del texto. Columna fija de 443 y
+   proporcion 443:576 recortando con cover: la foto original es 3:4,
+   asi que el recorte es minimo y no le come la cabeza.
+   Los botones van justo debajo del texto (decision de Pablo). */
+.about-main { display: grid; grid-template-columns: 443px minmax(0,1fr); gap: clamp(32px, 4.8vw, 69px); align-items: start; padding-bottom: clamp(40px, 5vw, 56px); }
+.about-portrait { width: 100%; aspect-ratio: 443 / 576; overflow: hidden; background: var(--gray-light); }
+.about-portrait picture { display: block; height: 100%; }
+.about-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+.about-body p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.65; color: var(--ink-soft); letter-spacing: -0.011em; margin-bottom: var(--s-el); max-width: 620px; }
+.about-body p:first-child { font-size: var(--t-lead); line-height: 1.45; color: var(--black); letter-spacing: -0.015em; max-width: 650px; }
+.about-body strong { color: var(--black); font-weight: 700; }
+.about-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+.about-main .about-body { margin-bottom: 0; }
+
+/* Pie de datos: formación | herramientas + idiomas. Vive dentro de About.
+   La primera columna mide lo mismo que retrato + hueco, asi el filete
+   vertical cae justo en el borde de la bio (antes iba unos px desviado).
+   Las tres zonas comparten rotulo, tamanos y ritmo: dato principal a 15
+   y dato secundario en gris a 13. */
+.cv-foot { display: grid; grid-template-columns: calc(443px + clamp(32px, 4.8vw, 69px)) minmax(0,1fr); border-top: 1px solid var(--rule); }
+.cv-foot h3 { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+.cv-edu-col { padding: 36px 30px 36px 0; }
+.cv-side { border-left: 1px solid var(--rule); display: flex; flex-direction: column; }
+.cv-side > div { padding: 36px 30px; }
+.cv-side > div:first-child { border-bottom: 1px solid var(--rule); }
+.cv-edu { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.cv-edu strong { display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 4px; }
+.cv-edu span { font-size: var(--t-small); font-weight: 500; color: var(--gray); }
+/* Herramientas en rejilla de celdas iguales alineadas a la izquierda,
+   como el rotulo. Con space-between, al partirse en dos filas (1024px)
+   la segunda se esparcia por todo el ancho. */
+.cv-tools { list-style: none; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 22px 12px; }
+/* 8 en fila cuando cada nombre cabe en su celda; si no, 4 + 4. Nunca
+   una fila con una sola herramienta suelta. */
+@media (min-width: 901px) and (max-width: 1299px) { .cv-tools { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cv-tools { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cv-tools li { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.cv-tools img { width: 56px; height: 56px; display: block; }
+.cv-langs { list-style: none; display: flex; gap: 12px 42px; flex-wrap: wrap; }
+.cv-tools li { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+.cv-langs li { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.cv-langs li span { font-size: var(--t-small); font-weight: 500; color: var(--gray); }
+
+/* ================= EXPERIENCIA =================
+   Se escanea asi: fecha | empresa + puesto (una unidad) + tareas.
+   - El filete de la cabecera hace de primer separador: antes habia dos
+     filetes paralelos con 56px de vacio entre el titulo y el primer empleo.
+   - Filetes un punto mas presentes (0.16) pero finos.
+   - Fecha legible (13px, gris oscuro) sin volverse protagonista.
+   - Puesto en gris oscuro: es el dato que busca un recruiter y antes
+     pesaba lo mismo que la fecha.
+   - Empresa y puesto pegados (6px); puesto y tareas separados (18px). */
+#experience .section-head { margin-bottom: 0; border-bottom-color: var(--rule-strong); }
+.cv-roles { list-style: none; }
+.cv-role {
+  display: grid; grid-template-columns: 200px minmax(0,1fr);
+  gap: clamp(20px, 3vw, 43px);
+  padding: 34px 0;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.cv-when { font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--ink-soft); padding-top: 5px; }
+.cv-org { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; line-height: 1.2; margin-bottom: 6px; }
+.cv-role-title { font-size: 15px; font-weight: 600; color: var(--ink-soft); margin-bottom: 18px; }
+.cv-tasks { list-style: none; display: flex; flex-direction: column; gap: 8px; max-width: 64ch; }
+.cv-tasks li { font-size: 15px; line-height: 1.55; color: var(--ink-soft); letter-spacing: -0.006em; display: flex; gap: 10px; }
+.cv-tasks li::before { content: '\2014'; color: var(--gray); flex-shrink: 0; }
+
+/* ================= PROYECTOS =================
+   Escenario clavado a pantalla completa: sale del contenedor, ocupa
+   los 100svh y se queda quieto mientras el caso grande va pasando de
+   uno al siguiente.
+
+   La clave: el escenario tiene ALTO FIJO y las bandas se lo reparten
+   por PROPORCION, no por altura. Base 0 y flex-grow 1/1/6 — el 12.5%
+   para las chicas y el 75% para la grande. Al ser un reparto, la suma
+   es el 100% en TODOS los fotogramas, salgan los grow intermedios que
+   salgan; da igual si las dos transiciones no arrancan exactamente a
+   la vez. Animando alturas (o con la suma de grow por debajo de 1) el
+   reparto se queda corto y aparece un hueco blanco abajo: ese era el
+   bug. El min-height es solo el suelo para pantallas bajas, donde el
+   12.5% no da para el titulo y las etiquetas. */
+#work { padding-top: clamp(56px, 7vw, 88px); }
+.work-scroll { position: relative; margin: clamp(36px, 4vw, 56px) -24px 0; }
+.work-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
+/* El recorrido crece con el numero de casos (--count en .work-scroll):
+   al anadir un proyecto basta con subir el numero. */
+.work-runway { height: calc((var(--count, 3) - 1) * 70vh); pointer-events: none; }
+
+.projects-list {
+  --row-min: clamp(104px, 12.5vh, 190px);
+  display: flex; flex-direction: column; height: 100%;
+}
+
+.project-row {
+  position: relative; isolation: isolate; overflow: hidden;
+  flex: 1 1 0; min-height: var(--row-min);
+  display: flex; align-items: flex-end; gap: 37px;
+  padding: 14px clamp(20px, 3.2vw, 46px);
+  text-decoration: none; color: var(--white);
+  transition: flex-grow 0.6s var(--ease), padding 0.6s var(--ease),
+              opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.project-row.is-lead {
+  flex-grow: 6;
+  padding: 24px clamp(20px, 3.2vw, 46px);
+}
+
+.card-media { position: absolute; inset: 0; z-index: 0; }
+.card-media picture { display: block; height: 100%; }
+/* Solo el caso activo va a color. Las bandas en espera se apagan:
+   antes las tres fotos competian a la vez y la seccion era ruido. */
+.card-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.02);
+  filter: saturate(0.5) brightness(0.86);
+  transition: transform 0.9s var(--ease), filter 0.7s var(--ease);
+}
+.project-row.is-lead .card-media img { transform: scale(1.06); filter: none; }
+.project-row:not(.is-lead):hover .card-media img { filter: saturate(0.85) brightness(0.92); }
+
+/* Filete entre bandas: sin el, las tres fotos oscuras se funden en
+   una sola mancha y no se ve donde acaba un caso y empieza el otro. */
+.project-row + .project-row { box-shadow: inset 0 1px 0 rgba(255,255,255,0.16); }
+
+/* Dos velos superpuestos que se cruzan en vez de uno que cambia de
+   golpe: el lateral manda en las bandas chicas y el de pie en la
+   grande, donde la foto necesita respirar por arriba. */
+.project-row::before, .project-row::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  transition: opacity 0.6s var(--ease);
+}
+.project-row::after {
+  opacity: 1;
+  background: linear-gradient(90deg,
+    rgba(10,10,9,0.86) 0%, rgba(10,10,9,0.64) 55%, rgba(10,10,9,0.78) 100%);
+}
+.project-row::before {
+  opacity: 0;
+  background: linear-gradient(to top,
+    rgba(10,10,9,0.86) 0%, rgba(10,10,9,0.48) 22%, rgba(10,10,9,0) 62%);
+}
+.project-row.is-lead::after { opacity: 0; }
+.project-row.is-lead::before { opacity: 1; }
+.project-row > *:not(.card-media) { position: relative; z-index: 2; }
+
+/* La banda en espera se queda con lo minimo que la identifica —
+   numero, nombre y flecha. Las etiquetas y el dato se pliegan a alto
+   cero, no se ocultan con opacity: si guardaran su hueco, el nombre
+   quedaria flotando en mitad de la banda. */
+.project-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.project-index {
+  font-family: var(--mono); font-size: 12px; line-height: 1.4;
+  color: rgba(255,255,255,0.55); margin-bottom: 7px;
+}
+.project-name {
+  font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.02; letter-spacing: -0.032em;
+  transition: font-size 0.6s var(--ease);
+}
+.project-row.is-lead .project-name { font-size: clamp(30px, 3.6vw, 52px); }
+
+.project-tags, .project-meta {
+  max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height 0.55s var(--ease), opacity 0.35s var(--ease), margin 0.55s var(--ease);
+}
+.project-row.is-lead .project-tags { max-height: 84px; opacity: 1; margin-top: 14px; }
+.project-row.is-lead .project-meta { max-height: 60px; opacity: 1; margin-bottom: 16px; }
+
+.project-side { width: 200px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; }
+.project-meta { font-family: var(--mono); font-size: 12px; line-height: 1.65; color: rgba(255,255,255,0.72); text-align: right; }
+
+.project-cta { display: flex; align-items: center; gap: 8px; font-size: var(--t-small); font-weight: 700; }
+.project-arrow { display: inline-block; font-size: 17px; transition: transform 0.45s var(--ease); }
+.project-row:hover .project-arrow, .project-row:focus-visible .project-arrow { transform: translateX(8px); }
+/* Contorno por dentro: la banda recorta (overflow) y sobre foto oscura
+   el anillo generico no se veria */
+.project-row:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; border-radius: 0; }
+
+.project-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.tag {
+  font-size: var(--t-label); font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 50px;
+  background: var(--black); border: 1px solid rgba(255,255,255,0.16);
+  color: var(--gray-light);
+}
+
+/* Bloques bajo el escenario (Playground, y mas adelante Professional
+   work): una banda negra que sigue al escenario, con el mismo sistema
+   que las bandas de caso — indice en mono, nombre en blanco, llamada a
+   la derecha, filete fino arriba — pero mas baja y sin foto a sangre:
+   debajo, una tira corta de piezas. No compite con los casos grandes. */
+.work-more {
+  margin: 0 -24px;
+  padding: clamp(24px, 2.6vw, 36px) clamp(20px, 3.2vw, 46px) clamp(28px, 3vw, 44px);
+  background: var(--black); color: var(--white);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+}
+.work-more-link {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 7px 37px;
+  padding-bottom: clamp(20px, 2.4vw, 28px);
+  color: var(--white); text-decoration: none;
+}
+/* Encima del nombre y a todo el ancho, como el «01» de las bandas */
+.work-more-label { flex: 0 0 100%; font-family: var(--mono); font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.55); }
+.work-more-title { display: block; font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.02; letter-spacing: -0.032em; }
+.work-more-desc { display: block; font-family: var(--mono); font-size: 12px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-top: 10px; }
+.work-more-link .project-cta { flex-shrink: 0; }
+.work-more-link:hover .project-arrow, .work-more-link:focus-visible .project-arrow { transform: translateX(8px); }
+.work-more :focus-visible { outline-color: var(--accent); }
+.work-more .pg-shot { background: #141413; }
+
+/* Tira de piezas. Todos los archivos de la galeria llevan la obra
+   sobre un marco negro con halo incrustado en la propia imagen; aqui
+   se recorta hasta el borde de la obra (--w = zoom, --cx/--cy = centro
+   de la obra en la imagen) para que se vean las piezas y no cuatro
+   marcos iguales. Una sola pieza apaisada (la doble pagina) rompe el
+   ritmo sin desordenarlo. */
+.pg-grid {
+  list-style: none; display: grid; gap: 16px;
+  grid-template-columns: 1fr 2fr 1fr 1fr; grid-auto-flow: dense;
+}
+.pg-shot {
+  position: relative; display: block; overflow: hidden;
+  aspect-ratio: 5 / 7; background: var(--gray-light);
+}
+.pg-item--wide .pg-shot { aspect-ratio: auto; height: 100%; }
+.pg-shot img {
+  position: absolute; left: 50%; top: 50%;
+  width: var(--w, 130%); max-width: none; height: auto;
+  transform: translate(calc(var(--cx, 50%) * -1), calc(var(--cy, 50%) * -1));
+  transition: transform 0.7s var(--ease);
+}
+.pg-shot:hover img, .pg-shot:focus-visible img {
+  transform: translate(calc(var(--cx, 50%) * -1), calc(var(--cy, 50%) * -1)) scale(1.025);
+}
+/* Tipo de pieza: solo al pasar o enfocar, pequeno, en la esquina */
+.pg-shot .tag {
+  position: absolute; left: 10px; bottom: 10px;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity var(--dur-fast), transform var(--dur-fast) var(--ease);
+}
+.pg-shot:hover .tag, .pg-shot:focus-visible .tag { opacity: 1; transform: none; }
+
+/* ================= HABLEMOS ================= */
+#contact { background: var(--black); }
+#contact .hl { background: none; color: var(--accent); padding: 0; }
+.contact-wrap { display: grid; grid-template-columns: 565px minmax(0,1fr); gap: clamp(40px, 6vw, 86px); align-items: start; }
+.contact-title { font-size: clamp(40px, 5.2vw, 75px); font-weight: 900; letter-spacing: -0.038em; line-height: 0.96; color: var(--white); margin-bottom: var(--s-el); }
+.contact-tagline { font-size: 15px; color: rgba(255,255,255,0.58); line-height: 1.7; margin-bottom: 44px; }
+.contact-direct-label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,0.48); text-transform: uppercase; margin-bottom: 8px; }
+
+/* Correo, telefono y LinkedIn apilados en todos los anchos. En fila
+   cabian con 0px de margen en la columna de 565: con un render de fuente
+   un poco mas ancho LinkedIn saltaba de linea y space-between mandaba el
+   telefono al otro extremo. */
+.direct-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.direct-links .social-btn { margin-top: 14px; }
+.contact-direct-link {
+  display: flex; align-items: center; gap: 14px; text-decoration: none;
+  color: var(--white); font-size: 15px; font-weight: 600; padding: 14px 0;
+  transition: color var(--dur-fast), gap var(--dur-fast) var(--ease);
+}
+.contact-direct-link:hover { color: var(--accent); gap: 20px; }
+.link-icon {
+  width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.contact-direct-link:hover .link-icon { background: var(--accent); color: var(--black); }
+
+/* Borde al 40% de blanco: es lo que lo sube a 3:1 contra el negro (WCAG 1.4.11) */
+.social-btn {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  color: var(--white); font-size: var(--t-small); font-weight: 700;
+  padding: 12px 18px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50px;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.social-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--white); }
+
+.contact-form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.16); border-radius: 18px; padding: clamp(24px, 3vw, 36px); }
+.form-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 28px; }
+.fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.fg label { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,0.48); text-transform: uppercase; }
+.fg input, .fg textarea, .fg-select {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 14px; padding: 13px 16px; font-family: var(--font); font-size: 15px; color: var(--white);
+  outline: none; width: 100%; transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.55); }
+/* Sin outline, pero el foco no se pierde: borde + anillo amarillos */
+.fg input:focus-visible, .fg textarea:focus-visible, .fg-select:focus-visible {
+  border-color: var(--accent); background-color: rgba(255,255,255,0.09);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.fg textarea { min-height: 110px; resize: vertical; }
+/* Error solo despues de intentar enviar (clase .was-validated) */
+.was-validated .fg :invalid { border-color: #FF8A7A; }
+.fg-error { display: none; font-size: var(--t-small); font-weight: 600; color: #FF8A7A; }
+.was-validated .fg :invalid ~ .fg-error { display: block; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg-select {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer; padding-right: 42px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23F5D000' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
+  background-repeat: no-repeat; background-position: right 16px center;
+}
+.fg-select option { background: #1A1A18; color: var(--white); }
+.form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; gap: 16px; }
+.form-note { font-size: var(--t-small); font-weight: 500; color: rgba(255,255,255,0.48); }
+.btn-primary:disabled { cursor: progress; opacity: 0.7; transform: none; }
+#form-success {
+  background: rgba(245,208,0,0.1); border: 1px solid rgba(245,208,0,0.25);
+  border-radius: 14px; padding: 14px 18px; color: var(--accent); font-size: 15px; font-weight: 600;
+  text-align: center;
+}
+#form-success:focus { outline: none; }
+.form-error { margin-top: 14px; font-size: 14px; line-height: 1.5; font-weight: 600; color: #FF8A7A; }
+.form-error:empty { display: none; }
+.form-error a { color: var(--white); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  /* Movil: cabecera a 10px + 56 de alto = 66 */
+  #hero { padding: 24px 20px; min-height: calc(100vh - 66px); min-height: calc(100dvh - 66px); }
+  .hero-title { font-size: clamp(42px, 13vw, 76px); gap: 12px; }
+  .hero-aside { align-items: flex-start; }
+  .hero-desc { text-align: left; max-width: 100%; }
+  .hero-buttons { justify-content: flex-start; }
+
+  .about-body p { font-size: 16px; }
+  .about-body p:first-child { font-size: 19px; }
+
+  .cv-foot { grid-template-columns: 1fr; }
+  .cv-edu-col { padding: 24px 0; border-bottom: 1px solid var(--rule); }
+  .cv-side { border-left: none; }
+  .cv-side > div { padding: 24px 0; }
+  .cv-langs { flex-direction: column; gap: 8px; }
+
+  .cv-role { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
+  .cv-when { padding-top: 0; }
+
+  .work-scroll { margin: 28px -20px 0; }
+  .work-runway { height: calc((var(--count, 3) - 1) * 55vh); }
+  .work-more { margin: 0 -20px; padding: 22px 20px 24px; }
+  /* Tablet: tres piezas en una fila; cuatro se quedaban en miniatura */
+  .pg-grid { grid-template-columns: 1fr 2fr 1fr; gap: 12px; }
+  .pg-item--extra { display: none; }
+  .projects-list { --row-min: clamp(96px, 12.5vh, 150px); }
+  .project-row { flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 10px; padding: 14px 20px; }
+  /* En columna, flex:1 subia el nombre arriba del todo, debajo de la
+     capsula flotante que lo tapaba. Abajo, sobre el velo, como en desktop. */
+  .project-info { flex: 0 0 auto; width: 100%; }
+  .project-row.is-lead { padding: 20px; }
+  .project-row .project-name { font-size: 19px; }
+  .project-row.is-lead .project-name { font-size: 30px; }
+  .project-side { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; }
+  .project-meta { text-align: left; }
+
+  .about-main { grid-template-columns: 1fr; gap: 28px; }
+  .about-portrait { max-width: 420px; }
+
+  .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
+  .contact-tagline { max-width: 100%; }
+  .fg-row { grid-template-columns: 1fr; gap: 0; }
+  .form-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .form-footer .btn-primary { width: 100%; justify-content: center; }
+}
+
+/* Movil: texto apilado y piezas en dos columnas, la doble pagina a
+   todo el ancho debajo. Sin carrusel. */
+@media (max-width: 600px) {
+  .work-more-link { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .pg-grid { grid-template-columns: 1fr 1fr; }
+  .pg-item--wide { grid-column: 1 / -1; }
+  .pg-item--wide .pg-shot { aspect-ratio: 141 / 100; height: auto; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(38px, 11.5vw, 56px); }
+  .hero-buttons { width: 100%; }
+  /* auto y no 0: si no caben los dos, cada boton baja a su fila entero
+     en vez de partir «Download CV (PDF)» en dos lineas */
+  .hero-buttons .btn-primary, .hero-buttons .btn-secondary { flex: 1 1 auto; justify-content: center; white-space: nowrap; }
+  .about-buttons { flex-direction: column; align-items: stretch; }
+  .about-buttons .btn-primary, .about-buttons .btn-secondary { justify-content: center; }
+}
+
+/* LCP: el titular del hero es lo primero que se pinta; no espera al JS
+   para hacerse visible. Conserva solo el desplazamiento de entrada. */
+#hero .hero-title.fade-up { opacity: 1; }
