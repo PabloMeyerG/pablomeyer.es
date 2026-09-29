@@ -40,8 +40,8 @@ del lightbox) están en un diccionario EN/ES dentro de `assets/js/home.js`,
 2. Crea `i18n/<pagina>.es.txt` y añade una línea `build …` en `build-es.sh`.
 3. Añade las dos URLs a `sitemap.xml`.
 
-## Pendiente
+## CV
 
-- TODO: Add Spanish CV — cuando exista `assets/downloads/CV-PabloMeyer-ES.pdf`,
-  cambiar en `home.es.txt` el enlace de descarga (ahora apunta al CV inglés
-  y lo dice: «Descargar CV (PDF, en inglés)»).
+Cada idioma descarga su CV: `assets/downloads/CV-PabloMeyer.pdf` (inglés) y
+`assets/downloads/CV-PabloMeyer-ES.pdf` (castellano). Para actualizarlos basta
+con sustituir los PDF manteniendo el nombre.

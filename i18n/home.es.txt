@@ -18,9 +18,9 @@ href="#contact">Contact</a> ||| href="#contact">Contacto</a>
 <span>Graphic</span> <span class="outline">Designer</span> ||| <span>Diseñador</span> <span class="outline">gráfico</span>
 I'm <strong>Pablo</strong>, a graphic and UX/UI designer. I design brands, packaging, campaigns and apps, most of it in-house for companies like Porcelanosa Grupo. ||| Soy <strong>Pablo</strong>, diseñador gráfico y UX/UI. Diseño marcas, packaging, campañas y apps, casi siempre en plantilla, para empresas como Porcelanosa Grupo.
 >View projects →< ||| >Ver proyectos →<
-# CV: solo existe en ingles. TODO: Add Spanish CV (assets/downloads/CV-PabloMeyer-ES.pdf)
-download="CV-PabloMeyer.pdf" class= ||| download="CV-PabloMeyer.pdf" hreflang="en" class=
->Download CV <span class="btn-note">(PDF)</span></a> ||| >Descargar CV <span class="btn-note">(PDF, en inglés)</span></a>
+# CV en castellano
+href="../assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" ||| href="../assets/downloads/CV-PabloMeyer-ES.pdf" download="CV-PabloMeyer-ES.pdf"
+>Download CV <span class="btn-note">(PDF)</span></a> ||| >Descargar CV <span class="btn-note">(PDF)</span></a>
 aria-label="Availability, location, languages and disciplines" ||| aria-label="Disponibilidad, ubicación, idiomas y disciplinas"
 </span>Available</li> ||| </span>Disponible</li>
 <li class="fact">Spain · Remote</li> ||| <li class="fact">España · En remoto</li>
