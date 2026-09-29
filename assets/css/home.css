@@ -72,10 +72,8 @@
 /* Herramientas en rejilla de celdas iguales alineadas a la izquierda,
    como el rotulo. Con space-between, al partirse en dos filas (1024px)
    la segunda se esparcia por todo el ancho. */
-.cv-tools { list-style: none; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 22px 12px; }
-/* 8 en fila cuando cada nombre cabe en su celda; si no, 4 + 4. Nunca
-   una fila con una sola herramienta suelta. */
-@media (min-width: 901px) and (max-width: 1299px) { .cv-tools { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cv-tools { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px 12px; }
+/* 10 herramientas: 5 + 5. En movil no caben 5 iconos por fila: 4 + 4 + 2. */
 @media (max-width: 600px) { .cv-tools { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .cv-tools li { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .cv-tools img { width: 56px; height: 56px; display: block; }
