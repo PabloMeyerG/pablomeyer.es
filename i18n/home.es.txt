@@ -5,7 +5,7 @@
 Pablo Meyer — Graphic &amp; UX/UI Designer ||| Pablo Meyer — Diseñador gráfico y UX/UI
 Pablo Meyer, graphic and UX/UI designer based in Spain, working remotely. Branding, packaging, apps and campaigns. Portfolio and case studies. ||| Pablo Meyer, diseñador gráfico y UX/UI en España, disponible en remoto. Branding, packaging, apps y campañas. Portfolio y proyectos.
 Graphic and UX/UI designer based in Spain. Branding, packaging, apps and campaigns, from the first sketch to the files that go to print. ||| Diseñador gráfico y UX/UI en España. Branding, packaging, apps y campañas, desde el primer boceto hasta los archivos que van a imprenta.
-content="Pablo Meyer, graphic and UX/UI designer" ||| content="Pablo Meyer, diseñador gráfico y UX/UI"
+content="Pablo Meyer, Graphic Designer: the IKI ZenElegance storefront sign" ||| content="Pablo Meyer, diseñador gráfico: el rótulo de la tienda IKI ZenElegance"
 Graphic and UX/UI designer. Branding, packaging, apps and campaigns. ||| Diseñador gráfico y UX/UI. Branding, packaging, apps y campañas.
 "jobTitle": "Graphic & UX/UI Designer" ||| "jobTitle": "Diseñador gráfico y UX/UI"
 ["Brand identity", "Graphic design", "UX/UI", "Digital design", "Packaging", "Digital marketing"] ||| ["Identidad de marca", "Diseño gráfico", "UX/UI", "Diseño digital", "Packaging", "Marketing digital"]
