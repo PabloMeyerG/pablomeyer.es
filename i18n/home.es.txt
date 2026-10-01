@@ -32,11 +32,11 @@ alt="IKI · ZenElegance — brand signage" ||| alt="IKI · ZenElegance — rótu
 <span class="tag">Brand Identity</span> ||| <span class="tag">Identidad de marca</span>
 <span class="tag">Art Direction</span> ||| <span class="tag">Dirección de arte</span>
 <span class="tag">Product Design</span> ||| <span class="tag">Diseño de producto</span>
-<span class="tag">Mobile</span> ||| <span class="tag">Móvil</span>
+<span class="tag">Mobile App</span> ||| <span class="tag">App móvil</span>
 2025 · Conceptual brand<br>Brand Identity &amp; Packaging ||| 2025 · Marca conceptual<br>Identidad de marca y packaging
 >View case <span class="project-arrow"> ||| >Ver proyecto <span class="project-arrow">
-alt="Coach App — product screens" ||| alt="Coach App — pantallas de la app"
-2025<br>UX/UI · Product Design ||| 2025<br>UX/UI · Diseño de producto
+alt="Coach — Today, active workout and rest screens" ||| alt="Coach — pantallas de Hoy, entreno en curso y descanso"
+2026 · Product redesign<br>Product Design · UX/UI ||| 2026 · Rediseño de producto<br>Diseño de producto · UX/UI
 # --- Playground ---
 >Posters, packaging &amp; visual experiments< ||| >Carteles, packaging y experimentación visual<
 One-off pieces, experiments and personal work, 2023&nbsp;—&nbsp;2025. ||| Piezas sueltas, experimentos y trabajo personal, 2023&nbsp;—&nbsp;2025.

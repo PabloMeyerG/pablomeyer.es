@@ -412,6 +412,12 @@
   .pg-grid { grid-template-columns: 1fr 1fr; }
   .pg-item--wide { grid-column: 1 / -1; }
   .pg-item--wide .pg-shot { aspect-ratio: 141 / 100; height: auto; }
+  /* En vertical la foto ocupa toda la banda y el texto cae sobre ella:
+     velo de pie mas alto y denso para que se lea */
+  .project-row::before {
+    background: linear-gradient(to top,
+      rgba(10,10,9,0.94) 0%, rgba(10,10,9,0.78) 26%, rgba(10,10,9,0) 58%);
+  }
 }
 
 @media (max-width: 480px) {
