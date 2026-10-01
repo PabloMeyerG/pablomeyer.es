@@ -14,9 +14,7 @@ content="Coach app screens: Today, active workout and nutrition" ||| content="Pa
 Coach helps users know what to do today, adapt their workout to the time they have, and keep training and nutrition in one simple experience. ||| Coach ayuda a saber qué toca hoy, a ajustar el entreno al tiempo disponible y a llevar entrenamiento y nutrición en una sola experiencia sencilla.
 aria-label="Project details" ||| aria-label="Datos del proyecto"
 <li>Product Design</li><li>UX/UI</li><li>Mobile App</li><li>2026</li> ||| <li>Diseño de producto</li><li>UX/UI</li><li>App móvil</li><li>2026</li>
-alt="Active workout screen: shoulder press, set 2 of 3, 10 reps at 9 kg" ||| alt="Pantalla de entreno en curso: press de hombro, serie 2 de 3, 10 repeticiones con 9 kg"
-alt="Today screen: upper body strength workout, 32 minutes, 8 exercises, medium intensity" ||| alt="Pantalla Hoy: entreno de fuerza de tren superior, 32 minutos, 8 ejercicios, intensidad media"
-alt="Nutrition screen: 1,640 of 2,300 kcal eaten, with protein, carbs and fat" ||| alt="Pantalla de nutrición: 1.640 de 2.300 kcal consumidas, con proteína, hidratos y grasa"
+alt="Three Coach screens on a dark background: Today, an active shoulder press set and the rest timer" ||| alt="Tres pantallas de Coach sobre fondo oscuro: Hoy, una serie de press de hombro en curso y el descanso"
 # --- 02 Proyecto revisado ---
 <p class="eyebrow">The project</p> ||| <p class="eyebrow">El proyecto</p>
 Revisiting an old project. ||| Volver a un proyecto antiguo.
@@ -170,3 +168,8 @@ alt="2026 Today screen: the next workout first, with why it was chosen" ||| alt=
 alt="Playground preview" ||| alt="Vista previa de Playground"
 <span>Posters · Packaging · Social · 2023 — 2025</span> ||| <span>Carteles · Packaging · Social · 2023 — 2025</span>
 <span>View project →</span> ||| <span>Ver proyecto →</span>
+# --- Bandas a sangre ---
+aria-label="Coach screens" ||| aria-label="Pantallas de Coach"
+alt="Three Coach screens: Today, Your plan is ready and Progress" ||| alt="Tres pantallas de Coach: Hoy, plan listo y progreso"
+alt="Nutrition and Progress screens side by side" ||| alt="Pantallas de nutrición y progreso, una junto a otra"
+alt="Three Coach screens: rest timer, Today and Nutrition" ||| alt="Tres pantallas de Coach: descanso, Hoy y nutrición"
