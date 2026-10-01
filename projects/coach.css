@@ -195,7 +195,7 @@
 /* ---------- 13 · Antes / despues ---------- */
 .cx-ba { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: center; }
 .cx-ba figure { margin: 0; }
-.cx-ba-old img { width: 100%; max-width: 440px; height: auto; display: block; margin-left: auto; }
+.cx-ba-old .cx-screen { max-width: 330px; margin-left: auto; } /* mismo tamano que la nueva: pantalla contra pantalla */
 .cx-ba-old figcaption { text-align: right; }
 .cx-ba-new .cx-screen { max-width: 330px; }
 .cx-ba-arrow { font-size: clamp(32px, 4vw, 64px); font-weight: 300; color: var(--cx-yellow); }
@@ -228,10 +228,10 @@
   .cx-feedback { grid-template-columns: 1fr; justify-items: center; }
   .cx-feedback .cx-crop { max-width: 360px; }
   .cx-parts { grid-template-columns: 1fr 1fr; }
-  .cx-ba { grid-template-columns: 1fr; justify-items: center; }
-  .cx-ba-arrow { transform: rotate(90deg); }
-  .cx-ba-old img { margin: 0 auto; }
-  .cx-ba-old figcaption { text-align: center; }
+  /* En movil siguen lado a lado: la comparacion se entiende de un vistazo */
+  .cx-ba { grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .cx-ba-arrow { display: none; }
+  .cx-ba-old figcaption { text-align: left; }
 }
 
 @media (max-width: 600px) {
