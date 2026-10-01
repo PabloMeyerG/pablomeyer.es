@@ -132,6 +132,9 @@
 .cx-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; margin: clamp(28px, 3vw, 40px) 0; padding: 24px 0; border-top: 1px solid var(--rule-dark); border-bottom: 1px solid var(--rule-dark); font-size: 15px; color: var(--cx-ink-dark); }
 .cx-stats b { display: block; font-size: clamp(34px, 3.6vw, 52px); font-weight: 900; letter-spacing: -0.04em; color: var(--white); line-height: 1; margin-bottom: 4px; }
 .cx-quote { font-size: clamp(20px, 1.9vw, 26px); font-weight: 600; line-height: 1.35; letter-spacing: -0.015em; color: var(--cx-yellow); max-width: 28ch; quotes: none; }
+/* Mensaje de nutricion: mismo recurso que el de Today, sobre blanco */
+.cx-quote--light { color: var(--black); font-size: clamp(18px, 1.6vw, 22px); margin-top: clamp(28px, 3vw, 40px); padding-left: 18px; border-left: 3px solid #FF5C85; }
+.cx-quote span { display: block; font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
 
 /* ---------- 07 · Tiempo ---------- */
 .cx-times { display: flex; align-items: baseline; gap: clamp(10px, 1.2vw, 16px); margin: clamp(28px, 3vw, 40px) 0 24px; }
@@ -183,7 +186,12 @@
 .cx-list li:first-child { color: var(--cx-yellow); }
 
 /* ---------- 12 · Sistema ---------- */
-.cx-swatches { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin-bottom: clamp(32px, 4vw, 56px); }
+.cx-swatches { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin-bottom: clamp(24px, 3vw, 40px); }
+/* Datos del sistema, tal cual estan en el archivo de Figma (DS · Foundations) */
+.cx-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; margin-bottom: clamp(32px, 4vw, 56px); border-top: 1px solid var(--rule-strong); }
+.cx-facts div { padding-top: 16px; }
+.cx-facts dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.cx-facts dd { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; letter-spacing: -0.015em; }
 .cx-swatches li { background: var(--c); color: var(--white); border-radius: 16px; aspect-ratio: 1 / 1.15; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); }
 .cx-swatches li.is-light { color: var(--black); }
 .cx-swatches b { font-size: 13px; font-weight: 800; line-height: 1.2; }
@@ -240,6 +248,7 @@
 }
 
 @media (max-width: 600px) {
+  .cx-facts { grid-template-columns: 1fr 1fr; }
   /* Los mockups horizontales se recortan al centro para que el movil no quede diminuto */
   .cx-bleed img { aspect-ratio: 5 / 4; object-fit: cover; }
   .cx-parts { grid-template-columns: 1fr; }

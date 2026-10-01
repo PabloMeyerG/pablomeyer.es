@@ -106,7 +106,7 @@ Nutrition without turning Coach into a calorie database. ||| Nutrición sin conv
 Nutrition remains a core part of Coach, but the redesign focuses on the information users need most often: daily calories, macros and meals. ||| La nutrición sigue siendo una parte central de Coach, pero el rediseño se centra en lo que el usuario consulta más a menudo: calorías del día, macros y comidas.
 <p class="cx-kcal"><b>1,640</b> / 2,300 kcal</p> ||| <p class="cx-kcal"><b>1.640</b> / 2.300 kcal</p>
 aria-label="Macros" ||| aria-label="Macros"
-<li style="--c: #5BC6FA">Protein</li><li style="--c: #FEB544">Carbs</li><li style="--c: #BF5BF3">Fat</li><li>Meals</li> ||| <li style="--c: #5BC6FA">Proteína</li><li style="--c: #FEB544">Hidratos</li><li style="--c: #BF5BF3">Grasa</li><li>Comidas</li>
+<li style="--c: #5AC8FA">Protein</li><li style="--c: #FFB340">Carbs</li><li style="--c: #BF5AF2">Fat</li><li>Meals</li> ||| <li style="--c: #5AC8FA">Proteína</li><li style="--c: #FFB340">Hidratos</li><li style="--c: #BF5AF2">Grasa</li><li>Comidas</li>
 # --- 10 Registro de comida ---
 <p class="eyebrow">Food logging</p> ||| <p class="eyebrow">Registro de comidas</p>
 Reducing friction in food logging. ||| Menos fricción al registrar comidas.
@@ -132,13 +132,10 @@ Built for focus. ||| Pensado para concentrarse.
 The visual system uses a restrained dark palette with yellow reserved for action, selection and progress. ||| El sistema visual usa una paleta oscura y contenida, con el amarillo reservado para acción, selección y progreso.
 Nutrition introduces additional colour only where it helps distinguish specific metrics. ||| La nutrición añade color solo donde ayuda a distinguir métricas concretas.
 aria-label="Colour palette" ||| aria-label="Paleta de color"
-<b>Background</b> ||| <b>Fondo</b>
-<b>Surface</b> ||| <b>Superficie</b>
-<b>Action</b> ||| <b>Acción</b>
-<b>Calories eaten</b> ||| <b>Calorías consumidas</b>
-<b>Protein</b> ||| <b>Proteína</b>
-<b>Carbs</b> ||| <b>Hidratos</b>
-<b>Fat</b> ||| <b>Grasa</b>
+<div><dt>Type</dt><dd>SF Pro · 18 text styles</dd></div> ||| <div><dt>Tipografía</dt><dd>SF Pro · 18 estilos de texto</dd></div>
+<div><dt>Spacing</dt><dd>4 to 40 pt · 8 steps</dd></div> ||| <div><dt>Espaciado</dt><dd>De 4 a 40 pt · 8 pasos</dd></div>
+<div><dt>Radius</dt><dd>12 · 18 · 22 · 28 · full</dd></div> ||| <div><dt>Radios</dt><dd>12 · 18 · 22 · 28 · completo</dd></div>
+<div><dt>Library</dt><dd>18 components · 25 icons</dd></div> ||| <div><dt>Librería</dt><dd>18 componentes · 25 iconos</dd></div>
 alt="Typography: week label in yellow capitals over a bold title" ||| alt="Tipografía: etiqueta de semana en mayúsculas amarillas sobre un título en negrita"
 <figcaption>Typography</figcaption> ||| <figcaption>Tipografía</figcaption>
 alt="Primary button: Start, 32 min" ||| alt="Botón principal: Start, 32 min"
@@ -174,3 +171,4 @@ alt="Three Coach screens: Today, Your plan is ready and Progress" ||| alt="Tres 
 alt="Nutrition and Progress screens side by side" ||| alt="Pantallas de nutrición y progreso, una junto a otra"
 alt="Three Coach screens: rest timer, Today and Nutrition" ||| alt="Tres pantallas de Coach: descanso, Hoy y nutrición"
 alt="Five Coach screens on pedestals: Nutrition, Progress, Today, rest timer and active workout" ||| alt="Cinco pantallas de Coach sobre pedestales: nutrición, progreso, Hoy, descanso y entreno en curso"
+<span>Upper body day today</span>“You're 42 g short on protein. A salmon or chicken dinner covers it.” ||| <span>Hoy toca tren superior</span>«Te faltan 42 g de proteína. Una cena con salmón o pollo lo cubre.»
