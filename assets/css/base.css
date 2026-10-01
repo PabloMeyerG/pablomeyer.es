@@ -480,3 +480,33 @@ footer { background: #0A0A09; color: var(--white); padding: 28px 24px; }
   .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 14px; }
   .fact { font-size: 13px; padding: 9px 15px; gap: 8px; }
 }
+
+/* ---------- Pantallas grandes (> 1440) ----------
+   Hasta 1440 todo queda como esta maquetado. Por encima, la reticula se
+   abre hacia los bordes (margen lateral proporcional, techo de 2400 px)
+   y titulos y aire crecen poco a poco: cada valor parte de su medida a
+   1440 y crece la mitad que la pantalla, con techo en x1,5. Los parrafos
+   no se estiran: mantienen su medida de lectura. */
+@media (min-width: 1441px) {
+  :root {
+    --container: min(calc(1328px + (100vw - 1440px) * 0.88), 2400px);
+    --t-display: min(calc(168px + (100vw - 1440px) * 0.0583), 252px);
+    --t-h1:      min(calc(96px + (100vw - 1440px) * 0.0333), 144px);
+    --t-h2:      min(calc(46px + (100vw - 1440px) * 0.016), 69px);
+    --t-h3:      min(calc(24px + (100vw - 1440px) * 0.0083), 36px);
+    --t-num:     min(calc(108px + (100vw - 1440px) * 0.0375), 162px);
+    --t-lead:    min(calc(28px + (100vw - 1440px) * 0.0069), 38px);
+    --s-section: min(calc(112px + (100vw - 1440px) * 0.0389), 168px);
+    --s-block:   min(calc(68px + (100vw - 1440px) * 0.0236), 102px);
+    --t-small:   min(calc(13px + (100vw - 1440px) * 0.0018), 15px);
+    --t-label:   min(calc(11px + (100vw - 1440px) * 0.0013), 12.5px);
+  }
+  /* La barra arriba sigue alineada con la reticula */
+  .nav-hero { width: calc(var(--container) + 16px); }
+}
+@media (min-width: 1441px) {
+  /* Rotulos en mono de 12 px: a 2000 px de reticula se quedaban en microtexto */
+  .mono, .section-meta {
+    font-size: min(calc(12px + (100vw - 1440px) * 0.0018), 14px);
+  }
+}

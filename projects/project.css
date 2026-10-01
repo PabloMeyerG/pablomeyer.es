@@ -45,7 +45,7 @@
   display: inline-flex; align-items: center; min-height: 44px; margin: -15px 0; }
 .cover-bar a:hover { color: var(--black); }
 
-.cover-bleed { position: relative; left: 50%; margin-left: calc(-50vw / var(--zw, 1)); width: calc(100vw / var(--zw, 1)); max-width: none; }
+.cover-bleed { position: relative; left: 50%; margin-left: -50vw; width: 100vw; max-width: 100vw; }
 .cover-bleed img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; background: var(--gray-light); }
 
 /* ---------- Reto + ficha ---------- */
@@ -254,4 +254,18 @@
   .gallery-masonry { columns: 1; }
   .detalles-card .row { grid-template-columns: 1fr 1fr; gap: 8px; }
   .detalles-card .row dd { font-size: var(--t-small); }
+}
+
+/* ---------- Pantallas grandes (> 1440): ver base.css ---------- */
+@media (min-width: 1441px) {
+  .case-title { font-size: min(calc(132px + (100vw - 1440px) * 0.0458), 198px); }
+  .reto-title { font-size: min(calc(50px + (100vw - 1440px) * 0.0174), 75px); }
+  .case-decisions .reto-title { max-width: 15.6em; }
+  .pull-quote-text { font-size: min(calc(56px + (100vw - 1440px) * 0.0194), 84px); max-width: 16em; }
+  .decision-num { font-size: min(calc(84px + (100vw - 1440px) * 0.0292), 126px); }
+  .process-num { font-size: min(calc(76px + (100vw - 1440px) * 0.0264), 114px); }
+  .next-project-title { font-size: min(calc(92px + (100vw - 1440px) * 0.0319), 138px); }
+  .next-project-row { grid-template-columns: 1fr 25.6%; }
+  .case-cta-title { font-size: min(calc(46px + (100vw - 1440px) * 0.016), 69px); }
+  .gallery-figure.gallery-figure-solo { max-width: min(calc(520px + (100vw - 1440px) * 0.18), 780px); }
 }

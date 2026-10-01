@@ -139,7 +139,7 @@
    ============================================================ */
 .ik-hero {
   display: grid; grid-template-columns: 5fr 7fr;
-  min-height: calc(100vh / var(--z, 1)); min-height: calc(100svh / var(--z, 1));
+  min-height: 100vh; min-height: 100svh;
   background: var(--ik-black); color: var(--ik-white);
 }
 .ik-hero-panel {
@@ -212,12 +212,12 @@
   padding: clamp(96px, 10vw, 140px) var(--ik-m) clamp(32px, 4vw, 56px);
   max-width: var(--ik-max); margin-inline: auto;
 }
-.ik-idea-stage { display: grid; place-items: center; min-height: calc(60vh / var(--z, 1)); }
+.ik-idea-stage { display: grid; place-items: center; min-height: 60vh; }
 .ik-idea-layer { grid-area: 1 / 1; display: grid; place-items: center; text-align: center; }
 .ik-idea-mark { width: min(56vw, 760px); color: var(--ik-black); }
 .ik-idea-kanji {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
-  font-weight: 400; font-size: min(calc(52vh / var(--z, 1)), 40vw); line-height: 1; color: var(--ik-black);
+  font-weight: 400; font-size: min(52vh, 40vw); line-height: 1; color: var(--ik-black);
 }
 .ik-idea-words { font-family: var(--ik-mono); font-size: clamp(34px, 6.4vw, 104px); line-height: 1.02; letter-spacing: -0.03em; }
 .ik-idea-foot { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ik-g); align-items: end; }
@@ -230,8 +230,8 @@
 .ik-idea:not(.is-live) .ik-idea-stage { display: flex; flex-direction: column; gap: clamp(48px, 8vw, 120px); padding-block: 40px; }
 .ik-idea:not(.is-live) .ik-idea-steps { display: none; }
 
-.ik-idea.is-live { height: calc(320vh / var(--z, 1)); }
-.ik-idea.is-live .ik-idea-stick { position: sticky; top: 0; height: calc(100vh / var(--z, 1)); height: calc(100svh / var(--z, 1)); }
+.ik-idea.is-live { height: 320vh; }
+.ik-idea.is-live .ik-idea-stick { position: sticky; top: 0; height: 100vh; height: 100svh; }
 .ik-idea.is-live .ik-idea-stage { min-height: 0; }
 .ik-idea.is-live .ik-idea-layer {
   opacity: 0; transform: scale(0.985); filter: blur(8px);
@@ -369,7 +369,7 @@
 /* ============================================================
    07 · COLOR / MATERIAL
    ============================================================ */
-.ik-core { display: grid; grid-template-columns: 1fr 1fr; min-height: min(calc(64vh / var(--z, 1)), 640px); }
+.ik-core { display: grid; grid-template-columns: 1fr 1fr; min-height: min(64vh, 640px); }
 .ik-core > div { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--ik-m); }
 .ik-core-black { background: var(--ik-black); color: var(--ik-white); }
 .ik-core-white { background: var(--ik-white); border-block: 1px solid var(--ik-hair); }
@@ -714,7 +714,7 @@
 /* ============================================================
    16 · CIERRE
    ============================================================ */
-.ik-close { position: relative; min-height: calc(100vh / var(--z, 1)); min-height: calc(100svh / var(--z, 1)); overflow: hidden; color: #fff; background: #111; display: grid; }
+.ik-close { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; color: #fff; background: #111; display: grid; }
 .ik-close-img { position: absolute; inset: -6% 0; }
 .ik-close-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: brightness(0.62); }
 .ik-close-in {
@@ -734,4 +734,29 @@
   .js .ik-rv, .js .ik-mask, .js .ik-mask img { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .js .ik-hero-media, .js .ik-hero-media img, .js .ik-hero-title .ik-logo, .js .ik-hero-foot { animation: none !important; }
   .ik-close-img { inset: 0; }
+}
+
+/* ---------- Pantallas grandes (> 1440): ver base.css ----------
+   La reticula de 12 columnas se abre hasta 2400 px con margen
+   proporcional; los cuerpos de texto conservan su medida en ch. */
+@media (min-width: 1441px) {
+  .ik {
+    --ik-max: 2400px;
+    --ik-m: min(calc(72px + (100vw - 1440px) * 0.05), 128px);
+    --ik-g: min(calc(28px + (100vw - 1440px) * 0.0097), 42px);
+    --ik-sec: min(calc(200px + (100vw - 1440px) * 0.0694), 300px);
+  }
+  .ik-h2 { font-size: min(calc(76px + (100vw - 1440px) * 0.0264), 114px); }
+  .ik-ov-name { font-size: min(calc(26px + (100vw - 1440px) * 0.009), 39px); }
+  .ik-ov-lead { font-size: min(calc(38px + (100vw - 1440px) * 0.0132), 57px); }
+  .ik-idea-words { font-size: min(calc(104px + (100vw - 1440px) * 0.0361), 156px); }
+  .ik-pillar-t { font-size: min(calc(96px + (100vw - 1440px) * 0.0333), 144px); }
+  .ik-type-aa { font-size: min(calc(520px + (100vw - 1440px) * 0.1806), 780px); }
+  .ik-type-name { font-size: min(calc(48px + (100vw - 1440px) * 0.0167), 72px); }
+  .ik-scale .s-display { font-size: min(calc(42px + (100vw - 1440px) * 0.0146), 63px); }
+  .ik-charset { font-size: min(calc(68px + (100vw - 1440px) * 0.0236), 102px); }
+  .ik-core-name { font-size: min(calc(56px + (100vw - 1440px) * 0.0194), 84px); }
+  .ik-pk-text .ik-h2 { font-size: min(calc(58px + (100vw - 1440px) * 0.0201), 87px); }
+  .ik-idea-mark { width: min(56vw, calc(760px + (100vw - 1440px) * 0.264), 1140px); }
+  .ik-close-logo { width: min(46vw, calc(440px + (100vw - 1440px) * 0.153), 660px); }
 }

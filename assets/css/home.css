@@ -12,7 +12,7 @@
    tercera fila, sin empujarlo hacia arriba. */
 #hero {
   position: relative;
-  min-height: calc(100vh / var(--z, 1) - 74px); min-height: calc(100dvh / var(--z, 1) - 74px);
+  min-height: calc(100vh - 74px); min-height: calc(100dvh - 74px);
   display: flex; flex-direction: column; align-items: center;
   padding: 24px clamp(20px,4vw,48px);
 }
@@ -122,13 +122,13 @@
    12.5% no da para el titulo y las etiquetas. */
 #work { padding-top: clamp(56px, 7vw, 88px); }
 .work-scroll { position: relative; margin: clamp(36px, 4vw, 56px) -24px 0; }
-.work-sticky { position: sticky; top: 0; height: calc(100vh / var(--z, 1)); height: calc(100svh / var(--z, 1)); }
+.work-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
 /* El recorrido crece con el numero de casos (--count en .work-scroll):
    al anadir un proyecto basta con subir el numero. */
-.work-runway { height: calc((var(--count, 3) - 1) * 70vh / var(--z, 1)); pointer-events: none; }
+.work-runway { height: calc((var(--count, 3) - 1) * 70vh); pointer-events: none; }
 
 .projects-list {
-  --row-min: clamp(104px, calc(12.5vh / var(--z, 1)), 190px);
+  --row-min: clamp(104px, 12.5vh, 190px);
   display: flex; flex-direction: column; height: 100%;
 }
 
@@ -427,3 +427,32 @@
 /* LCP: el titular del hero es lo primero que se pinta; no espera al JS
    para hacerse visible. Conserva solo el desplazamiento de entrada. */
 #hero .hero-title.fade-up { opacity: 1; }
+
+/* ---------- Pantallas grandes (> 1440): ver base.css ----------
+   Las columnas fijas en px pasan a la misma proporcion que tienen a 1440
+   (443/1328, 565/1328, 200/1328) y los anchos de texto van en em, asi
+   acompanan al cuerpo de letra sin pasar de una medida de lectura. */
+@media (min-width: 1441px) {
+  .hero-title { font-size: min(calc(152px + (100vw - 1440px) * 0.0528), 228px); }
+  .hero-desc { font-size: min(calc(16px + (100vw - 1440px) * 0.0018), 18px); max-width: 32.6em; }
+
+  .project-name, .work-more-title { font-size: min(calc(26px + (100vw - 1440px) * 0.009), 39px); }
+  .project-row.is-lead .project-name { font-size: min(calc(52px + (100vw - 1440px) * 0.018), 78px); }
+
+  /* La foto con techo de 600 px: mas ancha ya no cabe en una pantalla de alto */
+  .about-main { grid-template-columns: min(33.36%, 600px) minmax(0, 1fr); }
+  .cv-foot { grid-template-columns: calc(min(33.36%, 600px) + clamp(32px, 4.8vw, 69px)) minmax(0, 1fr); }
+  .about-body p { font-size: min(calc(18px + (100vw - 1440px) * 0.0018), 20px); max-width: 34.4em; }
+  .about-body p:first-child { font-size: var(--t-lead); max-width: 23.2em; }
+  .cv-tools { max-width: 760px; } /* lo que mide a 1440: los iconos no se dispersan */
+  /* Textos de lectura de 15 px: suben un poco (techo 18) para no quedarse
+     diminutos en una reticula de 2000 px */
+  .cv-tasks li, .cv-role-title, .cv-edu strong, .cv-langs li, .contact-tagline { font-size: min(calc(15px + (100vw - 1440px) * 0.0027), 18px); }
+  .cv-when { font-size: min(calc(13px + (100vw - 1440px) * 0.0018), 15px); }
+  .cv-role { grid-template-columns: 15.06% minmax(0, 1fr); }
+
+  .contact-wrap { grid-template-columns: 42.55% minmax(0, 1fr); }
+  .contact-form-card { width: 100%; max-width: 820px; justify-self: end; } /* campos de formulario a una medida comoda */
+  .contact-title { font-size: min(calc(75px + (100vw - 1440px) * 0.026), 112px); }
+  .project-index, .project-meta, .work-more-label, .work-more-desc { font-size: min(calc(12px + (100vw - 1440px) * 0.0018), 14px); }
+}

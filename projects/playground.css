@@ -79,7 +79,7 @@
    rectangulo con halo sobre el negro de la banda). Alto limitado a la
    pantalla para que se vea entera de una vez. */
 .pg-feature { background: var(--black); color: var(--white); margin: clamp(80px, 10vw, 144px) 0; padding: clamp(40px, 6vw, 88px) 24px; }
-.pg-feature .pg-piece { width: min(560px, 100%, calc((100svh / var(--z, 1) - 200px) * 5 / 7)); margin: 0 auto; }
+.pg-feature .pg-piece { width: min(560px, 100%, calc((100svh - 200px) * 5 / 7)); margin: 0 auto; }
 .pg-feature .pg-shot { background: var(--black); }
 .pg-feature .pg-piece-meta { color: rgba(255, 255, 255, 0.6); }
 .pg-feature figcaption { justify-content: center; }
@@ -123,4 +123,10 @@
   .pg-pair + .pg-pair { margin-top: 40px; }
   .pg-more a { flex-wrap: wrap; gap: 6px 16px; }
   .pg-more-kind { margin-left: 0; order: 3; flex-basis: 100%; }
+}
+
+/* ---------- Pantallas grandes (> 1440): ver base.css ---------- */
+@media (min-width: 1441px) {
+  .pg-feature .pg-piece { width: min(calc(560px + (100vw - 1440px) * 0.194), 840px, 100%, calc((100svh - 200px) * 5 / 7)); }
+  .pg-kinds { font-size: min(calc(12px + (100vw - 1440px) * 0.0018), 14px); }
 }
