@@ -20,10 +20,6 @@ alt="Three Coach screens on a dark background: Today, an active shoulder press s
 Revisiting an old project. ||| Volver a un proyecto antiguo.
 Coach started as an academic UX/UI project built around workout planning, calorie tracking and progress monitoring. ||| Coach nació como un proyecto académico de UX/UI centrado en planificar entrenos, contar calorías y seguir el progreso.
 I revisited the product to simplify its structure, clarify its priorities and rebuild the experience around one idea: fitness plans should adapt to real life, not the other way around. ||| Lo he revisado para simplificar su estructura, aclarar sus prioridades y reconstruir la experiencia en torno a una idea: el plan de entreno debe adaptarse a la vida real, y no al revés.
-alt="2024 version: home screen led by the calorie summary, with activity and nutrition lists" ||| alt="Versión de 2024: inicio encabezado por el resumen de calorías, con listas de actividad y nutrición"
-alt="2026 version: Today screen on the first day, with the first session and an empty streak" ||| alt="Versión de 2026: pantalla Hoy el primer día, con la primera sesión y la racha vacía"
-<figcaption><b>2024</b> Original</figcaption> ||| <figcaption><b>2024</b> Original</figcaption>
-<figcaption><b>2026</b> Redesign</figcaption> ||| <figcaption><b>2026</b> Rediseño</figcaption>
 # --- 03 Problema + investigacion ---
 <p class="eyebrow">The problem</p> ||| <p class="eyebrow">El problema</p>
 Too much product, not enough focus. ||| Demasiado producto, poco foco.
@@ -60,7 +56,6 @@ alt="Step 2 of 4: choose a goal, with build strength selected" ||| alt="Paso 2 d
 alt="Step 3 of 4: training days, Monday to Friday selected, and usual duration" ||| alt="Paso 3 de 4: días de entreno, de lunes a viernes, y duración habitual"
 alt="Step 4 of 4: where you train, at home, with dumbbells and a mat" ||| alt="Paso 4 de 4: dónde entrenas, en casa, con mancuernas y esterilla"
 Apple Health can add extra context, but remains optional. ||| Apple Health puede aportar más contexto, pero es opcional.
-alt="Your plan is ready: 5 days a week, 32 minutes, at home, with the first training week" ||| alt="Tu plan está listo: 5 días a la semana, 32 minutos, en casa, con la primera semana de entreno"
 The plan is only the starting point. ||| El plan es solo el punto de partida.
 Coach generates the first training week, but the plan is designed to change with the user's schedule and feedback. ||| Coach genera la primera semana de entreno, pero el plan está pensado para cambiar con la agenda y las respuestas del usuario.
 <div><dt>Less time</dt><dd>The session gets shorter.</dd></div> ||| <div><dt>Menos tiempo</dt><dd>La sesión se acorta.</dd></div>
@@ -172,3 +167,19 @@ alt="Nutrition and Progress screens side by side" ||| alt="Pantallas de nutrici�
 alt="Three Coach screens: rest timer, Today and Nutrition" ||| alt="Tres pantallas de Coach: descanso, Hoy y nutrición"
 alt="Five Coach screens on pedestals: Nutrition, Progress, Today, rest timer and active workout" ||| alt="Cinco pantallas de Coach sobre pedestales: nutrición, progreso, Hoy, descanso y entreno en curso"
 <span>Upper body day today</span>“You're 42 g short on protein. A salmon or chicken dinner covers it.” ||| <span>Hoy toca tren superior</span>«Te faltan 42 g de proteína. Una cena con salmón o pollo lo cubre.»
+# --- Mejoras de presentacion ---
+<caption class="eyebrow">What changed</caption> ||| <caption class="eyebrow">Qué cambió</caption>
+<span class="visually-hidden">Area</span> ||| <span class="visually-hidden">Área</span>
+<tr><th scope="row">Home</th><td>Calorie summary first</td><td>Next workout first</td></tr> ||| <tr><th scope="row">Inicio</th><td>Primero el resumen de calorías</td><td>Primero el próximo entreno</td></tr>
+<tr><th scope="row">Navigation</th><td>Five tabs</td><td>Three tabs</td></tr> ||| <tr><th scope="row">Navegación</th><td>Cinco pestañas</td><td>Tres pestañas</td></tr>
+<tr><th scope="row">Session length</th><td>Fixed estimate</td><td>20, 32 or 45 min</td></tr> ||| <tr><th scope="row">Duración</th><td>Estimación fija</td><td>20, 32 o 45 min</td></tr>
+<tr><th scope="row">Food logging</th><td>Full nutrition table</td><td>Quantity and macros</td></tr> ||| <tr><th scope="row">Registro de comidas</th><td>Tabla nutricional completa</td><td>Cantidad y macros</td></tr>
+<tr><th scope="row">Colour</th><td>Neon yellow and pink</td><td>Yellow only for action</td></tr> ||| <tr><th scope="row">Color</th><td>Amarillo y rosa neón</td><td>Amarillo solo para la acción</td></tr>
+Stopping early is part of the flow too: the session is saved and the rest of the week adjusts. ||| Parar antes también forma parte del flujo: la sesión se guarda y el resto de la semana se ajusta.
+<figcaption>Rate the session</figcaption> ||| <figcaption>Valorar la sesión</figcaption>
+alt="End workout sheet: 4 of 8 exercises done, progress is saved and the rest of the week adjusts. Keep training, end and save, or discard" ||| alt="Hoja para terminar el entreno: 4 de 8 ejercicios hechos, el progreso se guarda y el resto de la semana se ajusta. Seguir, terminar y guardar, o descartar"
+<figcaption>Stop early without losing the week</figcaption> ||| <figcaption>Parar antes sin perder la semana</figcaption>
+<figcaption>Today at a glance</figcaption> ||| <figcaption>El día de un vistazo</figcaption>
+alt="Nutrition goals: 2,300 kcal on training days and 2,000 on rest days, with the macro split and adjust to training switched on" ||| alt="Objetivos de nutrición: 2.300 kcal los días de entreno y 2.000 los de descanso, con el reparto de macros y el ajuste al entreno activado"
+<figcaption>Goals that follow the plan</figcaption> ||| <figcaption>Objetivos que siguen al plan</figcaption>
+Goals follow the training plan as well: training days get more calories and carbs than rest days. ||| Los objetivos también siguen al plan: los días de entreno llevan más calorías e hidratos que los de descanso.

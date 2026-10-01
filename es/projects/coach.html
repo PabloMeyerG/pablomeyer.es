@@ -121,18 +121,17 @@
       <p class="cx-p">Coach nació como un proyecto académico de UX/UI centrado en planificar entrenos, contar calorías y seguir el progreso.</p>
       <p class="cx-p">Lo he revisado para simplificar su estructura, aclarar sus prioridades y reconstruir la experiencia en torno a una idea: el plan de entreno debe adaptarse a la vida real, y no al revés.</p>
     </div>
-    <div class="cx-pair fade-up">
-      <figure class="cx-old">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/home-2024.avif"><img src="../../assets/img/projects/coach/app/home-2024.jpg" width="393" height="852" alt="Versión de 2024: inicio encabezado por el resumen de calorías, con listas de actividad y nutrición" loading="lazy" decoding="async"></picture></div>
-        <figcaption><b>2024</b> Original</figcaption>
-      </figure>
-      <figure class="cx-new">
-        <div class="cx-screen">
-          <picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/today-first-day.avif"><img src="../../assets/img/projects/coach/app/today-first-day.jpg" width="402" height="874" alt="Versión de 2026: pantalla Hoy el primer día, con la primera sesión y la racha vacía" loading="lazy" decoding="async"></picture>
-        </div>
-        <figcaption><b>2026</b> Rediseño</figcaption>
-      </figure>
-    </div>
+    <table class="cx-changes fade-up">
+      <caption class="eyebrow">Qué cambió</caption>
+      <thead><tr><th scope="col"><span class="visually-hidden">Área</span></th><th scope="col">2024</th><th scope="col">2026</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Inicio</th><td>Primero el resumen de calorías</td><td>Primero el próximo entreno</td></tr>
+        <tr><th scope="row">Navegación</th><td>Cinco pestañas</td><td>Tres pestañas</td></tr>
+        <tr><th scope="row">Duración</th><td>Estimación fija</td><td>20, 32 o 45 min</td></tr>
+        <tr><th scope="row">Registro de comidas</th><td>Tabla nutricional completa</td><td>Cantidad y macros</td></tr>
+        <tr><th scope="row">Color</th><td>Amarillo y rosa neón</td><td>Amarillo solo para la acción</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -220,18 +219,15 @@
     <p class="cx-note cx-note--light fade-up">Apple Health puede aportar más contexto, pero es opcional.</p>
 
     <div class="cx-split cx-split--plan">
-      <figure class="cx-screen cx-screen--lg fade-up">
-        <picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/plan-ready.avif"><img src="../../assets/img/projects/coach/app/plan-ready.jpg" width="402" height="874" alt="Tu plan está listo: 5 días a la semana, 32 minutos, en casa, con la primera semana de entreno" loading="lazy" decoding="async"></picture>
-      </figure>
       <div class="cx-text fade-up">
         <h3 class="cx-h2">El plan es solo el punto de partida.</h3>
         <p class="cx-p">Coach genera la primera semana de entreno, pero el plan está pensado para cambiar con la agenda y las respuestas del usuario.</p>
-        <dl class="cx-rules">
-          <div><dt>Menos tiempo</dt><dd>La sesión se acorta.</dd></div>
-          <div><dt>Más esfuerzo</dt><dd>La carga se puede ajustar.</dd></div>
-          <div><dt>Día perdido</dt><dd>La semana se reorganiza.</dd></div>
-        </dl>
       </div>
+      <dl class="cx-rules fade-up">
+        <div><dt>Menos tiempo</dt><dd>La sesión se acorta.</dd></div>
+        <div><dt>Más esfuerzo</dt><dd>La carga se puede ajustar.</dd></div>
+        <div><dt>Día perdido</dt><dd>La semana se reorganiza.</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -308,15 +304,18 @@
       <div class="cx-text fade-up">
         <h3 class="cx-h2">El plan aprende de cada sesión.</h3>
         <p class="cx-p">Al terminar, el usuario valora cómo le ha ido la sesión. Esa respuesta pasa a formar parte del contexto con el que se ajustan los siguientes entrenos.</p>
+        <p class="cx-p">Parar antes también forma parte del flujo: la sesión se guarda y el resto de la semana se ajusta.</p>
       </div>
-      <figure class="cx-feedback fade-up">
-        <div class="cx-screen">
-          <picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/workout-complete.avif"><img src="../../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="Entreno completado: 33 minutos, 8 de 8 ejercicios y valoración del 1 al 5, con Good seleccionado" loading="lazy" decoding="async"></picture>
-        </div>
-        <div class="cx-crop cx-crop--zoom" style="--top: 538; --h: 172;" aria-hidden="true">
-          <picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/workout-complete.avif"><img src="../../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="" loading="lazy" decoding="async"></picture>
-        </div>
-      </figure>
+      <div class="cx-duo fade-up">
+        <figure>
+          <div class="cx-screen"><picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/workout-complete.avif"><img src="../../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="Entreno completado: 33 minutos, 8 de 8 ejercicios y valoración del 1 al 5, con Good seleccionado" loading="lazy" decoding="async"></picture></div>
+          <figcaption>Valorar la sesión</figcaption>
+        </figure>
+        <figure>
+          <div class="cx-screen"><picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/workout-end.avif"><img src="../../assets/img/projects/coach/app/workout-end.jpg" width="402" height="874" alt="Hoja para terminar el entreno: 4 de 8 ejercicios hechos, el progreso se guarda y el resto de la semana se ajusta. Seguir, terminar y guardar, o descartar" loading="lazy" decoding="async"></picture></div>
+          <figcaption>Parar antes sin perder la semana</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -334,13 +333,21 @@
 <!-- 09 · Nutrition -->
 <section class="cx-sec cx-light">
   <div class="container cx-split">
-    <figure class="cx-screen cx-screen--lg fade-up">
-      <picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/nutrition.avif"><img src="../../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Pantalla de nutrición: anillo de 1.640 de 2.300 kcal, calorías quemadas y restantes, y barras de macros" loading="lazy" decoding="async"></picture>
-    </figure>
+    <div class="cx-duo cx-duo--stagger fade-up">
+      <figure>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/nutrition.avif"><img src="../../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Pantalla de nutrición: anillo de 1.640 de 2.300 kcal, calorías quemadas y restantes, y barras de macros" loading="lazy" decoding="async"></picture></div>
+        <figcaption>El día de un vistazo</figcaption>
+      </figure>
+      <figure>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../../assets/img/projects/coach/app/nutrition-goals.avif"><img src="../../assets/img/projects/coach/app/nutrition-goals.jpg" width="402" height="874" alt="Objetivos de nutrición: 2.300 kcal los días de entreno y 2.000 los de descanso, con el reparto de macros y el ajuste al entreno activado" loading="lazy" decoding="async"></picture></div>
+        <figcaption>Objetivos que siguen al plan</figcaption>
+      </figure>
+    </div>
     <div class="cx-text fade-up">
       <p class="eyebrow">Nutrición</p>
       <h2 class="cx-h2">Nutrición sin convertir Coach en una base de datos de calorías.</h2>
       <p class="cx-p">La nutrición sigue siendo una parte central de Coach, pero el rediseño se centra en lo que el usuario consulta más a menudo: calorías del día, macros y comidas.</p>
+      <p class="cx-p">Los objetivos también siguen al plan: los días de entreno llevan más calorías e hidratos que los de descanso.</p>
       <p class="cx-kcal"><b>1.640</b> / 2.300 kcal</p>
       <ul class="cx-macros" aria-label="Macros">
         <li style="--c: #5AC8FA">Proteína</li><li style="--c: #FFB340">Hidratos</li><li style="--c: #BF5AF2">Grasa</li><li>Comidas</li>

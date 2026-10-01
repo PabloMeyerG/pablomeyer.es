@@ -98,9 +98,23 @@
 @media (min-width: 1700px) { .cx-band--dark .cx-bleed img { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); } }
 
 /* ---------- 02 · Antes y ahora (pareja) ---------- */
-.cx-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); align-items: end; }
-.cx-pair figure { margin: 0; }
-.cx-pair .cx-screen { max-width: 260px; } /* antes y ahora al mismo tamano */
+/* Que cambio de 2024 a 2026: tabla tipografica, sin pantallas (las dos
+   versiones se comparan en imagen mas abajo, en Before / after) */
+.cx-changes { width: 100%; border-collapse: collapse; font-size: clamp(15px, 1.25vw, 17px); }
+.cx .cx-changes caption { display: table-caption; text-align: left; caption-side: top; margin-bottom: 14px; }
+.cx-changes th, .cx-changes td { text-align: left; padding: 14px 12px 14px 0; border-bottom: 1px solid var(--rule-strong); vertical-align: baseline; }
+.cx-changes thead th { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); padding-top: 0; }
+.cx-changes tbody th { font-size: var(--t-small); font-weight: 600; color: var(--gray); width: 28%; }
+.cx-changes tbody td { color: var(--gray); }
+.cx-changes tbody td:last-child { color: var(--black); font-weight: 700; }
+.cx .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Dos pantallas juntas (feedback, nutricion); --stagger baja la segunda */
+.cx-duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 28px); align-items: start; }
+.cx-duo figure { margin: 0; }
+.cx-duo .cx-screen { max-width: 280px; margin-inline: auto; }
+.cx-duo figcaption { text-align: center; }
+.cx-duo--stagger figure:last-child { margin-top: 14%; }
 
 /* ---------- 03 · Problema ---------- */
 .cx-scope { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: rgba(255, 255, 255, 0.58); margin-bottom: 18px; }
@@ -119,9 +133,10 @@
 
 /* ---------- 05 · Onboarding y plan ---------- */
 .cx-steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
-.cx-steps .cx-screen { max-width: 360px; } /* nunca por encima de 402: tamano nativo */
+.cx-steps .cx-screen { max-width: 250px; } /* nunca por encima de 402: tamano nativo */
 .cx-step { display: block; font-size: var(--t-small); font-weight: 700; margin-bottom: 14px; }
-.cx-split--plan { margin-top: clamp(80px, 10vw, 150px); }
+.cx-split--plan { margin-top: clamp(64px, 7vw, 110px); align-items: start; }
+.cx-split--plan .cx-rules { margin-top: 0; }
 .cx-rules { margin-top: clamp(28px, 3vw, 40px); border-top: 1px solid var(--rule-strong); }
 .cx-rules div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule-strong); }
 .cx-rules dt { font-size: clamp(22px, 2.2vw, 32px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
@@ -156,9 +171,6 @@
 .cx-callouts li:last-child b { color: var(--cx-yellow); }
 .cx-active-rest { max-width: 240px; justify-self: start; }
 .cx-split--feedback { margin-top: clamp(80px, 10vw, 150px); }
-.cx-feedback { margin: 0; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: clamp(16px, 2vw, 28px); align-items: center; }
-.cx-feedback .cx-screen { max-width: 240px; }
-.cx-crop--zoom { border-radius: 22px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.09); }
 
 /* Video (oculto hasta que exista el archivo) */
 .cx-video { padding-top: 0; }
@@ -238,8 +250,6 @@
   .cx-steps li { scroll-snap-align: start; }
   .cx-food { grid-template-columns: 1fr; justify-items: center; gap: 48px; }
   .cx-food figure { width: 100%; max-width: 300px; }
-  .cx-feedback { grid-template-columns: 1fr; justify-items: center; }
-  .cx-feedback .cx-crop { max-width: 360px; }
   .cx-parts { grid-template-columns: 1fr 1fr; }
   /* En movil siguen lado a lado: la comparacion se entiende de un vistazo */
   .cx-ba { grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
