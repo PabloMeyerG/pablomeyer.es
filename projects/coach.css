@@ -93,6 +93,9 @@
 .cx-band { padding: 0 24px; }
 .cx-band--light { background: #FCFBF8; }
 .cx-band--grey { background: #ECEDEF; }
+.cx-band--dark { background: #2B2520; }
+/* Esta foto no tiene un borde liso: en pantallas mas anchas que ella se funde por los lados */
+@media (min-width: 1700px) { .cx-band--dark .cx-bleed img { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); } }
 
 /* ---------- 02 · Antes y ahora (pareja) ---------- */
 .cx-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); align-items: end; }
@@ -190,6 +193,9 @@
 .cx-part .cx-crop { margin: auto; }
 .cx-part figcaption { margin: 0; color: rgba(255, 255, 255, 0.66); font-weight: 600; }
 .cx-part--wide { grid-column: span 2; }
+.cx-illus { width: 100%; max-width: 200px; margin: auto; }
+.cx-part:has(.cx-illus) { background: #0C0C0E; } /* el fondo de la ilustracion */
+.cx-illus img { width: 100%; height: auto; display: block; }
 
 /* ---------- 13 · Antes / despues ---------- */
 .cx-ba { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: center; }
