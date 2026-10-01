@@ -1,83 +1,172 @@
 # Coach — EN ||| ES
-# Traduccion fiel de la version actual (Coach se rediseñara mas adelante:
-# al cambiar el HTML EN, rehacer esta tabla).
+# Case study 2026. Se aplica en orden: las frases largas van antes que
+# las cortas que contienen. Los textos de la interfaz de la app (Set done,
+# Today...) son ingleses en las pantallas y se citan tal cual.
 # --- Metadatos ---
-Coach App — UX/UI Case Study · Pablo Meyer ||| Coach App — Proyecto UX/UI · Pablo Meyer
-UX/UI case study: Coach, a training and nutrition app that fits the user's routine instead of imposing one. Designed by Pablo Meyer. ||| Proyecto UX/UI: Coach, una app de entrenamiento y nutrición que se adapta a la rutina del usuario en lugar de imponerle una. Diseñada por Pablo Meyer.
-Coach App — Case 02 · Pablo Meyer ||| Coach App — Proyecto 02 · Pablo Meyer
-content="Coach App — Case 02" ||| content="Coach App — Proyecto 02"
-UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one. ||| UX/UI para una app de fitness y nutrición que se adapta a la rutina del usuario en lugar de imponerle una.
-UX/UI for a fitness and nutrition app. ||| UX/UI para una app de fitness y nutrición.
-"headline": "Coach — Fitness app · UX/UI case study" ||| "headline": "Coach — App de fitness · Proyecto UX/UI"
-["UX/UI", "Product design", "Mobile", "Design system"] ||| ["UX/UI", "Diseño de producto", "Móvil", "Sistema de diseño"]
-# --- Hero ---
-<span class="tag">Product</span> ||| <span class="tag">Producto</span>
-<span class="tag">Mobile</span> ||| <span class="tag">Móvil</span>
-<p class="meta-label">Type</p><p class="meta-value">Mobile app · iOS</p> ||| <p class="meta-label">Tipo</p><p class="meta-value">App móvil · iOS</p>
-<p class="meta-label">Year</p> ||| <p class="meta-label">Año</p>
-<p class="meta-label">Role</p> ||| <p class="meta-label">Rol</p>
-<p class="meta-label">Duration</p><p class="meta-value">4 weeks</p> ||| <p class="meta-label">Duración</p><p class="meta-value">4 semanas</p>
->← Previous project< ||| >← Proyecto anterior<
->Next project →< ||| >Siguiente proyecto →<
-alt="Coach — main app screen" ||| alt="Coach — pantalla principal de la app"
-# --- Reto ---
->The challenge< ||| >El reto<
-A fitness app that doesn't make the user feel bad for not opening it. ||| Una app de fitness que no te hace sentir mal por no abrirla.
-The brief was to design a mobile app end to end: research, architecture, system and UI. I picked fitness and nutrition because it's a saturated and noisy space — most apps promise military discipline and talk to the user as if they were 25, with two free hours and a gym at home. None of that is reality. ||| El encargo era diseñar una app móvil de principio a fin: investigación, arquitectura, sistema e interfaz. Elegí fitness y nutrición porque es un sector saturado y ruidoso: la mayoría de apps prometen disciplina militar y le hablan al usuario como si tuviera 25 años, dos horas libres y un gimnasio en casa. Nada de eso es real.
-The research made the obvious obvious: people drop these apps because they remind them of what they're not doing. Coach was built around the opposite idea — <em>fit</em> the user's routine, not impose one. Every screen had to remove friction, not add it. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what's on today" before "how far you still are". ||| La investigación confirmó lo evidente: la gente abandona estas apps porque le recuerdan lo que no está haciendo. Coach se construyó sobre la idea contraria: <em>adaptarse</em> a la rutina del usuario, no imponerle una. Cada pantalla tenía que quitar fricción, no añadirla. Jerarquía clara, un onboarding que pregunta antes de exigir y un panel que pone «qué toca hoy» por delante de «cuánto te falta».
-<h3>Details</h3> ||| <h3>Ficha</h3>
-<dt>Tools</dt> ||| <dt>Herramientas</dt>
-<dt>Deliverables</dt> ||| <dt>Entregables</dt>
-<dt>Scope</dt><dd>Full mobile app</dd> ||| <dt>Alcance</dt><dd>App móvil completa</dd>
-# --- Investigación ---
-<p class="eyebrow">Research</p> ||| <p class="eyebrow">Investigación</p>
->Product goals.< ||| >Objetivos del producto.<
-Before touching a single screen, I defined what Coach had to achieve at business and user level — and where the competition was failing. ||| Antes de tocar una sola pantalla, definí qué tenía que conseguir Coach para el negocio y para el usuario, y dónde estaba fallando la competencia.
-alt="Coach project goals" ||| alt="Objetivos del proyecto Coach"
-<figcaption>Goals</figcaption> ||| <figcaption>Objetivos</figcaption>
-alt="Coach wireframes" ||| alt="Wireframes de Coach"
-alt="Coach design system" ||| alt="Sistema de diseño de Coach"
-<figcaption>Design system</figcaption> ||| <figcaption>Sistema de diseño</figcaption>
-# --- Decisiones ---
->Key decisions< ||| >Decisiones clave<
-Three decisions that organise the whole app. ||| Tres decisiones que ordenan toda la app.
-Onboarding that asks, not demands. ||| Un onboarding que pregunta, no que exige.
-The user decides how much time they have, what goals they're chasing and what kind of plan they want. The app adapts to them — not the other way round. ||| El usuario decide cuánto tiempo tiene, qué objetivos persigue y qué tipo de plan quiere. La app se adapta a él, y no al revés.
-Home focused on today. ||| Una pantalla de inicio centrada en hoy.
-The first screen shows what's on now, not stacked stats. No charts to remind you of what didn't get done. ||| La primera pantalla enseña lo que toca ahora, no estadísticas apiladas. Ningún gráfico que te recuerde lo que no hiciste.
-One primary action per screen. ||| Una acción principal por pantalla.
-Every view knows its job. Anything that doesn't feed the next action moves to a second level. Less noise, fewer decisions to make. ||| Cada vista sabe para qué está. Lo que no lleva a la siguiente acción pasa a un segundo nivel. Menos ruido y menos decisiones que tomar.
-# --- Pantallas ---
->Final product< ||| >Producto final<
->Screens.< ||| >Pantallas.<
-Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open it. ||| Onboarding, panel, planes de entrenamiento, nutrición y sesión activa. El mismo lenguaje visual en todas, pero con prioridades distintas según lo que el usuario espera ver al abrirlas.
-alt="Onboarding screen" ||| alt="Pantalla de onboarding"
-alt="Intro screen" ||| alt="Pantalla de introducción"
-alt="Home screen" ||| alt="Pantalla de inicio"
-alt="Workout screen" ||| alt="Pantalla de entrenamiento"
-<figcaption>Workout · session</figcaption> ||| <figcaption>Entrenamiento · sesión</figcaption>
-alt="Sport screen" ||| alt="Pantalla de deporte"
-alt="Food screen" ||| alt="Pantalla de alimentación"
-alt="Day Training screen" ||| alt="Pantalla de entrenamiento del día"
-# --- Proceso ---
-<p class="eyebrow">Process</p> ||| <p class="eyebrow">Proceso</p>
-From research to final UI. ||| De la investigación a la interfaz final.
-<p class="process-title">Research</p> ||| <p class="process-title">Investigación</p>
-Competitive audit, user profiles and friction map. Why people start, why they leave. ||| Análisis de la competencia, perfiles de usuario y mapa de fricciones. Por qué la gente empieza y por qué lo deja.
-Architecture, flows and priorities in low fidelity. Decisions before pixels. ||| Arquitectura, flujos y prioridades en baja fidelidad. Decisiones antes que píxeles.
-<p class="process-title">Design system</p> ||| <p class="process-title">Sistema de diseño</p>
-Type, color, components and states. Mandatory consistency across screens. ||| Tipografía, color, componentes y estados. Coherencia obligatoria entre pantallas.
-<p class="process-title">Final UI</p> ||| <p class="process-title">Interfaz final</p>
-High-fidelity screens, navigable prototype and handoff ready. ||| Pantallas en alta fidelidad, prototipo navegable y entrega a desarrollo lista.
-# --- Siguiente ---
->Next · Playground< ||| >Siguiente · Playground<
+Coach — Product Design &amp; UX/UI | Pablo Meyer ||| Coach — Diseño de producto y UX/UI | Pablo Meyer
+A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress. Product design and UX/UI by Pablo Meyer. ||| Rediseño de Coach, una app de fitness adaptativa centrada en entrenamiento, nutrición y progreso. Diseño de producto y UX/UI de Pablo Meyer.
+A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress. ||| Rediseño de Coach, una app de fitness adaptativa centrada en entrenamiento, nutrición y progreso.
+content="Coach app screens: Today, active workout and nutrition" ||| content="Pantallas de la app Coach: Hoy, entreno en curso y nutrición"
+"headline": "Coach — Product Design & UX/UI" ||| "headline": "Coach — Diseño de producto y UX/UI"
+["Product design", "UX/UI", "Mobile app", "Design system"] ||| ["Diseño de producto", "UX/UI", "App móvil", "Sistema de diseño"]
+# --- 01 Hero ---
+<p class="cx-hero-sub">An adaptive fitness companion for training, nutrition and progress.</p> ||| <p class="cx-hero-sub">Un compañero de fitness que se adapta: entrenamiento, nutrición y progreso.</p>
+Coach helps users know what to do today, adapt their workout to the time they have, and keep training and nutrition in one simple experience. ||| Coach ayuda a saber qué toca hoy, a ajustar el entreno al tiempo disponible y a llevar entrenamiento y nutrición en una sola experiencia sencilla.
+aria-label="Project details" ||| aria-label="Datos del proyecto"
+<li>Product Design</li><li>UX/UI</li><li>Mobile App</li><li>2026</li> ||| <li>Diseño de producto</li><li>UX/UI</li><li>App móvil</li><li>2026</li>
+alt="Active workout screen: shoulder press, set 2 of 3, 10 reps at 9 kg" ||| alt="Pantalla de entreno en curso: press de hombro, serie 2 de 3, 10 repeticiones con 9 kg"
+alt="Today screen: upper body strength workout, 32 minutes, 8 exercises, medium intensity" ||| alt="Pantalla Hoy: entreno de fuerza de tren superior, 32 minutos, 8 ejercicios, intensidad media"
+alt="Nutrition screen: 1,640 of 2,300 kcal eaten, with protein, carbs and fat" ||| alt="Pantalla de nutrición: 1.640 de 2.300 kcal consumidas, con proteína, hidratos y grasa"
+# --- 02 Proyecto revisado ---
+<p class="eyebrow">The project</p> ||| <p class="eyebrow">El proyecto</p>
+Revisiting an old project. ||| Volver a un proyecto antiguo.
+Coach started as an academic UX/UI project built around workout planning, calorie tracking and progress monitoring. ||| Coach nació como un proyecto académico de UX/UI centrado en planificar entrenos, contar calorías y seguir el progreso.
+I revisited the product to simplify its structure, clarify its priorities and rebuild the experience around one idea: fitness plans should adapt to real life, not the other way around. ||| Lo he revisado para simplificar su estructura, aclarar sus prioridades y reconstruir la experiencia en torno a una idea: el plan de entreno debe adaptarse a la vida real, y no al revés.
+alt="2024 version: daily workout screen listing five exercises with sets and reps" ||| alt="Versión de 2024: pantalla del entreno del día con cinco ejercicios, series y repeticiones"
+alt="2026 version: Today screen on the first day, with the first session and an empty streak" ||| alt="Versión de 2026: pantalla Hoy el primer día, con la primera sesión y la racha vacía"
+<figcaption><b>2024</b> Original</figcaption> ||| <figcaption><b>2024</b> Original</figcaption>
+<figcaption><b>2026</b> Redesign</figcaption> ||| <figcaption><b>2026</b> Rediseño</figcaption>
+# --- 03 Problema + investigacion ---
+<p class="eyebrow">The problem</p> ||| <p class="eyebrow">El problema</p>
+Too much product, not enough focus. ||| Demasiado producto, poco foco.
+The original concept tried to solve training, nutrition, social features, progress tracking and community at the same time. ||| El concepto original intentaba resolver a la vez entrenamiento, nutrición, funciones sociales, seguimiento del progreso y comunidad.
+The redesign focuses Coach on three recurring needs: knowing what to train, keeping nutrition on track and understanding progress. ||| El rediseño centra Coach en tres necesidades que se repiten: saber qué entrenar, llevar la alimentación al día y entender el progreso.
+aria-label="Original scope: training, nutrition, social, progress, community. Kept: training, nutrition and progress." ||| aria-label="Alcance original: entrenamiento, nutrición, social, progreso, comunidad. Se mantienen: entrenamiento, nutrición y progreso."
+<span>Training</span><span>Nutrition</span><s>Social</s><span>Progress</span><s>Community</s> ||| <span>Entrenamiento</span><span>Nutrición</span><s>Social</s><span>Progreso</span><s>Comunidad</s>
+<ul class="cx-words fade-up" aria-hidden="true"><li>Train</li><li>Nutrition</li><li>Progress</li></ul> ||| <ul class="cx-words fade-up" aria-hidden="true"><li>Entreno</li><li>Nutrición</li><li>Progreso</li></ul>
+The research already pointed to the essentials. ||| La investigación ya señalaba lo esencial.
+<span class="cx-k">Training</span><p>Clear routines and guidance.</p> ||| <span class="cx-k">Entrenamiento</span><p>Rutinas claras y guía.</p>
+<span class="cx-k">Nutrition</span><p>Simple daily tracking.</p> ||| <span class="cx-k">Nutrición</span><p>Un registro diario sencillo.</p>
+<span class="cx-k">Progress</span><p>Visible signs of improvement.</p> ||| <span class="cx-k">Progreso</span><p>Señales visibles de mejora.</p>
+Usability testing in the original project also revealed friction in food logging, which became one of the areas simplified in the redesign. ||| Los test de usabilidad del proyecto original también mostraron fricción al registrar comidas, una de las partes que el rediseño simplifica.
+# --- 04 Foco ---
+<p class="eyebrow">Product focus</p> ||| <p class="eyebrow">Foco de producto</p>
+Train. Eat. Progress. ||| Entrena. Come. Progresa.
+The redesign reduces the experience to three main areas that support the user's everyday fitness routine. ||| El rediseño reduce la experiencia a tres áreas que acompañan la rutina diaria del usuario.
+<span class="cx-k">Today</span><p>What should I do today?</p> ||| <span class="cx-k">Hoy</span><p>¿Qué hago hoy?</p>
+<span class="cx-k">Nutrition</span><p>How am I doing today?</p> ||| <span class="cx-k">Nutrición</span><p>¿Cómo voy hoy?</p>
+<span class="cx-k">Progress</span><p>How is my week going?</p> ||| <span class="cx-k">Progreso</span><p>¿Cómo va mi semana?</p>
+alt="Bottom navigation with three tabs: Today, Nutrition and Progress" ||| alt="Barra inferior con tres pestañas: Today, Nutrition y Progress"
+<figcaption>Bottom navigation</figcaption> ||| <figcaption>Barra de navegación inferior</figcaption>
+# --- 05 Onboarding y plan ---
+<p class="eyebrow">Onboarding</p> ||| <p class="eyebrow">Onboarding</p>
+A plan built around the user. ||| Un plan construido alrededor del usuario.
+Instead of choosing from a library of generic programmes, Coach builds the starting plan from a few practical inputs: experience, goal, availability, training environment and equipment. ||| En lugar de elegir entre programas genéricos, Coach crea el plan inicial a partir de unos pocos datos prácticos: experiencia, objetivo, disponibilidad, lugar de entreno y material.
+aria-label="Onboarding steps" ||| aria-label="Pasos del onboarding"
+<span class="cx-step">01 · Experience</span> ||| <span class="cx-step">01 · Experiencia</span>
+<span class="cx-step">02 · Goal</span> ||| <span class="cx-step">02 · Objetivo</span>
+<span class="cx-step">03 · Availability</span> ||| <span class="cx-step">03 · Disponibilidad</span>
+<span class="cx-step">04 · Environment</span> ||| <span class="cx-step">04 · Lugar</span>
+alt="Step 1 of 4: how long have you been training" ||| alt="Paso 1 de 4: cuánto tiempo llevas entrenando"
+alt="Step 2 of 4: choose a goal, with build strength selected" ||| alt="Paso 2 de 4: elegir objetivo, con ganar fuerza seleccionado"
+alt="Step 3 of 4: training days, Monday to Friday selected, and usual duration" ||| alt="Paso 3 de 4: días de entreno, de lunes a viernes, y duración habitual"
+alt="Step 4 of 4: where you train, at home, with dumbbells and a mat" ||| alt="Paso 4 de 4: dónde entrenas, en casa, con mancuernas y esterilla"
+Apple Health can add extra context, but remains optional. ||| Apple Health puede aportar más contexto, pero es opcional.
+alt="Your plan is ready: 5 days a week, 32 minutes, at home, with the first training week" ||| alt="Tu plan está listo: 5 días a la semana, 32 minutos, en casa, con la primera semana de entreno"
+The plan is only the starting point. ||| El plan es solo el punto de partida.
+Coach generates the first training week, but the plan is designed to change with the user's schedule and feedback. ||| Coach genera la primera semana de entreno, pero el plan está pensado para cambiar con la agenda y las respuestas del usuario.
+<div><dt>Less time</dt><dd>The session gets shorter.</dd></div> ||| <div><dt>Menos tiempo</dt><dd>La sesión se acorta.</dd></div>
+<div><dt>More effort</dt><dd>The load can be adjusted.</dd></div> ||| <div><dt>Más esfuerzo</dt><dd>La carga se puede ajustar.</dd></div>
+<div><dt>Missed day</dt><dd>The week is reorganised.</dd></div> ||| <div><dt>Día perdido</dt><dd>La semana se reorganiza.</dd></div>
+# --- 06 Hoy ---
+<p class="eyebrow">Today</p> ||| <p class="eyebrow">Hoy</p>
+One clear answer: what should I do today? ||| Una respuesta clara: ¿qué hago hoy?
+alt="Today screen: the next workout card first, then the weekly streak, calories burned and eaten" ||| alt="Pantalla Hoy: primero la tarjeta del próximo entreno, después la racha semanal y las calorías quemadas y consumidas"
+The home screen prioritises the next workout instead of presenting every metric at once. ||| La pantalla principal da prioridad al próximo entreno en lugar de enseñar todas las métricas a la vez.
+The user can immediately see the session, duration, intensity and why Coach selected it. ||| El usuario ve al momento la sesión, la duración, la intensidad y por qué Coach la ha elegido.
+aria-label="Today's session" ||| aria-label="Sesión de hoy"
+<li><b>32</b> min</li><li><b>8</b> exercises</li><li><b>Medium</b> intensity</li> ||| <li><b>32</b> min</li><li><b>8</b> ejercicios</li><li><b>Media</b> intensidad</li>
+“Adapted to your week: you biked 45 min yesterday, so your legs rest today.” ||| «Adaptado a tu semana: ayer hiciste 45 min de bici, así que hoy descansan las piernas.»
+# --- 07 Tiempo ---
+<p class="eyebrow">Workout overview</p> ||| <p class="eyebrow">Resumen del entreno</p>
+The workout adapts to the time available. ||| El entreno se adapta al tiempo disponible.
+A 45-minute plan is not useful when the user only has 20. Before starting, the session can be shortened or extended while preserving the training focus. ||| Un plan de 45 minutos no sirve si el usuario solo tiene 20. Antes de empezar, la sesión se puede acortar o alargar sin perder el foco del entreno.
+aria-label="Session lengths: 20, 32 or 45 minutes" ||| aria-label="Duración de la sesión: 20, 32 o 45 minutos"
+Missing the perfect workout should not mean missing the workout entirely. ||| No poder hacer el entreno perfecto no debería significar quedarse sin entrenar.
+alt="Workout overview: why today, duration, and a 20, 32 or 45 minute selector with 32 selected" ||| alt="Resumen del entreno: por qué hoy, duración y un selector de 20, 32 o 45 minutos con 32 elegido"
+# --- 08 Entreno en curso + feedback ---
+<p class="eyebrow">Active workout</p> ||| <p class="eyebrow">Entreno en curso</p>
+Less interface when attention matters most. ||| Menos interfaz cuando más importa la atención.
+During training, Coach reduces the interface to the information needed for the current exercise: sets, repetitions, load and what comes next. ||| Durante el entreno, Coach reduce la interfaz a lo que necesita el ejercicio actual: series, repeticiones, carga y lo que viene después.
+alt="Active workout: shoulder press illustration, set 2 of 3, 10 reps, 9 kg, set done button" ||| alt="Entreno en curso: ilustración del press de hombro, serie 2 de 3, 10 repeticiones, 9 kg y botón de serie hecha"
+aria-label="On screen during a set" ||| aria-label="En pantalla durante una serie"
+<li><span>Set</span><b>02</b></li> ||| <li><span>Serie</span><b>02</b></li>
+<li><span>Reps</span><b>10</b></li> ||| <li><span>Repeticiones</span><b>10</b></li>
+<li><span>Weight</span><b>9 kg</b></li> ||| <li><span>Peso</span><b>9 kg</b></li>
+<li><span>Action</span><b>Set done</b></li> ||| <li><span>Acción</span><b>Set done</b></li>
+alt="Rest timer: 37 seconds left of 1 minute, next set of shoulder press" ||| alt="Temporizador de descanso: quedan 37 segundos de 1 minuto, siguiente serie de press de hombro"
+<figcaption>Rest between sets</figcaption> ||| <figcaption>Descanso entre series</figcaption>
+The plan learns from the session. ||| El plan aprende de cada sesión.
+At the end of the workout, users rate how the session felt. That feedback becomes part of the context used to adjust future training. ||| Al terminar, el usuario valora cómo le ha ido la sesión. Esa respuesta pasa a formar parte del contexto con el que se ajustan los siguientes entrenos.
+alt="Workout complete: 33 minutes, 8 of 8 exercises, and how did it feel from 1 to 5, with Good selected" ||| alt="Entreno completado: 33 minutos, 8 de 8 ejercicios y valoración del 1 al 5, con Good seleccionado"
+aria-label="Short walkthrough of Coach: from Today to an active workout" ||| aria-label="Recorrido breve por Coach: de Hoy a un entreno en curso"
+<figcaption>Coach in motion.</figcaption> ||| <figcaption>Coach en movimiento.</figcaption>
+# --- 09 Nutricion ---
+alt="Nutrition screen: 1,640 of 2,300 kcal ring, burned and remaining calories, and macro bars" ||| alt="Pantalla de nutrición: anillo de 1.640 de 2.300 kcal, calorías quemadas y restantes, y barras de macros"
+<p class="eyebrow">Nutrition</p> ||| <p class="eyebrow">Nutrición</p>
+Nutrition without turning Coach into a calorie database. ||| Nutrición sin convertir Coach en una base de datos de calorías.
+Nutrition remains a core part of Coach, but the redesign focuses on the information users need most often: daily calories, macros and meals. ||| La nutrición sigue siendo una parte central de Coach, pero el rediseño se centra en lo que el usuario consulta más a menudo: calorías del día, macros y comidas.
+<p class="cx-kcal"><b>1,640</b> / 2,300 kcal</p> ||| <p class="cx-kcal"><b>1.640</b> / 2.300 kcal</p>
+aria-label="Macros" ||| aria-label="Macros"
+<li style="--c: #5BC6FA">Protein</li><li style="--c: #FEB544">Carbs</li><li style="--c: #BF5BF3">Fat</li><li>Meals</li> ||| <li style="--c: #5BC6FA">Proteína</li><li style="--c: #FEB544">Hidratos</li><li style="--c: #BF5BF3">Grasa</li><li>Comidas</li>
+# --- 10 Registro de comida ---
+<p class="eyebrow">Food logging</p> ||| <p class="eyebrow">Registro de comidas</p>
+Reducing friction in food logging. ||| Menos fricción al registrar comidas.
+Food logging was one of the less intuitive flows in the original usability test. The new experience reduces the number of decisions required to add something quickly. ||| Registrar comidas fue uno de los flujos menos intuitivos en el test de usabilidad original. La nueva experiencia reduce las decisiones necesarias para añadir algo rápido.
+aria-label="Flow: search, food, quantity, add"><span>Search</span><i aria-hidden="true">→</i><span>Food</span><i aria-hidden="true">→</i><span>Quantity</span><i aria-hidden="true">→</i><span>Add</span> ||| aria-label="Flujo: buscar, alimento, cantidad, añadir"><span>Buscar</span><i aria-hidden="true">→</i><span>Alimento</span><i aria-hidden="true">→</i><span>Cantidad</span><i aria-hidden="true">→</i><span>Añadir</span>
+alt="Add to dinner: search field with barcode button, recent foods and quick add buttons" ||| alt="Añadir a la cena: buscador con botón de código de barras, alimentos recientes y botones para añadir rápido"
+<figcaption>Search, recent and saved foods</figcaption> ||| <figcaption>Buscador, recientes y guardados</figcaption>
+alt="Grilled salmon: quantity stepper and presets, macros, meal selector and add to dinner button" ||| alt="Salmón a la plancha: selector de cantidad con atajos, macros, comida del día y botón para añadir a la cena"
+<figcaption>Quantity and add in one screen</figcaption> ||| <figcaption>Cantidad y añadir en una sola pantalla</figcaption>
+alt="Barcode scanner with a detected product, Plain Greek yogurt" ||| alt="Escáner de código de barras con un producto detectado: yogur griego natural"
+<figcaption>Barcode scanner</figcaption> ||| <figcaption>Escáner de código de barras</figcaption>
+Barcode scanning provides a faster route for packaged food, while recent and saved foods reduce repeated searching. ||| El escáner de código de barras es la vía rápida para los productos envasados, y los recientes y guardados evitan repetir búsquedas.
+# --- 11 Progreso ---
+<p class="eyebrow">Progress</p> ||| <p class="eyebrow">Progreso</p>
+A weekly view of effort and consistency. ||| Una vista semanal del esfuerzo y la constancia.
+Progress brings the week together at a glance: calories burned, completed workouts, active time, daily average and training streak. ||| Progreso reúne la semana de un vistazo: calorías quemadas, entrenos completados, tiempo activo, media diaria y racha.
+aria-label="On the Progress screen" ||| aria-label="En la pantalla de progreso"
+<li>Calories burned</li><li>Completed workouts</li><li>Active time</li><li>Daily average</li><li>Training streak</li> ||| <li>Calorías quemadas</li><li>Entrenos completados</li><li>Tiempo activo</li><li>Media diaria</li><li>Racha de entreno</li>
+alt="Progress screen: weekly bar chart of calories burned, workouts, active time, daily average and streak" ||| alt="Pantalla de progreso: gráfico semanal de calorías quemadas, entrenos, tiempo activo, media diaria y racha"
+# --- 12 Sistema ---
+<p class="eyebrow">Design system</p> ||| <p class="eyebrow">Sistema de diseño</p>
+Built for focus. ||| Pensado para concentrarse.
+The visual system uses a restrained dark palette with yellow reserved for action, selection and progress. ||| El sistema visual usa una paleta oscura y contenida, con el amarillo reservado para acción, selección y progreso.
+Nutrition introduces additional colour only where it helps distinguish specific metrics. ||| La nutrición añade color solo donde ayuda a distinguir métricas concretas.
+aria-label="Colour palette" ||| aria-label="Paleta de color"
+<b>Background</b> ||| <b>Fondo</b>
+<b>Surface</b> ||| <b>Superficie</b>
+<b>Action</b> ||| <b>Acción</b>
+<b>Calories eaten</b> ||| <b>Calorías consumidas</b>
+<b>Protein</b> ||| <b>Proteína</b>
+<b>Carbs</b> ||| <b>Hidratos</b>
+<b>Fat</b> ||| <b>Grasa</b>
+alt="Typography: week label in yellow capitals over a bold title" ||| alt="Tipografía: etiqueta de semana en mayúsculas amarillas sobre un título en negrita"
+<figcaption>Typography</figcaption> ||| <figcaption>Tipografía</figcaption>
+alt="Primary button: Start, 32 min" ||| alt="Botón principal: Start, 32 min"
+<figcaption>Buttons</figcaption> ||| <figcaption>Botones</figcaption>
+alt="Time selector: 20, 32 and 45 minutes" ||| alt="Selector de tiempo: 20, 32 y 45 minutos"
+<figcaption>Selectors</figcaption> ||| <figcaption>Selectores</figcaption>
+alt="Weekly streak: four days done, today in progress" ||| alt="Racha semanal: cuatro días hechos y hoy en curso"
+<figcaption>Progress</figcaption> ||| <figcaption>Progreso</figcaption>
+alt="Bottom navigation with Progress selected" ||| alt="Barra inferior con Progress seleccionado"
+<figcaption>Navigation</figcaption> ||| <figcaption>Navegación</figcaption>
+alt="Exercise illustration: shoulder press with the working muscles in yellow" ||| alt="Ilustración del ejercicio: press de hombro con los músculos implicados en amarillo"
+<figcaption>Exercise illustration</figcaption> ||| <figcaption>Ilustración de ejercicio</figcaption>
+alt="Icons with labels: duration, exercises and intensity" ||| alt="Iconos con etiqueta: duración, ejercicios e intensidad"
+<figcaption>Icons</figcaption> ||| <figcaption>Iconos</figcaption>
+# --- 13 Antes / despues ---
+<h2 class="cx-h2">Before / after.</h2> ||| <h2 class="cx-h2">Antes / después.</h2>
+Revisiting Coach was less about adding features and more about deciding what deserved attention. ||| Revisar Coach no consistió tanto en añadir funciones como en decidir qué merecía atención.
+The redesign gave the product a clearer hierarchy, a stronger visual system and a more focused everyday experience. ||| El rediseño dio al producto una jerarquía más clara, un sistema visual más sólido y una experiencia diaria más centrada.
+alt="2024 home: calorie summary, weekly rings, activity and nutrition lists" ||| alt="Inicio de 2024: resumen de calorías, anillos semanales y listas de actividad y nutrición"
+<figcaption><b>2024</b> Original academic project</figcaption> ||| <figcaption><b>2024</b> Proyecto académico original</figcaption>
+alt="2026 Today screen: the next workout first, with why it was chosen" ||| alt="Pantalla Hoy de 2026: primero el próximo entreno, con el motivo por el que se ha elegido"
+<figcaption><b>2026</b> Product redesign</figcaption> ||| <figcaption><b>2026</b> Rediseño de producto</figcaption>
+# --- 14 Cierre ---
+<p class="cx-hero-sub">Train around real life.</p> ||| <p class="cx-hero-sub">Entrenar alrededor de la vida real.</p>
+<p class="cx-meta">Product Design · UX/UI · 2026</p> ||| <p class="cx-meta">Diseño de producto · UX/UI · 2026</p>
+<p class="next-project-eyebrow">Next project</p> ||| <p class="next-project-eyebrow">Siguiente proyecto</p>
 alt="Playground preview" ||| alt="Vista previa de Playground"
-<span>Posters · Packaging · Social · 2023 — 2025</span> ||| <span>Carteles · Packaging · Redes · 2023 — 2025</span>
-<span>View case →</span> ||| <span>Ver proyecto →</span>
-# Pies de pantalla: la propia app esta en castellano ("Resumen", "Nutricion")
-<figcaption>Intro</figcaption> ||| <figcaption>Introducción</figcaption>
-<figcaption>Home</figcaption> ||| <figcaption>Inicio</figcaption>
-<figcaption>Sport</figcaption> ||| <figcaption>Deporte</figcaption>
-<figcaption>Food</figcaption> ||| <figcaption>Alimentación</figcaption>
-<figcaption>Day training</figcaption> ||| <figcaption>Entrenamiento del día</figcaption>
-<dd>Fitness · Wellness</dd> ||| <dd>Fitness · Bienestar</dd>
+<span>Posters · Packaging · Social · 2023 — 2025</span> ||| <span>Carteles · Packaging · Social · 2023 — 2025</span>
+<span>View project →</span> ||| <span>Ver proyecto →</span>

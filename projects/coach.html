@@ -2,8 +2,8 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coach App — UX/UI Case Study · Pablo Meyer</title>
-<meta name="description" content="UX/UI case study: Coach, a training and nutrition app that fits the user's routine instead of imposing one. Designed by Pablo Meyer.">
+<title>Coach — Product Design &amp; UX/UI | Pablo Meyer</title>
+<meta name="description" content="A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress. Product design and UX/UI by Pablo Meyer.">
 <meta name="author" content="Pablo Meyer">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -15,11 +15,12 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coach App — Case 02 · Pablo Meyer">
-<meta property="og:description" content="UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one.">
-<meta property="og:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
-<meta property="og:image:width" content="1440">
-<meta property="og:image:height" content="892">
+<meta property="og:title" content="Coach — Product Design &amp; UX/UI | Pablo Meyer">
+<meta property="og:description" content="A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress.">
+<meta property="og:image" content="https://pablomeyer.es/assets/img/projects/coach/og-coach.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Coach app screens: Today, active workout and nutrition">
 <meta property="og:url" content="https://pablomeyer.es/projects/coach.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
@@ -27,9 +28,9 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Coach App — Case 02">
-<meta name="twitter:description" content="UX/UI for a fitness and nutrition app.">
-<meta name="twitter:image" content="https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg">
+<meta name="twitter:title" content="Coach — Product Design &amp; UX/UI | Pablo Meyer">
+<meta name="twitter:description" content="A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress.">
+<meta name="twitter:image" content="https://pablomeyer.es/assets/img/projects/coach/og-coach.jpg">
 
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -43,11 +44,11 @@
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
-  "name": "Coach App",
-  "headline": "Coach — Fitness app · UX/UI case study",
-  "description": "UX/UI for a fitness and nutrition app that fits the user's routine instead of imposing one.",
-  "image": "https://pablomeyer.es/assets/img/projects/coach/hero-coach.jpg",
-  "datePublished": "2025",
+  "name": "Coach",
+  "headline": "Coach — Product Design & UX/UI",
+  "description": "A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress.",
+  "image": "https://pablomeyer.es/assets/img/projects/coach/og-coach.jpg",
+  "datePublished": "2026",
   "url": "https://pablomeyer.es/projects/coach.html",
   "inLanguage": "en",
   "creator": {
@@ -55,15 +56,17 @@
     "name": "Pablo Meyer",
     "url": "https://pablomeyer.es/"
   },
-  "about": ["UX/UI", "Product design", "Mobile", "Design system"]
+  "about": ["Product design", "UX/UI", "Mobile app", "Design system"]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" type="image/avif" href="../assets/img/projects/coach/app/today.avif" fetchpriority="high">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="project.css">
+<link rel="stylesheet" href="coach.css">
 <noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -90,204 +93,394 @@
 </div>
 </nav>
 
+<main id="main" class="cx">
 
-
-<main id="main">
-<header class="case-hero">
-  <div class="container">
-    <h1 class="case-title fade-up">
-      <span class="title-mark">Coach</span>
-      <span class="sep">·</span>
-      <span>App</span>
-    </h1>
-
-    <div class="case-tags fade-up">
-      <span class="tag">UX/UI</span>
-      <span class="tag">Product</span>
-      <span class="tag">Mobile</span>
+<!-- 01 · Hero -->
+<header class="cx-hero">
+  <div class="container cx-hero-grid">
+    <div class="cx-hero-text fade-up">
+      <h1 class="cx-title">Coach</h1>
+      <p class="cx-hero-sub">An adaptive fitness companion for training, nutrition and progress.</p>
+      <p class="cx-hero-copy">Coach helps users know what to do today, adapt their workout to the time they have, and keep training and nutrition in one simple experience.</p>
+      <ul class="cx-tags" aria-label="Project details">
+        <li>Product Design</li><li>UX/UI</li><li>Mobile App</li><li>2026</li>
+      </ul>
     </div>
-
-    <div class="case-meta-row fade-up">
-      <div><p class="meta-label">Type</p><p class="meta-value">Mobile app · iOS</p></div>
-      <div><p class="meta-label">Year</p><p class="meta-value">2025</p></div>
-      <div><p class="meta-label">Role</p><p class="meta-value">UX · UI · Branding</p></div>
-      <div><p class="meta-label">Duration</p><p class="meta-value">4 weeks</p></div>
+    <div class="cx-hero-stage">
+      <figure class="cx-screen cx-hero-side">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-active.avif"><img src="../assets/img/projects/coach/app/workout-active.jpg" width="402" height="874" alt="Active workout screen: shoulder press, set 2 of 3, 10 reps at 9 kg" decoding="async"></picture>
+      </figure>
+      <figure class="cx-screen cx-hero-main">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Today screen: upper body strength workout, 32 minutes, 8 exercises, medium intensity" fetchpriority="high" decoding="async"></picture>
+      </figure>
+      <figure class="cx-screen cx-hero-side">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/nutrition.avif"><img src="../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Nutrition screen: 1,640 of 2,300 kcal eaten, with protein, carbs and fat" decoding="async"></picture>
+      </figure>
     </div>
   </div>
 </header>
 
-<section class="case-cover">
-  <div class="cover-bar">
-    <a href="iki.html">← Previous project</a>
-    <a href="galeria.html">Next project →</a>
-  </div>
-  <div class="cover-bleed fade-up">
-    <picture><source srcset="../assets/img/projects/coach/hero-coach.webp" type="image/webp"><img src="../assets/img/projects/coach/hero-coach.jpg" width="1440" height="892" alt="Coach — main app screen" fetchpriority="high" decoding="async"></picture>
-  </div>
-</section>
-
-<section class="case-reto">
-  <div class="container">
-    <div class="reto-grid">
-      <div class="fade-up">
-        <p class="eyebrow">The challenge</p>
-        <h2 class="reto-title">A fitness app that doesn't make the user feel bad for not opening it.</h2>
-        <div class="reto-body">
-          <p>The brief was to design a mobile app end to end: research, architecture, system and UI. I picked fitness and nutrition because it's a saturated and noisy space — most apps promise military discipline and talk to the user as if they were 25, with two free hours and a gym at home. None of that is reality.</p>
-          <p>The research made the obvious obvious: people drop these apps because they remind them of what they're not doing. Coach was built around the opposite idea — <em>fit</em> the user's routine, not impose one. Every screen had to remove friction, not add it. Clear hierarchy, an onboarding that asks before demanding, and a dashboard that puts "what's on today" before "how far you still are".</p>
+<!-- 02 · Revisiting an old project -->
+<section class="cx-sec cx-light">
+  <div class="container cx-split">
+    <div class="cx-text fade-up">
+      <p class="eyebrow">The project</p>
+      <h2 class="cx-h2">Revisiting an old project.</h2>
+      <p class="cx-p">Coach started as an academic UX/UI project built around workout planning, calorie tracking and progress monitoring.</p>
+      <p class="cx-p">I revisited the product to simplify its structure, clarify its priorities and rebuild the experience around one idea: fitness plans should adapt to real life, not the other way around.</p>
+    </div>
+    <div class="cx-pair fade-up">
+      <figure class="cx-old">
+        <picture><source type="image/webp" srcset="../assets/img/projects/coach/Daytraning.webp"><img src="../assets/img/projects/coach/Daytraning.jpg" width="1080" height="1350" alt="2024 version: daily workout screen listing five exercises with sets and reps" loading="lazy" decoding="async"></picture>
+        <figcaption><b>2024</b> Original</figcaption>
+      </figure>
+      <figure class="cx-new">
+        <div class="cx-screen">
+          <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today-first-day.avif"><img src="../assets/img/projects/coach/app/today-first-day.jpg" width="402" height="874" alt="2026 version: Today screen on the first day, with the first session and an empty streak" loading="lazy" decoding="async"></picture>
         </div>
-      </div>
-
-      <aside class="detalles-card fade-up">
-        <h3>Details</h3>
-        <dl>
-          <div class="row"><dt>Sector</dt><dd>Fitness · Wellness</dd></div>
-          <div class="row"><dt>Tools</dt><dd>Figma · AI</dd></div>
-          <div class="row"><dt>Deliverables</dt><dd>Wireframes · DS · UI</dd></div>
-          <div class="row"><dt>Scope</dt><dd>Full mobile app</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="case-gallery">
-  <div class="container">
-    <div class="case-gallery-header fade-up">
-      <p class="eyebrow">Research</p>
-      <h2 class="reto-title">Product goals.</h2>
-      <p class="gallery-intro">Before touching a single screen, I defined what Coach had to achieve at business and user level — and where the competition was failing.</p>
-    </div>
-
-    <div class="gallery-stack">
-      <div class="gallery-row-3 fade-up">
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/objetivo.webp" type="image/webp"><img src="../assets/img/projects/coach/objetivo.png" width="1024" height="1280" alt="Coach project goals" loading="lazy" decoding="async"></picture>
-          <figcaption>Goals</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Wireframe.webp" type="image/webp"><img src="../assets/img/projects/coach/Wireframe.jpg" width="1080" height="1350" alt="Coach wireframes" loading="lazy" decoding="async"></picture>
-          <figcaption>Wireframes</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/design%20sistem.webp" type="image/webp"><img src="../assets/img/projects/coach/design%20sistem.jpg" width="1080" height="1350" alt="Coach design system" loading="lazy" decoding="async"></picture>
-          <figcaption>Design system</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="case-decisions">
-  <div class="container">
-    <p class="eyebrow fade-up">Key decisions</p>
-    <h2 class="reto-title fade-up">Three decisions that organise the whole app.</h2>
-
-    <div class="decisions-grid">
-      <div class="decision-card fade-up">
-        <p class="decision-num">01</p>
-        <p class="decision-title">Onboarding that asks, not demands.</p>
-        <p class="decision-desc">The user decides how much time they have, what goals they're chasing and what kind of plan they want. The app adapts to them — not the other way round.</p>
-      </div>
-      <div class="decision-card fade-up">
-        <p class="decision-num">02</p>
-        <p class="decision-title">Home focused on today.</p>
-        <p class="decision-desc">The first screen shows what's on now, not stacked stats. No charts to remind you of what didn't get done.</p>
-      </div>
-      <div class="decision-card fade-up">
-        <p class="decision-num">03</p>
-        <p class="decision-title">One primary action per screen.</p>
-        <p class="decision-desc">Every view knows its job. Anything that doesn't feed the next action moves to a second level. Less noise, fewer decisions to make.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="case-gallery">
-  <div class="container">
-    <div class="case-gallery-header fade-up">
-      <p class="eyebrow">Final product</p>
-      <h2 class="reto-title">Screens.</h2>
-      <p class="gallery-intro">Onboarding, dashboard, training plans, nutrition and active session. Same visual language across all, but different priorities depending on what the user expects to see when they open it.</p>
-    </div>
-
-    <div class="gallery-stack">
-      <!-- Trio 1: onboarding -->
-      <div class="gallery-row-3 fade-up">
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Onboarding.webp" type="image/webp"><img src="../assets/img/projects/coach/Onboarding.png" width="473" height="932" alt="Onboarding screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Onboarding</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Intro.webp" type="image/webp"><img src="../assets/img/projects/coach/Intro.jpg" width="1080" height="1350" alt="Intro screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Intro</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Home.webp" type="image/webp"><img src="../assets/img/projects/coach/Home.jpg" width="1080" height="1350" alt="Home screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Home</figcaption>
-        </figure>
-      </div>
-
-      <!-- Trio 2: session and modules -->
-      <div class="gallery-row-3 fade-up">
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Workout.webp" type="image/webp"><img src="../assets/img/projects/coach/Workout.jpg" width="1080" height="1350" alt="Workout screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Workout · session</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Sport.webp" type="image/webp"><img src="../assets/img/projects/coach/Sport.jpg" width="1080" height="1350" alt="Sport screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Sport</figcaption>
-        </figure>
-        <figure class="gallery-figure shot">
-          <picture><source srcset="../assets/img/projects/coach/Food.webp" type="image/webp"><img src="../assets/img/projects/coach/Food.jpg" width="1080" height="1350" alt="Food screen" loading="lazy" decoding="async"></picture>
-          <figcaption>Food</figcaption>
-        </figure>
-      </div>
-
-      <!-- Day training como pieza individual -->
-      <figure class="gallery-figure shot fade-up gallery-figure-solo">
-        <picture><source srcset="../assets/img/projects/coach/Daytraning.webp" type="image/webp"><img src="../assets/img/projects/coach/Daytraning.jpg" width="1080" height="1350" alt="Day Training screen" loading="lazy" decoding="async"></picture>
-        <figcaption>Day training</figcaption>
+        <figcaption><b>2026</b> Redesign</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="case-process">
+<!-- 03 · Problem + research -->
+<section class="cx-sec cx-dark">
   <div class="container">
-    <div class="case-gallery-header fade-up">
-      <p class="eyebrow">Process</p>
-      <h2 class="reto-title">From research to final UI.</h2>
+    <div class="cx-head fade-up">
+      <p class="eyebrow">The problem</p>
+      <h2 class="cx-h2">Too much product, not enough focus.</h2>
+      <p class="cx-p">The original concept tried to solve training, nutrition, social features, progress tracking and community at the same time.</p>
+      <p class="cx-p">The redesign focuses Coach on three recurring needs: knowing what to train, keeping nutrition on track and understanding progress.</p>
+    </div>
+    <p class="cx-scope fade-up" aria-label="Original scope: training, nutrition, social, progress, community. Kept: training, nutrition and progress.">
+      <span>Training</span><span>Nutrition</span><s>Social</s><span>Progress</span><s>Community</s>
+    </p>
+    <ul class="cx-words fade-up" aria-hidden="true"><li>Train</li><li>Nutrition</li><li>Progress</li></ul>
+
+    <div class="cx-insights">
+      <h3 class="cx-h3 fade-up">The research already pointed to the essentials.</h3>
+      <ol class="cx-insight-list">
+        <li class="fade-up"><span class="cx-k">Training</span><p>Clear routines and guidance.</p></li>
+        <li class="fade-up"><span class="cx-k">Nutrition</span><p>Simple daily tracking.</p></li>
+        <li class="fade-up"><span class="cx-k">Progress</span><p>Visible signs of improvement.</p></li>
+      </ol>
+      <p class="cx-note fade-up">Usability testing in the original project also revealed friction in food logging, which became one of the areas simplified in the redesign.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Product focus -->
+<section class="cx-sec cx-light">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">Product focus</p>
+      <h2 class="cx-h2">Train. Eat. Progress.</h2>
+      <p class="cx-p">The redesign reduces the experience to three main areas that support the user's everyday fitness routine.</p>
+    </div>
+    <ol class="cx-focus">
+      <li class="fade-up"><span class="cx-k">Today</span><p>What should I do today?</p></li>
+      <li class="fade-up"><span class="cx-k">Nutrition</span><p>How am I doing today?</p></li>
+      <li class="fade-up"><span class="cx-k">Progress</span><p>How is my week going?</p></li>
+    </ol>
+    <figure class="cx-navcrop fade-up">
+      <div class="cx-crop" style="--top: 780; --h: 60;">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Bottom navigation with three tabs: Today, Nutrition and Progress" loading="lazy" decoding="async"></picture>
+      </div>
+      <figcaption>Bottom navigation</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 05 · Onboarding + plan -->
+<section class="cx-sec cx-paper">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">Onboarding</p>
+      <h2 class="cx-h2">A plan built around the user.</h2>
+      <p class="cx-p">Instead of choosing from a library of generic programmes, Coach builds the starting plan from a few practical inputs: experience, goal, availability, training environment and equipment.</p>
+    </div>
+    <ol class="cx-steps" aria-label="Onboarding steps">
+      <li class="fade-up">
+        <span class="cx-step">01 · Experience</span>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-level.avif"><img src="../assets/img/projects/coach/app/onb-level.jpg" width="402" height="874" alt="Step 1 of 4: how long have you been training" loading="lazy" decoding="async"></picture></div>
+      </li>
+      <li class="fade-up">
+        <span class="cx-step">02 · Goal</span>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-goal.avif"><img src="../assets/img/projects/coach/app/onb-goal.jpg" width="402" height="874" alt="Step 2 of 4: choose a goal, with build strength selected" loading="lazy" decoding="async"></picture></div>
+      </li>
+      <li class="fade-up">
+        <span class="cx-step">03 · Availability</span>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-availability.avif"><img src="../assets/img/projects/coach/app/onb-availability.jpg" width="402" height="874" alt="Step 3 of 4: training days, Monday to Friday selected, and usual duration" loading="lazy" decoding="async"></picture></div>
+      </li>
+      <li class="fade-up">
+        <span class="cx-step">04 · Environment</span>
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-place.avif"><img src="../assets/img/projects/coach/app/onb-place.jpg" width="402" height="874" alt="Step 4 of 4: where you train, at home, with dumbbells and a mat" loading="lazy" decoding="async"></picture></div>
+      </li>
+    </ol>
+    <p class="cx-note cx-note--light fade-up">Apple Health can add extra context, but remains optional.</p>
+
+    <div class="cx-split cx-split--plan">
+      <figure class="cx-screen cx-screen--lg fade-up">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/plan-ready.avif"><img src="../assets/img/projects/coach/app/plan-ready.jpg" width="402" height="874" alt="Your plan is ready: 5 days a week, 32 minutes, at home, with the first training week" loading="lazy" decoding="async"></picture>
+      </figure>
+      <div class="cx-text fade-up">
+        <h3 class="cx-h2">The plan is only the starting point.</h3>
+        <p class="cx-p">Coach generates the first training week, but the plan is designed to change with the user's schedule and feedback.</p>
+        <dl class="cx-rules">
+          <div><dt>Less time</dt><dd>The session gets shorter.</dd></div>
+          <div><dt>More effort</dt><dd>The load can be adjusted.</dd></div>
+          <div><dt>Missed day</dt><dd>The week is reorganised.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · Today -->
+<section class="cx-sec cx-dark cx-today">
+  <div class="container">
+    <div class="cx-split cx-split--today">
+      <figure class="cx-screen cx-screen--xl fade-up">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Today screen: the next workout card first, then the weekly streak, calories burned and eaten" loading="lazy" decoding="async"></picture>
+      </figure>
+      <div class="cx-text fade-up">
+        <p class="eyebrow">Today</p>
+        <h2 class="cx-h2 cx-h2--xl">One clear answer: what should I do today?</h2>
+        <p class="cx-p">The home screen prioritises the next workout instead of presenting every metric at once.</p>
+        <p class="cx-p">The user can immediately see the session, duration, intensity and why Coach selected it.</p>
+        <ul class="cx-stats" aria-label="Today's session">
+          <li><b>32</b> min</li><li><b>8</b> exercises</li><li><b>Medium</b> intensity</li>
+        </ul>
+        <blockquote class="cx-quote">“Adapted to your week: you biked 45 min yesterday, so your legs rest today.”</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · Adaptive time -->
+<section class="cx-sec cx-light">
+  <div class="container cx-split cx-split--rev">
+    <div class="cx-text fade-up">
+      <p class="eyebrow">Workout overview</p>
+      <h2 class="cx-h2">The workout adapts to the time available.</h2>
+      <p class="cx-p">A 45-minute plan is not useful when the user only has 20. Before starting, the session can be shortened or extended while preserving the training focus.</p>
+      <p class="cx-times" aria-label="Session lengths: 20, 32 or 45 minutes"><span>20</span><span class="is-on">32</span><span>45</span><small>min</small></p>
+      <p class="cx-close">Missing the perfect workout should not mean missing the workout entirely.</p>
+    </div>
+    <figure class="cx-screen cx-screen--lg fade-up">
+      <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-overview.avif"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Workout overview: why today, duration, and a 20, 32 or 45 minute selector with 32 selected" loading="lazy" decoding="async"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 · Active workout + feedback -->
+<section class="cx-sec cx-dark">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">Active workout</p>
+      <h2 class="cx-h2">Less interface when attention matters most.</h2>
+      <p class="cx-p">During training, Coach reduces the interface to the information needed for the current exercise: sets, repetitions, load and what comes next.</p>
+    </div>
+    <div class="cx-active">
+      <figure class="cx-screen cx-screen--xl fade-up">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-active.avif"><img src="../assets/img/projects/coach/app/workout-active.jpg" width="402" height="874" alt="Active workout: shoulder press illustration, set 2 of 3, 10 reps, 9 kg, set done button" loading="lazy" decoding="async"></picture>
+      </figure>
+      <ul class="cx-callouts fade-up" aria-label="On screen during a set">
+        <li><span>Set</span><b>02</b></li>
+        <li><span>Reps</span><b>10</b></li>
+        <li><span>Weight</span><b>9 kg</b></li>
+        <li><span>Action</span><b>Set done</b></li>
+      </ul>
+      <figure class="cx-screen cx-active-rest fade-up">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-rest.avif"><img src="../assets/img/projects/coach/app/workout-rest.jpg" width="402" height="874" alt="Rest timer: 37 seconds left of 1 minute, next set of shoulder press" loading="lazy" decoding="async"></picture>
+        <figcaption>Rest between sets</figcaption>
+      </figure>
     </div>
 
-    <div class="process-grid">
-      <div class="process-card fade-up" data-num="01">
-        <p class="process-num">01</p>
-        <p class="process-title">Research</p>
-        <p class="process-desc">Competitive audit, user profiles and friction map. Why people start, why they leave.</p>
+    <div class="cx-split cx-split--feedback">
+      <div class="cx-text fade-up">
+        <h3 class="cx-h2">The plan learns from the session.</h3>
+        <p class="cx-p">At the end of the workout, users rate how the session felt. That feedback becomes part of the context used to adjust future training.</p>
       </div>
-      <div class="process-card fade-up" data-num="02">
-        <p class="process-num">02</p>
-        <p class="process-title">Wireframes</p>
-        <p class="process-desc">Architecture, flows and priorities in low fidelity. Decisions before pixels.</p>
-      </div>
-      <div class="process-card fade-up" data-num="03">
-        <p class="process-num">03</p>
-        <p class="process-title">Design system</p>
-        <p class="process-desc">Type, color, components and states. Mandatory consistency across screens.</p>
-      </div>
-      <div class="process-card fade-up" data-num="04">
-        <p class="process-num">04</p>
-        <p class="process-title">Final UI</p>
-        <p class="process-desc">High-fidelity screens, navigable prototype and handoff ready.</p>
-      </div>
+      <figure class="cx-feedback fade-up">
+        <div class="cx-screen">
+          <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-complete.avif"><img src="../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="Workout complete: 33 minutes, 8 of 8 exercises, and how did it feel from 1 to 5, with Good selected" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="cx-crop cx-crop--zoom" style="--top: 538; --h: 172;" aria-hidden="true">
+          <img src="../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="" loading="lazy" decoding="async">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Video del producto: se muestra solo si existe el archivo (ver coach.js) -->
+<section class="cx-sec cx-dark cx-video" data-video-slot hidden>
+  <div class="container">
+    <figure class="cx-video-fig">
+      <video muted loop playsinline preload="none" width="402" height="874" data-src="../assets/video/coach-demo.mp4" poster="../assets/img/projects/coach/app/today.jpg" aria-label="Short walkthrough of Coach: from Today to an active workout"></video>
+      <figcaption>Coach in motion.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 09 · Nutrition -->
+<section class="cx-sec cx-light">
+  <div class="container cx-split">
+    <figure class="cx-screen cx-screen--lg fade-up">
+      <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/nutrition.avif"><img src="../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Nutrition screen: 1,640 of 2,300 kcal ring, burned and remaining calories, and macro bars" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="cx-text fade-up">
+      <p class="eyebrow">Nutrition</p>
+      <h2 class="cx-h2">Nutrition without turning Coach into a calorie database.</h2>
+      <p class="cx-p">Nutrition remains a core part of Coach, but the redesign focuses on the information users need most often: daily calories, macros and meals.</p>
+      <p class="cx-kcal"><b>1,640</b> / 2,300 kcal</p>
+      <ul class="cx-macros" aria-label="Macros">
+        <li style="--c: #5BC6FA">Protein</li><li style="--c: #FEB544">Carbs</li><li style="--c: #BF5BF3">Fat</li><li>Meals</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Food logging -->
+<section class="cx-sec cx-paper">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">Food logging</p>
+      <h2 class="cx-h2">Reducing friction in food logging.</h2>
+      <p class="cx-p">Food logging was one of the less intuitive flows in the original usability test. The new experience reduces the number of decisions required to add something quickly.</p>
+    </div>
+    <p class="cx-flow fade-up" aria-label="Flow: search, food, quantity, add"><span>Search</span><i aria-hidden="true">→</i><span>Food</span><i aria-hidden="true">→</i><span>Quantity</span><i aria-hidden="true">→</i><span>Add</span></p>
+    <div class="cx-food">
+      <figure class="fade-up">
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-search.avif"><img src="../assets/img/projects/coach/app/food-search.jpg" width="402" height="874" alt="Add to dinner: search field with barcode button, recent foods and quick add buttons" loading="lazy" decoding="async"></picture></div>
+        <figcaption>Search, recent and saved foods</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-detail.avif"><img src="../assets/img/projects/coach/app/food-detail.jpg" width="402" height="874" alt="Grilled salmon: quantity stepper and presets, macros, meal selector and add to dinner button" loading="lazy" decoding="async"></picture></div>
+        <figcaption>Quantity and add in one screen</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-barcode.avif"><img src="../assets/img/projects/coach/app/food-barcode.jpg" width="402" height="874" alt="Barcode scanner with a detected product, Plain Greek yogurt" loading="lazy" decoding="async"></picture></div>
+        <figcaption>Barcode scanner</figcaption>
+      </figure>
+    </div>
+    <p class="cx-note cx-note--light fade-up">Barcode scanning provides a faster route for packaged food, while recent and saved foods reduce repeated searching.</p>
+  </div>
+</section>
+
+<!-- 11 · Progress -->
+<section class="cx-sec cx-dark">
+  <div class="container cx-split cx-split--rev">
+    <div class="cx-text fade-up">
+      <p class="eyebrow">Progress</p>
+      <h2 class="cx-h2">A weekly view of effort and consistency.</h2>
+      <p class="cx-p">Progress brings the week together at a glance: calories burned, completed workouts, active time, daily average and training streak.</p>
+      <ul class="cx-list" aria-label="On the Progress screen">
+        <li>Calories burned</li><li>Completed workouts</li><li>Active time</li><li>Daily average</li><li>Training streak</li>
+      </ul>
+    </div>
+    <figure class="cx-screen cx-screen--xl fade-up">
+      <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/progress.avif"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="Progress screen: weekly bar chart of calories burned, workouts, active time, daily average and streak" loading="lazy" decoding="async"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- 12 · Design system -->
+<section class="cx-sec cx-light">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">Design system</p>
+      <h2 class="cx-h2">Built for focus.</h2>
+      <p class="cx-p">The visual system uses a restrained dark palette with yellow reserved for action, selection and progress.</p>
+      <p class="cx-p">Nutrition introduces additional colour only where it helps distinguish specific metrics.</p>
+    </div>
+    <ul class="cx-swatches fade-up" aria-label="Colour palette">
+      <li style="--c: #0B0B0D"><b>Background</b><span>#0B0B0D</span></li>
+      <li style="--c: #17161B"><b>Surface</b><span>#17161B</span></li>
+      <li style="--c: #F5E14C" class="is-light"><b>Action</b><span>#F5E14C</span></li>
+      <li style="--c: #FF5580"><b>Calories eaten</b><span>#FF5580</span></li>
+      <li style="--c: #5BC6FA" class="is-light"><b>Protein</b><span>#5BC6FA</span></li>
+      <li style="--c: #FEB544" class="is-light"><b>Carbs</b><span>#FEB544</span></li>
+      <li style="--c: #BF5BF3"><b>Fat</b><span>#BF5BF3</span></li>
+    </ul>
+    <div class="cx-parts">
+      <figure class="cx-part cx-part--wide fade-up">
+        <div class="cx-crop" style="--top: 106; --h: 80;"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Typography: week label in yellow capitals over a bold title" loading="lazy" decoding="async"></div>
+        <figcaption>Typography</figcaption>
+      </figure>
+      <figure class="cx-part fade-up">
+        <div class="cx-crop" style="--top: 785; --h: 60;"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Primary button: Start, 32 min" loading="lazy" decoding="async"></div>
+        <figcaption>Buttons</figcaption>
+      </figure>
+      <figure class="cx-part fade-up">
+        <div class="cx-crop" style="--top: 432; --h: 66;"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Time selector: 20, 32 and 45 minutes" loading="lazy" decoding="async"></div>
+        <figcaption>Selectors</figcaption>
+      </figure>
+      <figure class="cx-part fade-up">
+        <div class="cx-crop" style="--top: 444; --h: 118;"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Weekly streak: four days done, today in progress" loading="lazy" decoding="async"></div>
+        <figcaption>Progress</figcaption>
+      </figure>
+      <figure class="cx-part fade-up">
+        <div class="cx-crop" style="--top: 780; --h: 60;"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="Bottom navigation with Progress selected" loading="lazy" decoding="async"></div>
+        <figcaption>Navigation</figcaption>
+      </figure>
+      <figure class="cx-part cx-part--wide fade-up">
+        <div class="cx-crop" style="--top: 170; --h: 196;"><img src="../assets/img/projects/coach/app/workout-active.jpg" width="402" height="874" alt="Exercise illustration: shoulder press with the working muscles in yellow" loading="lazy" decoding="async"></div>
+        <figcaption>Exercise illustration</figcaption>
+      </figure>
+      <figure class="cx-part fade-up">
+        <div class="cx-crop" style="--top: 306; --h: 36;"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Icons with labels: duration, exercises and intensity" loading="lazy" decoding="async"></div>
+        <figcaption>Icons</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · Before / after -->
+<section class="cx-sec cx-dark">
+  <div class="container">
+    <div class="cx-head fade-up">
+      <p class="eyebrow">2024 → 2026</p>
+      <h2 class="cx-h2">Before / after.</h2>
+      <p class="cx-p">Revisiting Coach was less about adding features and more about deciding what deserved attention.</p>
+      <p class="cx-p">The redesign gave the product a clearer hierarchy, a stronger visual system and a more focused everyday experience.</p>
+    </div>
+    <div class="cx-ba">
+      <figure class="cx-ba-old fade-up">
+        <picture><source type="image/webp" srcset="../assets/img/projects/coach/Home.webp"><img src="../assets/img/projects/coach/Home.jpg" width="1080" height="1350" alt="2024 home: calorie summary, weekly rings, activity and nutrition lists" loading="lazy" decoding="async"></picture>
+        <figcaption><b>2024</b> Original academic project</figcaption>
+      </figure>
+      <span class="cx-ba-arrow" aria-hidden="true">→</span>
+      <figure class="cx-ba-new fade-up">
+        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="2026 Today screen: the next workout first, with why it was chosen" loading="lazy" decoding="async"></picture></div>
+        <figcaption><b>2026</b> Product redesign</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · Final -->
+<section class="cx-sec cx-light cx-final">
+  <div class="container">
+    <div class="cx-final-head fade-up">
+      <h2 class="cx-title cx-title--dark">Coach</h2>
+      <p class="cx-hero-sub">Train around real life.</p>
+      <p class="cx-meta">Product Design · UX/UI · 2026</p>
+    </div>
+    <div class="cx-final-stage fade-up">
+      <figure class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/plan-ready.avif"><img src="../assets/img/projects/coach/app/plan-ready.jpg" width="402" height="874" alt="" loading="lazy" decoding="async"></picture></figure>
+      <figure class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-complete.avif"><img src="../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="" loading="lazy" decoding="async"></picture></figure>
+      <figure class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/progress.avif"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="" loading="lazy" decoding="async"></picture></figure>
+      <figure class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-detail.avif"><img src="../assets/img/projects/coach/app/food-detail.jpg" width="402" height="874" alt="" loading="lazy" decoding="async"></picture></figure>
     </div>
   </div>
 </section>
 
 <section class="next-project-block">
   <a href="galeria.html" class="next-project-link">
-    <p class="next-project-eyebrow">Next · Playground</p>
+    <p class="next-project-eyebrow">Next project</p>
     <div class="next-project-row">
       <h2 class="next-project-title"><span class="hl">Playground</span> <span class="arrow">→</span></h2>
       <div class="next-project-preview">
@@ -296,7 +489,7 @@
     </div>
     <div class="next-project-bottom">
       <span>Posters · Packaging · Social · 2023 — 2025</span>
-      <span>View case →</span>
+      <span>View project →</span>
     </div>
   </a>
 </section>
@@ -327,5 +520,7 @@
 
 <script src="../assets/js/nav.js"></script>
 <script src="../assets/js/case.js"></script>
+<script src="coach.js"></script>
 
-</body></html>
+</body>
+</html>

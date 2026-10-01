@@ -1,0 +1,242 @@
+/* ============================================================
+   Coach — case study 2026
+   Solo lo especifico de esta pagina. Nav, footer, siguiente
+   proyecto y CTA vienen de base.css y project.css.
+   Prefijo .cx- para no chocar con el resto del portfolio.
+   ============================================================ */
+
+.cx {
+  /* Colores sacados de las pantallas reales de la app */
+  --cx-bg: #0B0B0D;
+  --cx-surface: #17161B;
+  --cx-yellow: #F5E14C;
+  --cx-ink-dark: rgba(255, 255, 255, 0.66); /* texto secundario sobre negro: 9:1 */
+}
+
+/* ---------- Secciones ---------- */
+.cx-sec { padding: var(--s-section) 24px; }
+.cx-dark { background: var(--cx-bg); color: var(--white); }
+.cx-light { background: var(--white); }
+.cx-paper { background: var(--gray-light); }
+.cx-dark .eyebrow { color: rgba(255, 255, 255, 0.58); }
+.cx .eyebrow { display: block; margin-bottom: 18px; }
+
+.cx-h2 {
+  font-size: var(--t-h2); font-weight: 900; line-height: 1.02;
+  letter-spacing: -0.035em; margin-bottom: 22px; text-wrap: balance;
+}
+.cx-h2--xl { font-size: clamp(36px, 5.2vw, 75px); max-width: 15ch; }
+.cx-h3 { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; line-height: 1.2; margin-bottom: 28px; }
+.cx-p { font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 46ch; margin-bottom: 14px; text-wrap: pretty; }
+.cx-dark .cx-p { color: var(--cx-ink-dark); }
+.cx-p:last-child { margin-bottom: 0; }
+.cx-head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 72px); }
+.cx-k { display: block; font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+.cx-dark .cx-k { color: var(--cx-yellow); }
+.cx-note { font-size: 15px; line-height: 1.6; color: var(--cx-ink-dark); max-width: 60ch; margin-top: clamp(28px, 3vw, 40px); }
+.cx-note--light { color: var(--gray); }
+
+/* ---------- Pantallas ----------
+   Captura directa con las esquinas del iPhone (55 px sobre 402 x 874),
+   sin marco de dispositivo. Nunca por encima de 402 px: es su tamano
+   nativo. */
+.cx-screen { margin: 0; width: 100%; max-width: 300px; }
+.cx-screen img {
+  width: 100%; height: auto; display: block;
+  border-radius: 13.7% / 6.3%;
+  background: var(--cx-bg);
+}
+.cx-light .cx-screen img, .cx-paper .cx-screen img { box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.45); }
+.cx-dark .cx-screen img { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.09); }
+.cx-screen--lg { max-width: 340px; }
+.cx-screen--xl { max-width: 380px; }
+.cx figcaption { font-size: var(--t-small); font-weight: 500; color: var(--gray); margin-top: 14px; }
+.cx-dark figcaption { color: rgba(255, 255, 255, 0.58); }
+.cx figcaption b { color: inherit; font-weight: 800; margin-right: 6px; }
+.cx-light figcaption b, .cx-paper figcaption b { color: var(--black); }
+.cx-dark figcaption b { color: var(--white); }
+
+/* Recorte de una zona de la pantalla a escala 1:1 (coordenadas en px
+   de la captura de 402 x 874): --top donde empieza, --h cuanto mide */
+.cx-crop { position: relative; overflow: hidden; width: 100%; max-width: 402px; aspect-ratio: 402 / var(--h); background: var(--cx-bg); }
+.cx-crop img { position: absolute; left: 0; top: 0; width: 100%; height: auto; transform: translateY(calc(var(--top) * -100% / 874)); box-shadow: none; border-radius: 0; }
+
+/* ---------- Columnas ---------- */
+.cx-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.cx-split > .cx-screen { justify-self: center; }
+.cx-split--rev > :first-child { order: 0; }
+.cx-text { min-width: 0; }
+
+/* ---------- 01 · Hero ---------- */
+.cx-hero { background: var(--cx-bg); color: var(--white); padding: 150px 24px clamp(64px, 7vw, 104px); overflow: hidden; }
+.cx-hero-grid { display: grid; grid-template-columns: minmax(0, 4.4fr) minmax(0, 7.6fr); gap: clamp(32px, 4vw, 64px); align-items: center; }
+.cx-title {
+  font-size: clamp(64px, 10.4vw, 150px); font-weight: 900; line-height: 0.82;
+  letter-spacing: -0.05em; text-transform: uppercase; color: var(--white);
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+.cx-hero-sub { font-size: var(--t-lead); line-height: 1.25; letter-spacing: -0.015em; font-weight: 600; max-width: 22ch; margin-bottom: 18px; text-wrap: balance; }
+.cx-hero-copy { font-size: 17px; line-height: 1.6; color: var(--cx-ink-dark); max-width: 42ch; margin-bottom: 28px; }
+.cx-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.cx-tags li {
+  font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+  padding: 8px 14px; border-radius: 50px; border: 1px solid var(--rule-dark); color: rgba(255, 255, 255, 0.78);
+}
+.cx-hero-stage { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: center; gap: clamp(12px, 1.6vw, 24px); }
+.cx-hero-stage .cx-screen { max-width: 380px; justify-self: center; }
+.cx-hero-main { z-index: 1; }
+.cx-hero-side { opacity: 0.88; transform: translateY(8%); }
+
+/* ---------- 02 · Antes y ahora (pareja) ---------- */
+.cx-pair { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(16px, 2vw, 28px); align-items: end; }
+.cx-pair figure { margin: 0; }
+.cx-old img { width: 100%; height: auto; display: block; filter: saturate(0.85); }
+.cx-new .cx-screen { max-width: 260px; }
+
+/* ---------- 03 · Problema ---------- */
+.cx-scope { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: rgba(255, 255, 255, 0.58); margin-bottom: 18px; }
+.cx-scope s { color: rgba(255, 255, 255, 0.4); text-decoration-thickness: 1px; }
+.cx-words { list-style: none; display: flex; flex-wrap: wrap; gap: 0 0.4em; font-size: clamp(44px, 7.2vw, 118px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; text-transform: uppercase; }
+.cx-words li:not(:last-child)::after { content: "."; color: var(--cx-yellow); }
+.cx-insights { margin-top: clamp(64px, 8vw, 120px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule-dark); }
+.cx-insight-list, .cx-focus { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.cx-insight-list p { font-size: var(--t-h3); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; max-width: 16ch; }
+
+/* ---------- 04 · Foco ---------- */
+.cx-focus li { border-top: 2px solid var(--black); padding-top: 20px; }
+.cx-focus p { font-size: clamp(24px, 2.4vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; max-width: 12ch; }
+.cx-navcrop { margin: clamp(48px, 6vw, 80px) auto 0; max-width: 402px; text-align: center; }
+.cx-navcrop .cx-crop { border-radius: 20px; }
+
+/* ---------- 05 · Onboarding y plan ---------- */
+.cx-steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
+.cx-steps .cx-screen { max-width: 360px; } /* nunca por encima de 402: tamano nativo */
+.cx-step { display: block; font-size: var(--t-small); font-weight: 700; margin-bottom: 14px; }
+.cx-split--plan { margin-top: clamp(80px, 10vw, 150px); }
+.cx-rules { margin-top: clamp(28px, 3vw, 40px); border-top: 1px solid var(--rule-strong); }
+.cx-rules div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule-strong); }
+.cx-rules dt { font-size: clamp(22px, 2.2vw, 32px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
+.cx-rules dd { font-size: 16px; color: var(--ink-soft); }
+
+/* ---------- 06 · Today ---------- */
+.cx-split--today { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.cx-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; margin: clamp(28px, 3vw, 40px) 0; padding: 24px 0; border-top: 1px solid var(--rule-dark); border-bottom: 1px solid var(--rule-dark); font-size: 15px; color: var(--cx-ink-dark); }
+.cx-stats b { display: block; font-size: clamp(34px, 3.6vw, 52px); font-weight: 900; letter-spacing: -0.04em; color: var(--white); line-height: 1; margin-bottom: 4px; }
+.cx-quote { font-size: clamp(20px, 1.9vw, 26px); font-weight: 600; line-height: 1.35; letter-spacing: -0.015em; color: var(--cx-yellow); max-width: 28ch; quotes: none; }
+
+/* ---------- 07 · Tiempo ---------- */
+.cx-times { display: flex; align-items: baseline; gap: clamp(10px, 1.2vw, 16px); margin: clamp(28px, 3vw, 40px) 0 24px; }
+.cx-times span {
+  font-size: clamp(40px, 4.8vw, 72px); font-weight: 900; letter-spacing: -0.045em; line-height: 1;
+  padding: 0.12em 0.32em; border-radius: 999px; color: var(--gray);
+}
+.cx-times .is-on { background: var(--cx-yellow); color: var(--black); }
+.cx-times small { font-size: 15px; font-weight: 600; color: var(--gray); }
+.cx-close { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.35; max-width: 30ch; padding-top: 20px; border-top: 2px solid var(--black); }
+
+/* ---------- 08 · Entreno en curso ---------- */
+.cx-active { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.8fr) minmax(0, 0.9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.cx-active > .cx-screen--xl { justify-self: end; }
+.cx-callouts { list-style: none; display: grid; gap: 0; border-top: 1px solid var(--rule-dark); }
+.cx-callouts li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule-dark); }
+.cx-callouts span { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.58); }
+.cx-callouts b { font-size: clamp(26px, 2.6vw, 38px); font-weight: 900; letter-spacing: -0.035em; line-height: 1; }
+.cx-callouts li:last-child b { color: var(--cx-yellow); }
+.cx-active-rest { max-width: 240px; justify-self: start; }
+.cx-split--feedback { margin-top: clamp(80px, 10vw, 150px); }
+.cx-feedback { margin: 0; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: clamp(16px, 2vw, 28px); align-items: center; }
+.cx-feedback .cx-screen { max-width: 240px; }
+.cx-crop--zoom { border-radius: 22px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.09); }
+
+/* Video (oculto hasta que exista el archivo) */
+.cx-video { padding-top: 0; }
+.cx-video[hidden] { display: none; } /* base.css pone section en display: block */
+.cx-video-fig { margin: 0 auto; max-width: 340px; text-align: center; }
+.cx-video video { width: 100%; height: auto; display: block; border-radius: 13.7% / 6.3%; background: var(--cx-surface); }
+
+/* ---------- 09 · Nutricion ---------- */
+.cx-kcal { font-size: 18px; font-weight: 600; color: var(--gray); margin: clamp(28px, 3vw, 40px) 0 18px; }
+.cx-kcal b { font-size: clamp(48px, 5.6vw, 84px); font-weight: 900; letter-spacing: -0.05em; color: #E8336A; line-height: 1; margin-right: 6px; }
+.cx-macros { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.cx-macros li { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 50px; background: var(--gray-light); }
+.cx-macros li::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--black)); }
+
+/* ---------- 10 · Registro de comida ---------- */
+.cx-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: clamp(26px, 3.4vw, 50px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: clamp(40px, 5vw, 64px); }
+.cx-flow i { font-style: normal; font-weight: 400; color: var(--gray); }
+.cx-food { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.cx-food figure { margin: 0; }
+.cx-food .cx-screen { max-width: 300px; }
+
+/* ---------- 11 · Progreso ---------- */
+.cx-list { list-style: none; margin-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--rule-dark); }
+.cx-list li { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; padding: 14px 0; border-bottom: 1px solid var(--rule-dark); }
+.cx-list li:first-child { color: var(--cx-yellow); }
+
+/* ---------- 12 · Sistema ---------- */
+.cx-swatches { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin-bottom: clamp(32px, 4vw, 56px); }
+.cx-swatches li { background: var(--c); color: var(--white); border-radius: 16px; aspect-ratio: 1 / 1.15; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); }
+.cx-swatches li.is-light { color: var(--black); }
+.cx-swatches b { font-size: 13px; font-weight: 800; line-height: 1.2; }
+.cx-swatches span { font-family: var(--mono); font-size: 12px; opacity: 0.8; }
+.cx-parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cx-part { margin: 0; background: var(--cx-bg); border-radius: 20px; padding: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-height: 180px; }
+.cx-part .cx-crop { margin: auto; }
+.cx-part figcaption { margin: 0; color: rgba(255, 255, 255, 0.66); font-weight: 600; }
+.cx-part--wide { grid-column: span 2; }
+
+/* ---------- 13 · Antes / despues ---------- */
+.cx-ba { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: center; }
+.cx-ba figure { margin: 0; }
+.cx-ba-old img { width: 100%; max-width: 440px; height: auto; display: block; margin-left: auto; }
+.cx-ba-old figcaption { text-align: right; }
+.cx-ba-new .cx-screen { max-width: 330px; }
+.cx-ba-arrow { font-size: clamp(32px, 4vw, 64px); font-weight: 300; color: var(--cx-yellow); }
+
+/* ---------- 14 · Cierre ---------- */
+.cx-final-head { text-align: center; margin-bottom: clamp(40px, 5vw, 72px); }
+.cx-title--dark { color: var(--black); }
+.cx-final .cx-hero-sub { margin-inline: auto; }
+.cx-meta { font-size: var(--t-small); font-weight: 600; color: var(--gray); letter-spacing: 0.02em; }
+.cx-final-stage { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); align-items: start; }
+.cx-final-stage .cx-screen { max-width: 380px; justify-self: center; }
+.cx-final-stage .cx-screen:nth-child(even) { margin-top: 12%; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .cx-active { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .cx-active-rest { display: none; }
+  .cx-swatches { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Movil y tablet vertical: una sola columna, siempre texto -> pantalla */
+@media (max-width: 900px) {
+  .cx-hero { padding-top: 120px; }
+  .cx-hero-grid, .cx-split, .cx-split--today, .cx-active { grid-template-columns: 1fr; }
+  .cx-split > .cx-text { order: -1; }
+  .cx-split > .cx-screen, .cx-active > .cx-screen--xl { justify-self: center; }
+  .cx-hero-stage { max-width: 560px; margin: 8px auto 0; width: 100%; grid-template-columns: 0.72fr 1.3fr 0.72fr; gap: 10px; }
+  .cx-insight-list, .cx-focus { grid-template-columns: 1fr; gap: 28px; }
+  .cx-steps { grid-template-columns: repeat(4, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; margin: 0 -24px; padding: 0 24px 12px; }
+  .cx-steps li { scroll-snap-align: start; }
+  .cx-food { grid-template-columns: 1fr; justify-items: center; gap: 48px; }
+  .cx-food figure { width: 100%; max-width: 300px; }
+  .cx-feedback { grid-template-columns: 1fr; justify-items: center; }
+  .cx-feedback .cx-crop { max-width: 360px; }
+  .cx-parts { grid-template-columns: 1fr 1fr; }
+  .cx-ba { grid-template-columns: 1fr; justify-items: center; }
+  .cx-ba-arrow { transform: rotate(90deg); }
+  .cx-ba-old img { margin: 0 auto; }
+  .cx-ba-old figcaption { text-align: center; }
+  .cx-final-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px; margin: 0 auto; }
+}
+
+@media (max-width: 600px) {
+  .cx-pair { grid-template-columns: 1fr 0.85fr; }
+  .cx-parts { grid-template-columns: 1fr; }
+  .cx-part--wide { grid-column: auto; }
+  .cx-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cx-rules div { grid-template-columns: 1fr; gap: 6px; }
+  .cx-stats { gap: 14px 28px; }
+  .cx-callouts b { font-size: 28px; }
+}
