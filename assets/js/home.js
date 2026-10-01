@@ -57,9 +57,11 @@
     const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let index = 0, ticking = false;
 
+    // Todo en medidas de getBoundingClientRect: con el zoom de pantallas
+    // grandes (scale.js) offsetHeight va en otra escala que el scroll.
     function metrics() {
       const box = scroller.getBoundingClientRect();
-      return { top: box.top, start: box.top + window.pageYOffset, len: box.height - sticky.offsetHeight };
+      return { top: box.top, start: box.top + window.pageYOffset, len: box.height - sticky.getBoundingClientRect().height };
     }
     function paint(i) {
       if (i === index) return;

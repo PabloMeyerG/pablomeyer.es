@@ -79,7 +79,7 @@
    rectangulo con halo sobre el negro de la banda). Alto limitado a la
    pantalla para que se vea entera de una vez. */
 .pg-feature { background: var(--black); color: var(--white); margin: clamp(80px, 10vw, 144px) 0; padding: clamp(40px, 6vw, 88px) 24px; }
-.pg-feature .pg-piece { width: min(560px, 100%, calc((100svh - 200px) * 5 / 7)); margin: 0 auto; }
+.pg-feature .pg-piece { width: min(560px, 100%, calc((100svh / var(--z, 1) - 200px) * 5 / 7)); margin: 0 auto; }
 .pg-feature .pg-shot { background: var(--black); }
 .pg-feature .pg-piece-meta { color: rgba(255, 255, 255, 0.6); }
 .pg-feature figcaption { justify-content: center; }

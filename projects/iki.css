@@ -139,7 +139,7 @@
    ============================================================ */
 .ik-hero {
   display: grid; grid-template-columns: 5fr 7fr;
-  min-height: 100vh; min-height: 100svh;
+  min-height: calc(100vh / var(--z, 1)); min-height: calc(100svh / var(--z, 1));
   background: var(--ik-black); color: var(--ik-white);
 }
 .ik-hero-panel {
@@ -212,12 +212,12 @@
   padding: clamp(96px, 10vw, 140px) var(--ik-m) clamp(32px, 4vw, 56px);
   max-width: var(--ik-max); margin-inline: auto;
 }
-.ik-idea-stage { display: grid; place-items: center; min-height: 60vh; }
+.ik-idea-stage { display: grid; place-items: center; min-height: calc(60vh / var(--z, 1)); }
 .ik-idea-layer { grid-area: 1 / 1; display: grid; place-items: center; text-align: center; }
 .ik-idea-mark { width: min(56vw, 760px); color: var(--ik-black); }
 .ik-idea-kanji {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
-  font-weight: 400; font-size: min(52vh, 40vw); line-height: 1; color: var(--ik-black);
+  font-weight: 400; font-size: min(calc(52vh / var(--z, 1)), 40vw); line-height: 1; color: var(--ik-black);
 }
 .ik-idea-words { font-family: var(--ik-mono); font-size: clamp(34px, 6.4vw, 104px); line-height: 1.02; letter-spacing: -0.03em; }
 .ik-idea-foot { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ik-g); align-items: end; }
@@ -230,8 +230,8 @@
 .ik-idea:not(.is-live) .ik-idea-stage { display: flex; flex-direction: column; gap: clamp(48px, 8vw, 120px); padding-block: 40px; }
 .ik-idea:not(.is-live) .ik-idea-steps { display: none; }
 
-.ik-idea.is-live { height: 320vh; }
-.ik-idea.is-live .ik-idea-stick { position: sticky; top: 0; height: 100vh; height: 100svh; }
+.ik-idea.is-live { height: calc(320vh / var(--z, 1)); }
+.ik-idea.is-live .ik-idea-stick { position: sticky; top: 0; height: calc(100vh / var(--z, 1)); height: calc(100svh / var(--z, 1)); }
 .ik-idea.is-live .ik-idea-stage { min-height: 0; }
 .ik-idea.is-live .ik-idea-layer {
   opacity: 0; transform: scale(0.985); filter: blur(8px);
@@ -369,7 +369,7 @@
 /* ============================================================
    07 · COLOR / MATERIAL
    ============================================================ */
-.ik-core { display: grid; grid-template-columns: 1fr 1fr; min-height: min(64vh, 640px); }
+.ik-core { display: grid; grid-template-columns: 1fr 1fr; min-height: min(calc(64vh / var(--z, 1)), 640px); }
 .ik-core > div { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--ik-m); }
 .ik-core-black { background: var(--ik-black); color: var(--ik-white); }
 .ik-core-white { background: var(--ik-white); border-block: 1px solid var(--ik-hair); }
@@ -714,7 +714,7 @@
 /* ============================================================
    16 · CIERRE
    ============================================================ */
-.ik-close { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; color: #fff; background: #111; display: grid; }
+.ik-close { position: relative; min-height: calc(100vh / var(--z, 1)); min-height: calc(100svh / var(--z, 1)); overflow: hidden; color: #fff; background: #111; display: grid; }
 .ik-close-img { position: absolute; inset: -6% 0; }
 .ik-close-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: brightness(0.62); }
 .ik-close-in {

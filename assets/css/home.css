@@ -12,7 +12,7 @@
    tercera fila, sin empujarlo hacia arriba. */
 #hero {
   position: relative;
-  min-height: calc(100vh - 74px); min-height: calc(100dvh - 74px);
+  min-height: calc(100vh / var(--z, 1) - 74px); min-height: calc(100dvh / var(--z, 1) - 74px);
   display: flex; flex-direction: column; align-items: center;
   padding: 24px clamp(20px,4vw,48px);
 }
@@ -122,13 +122,13 @@
    12.5% no da para el titulo y las etiquetas. */
 #work { padding-top: clamp(56px, 7vw, 88px); }
 .work-scroll { position: relative; margin: clamp(36px, 4vw, 56px) -24px 0; }
-.work-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
+.work-sticky { position: sticky; top: 0; height: calc(100vh / var(--z, 1)); height: calc(100svh / var(--z, 1)); }
 /* El recorrido crece con el numero de casos (--count en .work-scroll):
    al anadir un proyecto basta con subir el numero. */
-.work-runway { height: calc((var(--count, 3) - 1) * 70vh); pointer-events: none; }
+.work-runway { height: calc((var(--count, 3) - 1) * 70vh / var(--z, 1)); pointer-events: none; }
 
 .projects-list {
-  --row-min: clamp(104px, 12.5vh, 190px);
+  --row-min: clamp(104px, calc(12.5vh / var(--z, 1)), 190px);
   display: flex; flex-direction: column; height: 100%;
 }
 
