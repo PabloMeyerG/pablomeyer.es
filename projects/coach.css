@@ -11,46 +11,49 @@
   --cx-surface: #17161B;
   --cx-yellow: #F5E14C;
   --cx-ink-dark: rgba(255, 255, 255, 0.66); /* texto secundario sobre negro: 9:1 */
+  /* Aire entre secciones: el del portfolio recortado un 20 %, con el
+     mismo crecimiento en pantallas grandes */
+  --cx-sec: calc(var(--s-section) * 0.8);
 }
 
 /* ---------- Secciones ---------- */
-.cx-sec { padding: var(--s-section) 24px; }
+.cx-sec { padding: var(--cx-sec) 24px; }
 .cx-dark { background: var(--cx-bg); color: var(--white); }
 .cx-light { background: var(--white); }
 .cx-paper { background: var(--gray-light); }
 .cx-dark .eyebrow { color: rgba(255, 255, 255, 0.58); }
-.cx .eyebrow { display: block; margin-bottom: 18px; }
+.cx .eyebrow { display: block; margin-bottom: 16px; }
 
 .cx-h2 {
   font-size: var(--t-h2); font-weight: 900; line-height: 1.02;
-  letter-spacing: -0.035em; margin-bottom: 22px; text-wrap: balance;
+  letter-spacing: -0.035em; margin-bottom: 20px; text-wrap: balance;
 }
 .cx-h2--xl { font-size: clamp(36px, 5.2vw, 75px); max-width: 15ch; }
-.cx-h3 { font-size: var(--t-h3); font-weight: 800; letter-spacing: -0.022em; line-height: 1.2; margin-bottom: 28px; }
 .cx-p { font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 46ch; margin-bottom: 14px; text-wrap: pretty; }
 .cx-dark .cx-p { color: var(--cx-ink-dark); }
 .cx-p:last-child { margin-bottom: 0; }
-.cx-head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 72px); }
+.cx-head { max-width: 760px; margin-bottom: clamp(28px, 3.5vw, 52px); }
 .cx-k { display: block; font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
 .cx-dark .cx-k { color: var(--cx-yellow); }
-.cx-note { font-size: 15px; line-height: 1.6; color: var(--cx-ink-dark); max-width: 60ch; margin-top: clamp(28px, 3vw, 40px); }
+.cx-note { font-size: 15px; line-height: 1.6; color: var(--cx-ink-dark); max-width: 60ch; margin-top: clamp(20px, 2.4vw, 32px); }
 .cx-note--light { color: var(--gray); }
 
 /* ---------- Pantallas ----------
    Captura directa con las esquinas del iPhone (55 px sobre 402 x 874),
-   sin marco de dispositivo. Nunca por encima de 402 px: es su tamano
-   nativo. */
+   sin marco de dispositivo. El hueco reserva su proporcion (no hay
+   salto al cargar) y, mientras llega la imagen, se ve una superficie
+   gris oscura: nunca un rectangulo negro que parezca un movil vacio. */
 .cx-screen { margin: 0; width: 100%; max-width: 300px; }
 .cx-screen img {
-  width: 100%; height: auto; display: block;
+  width: 100%; height: auto; display: block; aspect-ratio: 402 / 874;
   border-radius: 13.7% / 6.3%;
-  background: var(--cx-bg);
+  background: #1C1C20;
 }
 .cx-light .cx-screen img, .cx-paper .cx-screen img { box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.45); }
 .cx-dark .cx-screen img { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.09); }
-.cx-screen--lg { max-width: 340px; }
+.cx-screen--lg { max-width: 320px; }
 .cx-screen--xl { max-width: 380px; }
-.cx figcaption { font-size: var(--t-small); font-weight: 500; color: var(--gray); margin-top: 14px; }
+.cx figcaption { font-size: var(--t-small); font-weight: 500; color: var(--gray); margin-top: 12px; }
 .cx-dark figcaption { color: rgba(255, 255, 255, 0.58); }
 .cx figcaption b { color: inherit; font-weight: 800; margin-right: 6px; }
 .cx-light figcaption b, .cx-paper figcaption b { color: var(--black); }
@@ -64,7 +67,7 @@
 /* ---------- Columnas ---------- */
 .cx-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
 .cx-split > .cx-screen { justify-self: center; }
-.cx-split--rev > :first-child { order: 0; }
+.cx-split--top { align-items: start; }
 .cx-text { min-width: 0; }
 
 /* ---------- 01 · Hero ---------- */
@@ -83,85 +86,84 @@
   font-size: var(--t-label); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
   padding: 8px 14px; border-radius: 50px; border: 1px solid var(--rule-dark); color: rgba(255, 255, 255, 0.78);
 }
+
 /* Imagenes a todo el ancho (mockups). Nunca por encima de su ancho
    nativo (1672): por fuera, el fondo de la banda continua el de la foto. */
 .cx-bleed { margin: 0 -24px; }
-.cx-bleed img { width: 100%; max-width: 1672px; height: auto; display: block; margin: 0 auto; }
+.cx-bleed img { width: 100%; max-width: 1672px; height: auto; display: block; margin: 0 auto; aspect-ratio: 1672 / 940; }
 .cx-hero-shot { margin-top: clamp(8px, 2vw, 32px); }
 /* El negro de la foto (#0C0C0C) es el fondo del hero; el fundido evita el corte */
 .cx-hero-shot img { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%); mask-image: linear-gradient(to bottom, transparent, #000 10%); }
 .cx-band { padding: 0 24px; }
+/* Las bandas intermedias no pasan de ~3/4 de pantalla de alto: se
+   recortan por arriba y abajo (fondo de la foto) en vez de ocupar una
+   pantalla entera cada una */
+.cx-band .cx-bleed img { max-height: min(78vh, 760px); object-fit: cover; }
 .cx-band--light { background: #FCFBF8; }
-.cx-band--grey { background: #ECEDEF; }
 .cx-band--dark { background: #2B2520; }
 /* Esta foto no tiene un borde liso: en pantallas mas anchas que ella se funde por los lados */
 @media (min-width: 1700px) { .cx-band--dark .cx-bleed img { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); } }
 
-/* ---------- 02 · Antes y ahora (pareja) ---------- */
-/* Que cambio de 2024 a 2026: tabla tipografica, sin pantallas (las dos
-   versiones se comparan en imagen mas abajo, en Before / after) */
+/* ---------- 02 · Revisiting Coach ----------
+   Origen, problema, investigacion y foco en una sola seccion */
 .cx-changes { width: 100%; border-collapse: collapse; font-size: clamp(15px, 1.25vw, 17px); }
 .cx .cx-changes caption { display: table-caption; text-align: left; caption-side: top; margin-bottom: 14px; }
-.cx-changes th, .cx-changes td { text-align: left; padding: 14px 12px 14px 0; border-bottom: 1px solid var(--rule-strong); vertical-align: baseline; }
+.cx-changes th, .cx-changes td { text-align: left; padding: 13px 12px 13px 0; border-bottom: 1px solid var(--rule-strong); vertical-align: baseline; }
 .cx-changes thead th { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); padding-top: 0; }
 .cx-changes tbody th { font-size: var(--t-small); font-weight: 600; color: var(--gray); width: 28%; }
 .cx-changes tbody td { color: var(--gray); }
 .cx-changes tbody td:last-child { color: var(--black); font-weight: 700; }
 .cx .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+.cx-focus-wrap { margin-top: clamp(48px, 6vw, 88px); padding-top: clamp(28px, 3vw, 40px); border-top: 1px solid var(--rule-strong); }
+.cx-scope { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: var(--gray); margin-bottom: 14px; }
+.cx-scope s { color: #8A8A90; text-decoration-thickness: 1px; }
+.cx-words { font-size: clamp(44px, 6.4vw, 104px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; text-transform: uppercase; margin-bottom: clamp(28px, 3vw, 44px); }
+.cx-words span:not(:last-child)::after { content: "."; color: #C9A900; }
+.cx-focus { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.cx-focus li { border-top: 2px solid var(--black); padding-top: 18px; }
+.cx-focus p { font-size: clamp(22px, 2vw, 30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; max-width: 12ch; }
+.cx-focus small { display: block; margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--gray); }
+
 /* Dos pantallas juntas (feedback, nutricion); --stagger baja la segunda */
 .cx-duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 28px); align-items: start; }
 .cx-duo figure { margin: 0; }
-.cx-duo .cx-screen { max-width: 280px; margin-inline: auto; }
+.cx-duo .cx-screen { max-width: 240px; margin-inline: auto; }
 .cx-duo figcaption { text-align: center; }
 .cx-duo--stagger figure:last-child { margin-top: 14%; }
+/* En nutricion la vista general es la protagonista */
+.cx-duo--lead { grid-template-columns: 1.2fr 1fr; }
+.cx-duo--lead figure:first-child .cx-screen { max-width: 300px; }
 
-/* ---------- 03 · Problema ---------- */
-.cx-scope { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: rgba(255, 255, 255, 0.58); margin-bottom: 18px; }
-.cx-scope s { color: rgba(255, 255, 255, 0.4); text-decoration-thickness: 1px; }
-.cx-words { list-style: none; display: flex; flex-wrap: wrap; gap: 0 0.4em; font-size: clamp(44px, 7.2vw, 118px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; text-transform: uppercase; }
-.cx-words li:not(:last-child)::after { content: "."; color: var(--cx-yellow); }
-.cx-insights { margin-top: clamp(64px, 8vw, 120px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule-dark); }
-.cx-insight-list, .cx-focus { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
-.cx-insight-list p { font-size: var(--t-h3); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; max-width: 16ch; }
-
-/* ---------- 04 · Foco ---------- */
-.cx-focus li { border-top: 2px solid var(--black); padding-top: 20px; }
-.cx-focus p { font-size: clamp(24px, 2.4vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; max-width: 12ch; }
-.cx-navcrop { margin: clamp(48px, 6vw, 80px) auto 0; max-width: 402px; text-align: center; }
-.cx-navcrop .cx-crop { border-radius: 20px; }
-
-/* ---------- 05 · Onboarding y plan ---------- */
+/* ---------- 03 · Onboarding y plan ---------- */
 .cx-steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
-.cx-steps .cx-screen { max-width: 250px; } /* nunca por encima de 402: tamano nativo */
-.cx-step { display: block; font-size: var(--t-small); font-weight: 700; margin-bottom: 14px; }
-.cx-split--plan { margin-top: clamp(64px, 7vw, 110px); align-items: start; }
-.cx-split--plan .cx-rules { margin-top: 0; }
-.cx-rules { margin-top: clamp(28px, 3vw, 40px); border-top: 1px solid var(--rule-strong); }
-.cx-rules div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule-strong); }
+.cx-steps .cx-screen { max-width: 220px; }
+.cx-step { display: block; font-size: var(--t-small); font-weight: 700; margin-bottom: 12px; }
+.cx-split--plan { margin-top: clamp(48px, 5vw, 80px); align-items: start; }
+.cx-rules { border-top: 1px solid var(--rule-strong); }
+.cx-rules div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--rule-strong); }
 .cx-rules dt { font-size: clamp(22px, 2.2vw, 32px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
 .cx-rules dd { font-size: 16px; color: var(--ink-soft); }
 
-/* ---------- 06 · Today ---------- */
-.cx-split--today { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-.cx-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; margin: clamp(28px, 3vw, 40px) 0; padding: 24px 0; border-top: 1px solid var(--rule-dark); border-bottom: 1px solid var(--rule-dark); font-size: 15px; color: var(--cx-ink-dark); }
+/* ---------- 04 · Today ---------- */
+.cx-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; margin: clamp(24px, 2.6vw, 36px) 0; padding: 22px 0; border-top: 1px solid var(--rule-dark); border-bottom: 1px solid var(--rule-dark); font-size: 15px; color: var(--cx-ink-dark); }
 .cx-stats b { display: block; font-size: clamp(34px, 3.6vw, 52px); font-weight: 900; letter-spacing: -0.04em; color: var(--white); line-height: 1; margin-bottom: 4px; }
 .cx-quote { font-size: clamp(20px, 1.9vw, 26px); font-weight: 600; line-height: 1.35; letter-spacing: -0.015em; color: var(--cx-yellow); max-width: 28ch; quotes: none; }
 /* Mensaje de nutricion: mismo recurso que el de Today, sobre blanco */
-.cx-quote--light { color: var(--black); font-size: clamp(18px, 1.6vw, 22px); margin-top: clamp(28px, 3vw, 40px); padding-left: 18px; border-left: 3px solid #FF5C85; }
+.cx-quote--light { color: var(--black); font-size: clamp(18px, 1.6vw, 22px); margin-top: clamp(24px, 2.6vw, 36px); padding-left: 18px; border-left: 3px solid #FF5C85; }
 .cx-quote span { display: block; font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
 
-/* ---------- 07 · Tiempo ---------- */
-.cx-times { display: flex; align-items: baseline; gap: clamp(10px, 1.2vw, 16px); margin: clamp(28px, 3vw, 40px) 0 24px; }
+/* ---------- 05 · Tiempo ---------- */
+.cx-times { display: flex; align-items: baseline; gap: clamp(10px, 1.2vw, 16px); margin: clamp(24px, 2.6vw, 36px) 0 22px; }
 .cx-times span {
   font-size: clamp(40px, 4.8vw, 72px); font-weight: 900; letter-spacing: -0.045em; line-height: 1;
   padding: 0.12em 0.32em; border-radius: 999px; color: var(--gray);
 }
 .cx-times .is-on { background: var(--cx-yellow); color: var(--black); }
 .cx-times small { font-size: 15px; font-weight: 600; color: var(--gray); }
-.cx-close { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.35; max-width: 30ch; padding-top: 20px; border-top: 2px solid var(--black); }
+.cx-close { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.35; max-width: 30ch; padding-top: 18px; border-top: 2px solid var(--black); }
 
-/* ---------- 08 · Entreno en curso ---------- */
+/* ---------- 06 · Entreno en curso, descanso y feedback ---------- */
 .cx-active { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.8fr) minmax(0, 0.9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
 .cx-active > .cx-screen--xl { justify-self: end; }
 .cx-callouts { list-style: none; display: grid; gap: 0; border-top: 1px solid var(--rule-dark); }
@@ -170,7 +172,8 @@
 .cx-callouts b { font-size: clamp(26px, 2.6vw, 38px); font-weight: 900; letter-spacing: -0.035em; line-height: 1; }
 .cx-callouts li:last-child b { color: var(--cx-yellow); }
 .cx-active-rest { max-width: 240px; justify-self: start; }
-.cx-split--feedback { margin-top: clamp(80px, 10vw, 150px); }
+/* El feedback sigue al entreno sin una pantalla de aire en medio */
+.cx-split--feedback { margin-top: clamp(56px, 6vw, 96px); padding-top: clamp(40px, 4vw, 64px); border-top: 1px solid var(--rule-dark); }
 
 /* Video (oculto hasta que exista el archivo) */
 .cx-video { padding-top: 0; }
@@ -178,55 +181,54 @@
 .cx-video-fig { margin: 0 auto; max-width: 340px; text-align: center; }
 .cx-video video { width: 100%; height: auto; display: block; border-radius: 13.7% / 6.3%; background: var(--cx-surface); }
 
-/* ---------- 09 · Nutricion ---------- */
-.cx-kcal { font-size: 18px; font-weight: 600; color: var(--gray); margin: clamp(28px, 3vw, 40px) 0 18px; }
+/* ---------- 07 · Nutricion ---------- */
+.cx-kcal { font-size: 18px; font-weight: 600; color: var(--gray); margin: clamp(24px, 2.6vw, 36px) 0 16px; }
 .cx-kcal b { font-size: clamp(48px, 5.6vw, 84px); font-weight: 900; letter-spacing: -0.05em; color: #E8336A; line-height: 1; margin-right: 6px; }
 .cx-macros { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .cx-macros li { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 50px; background: var(--gray-light); }
 .cx-macros li::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--black)); }
 
-/* ---------- 10 · Registro de comida ---------- */
-.cx-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: clamp(26px, 3.4vw, 50px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: clamp(40px, 5vw, 64px); }
+/* ---------- 08 · Registro de comida ----------
+   Flujo principal en dos pantallas; el escaner, mas pequeno, como ruta alternativa */
+.cx-food-head { align-items: end; margin-bottom: clamp(28px, 3.5vw, 52px); }
+.cx-food-head .cx-head { margin-bottom: 0; }
+.cx-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: clamp(22px, 2.3vw, 34px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
 .cx-flow i { font-style: normal; font-weight: 400; color: var(--gray); }
-.cx-food { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.cx-food { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.8fr); gap: clamp(20px, 3vw, 48px); align-items: end; }
 .cx-food figure { margin: 0; }
-.cx-food .cx-screen { max-width: 300px; }
+.cx-food .cx-screen { max-width: 270px; }
+.cx-food-alt .cx-screen { max-width: 210px; }
 
-/* ---------- 11 · Progreso ---------- */
-.cx-list { list-style: none; margin-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--rule-dark); }
-.cx-list li { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; letter-spacing: -0.015em; padding: 14px 0; border-bottom: 1px solid var(--rule-dark); }
-.cx-list li:first-child { color: var(--cx-yellow); }
-
-/* ---------- 12 · Sistema ---------- */
-.cx-swatches { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin-bottom: clamp(24px, 3vw, 40px); }
-/* Datos del sistema, tal cual estan en el archivo de Figma (DS · Foundations) */
-.cx-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; margin-bottom: clamp(32px, 4vw, 56px); border-top: 1px solid var(--rule-strong); }
-.cx-facts div { padding-top: 16px; }
-.cx-facts dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-.cx-facts dd { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; letter-spacing: -0.015em; }
-.cx-swatches li { background: var(--c); color: var(--white); border-radius: 16px; aspect-ratio: 1 / 1.15; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); }
+/* ---------- 10 · Sistema ---------- */
+.cx-swatches { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin-bottom: clamp(20px, 2.4vw, 32px); }
+.cx-swatches li { background: var(--c); color: var(--white); border-radius: 16px; aspect-ratio: 1 / 1; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); }
 .cx-swatches li.is-light { color: var(--black); }
 .cx-swatches b { font-size: 13px; font-weight: 800; line-height: 1.2; }
 .cx-swatches span { font-family: var(--mono); font-size: 12px; opacity: 0.8; }
+/* Datos del sistema, tal cual estan en el archivo de Figma (DS · Foundations) */
+.cx-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; margin-bottom: clamp(24px, 3vw, 40px); border-top: 1px solid var(--rule-strong); }
+.cx-facts div { padding-top: 16px; }
+.cx-facts dt { font-size: var(--t-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.cx-facts dd { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; letter-spacing: -0.015em; }
 .cx-parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.cx-part { margin: 0; background: var(--cx-bg); border-radius: 20px; padding: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-height: 180px; }
+.cx-part { margin: 0; background: var(--cx-bg); border-radius: 20px; padding: clamp(16px, 2vw, 24px); display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 150px; }
 .cx-part .cx-crop { margin: auto; }
 .cx-part figcaption { margin: 0; color: rgba(255, 255, 255, 0.66); font-weight: 600; }
 .cx-part--wide { grid-column: span 2; }
-.cx-illus { width: 100%; max-width: 200px; margin: auto; }
+.cx-illus { width: 100%; max-width: 120px; margin: auto; }
 .cx-part:has(.cx-illus) { background: #0C0C0E; } /* el fondo de la ilustracion */
 .cx-illus img { width: 100%; height: auto; display: block; }
 
-/* ---------- 13 · Antes / despues ---------- */
+/* ---------- 11 · Antes / despues ---------- */
 .cx-ba { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: center; }
 .cx-ba figure { margin: 0; }
-.cx-ba-old .cx-screen { max-width: 330px; margin-left: auto; } /* mismo tamano que la nueva: pantalla contra pantalla */
+.cx-ba-old .cx-screen { max-width: 320px; margin-left: auto; } /* mismo tamano que la nueva: pantalla contra pantalla */
 .cx-ba-old figcaption { text-align: right; }
-.cx-ba-new .cx-screen { max-width: 330px; }
+.cx-ba-new .cx-screen { max-width: 320px; }
 .cx-ba-arrow { font-size: clamp(32px, 4vw, 64px); font-weight: 300; color: var(--cx-yellow); }
 
-/* ---------- 14 · Cierre ---------- */
-.cx-final-head { text-align: center; margin-bottom: clamp(40px, 5vw, 72px); }
+/* ---------- 12 · Cierre ---------- */
+.cx-final-head { text-align: center; margin-bottom: clamp(32px, 4vw, 56px); }
 .cx-title--dark { color: var(--black); }
 .cx-final .cx-hero-sub { margin-inline: auto; }
 .cx-meta { font-size: var(--t-small); font-weight: 600; color: var(--gray); letter-spacing: 0.02em; }
@@ -239,17 +241,19 @@
   .cx-swatches { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
-/* Movil y tablet vertical: una sola columna, siempre texto -> pantalla */
+/* Movil y tablet vertical: una sola columna, siempre titulo -> texto -> imagen */
 @media (max-width: 900px) {
   .cx-hero { padding-top: 120px; }
-  .cx-hero-grid, .cx-split, .cx-split--today, .cx-active { grid-template-columns: 1fr; }
+  .cx-hero-grid, .cx-split, .cx-active { grid-template-columns: 1fr; }
   .cx-split > .cx-text { order: -1; }
   .cx-split > .cx-screen, .cx-active > .cx-screen--xl { justify-self: center; }
-  .cx-insight-list, .cx-focus { grid-template-columns: 1fr; gap: 28px; }
-  .cx-steps { grid-template-columns: repeat(4, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; margin: 0 -24px; padding: 0 24px 12px; }
-  .cx-steps li { scroll-snap-align: start; }
-  .cx-food { grid-template-columns: 1fr; justify-items: center; gap: 48px; }
-  .cx-food figure { width: 100%; max-width: 300px; }
+  .cx-focus { grid-template-columns: 1fr; gap: 24px; }
+  /* Onboarding en rejilla 2 x 2, no en carrusel: en un carrusel
+     horizontal las pantallas de la derecha no cargaban hasta deslizar */
+  .cx-steps { grid-template-columns: 1fr 1fr; gap: 24px 14px; max-width: 480px; margin-inline: auto; }
+  .cx-food { grid-template-columns: 1fr 1fr; gap: 24px 14px; align-items: start; }
+  .cx-food-alt { grid-column: 1 / -1; justify-self: center; width: 60%; }
+  .cx-food-head { gap: 20px; }
   .cx-parts { grid-template-columns: 1fr 1fr; }
   /* En movil siguen lado a lado: la comparacion se entiende de un vistazo */
   .cx-ba { grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
@@ -260,11 +264,22 @@
 @media (max-width: 600px) {
   .cx-facts { grid-template-columns: 1fr 1fr; }
   /* Los mockups horizontales se recortan al centro para que el movil no quede diminuto */
-  .cx-bleed img { aspect-ratio: 5 / 4; object-fit: cover; }
+  .cx-bleed img, .cx-band .cx-bleed img { aspect-ratio: 5 / 4; object-fit: cover; max-height: none; }
   .cx-parts { grid-template-columns: 1fr; }
   .cx-part--wide { grid-column: auto; }
   .cx-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cx-rules div { grid-template-columns: 1fr; gap: 6px; }
   .cx-stats { gap: 14px 28px; }
   .cx-callouts b { font-size: 28px; }
+  .cx-duo--lead { grid-template-columns: 1fr 1fr; }
+}
+
+/* Cabecera movil: zonas tactiles de ~44 px sin cambiar su aspecto.
+   Solo en esta pagina (coach.css no se carga en las demas). */
+@media (max-width: 900px) {
+  .nav-case .nav-back { min-height: 44px; }
+  .nav-case .nav-lang--mini a { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-case .nav-logo, .nav-case .nav-cta { position: relative; }
+  .nav-case .nav-logo::after { content: ''; position: absolute; inset: -7px; }
+  .nav-case .nav-cta::after { content: ''; position: absolute; inset: -5px -2px; }
 }
