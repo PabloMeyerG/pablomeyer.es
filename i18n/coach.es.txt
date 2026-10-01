@@ -20,7 +20,7 @@ alt="Three Coach screens on a dark background: Today, an active shoulder press s
 Revisiting an old project. ||| Volver a un proyecto antiguo.
 Coach started as an academic UX/UI project built around workout planning, calorie tracking and progress monitoring. ||| Coach nació como un proyecto académico de UX/UI centrado en planificar entrenos, contar calorías y seguir el progreso.
 I revisited the product to simplify its structure, clarify its priorities and rebuild the experience around one idea: fitness plans should adapt to real life, not the other way around. ||| Lo he revisado para simplificar su estructura, aclarar sus prioridades y reconstruir la experiencia en torno a una idea: el plan de entreno debe adaptarse a la vida real, y no al revés.
-alt="2024 version: daily workout screen listing five exercises with sets and reps" ||| alt="Versión de 2024: pantalla del entreno del día con cinco ejercicios, series y repeticiones"
+alt="2024 version: home screen led by the calorie summary, with activity and nutrition lists" ||| alt="Versión de 2024: inicio encabezado por el resumen de calorías, con listas de actividad y nutrición"
 alt="2026 version: Today screen on the first day, with the first session and an empty streak" ||| alt="Versión de 2026: pantalla Hoy el primer día, con la primera sesión y la racha vacía"
 <figcaption><b>2024</b> Original</figcaption> ||| <figcaption><b>2024</b> Original</figcaption>
 <figcaption><b>2026</b> Redesign</figcaption> ||| <figcaption><b>2026</b> Rediseño</figcaption>

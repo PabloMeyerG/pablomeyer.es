@@ -95,10 +95,9 @@
 .cx-band--grey { background: #ECEDEF; }
 
 /* ---------- 02 · Antes y ahora (pareja) ---------- */
-.cx-pair { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(16px, 2vw, 28px); align-items: end; }
+.cx-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); align-items: end; }
 .cx-pair figure { margin: 0; }
-.cx-old img { width: 100%; height: auto; display: block; filter: saturate(0.85); }
-.cx-new .cx-screen { max-width: 260px; }
+.cx-pair .cx-screen { max-width: 260px; } /* antes y ahora al mismo tamano */
 
 /* ---------- 03 · Problema ---------- */
 .cx-scope { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: rgba(255, 255, 255, 0.58); margin-bottom: 18px; }
@@ -237,7 +236,6 @@
 @media (max-width: 600px) {
   /* Los mockups horizontales se recortan al centro para que el movil no quede diminuto */
   .cx-bleed img { aspect-ratio: 5 / 4; object-fit: cover; }
-  .cx-pair { grid-template-columns: 1fr 0.85fr; }
   .cx-parts { grid-template-columns: 1fr; }
   .cx-part--wide { grid-column: auto; }
   .cx-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
