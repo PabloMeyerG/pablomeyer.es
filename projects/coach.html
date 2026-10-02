@@ -67,7 +67,7 @@
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="project.css">
 <link rel="stylesheet" href="coach.css">
-<noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.fade-up{opacity:1!important;transform:none!important}.cx-scope-big s::after{transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -95,16 +95,26 @@
 
 <main id="main" class="cx">
 
-<!-- 01 · Hero -->
+<!-- ============================================================
+     Coach como presentacion de producto (2026-10-02).
+     Todo en el negro de la app. El recorrido central (.cx-tour) fija
+     un iPhone mientras los pasos pasan al lado; en movil el iPhone se
+     queda arriba y los pasos pasan debajo.
+     ============================================================ -->
+
+<!-- Hero -->
 <header class="cx-hero">
-  <div class="container cx-hero-grid fade-up">
-    <h1 class="cx-title">Coach</h1>
-    <div class="cx-hero-text">
-      <p class="cx-hero-sub">An adaptive fitness companion for training, nutrition and progress.</p>
-      <p class="cx-hero-copy">Coach helps users know what to do today, adapt their workout to the time they have, and keep training and nutrition in one simple experience.</p>
-      <ul class="cx-tags" aria-label="Project details">
-        <li>Product Design</li><li>UX/UI</li><li>Mobile App</li><li>2026</li>
-      </ul>
+  <div class="container">
+    <p class="cx-kicker fade-up">Case 02 · Product redesign · iOS</p>
+    <h1 class="cx-title"><span class="cx-title-in">Coach</span></h1>
+    <div class="cx-hero-row fade-up">
+      <p class="cx-hero-sub">Training and nutrition for weeks that rarely go to plan.</p>
+      <dl class="cx-ficha" aria-label="Project details">
+        <div><dt>Role</dt><dd>Product design, solo</dd></div>
+        <div><dt>Timeline</dt><dd>2024 project · 2026 redesign</dd></div>
+        <div><dt>Platform</dt><dd>iOS</dd></div>
+        <div><dt>Tools</dt><dd>Figma</dd></div>
+      </dl>
     </div>
   </div>
   <figure class="cx-bleed cx-hero-shot">
@@ -112,16 +122,26 @@
   </figure>
 </header>
 
-<!-- 02 · Revisiting Coach: origen, problema, investigacion y foco en una sola seccion -->
-<section class="cx-sec cx-light">
+<!-- 01 · El problema: manifiesto que se enciende palabra a palabra -->
+<section class="cx-sec" aria-labelledby="cx-problem">
   <div class="container">
-    <div class="cx-split cx-split--top">
-      <div class="cx-text fade-up">
-        <p class="eyebrow">Revisiting Coach</p>
-        <h2 class="cx-h2">Too much product, not enough focus.</h2>
-        <p class="cx-p">Coach started as an academic UX/UI project that tried to cover training, nutrition, progress, social features and community at once.</p>
-        <p class="cx-p">The redesign was less about adding and more about deciding what deserved attention.</p>
-      </div>
+    <p class="cx-chap fade-up"><span>01</span>The problem</p>
+    <h2 class="visually-hidden" id="cx-problem">Too much product, not enough focus</h2>
+    <p class="cx-reveal" data-reveal>In 2024 Coach tried to cover training, nutrition, progress, social features and community at once. For the 2026 redesign I cut it back to what people asked about in the research, and gave every screen one job.</p>
+
+    <div class="cx-scope-wrap">
+      <p class="eyebrow fade-up">Scope, 2024 → 2026</p>
+      <p class="cx-scope-big fade-up" aria-label="Original scope: training, nutrition, social, progress, community. Kept: training, nutrition and progress.">
+        <span>Training</span> <span>Nutrition</span> <s>Social</s> <span>Progress</span> <s>Community</s>
+      </p>
+    </div>
+
+    <div class="cx-problem-grid">
+      <ol class="cx-questions">
+        <li class="fade-up"><span class="cx-qnum" aria-hidden="true">01</span><span class="cx-k">Today</span><p>What should I do today?</p><small>Research: clear routines and guidance.</small></li>
+        <li class="fade-up"><span class="cx-qnum" aria-hidden="true">02</span><span class="cx-k">Nutrition</span><p>How am I doing today?</p><small>Research: simple daily tracking.</small></li>
+        <li class="fade-up"><span class="cx-qnum" aria-hidden="true">03</span><span class="cx-k">Progress</span><p>How is my week going?</p><small>Research: visible signs of improvement.</small></li>
+      </ol>
       <table class="cx-changes fade-up">
         <caption class="eyebrow">What changed</caption>
         <thead><tr><th scope="col"><span class="visually-hidden">Area</span></th><th scope="col">2024</th><th scope="col">2026</th></tr></thead>
@@ -134,159 +154,114 @@
         </tbody>
       </table>
     </div>
-
-    <div class="cx-focus-wrap">
-      <p class="cx-scope fade-up" aria-label="Original scope: training, nutrition, social, progress, community. Kept: training, nutrition and progress.">
-        <span>Training</span><span>Nutrition</span><s>Social</s><span>Progress</span><s>Community</s>
-      </p>
-      <h3 class="cx-words fade-up"><span>Train</span> <span>Eat</span> <span>Progress</span></h3>
-      <ol class="cx-focus">
-        <li class="fade-up"><span class="cx-k">Today</span><p>What should I do today?</p><small>Research: clear routines and guidance.</small></li>
-        <li class="fade-up"><span class="cx-k">Nutrition</span><p>How am I doing today?</p><small>Research: simple daily tracking.</small></li>
-        <li class="fade-up"><span class="cx-k">Progress</span><p>How is my week going?</p><small>Research: visible signs of improvement.</small></li>
-      </ol>
-      <p class="cx-note cx-note--light fade-up">Usability testing also showed friction in food logging, one of the flows simplified in the redesign.</p>
-    </div>
   </div>
 </section>
 
-<!-- Banda a sangre: las tres areas juntas -->
-<section class="cx-band cx-band--dark" aria-label="Coach screens">
+<!-- Banda a sangre -->
+<section class="cx-band" aria-label="Coach screens: training, nutrition and progress">
   <figure class="cx-bleed">
     <picture><source type="image/avif" srcset="../assets/img/projects/coach/mockups/five-dark-system.avif"><img src="../assets/img/projects/coach/mockups/five-dark-system.jpg" width="1672" height="940" alt="Five Coach screens on pedestals: Nutrition, Progress, Today, rest timer and active workout" loading="lazy" decoding="async"></picture>
   </figure>
 </section>
 
-<!-- 03 · Onboarding + plan -->
-<section class="cx-sec cx-paper">
+<!-- 02 · El producto: recorrido con el iPhone fijo -->
+<section class="cx-sec cx-sec--tour" aria-labelledby="cx-product">
   <div class="container">
-    <div class="cx-head fade-up">
-      <p class="eyebrow">Onboarding</p>
-      <h2 class="cx-h2">A plan built around the user.</h2>
-      <p class="cx-p">Instead of generic programmes, Coach builds the starting plan from four practical inputs.</p>
+    <p class="cx-chap fade-up"><span>02</span>The product</p>
+    <h2 class="cx-h2 cx-h2--lead fade-up" id="cx-product">A week with Coach, one screen at a time.</h2>
+  </div>
+
+  <div class="container cx-tour" data-tour>
+    <div class="cx-tour-phone">
+      <div class="cx-device">
+        <div class="cx-device-screen">
+          <figure class="cx-shot is-active" data-step="1"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-goal.avif"><img src="../assets/img/projects/coach/app/onb-goal.jpg" width="402" height="874" alt="Onboarding, step 2 of 4: choose a goal, with build strength selected" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot cx-anno" data-step="2" data-anno>
+            <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Today screen: the next workout card first, then the weekly streak, calories burned and eaten" loading="lazy" decoding="async"></picture>
+            <span class="cx-anno-box" data-n="1" style="--x: 4%; --y: 17.7%; --w: 92%; --h: 31%;" aria-hidden="true"></span>
+            <span class="cx-anno-box" data-n="2" style="--x: 8%; --y: 24.4%; --w: 76%; --h: 4.8%;" aria-hidden="true"></span>
+            <span class="cx-anno-box" data-n="3" style="--x: 4%; --y: 51%; --w: 92%; --h: 13.1%;" aria-hidden="true"></span>
+            <span class="cx-anno-box" data-n="4" style="--x: 4%; --y: 66.3%; --w: 92%; --h: 10.4%;" aria-hidden="true"></span>
+            <span class="cx-anno-box" data-n="5" style="--x: 5%; --y: 88.8%; --w: 90%; --h: 7.4%;" aria-hidden="true"></span>
+            <span class="cx-anno-dot" data-n="1" style="--x: 91.5%; --y: 21.6%;" aria-hidden="true">1</span>
+            <span class="cx-anno-dot" data-n="2" style="--x: 89%; --y: 26.8%;" aria-hidden="true">2</span>
+            <span class="cx-anno-dot" data-n="3" style="--x: 50%; --y: 54.1%;" aria-hidden="true">3</span>
+            <span class="cx-anno-dot" data-n="4" style="--x: 50%; --y: 71.5%;" aria-hidden="true">4</span>
+            <span class="cx-anno-dot" data-n="5" style="--x: 93%; --y: 92.4%;" aria-hidden="true">5</span>
+          </figure>
+          <figure class="cx-shot" data-step="3"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-overview.avif"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Workout overview: why today, duration, and a 20, 32 or 45 minute selector with 32 selected" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="4"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-active.avif"><img src="../assets/img/projects/coach/app/workout-active.jpg" width="402" height="874" alt="Active workout: shoulder press illustration, set 2 of 3, 10 reps, 9 kg, set done button" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="5"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-rest.avif"><img src="../assets/img/projects/coach/app/workout-rest.jpg" width="402" height="874" alt="Rest timer: 37 seconds left of 1 minute, next set of shoulder press" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="6"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-complete.avif"><img src="../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="Workout complete: 33 minutes, 8 of 8 exercises, and how did it feel from 1 to 5, with Good selected" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="7"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/nutrition.avif"><img src="../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Nutrition screen: 1,640 of 2,300 kcal ring, burned and remaining calories, and macro bars" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="8"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-detail.avif"><img src="../assets/img/projects/coach/app/food-detail.jpg" width="402" height="874" alt="Grilled salmon: quantity stepper and presets, macros, meal selector and add to dinner button" loading="lazy" decoding="async"></picture></figure>
+          <figure class="cx-shot" data-step="9"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/progress.avif"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="Progress screen: weekly bar chart of calories burned, workouts, active time, daily average and streak" loading="lazy" decoding="async"></picture></figure>
+        </div>
+      </div>
+      <p class="cx-tour-count" aria-hidden="true"><span data-tour-count>01</span><i>/ 09</i></p>
     </div>
-    <ol class="cx-steps" aria-label="Onboarding steps">
-      <li class="fade-up">
-        <span class="cx-step">01 · Experience</span>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-level.avif"><img src="../assets/img/projects/coach/app/onb-level.jpg" width="402" height="874" alt="Step 1 of 4: how long have you been training" loading="lazy" decoding="async"></picture></div>
+
+    <ol class="cx-tour-steps">
+      <li class="cx-step" data-step="1">
+        <p class="cx-step-k">Onboarding</p>
+        <h3 class="cx-step-h">Four answers, then a plan.</h3>
+        <p class="cx-step-p">Experience, goal, available days and where the user trains. Connecting Apple Health is optional. The first week comes from those answers and keeps changing with the user's schedule and feedback.</p>
       </li>
-      <li class="fade-up">
-        <span class="cx-step">02 · Goal</span>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-goal.avif"><img src="../assets/img/projects/coach/app/onb-goal.jpg" width="402" height="874" alt="Step 2 of 4: choose a goal, with build strength selected" loading="lazy" decoding="async"></picture></div>
+      <li class="cx-step" data-step="2">
+        <p class="cx-step-k">Today</p>
+        <h3 class="cx-step-h">One clear answer: what should I do today?</h3>
+        <p class="cx-step-p">The 2024 home opened on calories. In 2026 it opens on the next workout and the reason Coach chose it.</p>
+        <ol class="cx-legend" aria-label="Notes on the Today screen">
+          <li data-n="1"><b>Next workout first</b><span>Length, exercises and intensity, with Start one tap away.</span></li>
+          <li data-n="2"><b>The reason in one line</b><span>A plan that changes on its own needs to say why.</span></li>
+          <li data-n="3"><b>Streak against the week</b><span>Four of five planned workouts done.</span></li>
+          <li data-n="4"><b>Burned and eaten side by side</b><span>Training and food on one screen; detail lives in each tab.</span></li>
+          <li data-n="5"><b>Three tabs</b><span>Today, Nutrition and Progress. The 2024 version had five.</span></li>
+        </ol>
       </li>
-      <li class="fade-up">
-        <span class="cx-step">03 · Availability</span>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-availability.avif"><img src="../assets/img/projects/coach/app/onb-availability.jpg" width="402" height="874" alt="Step 3 of 4: training days, Monday to Friday selected, and usual duration" loading="lazy" decoding="async"></picture></div>
+      <li class="cx-step" data-step="3">
+        <p class="cx-step-k">Before starting</p>
+        <h3 class="cx-step-h">The session fits the time available.</h3>
+        <p class="cx-step-p">A 45-minute plan is useless when the user only has 20. The session shortens or stretches without losing its focus.</p>
+        <p class="cx-times" aria-label="Session lengths: 20, 32 or 45 minutes"><span>20</span><span class="is-on">32</span><span>45</span><small>min</small></p>
       </li>
-      <li class="fade-up">
-        <span class="cx-step">04 · Environment</span>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/onb-place.avif"><img src="../assets/img/projects/coach/app/onb-place.jpg" width="402" height="874" alt="Step 4 of 4: where you train, at home, with dumbbells and a mat" loading="lazy" decoding="async"></picture></div>
+      <li class="cx-step" data-step="4">
+        <p class="cx-step-k">During a set</p>
+        <h3 class="cx-step-h">Less interface when attention matters most.</h3>
+        <p class="cx-step-p">Set, reps, weight and what comes next, with large controls and Set done as the main action.</p>
+      </li>
+      <li class="cx-step" data-step="5">
+        <p class="cx-step-k">Between sets</p>
+        <h3 class="cx-step-h">Rest is part of the plan.</h3>
+        <p class="cx-step-p">A one-minute timer, the next set already loaded and +15 s for when the last set was harder than planned.</p>
+      </li>
+      <li class="cx-step" data-step="6">
+        <p class="cx-step-k">After</p>
+        <h3 class="cx-step-h">The plan learns from the session.</h3>
+        <p class="cx-step-p">A rating from 1 to 5 shapes the next workout. Stopping early saves what was done and rebalances the rest of the week.</p>
+      </li>
+      <li class="cx-step" data-step="7">
+        <p class="cx-step-k">Nutrition</p>
+        <h3 class="cx-step-h">Nutrition without a calorie database.</h3>
+        <p class="cx-step-p">Calories, macros and meals for today. Goals follow the plan, with more calories and carbs on training days.</p>
+        <div class="cx-msg"><span>In-app message · upper body day</span><p>You're 42 g short on protein. A salmon or chicken dinner covers it.</p></div>
+      </li>
+      <li class="cx-step" data-step="8">
+        <p class="cx-step-k">Food logging</p>
+        <h3 class="cx-step-h">Fewer decisions to add a meal.</h3>
+        <p class="cx-step-p">The 2024 usability test flagged food logging. Recent foods now sit above the search field, and amount, macros and meal fit on one screen, with today's protein updated before adding.</p>
+      </li>
+      <li class="cx-step" data-step="9">
+        <p class="cx-step-k">Progress</p>
+        <h3 class="cx-step-h">A weekly view of effort and consistency.</h3>
+        <p class="cx-step-p">Calories burned lead the week. Workouts, active time, daily average and streak add the context.</p>
       </li>
     </ol>
-    <p class="cx-note cx-note--light fade-up">Apple Health is an optional extra, not a requirement.</p>
-
-    <div class="cx-split cx-split--plan">
-      <div class="cx-text fade-up">
-        <h3 class="cx-h2">The plan is only the starting point.</h3>
-        <p class="cx-p">The first week is generated for the user, then changes with their schedule and feedback.</p>
-      </div>
-      <dl class="cx-rules fade-up">
-        <div><dt>Less time</dt><dd>The session gets shorter.</dd></div>
-        <div><dt>More effort</dt><dd>The load can be adjusted.</dd></div>
-        <div><dt>Missed day</dt><dd>The week is reorganised.</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-
-<!-- Banda a sangre: plan listo como protagonista -->
-<section class="cx-band cx-band--light" aria-label="Coach screens">
-  <figure class="cx-bleed">
-    <picture><source type="image/avif" srcset="../assets/img/projects/coach/mockups/trio-light-plan.avif"><img src="../assets/img/projects/coach/mockups/trio-light-plan.jpg" width="1672" height="940" alt="Three Coach screens: Today, Your plan is ready and Progress" loading="lazy" decoding="async"></picture>
-  </figure>
-</section>
-
-<!-- 04 · Today -->
-<section class="cx-sec cx-dark cx-today">
-  <div class="container">
-    <div class="cx-split cx-split--today">
-      <figure class="cx-screen cx-screen--xl fade-up">
-        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Today screen: the next workout card first, then the weekly streak, calories burned and eaten" loading="lazy" decoding="async"></picture>
-      </figure>
-      <div class="cx-text fade-up">
-        <p class="eyebrow">Today</p>
-        <h2 class="cx-h2 cx-h2--xl">One clear answer: what should I do today?</h2>
-        <p class="cx-p">The home screen leads with the next workout and why Coach chose it, instead of every metric at once.</p>
-        <ul class="cx-stats" aria-label="Today's session">
-          <li><b>32</b> min</li><li><b>8</b> exercises</li><li><b>Medium</b> intensity</li>
-        </ul>
-        <blockquote class="cx-quote">“Adapted to your week: you biked 45 min yesterday, so your legs rest today.”</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 · Tiempo disponible -->
-<section class="cx-sec cx-light">
-  <div class="container cx-split">
-    <div class="cx-text fade-up">
-      <p class="eyebrow">Workout overview</p>
-      <h2 class="cx-h2">The workout adapts to the time available.</h2>
-      <p class="cx-p">A 45-minute plan is useless when the user only has 20. Before starting, the session can be shortened or extended without losing its focus.</p>
-      <p class="cx-times" aria-label="Session lengths: 20, 32 or 45 minutes"><span>20</span><span class="is-on">32</span><span>45</span><small>min</small></p>
-      <p class="cx-close">Missing the perfect workout should not mean missing the workout entirely.</p>
-    </div>
-    <figure class="cx-screen cx-screen--lg fade-up">
-      <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-overview.avif"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Workout overview: why today, duration, and a 20, 32 or 45 minute selector with 32 selected" loading="lazy" decoding="async"></picture>
-    </figure>
-  </div>
-</section>
-
-<!-- 06 · Entreno en curso, descanso y feedback -->
-<section class="cx-sec cx-dark">
-  <div class="container">
-    <div class="cx-head fade-up">
-      <p class="eyebrow">Active workout</p>
-      <h2 class="cx-h2">Less interface when attention matters most.</h2>
-      <p class="cx-p">During a set, the screen keeps only what the exercise needs: sets, reps, load and what comes next.</p>
-    </div>
-    <div class="cx-active">
-      <figure class="cx-screen cx-screen--xl fade-up">
-        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-active.avif"><img src="../assets/img/projects/coach/app/workout-active.jpg" width="402" height="874" alt="Active workout: shoulder press illustration, set 2 of 3, 10 reps, 9 kg, set done button" loading="lazy" decoding="async"></picture>
-      </figure>
-      <ul class="cx-callouts fade-up" aria-label="On screen during a set">
-        <li><span>Set</span><b>02</b></li>
-        <li><span>Reps</span><b>10</b></li>
-        <li><span>Weight</span><b>9 kg</b></li>
-        <li><span>Action</span><b>Set done</b></li>
-      </ul>
-      <figure class="cx-screen cx-active-rest fade-up">
-        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-rest.avif"><img src="../assets/img/projects/coach/app/workout-rest.jpg" width="402" height="874" alt="Rest timer: 37 seconds left of 1 minute, next set of shoulder press" loading="lazy" decoding="async"></picture>
-        <figcaption>Rest between sets</figcaption>
-      </figure>
-    </div>
-
-    <div class="cx-split cx-split--feedback">
-      <div class="cx-text fade-up">
-        <h3 class="cx-h2">The plan learns from the session.</h3>
-        <p class="cx-p">Users rate how each session felt, and that rating shapes the next one. Stopping early saves the session and rebalances the week.</p>
-      </div>
-      <div class="cx-duo fade-up">
-        <figure>
-          <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-complete.avif"><img src="../assets/img/projects/coach/app/workout-complete.jpg" width="402" height="874" alt="Workout complete: 33 minutes, 8 of 8 exercises, and how did it feel from 1 to 5, with Good selected" loading="lazy" decoding="async"></picture></div>
-          <figcaption>Rate the session</figcaption>
-        </figure>
-        <figure>
-          <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-end.avif"><img src="../assets/img/projects/coach/app/workout-end.jpg" width="402" height="874" alt="End workout sheet: 4 of 8 exercises done, progress is saved and the rest of the week adjusts. Keep training, end and save, or discard" loading="lazy" decoding="async"></picture></div>
-          <figcaption>Stop early without losing the week</figcaption>
-        </figure>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- Video del producto: se muestra solo si existe el archivo (ver coach.js) -->
-<section class="cx-sec cx-dark cx-video" data-video-slot hidden>
+<section class="cx-sec cx-video" data-video-slot hidden>
   <div class="container">
     <figure class="cx-video-fig">
       <video muted loop playsinline preload="none" width="402" height="874" data-src="../assets/video/coach-demo.mp4" poster="../assets/img/projects/coach/app/today.jpg" aria-label="Short walkthrough of Coach: from Today to an active workout"></video>
@@ -295,115 +270,84 @@
   </div>
 </section>
 
-<!-- 07 · Nutricion -->
-<section class="cx-sec cx-light">
-  <div class="container cx-split">
-    <div class="cx-duo cx-duo--stagger cx-duo--lead fade-up">
-      <figure>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/nutrition.avif"><img src="../assets/img/projects/coach/app/nutrition.jpg" width="402" height="874" alt="Nutrition screen: 1,640 of 2,300 kcal ring, burned and remaining calories, and macro bars" loading="lazy" decoding="async"></picture></div>
-        <figcaption>Today at a glance</figcaption>
-      </figure>
-      <figure>
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/nutrition-goals.avif"><img src="../assets/img/projects/coach/app/nutrition-goals.jpg" width="402" height="874" alt="Nutrition goals: 2,300 kcal on training days and 2,000 on rest days, with the macro split and adjust to training switched on" loading="lazy" decoding="async"></picture></div>
-        <figcaption>Goals that follow the plan</figcaption>
-      </figure>
-    </div>
+<!-- 03 · Antes / despues: comparador deslizable -->
+<section class="cx-sec" aria-labelledby="cx-ba">
+  <div class="container cx-ba-grid">
     <div class="cx-text fade-up">
-      <p class="eyebrow">Nutrition</p>
-      <h2 class="cx-h2">Nutrition without turning Coach into a calorie database.</h2>
-      <p class="cx-p">The redesign keeps what users check most: daily calories, macros and meals. Goals follow the plan too, with more calories and carbs on training days.</p>
-      <p class="cx-kcal"><b>1,640</b> / 2,300 kcal</p>
-      <ul class="cx-macros" aria-label="Macros">
-        <li style="--c: #5AC8FA">Protein</li><li style="--c: #FFB340">Carbs</li><li style="--c: #BF5AF2">Fat</li><li>Meals</li>
-      </ul>
-      <blockquote class="cx-quote cx-quote--light"><span>Upper body day today</span>“You're 42 g short on protein. A salmon or chicken dinner covers it.”</blockquote>
+      <p class="cx-chap"><span>03</span>2024 → 2026</p>
+      <h2 class="cx-h2" id="cx-ba">Before and after.</h2>
+      <p class="cx-p">Drag the handle to compare the 2024 home with the 2026 Today screen. The calorie summary, the neon pink and the five tabs are gone.</p>
+      <p class="cx-ba-keys"><b>2024</b> Original academic project<br><b>2026</b> Product redesign</p>
     </div>
-  </div>
-</section>
-
-<!-- 08 · Registro de comida -->
-<section class="cx-sec cx-paper">
-  <div class="container">
-    <div class="cx-split cx-split--top cx-food-head">
-      <div class="cx-head fade-up">
-        <p class="eyebrow">Food logging</p>
-        <h2 class="cx-h2">Reducing friction in food logging.</h2>
-        <p class="cx-p">Food logging was one of the least intuitive flows in the original usability test. The redesign cuts the decisions needed to add something.</p>
+    <div class="cx-compare fade-up" style="--pos: 50%;" data-compare>
+      <div class="cx-compare-old">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/home-2024.avif"><img src="../assets/img/projects/coach/app/home-2024.jpg" width="393" height="852" alt="2024 home: calorie summary, weekly rings, activity and nutrition lists" loading="lazy" decoding="async"></picture>
       </div>
-      <p class="cx-flow fade-up" aria-label="Flow: search, select, quantity, add"><span>Search</span><i aria-hidden="true">→</i><span>Select</span><i aria-hidden="true">→</i><span>Quantity</span><i aria-hidden="true">→</i><span>Add</span></p>
-    </div>
-    <div class="cx-food">
-      <figure class="fade-up">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-search.avif"><img src="../assets/img/projects/coach/app/food-search.jpg" width="402" height="874" alt="Add to dinner: search field with barcode button, recent foods and quick add buttons" loading="lazy" decoding="async"></picture></div>
-        <figcaption>Search, recent and saved foods</figcaption>
-      </figure>
-      <figure class="fade-up">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-detail.avif"><img src="../assets/img/projects/coach/app/food-detail.jpg" width="402" height="874" alt="Grilled salmon: quantity stepper and presets, macros, meal selector and add to dinner button" loading="lazy" decoding="async"></picture></div>
-        <figcaption>Quantity and add in one screen</figcaption>
-      </figure>
-      <figure class="cx-food-alt fade-up">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/food-barcode.avif"><img src="../assets/img/projects/coach/app/food-barcode.jpg" width="402" height="874" alt="Barcode scanner with a detected product, Plain Greek yogurt" loading="lazy" decoding="async"></picture></div>
-        <figcaption><b>Alternative route</b> Barcode scanner for packaged food</figcaption>
-      </figure>
+      <div class="cx-compare-new">
+        <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="2026 Today screen: the next workout first, with why it was chosen" loading="lazy" decoding="async"></picture>
+      </div>
+      <span class="cx-compare-tag cx-compare-tag--old" aria-hidden="true">2024</span>
+      <span class="cx-compare-tag cx-compare-tag--new" aria-hidden="true">2026</span>
+      <span class="cx-compare-handle" aria-hidden="true"></span>
+      <input class="cx-compare-range" type="range" min="0" max="100" value="50" aria-label="Compare the 2024 home and the 2026 Today screen">
     </div>
   </div>
 </section>
 
-<!-- 09 · Progreso -->
-<section class="cx-sec cx-dark">
-  <div class="container cx-split">
-    <div class="cx-text fade-up">
-      <p class="eyebrow">Progress</p>
-      <h2 class="cx-h2">A weekly view of effort and consistency.</h2>
-      <p class="cx-p">Calories burned lead the week. Workouts, active time, daily average and streak add the context.</p>
-    </div>
-    <figure class="cx-screen cx-screen--xl fade-up">
-      <picture><source type="image/avif" srcset="../assets/img/projects/coach/app/progress.avif"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="Progress screen: weekly bar chart of calories burned, workouts, active time, daily average and streak" loading="lazy" decoding="async"></picture>
-    </figure>
-  </div>
-</section>
-
-<!-- 10 · Sistema de diseno -->
-<section class="cx-sec cx-light">
+<!-- 04 · Sistema de diseno en bento -->
+<section class="cx-sec" aria-labelledby="cx-system">
   <div class="container">
+    <p class="cx-chap fade-up"><span>04</span>Design system</p>
     <div class="cx-head fade-up">
-      <p class="eyebrow">Design system</p>
-      <h2 class="cx-h2">Built for focus.</h2>
+      <h2 class="cx-h2" id="cx-system">Built for focus.</h2>
       <p class="cx-p">A restrained dark palette, with yellow reserved for action, selection and progress. Nutrition adds colour only where it separates metrics.</p>
     </div>
-    <ul class="cx-swatches fade-up" aria-label="Colour palette">
-      <li style="--c: #0A0A0B"><b>bg/base</b><span>#0A0A0B</span></li>
-      <li style="--c: #17171A"><b>bg/elevated</b><span>#17171A</span></li>
-      <li style="--c: #F5E14B" class="is-light"><b>accent</b><span>#F5E14B</span></li>
-      <li style="--c: #FF5C85"><b>energy</b><span>#FF5C85</span></li>
-      <li style="--c: #5AC8FA" class="is-light"><b>macro/protein</b><span>#5AC8FA</span></li>
-      <li style="--c: #FFB340" class="is-light"><b>macro/carbs</b><span>#FFB340</span></li>
-      <li style="--c: #BF5AF2"><b>macro/fat</b><span>#BF5AF2</span></li>
-    </ul>
-    <dl class="cx-facts fade-up">
-      <div><dt>Type</dt><dd>SF Pro · 18 text styles</dd></div>
-      <div><dt>Spacing</dt><dd>4 to 40 pt · 8 steps</dd></div>
-      <div><dt>Radius</dt><dd>12 · 18 · 22 · 28 · full</dd></div>
-      <div><dt>Library</dt><dd>18 components · 25 icons</dd></div>
-    </dl>
-    <div class="cx-parts">
-      <figure class="cx-part cx-part--wide fade-up">
-        <div class="cx-crop" style="--top: 106; --h: 80;"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-overview.avif"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Typography: week label in yellow capitals over a bold title" loading="lazy" decoding="async"></picture></div>
-        <figcaption>Typography</figcaption>
-      </figure>
-      <figure class="cx-part fade-up">
+    <div class="cx-bento">
+      <div class="cx-tile cx-tile--palette fade-up">
+        <p class="cx-tile-k">Colour</p>
+        <ul class="cx-swatches" aria-label="Colour palette">
+          <li style="--c: #0A0A0B"><b>bg/base</b><span>#0A0A0B</span></li>
+          <li style="--c: #17171A"><b>bg/elevated</b><span>#17171A</span></li>
+          <li style="--c: #F5E14B" class="is-light"><b>accent</b><span>#F5E14B</span></li>
+          <li style="--c: #FF5C85" class="is-light"><b>energy</b><span>#FF5C85</span></li>
+          <li style="--c: #5AC8FA" class="is-light"><b>macro/protein</b><span>#5AC8FA</span></li>
+          <li style="--c: #FFB340" class="is-light"><b>macro/carbs</b><span>#FFB340</span></li>
+          <li style="--c: #BF5AF2" class="is-light"><b>macro/fat</b><span>#BF5AF2</span></li>
+        </ul>
+      </div>
+      <div class="cx-tile cx-tile--type fade-up">
+        <p class="cx-tile-k">Type</p>
+        <p class="cx-tile-big" aria-hidden="true">Aa</p>
+        <p class="cx-tile-v">SF Pro · 18 text styles</p>
+      </div>
+      <div class="cx-tile cx-tile--radius fade-up">
+        <p class="cx-tile-k">Radius</p>
+        <ul class="cx-radii" aria-hidden="true"><li style="--r: 12px"></li><li style="--r: 18px"></li><li style="--r: 22px"></li><li style="--r: 28px"></li><li style="--r: 999px"></li></ul>
+        <p class="cx-tile-v">12 · 18 · 22 · 28 · full</p>
+      </div>
+      <div class="cx-tile cx-tile--num cx-tile--spacing fade-up">
+        <p class="cx-tile-k">Spacing</p>
+        <p class="cx-tile-big">4–40</p>
+        <p class="cx-tile-v">pt, in 8 steps</p>
+      </div>
+      <div class="cx-tile cx-tile--num cx-tile--lib fade-up">
+        <p class="cx-tile-k">Library</p>
+        <p class="cx-tile-big">18</p>
+        <p class="cx-tile-v">components · 25 icons</p>
+      </div>
+      <figure class="cx-tile cx-tile--crop fade-up">
         <div class="cx-crop" style="--top: 785; --h: 60;"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/workout-overview.avif"><img src="../assets/img/projects/coach/app/workout-overview.jpg" width="402" height="874" alt="Primary button: Start, 32 min" loading="lazy" decoding="async"></picture></div>
         <figcaption>Buttons</figcaption>
       </figure>
-      <figure class="cx-part fade-up">
+      <figure class="cx-tile cx-tile--crop fade-up">
         <div class="cx-crop" style="--top: 444; --h: 118;"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="Weekly streak: four days done, today in progress" loading="lazy" decoding="async"></picture></div>
         <figcaption>Progress</figcaption>
       </figure>
-      <figure class="cx-part fade-up">
+      <figure class="cx-tile cx-tile--crop fade-up">
         <div class="cx-crop" style="--top: 780; --h: 60;"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/progress.avif"><img src="../assets/img/projects/coach/app/progress.jpg" width="402" height="874" alt="Bottom navigation with Progress selected" loading="lazy" decoding="async"></picture></div>
         <figcaption>Navigation</figcaption>
       </figure>
-      <figure class="cx-part fade-up">
+      <figure class="cx-tile cx-tile--illus fade-up">
         <div class="cx-illus"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/shoulder-press.avif"><img src="../assets/img/projects/coach/app/shoulder-press.jpg" width="600" height="800" alt="Exercise illustration: shoulder press with the working muscles in yellow" loading="lazy" decoding="async"></picture></div>
         <figcaption>Exercise illustration</figcaption>
       </figure>
@@ -411,41 +355,22 @@
   </div>
 </section>
 
-<!-- 11 · Antes / despues -->
-<section class="cx-sec cx-dark">
-  <div class="container">
-    <div class="cx-head fade-up">
-      <p class="eyebrow">2024 → 2026</p>
-      <h2 class="cx-h2">Before / after.</h2>
-      <p class="cx-p">A clearer hierarchy, a stronger visual system and a more focused everyday experience.</p>
+<!-- 05 · Que testearia despues -->
+<section class="cx-sec" aria-labelledby="cx-next">
+  <div class="container cx-next">
+    <div class="cx-text fade-up">
+      <p class="cx-chap"><span>05</span>What's next</p>
+      <h2 class="cx-h2" id="cx-next">What I'd test next.</h2>
+      <p class="cx-p">The 2026 redesign hasn't been tested with users yet. The food logging changes come from the 2024 usability test; the rest comes from the original research and my own calls. These are the first things I'd put in front of people.</p>
     </div>
-    <div class="cx-ba">
-      <figure class="cx-ba-old fade-up">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/home-2024.avif"><img src="../assets/img/projects/coach/app/home-2024.jpg" width="393" height="852" alt="2024 home: calorie summary, weekly rings, activity and nutrition lists" loading="lazy" decoding="async"></picture></div>
-        <figcaption><b>2024</b> Original academic project</figcaption>
-      </figure>
-      <span class="cx-ba-arrow" aria-hidden="true">→</span>
-      <figure class="cx-ba-new fade-up">
-        <div class="cx-screen"><picture><source type="image/avif" srcset="../assets/img/projects/coach/app/today.avif"><img src="../assets/img/projects/coach/app/today.jpg" width="402" height="874" alt="2026 Today screen: the next workout first, with why it was chosen" loading="lazy" decoding="async"></picture></div>
-        <figcaption><b>2026</b> Product redesign</figcaption>
-      </figure>
-    </div>
+    <ol class="cx-tests fade-up">
+      <li><span class="cx-qnum" aria-hidden="true">01</span><p>Does the reason line on Today make an automatic plan feel trustworthy, or do people still want to pick the session themselves?</p></li>
+      <li><span class="cx-qnum" aria-hidden="true">02</span><p>Are 20, 32 and 45 minutes the right lengths, or should users set their own?</p></li>
+      <li><span class="cx-qnum" aria-hidden="true">03</span><p>How long does it take to log a dinner in 2026 compared with the 2024 flow?</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- 12 · Final -->
-<section class="cx-sec cx-light cx-final">
-  <div class="container">
-    <div class="cx-final-head fade-up">
-      <h2 class="cx-title cx-title--dark">Coach</h2>
-      <p class="cx-hero-sub">Train around real life.</p>
-      <p class="cx-meta">Product Design · UX/UI · 2026</p>
-    </div>
-  </div>
-  <figure class="cx-bleed cx-final-shot">
-    <picture><source type="image/avif" srcset="../assets/img/projects/coach/mockups/trio-light-rest.avif"><img src="../assets/img/projects/coach/mockups/trio-light-rest.jpg" width="1672" height="940" alt="Three Coach screens: rest timer, Today and Nutrition" loading="lazy" decoding="async"></picture>
-  </figure>
-</section>
 
 <section class="next-project-block">
   <a href="galeria.html" class="next-project-link">

@@ -1,0 +1,6 @@
+# GitHub Pages (Jekyll): la web es HTML estatico. Esto solo evita que se
+# publiquen las notas internas y las tablas de traduccion; siguen en el repo.
+exclude:
+  - DEPLOY.md
+  - ADD-PROJECT.md
+  - i18n
