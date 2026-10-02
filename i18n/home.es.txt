@@ -51,7 +51,7 @@ aria-hidden="true">Experiment< ||| aria-hidden="true">Experimento<
 # --- Sobre mí ---
 >About.</h2> ||| >Sobre mí.</h2>
 I work on both brand and product, from packaging and print files to user flows and screens in Figma. I like the projects where both have to fit together. ||| Trabajo tanto en marca como en producto: del packaging y los archivos de imprenta a los flujos de usuario y las pantallas en Figma. Me gustan los proyectos en los que las dos cosas tienen que encajar.
-Most of my work so far has been in-house: packaging, sales presentations, Meta Ads campaigns and the odd video edit, usually with a deadline attached. It taught me to ask what a piece is for before deciding how it looks. ||| Hasta ahora, casi todo mi trabajo ha sido en plantilla: packaging, presentaciones comerciales, campañas de Meta Ads y algún montaje de vídeo, normalmente con la fecha de entrega encima. Eso me enseñó a preguntarme para qué sirve una pieza antes de decidir cómo se ve.
+Most of my work so far has been in-house: packaging, sales presentations, Meta Ads campaigns and video edits, usually with a deadline attached. It taught me to ask what a piece is for before deciding how it looks. ||| Hasta ahora, casi todo mi trabajo ha sido en plantilla: packaging, presentaciones comerciales, campañas de Meta Ads y montajes de vídeo, normalmente con la fecha de entrega encima. Eso me enseñó a preguntarme para qué sirve una pieza antes de decidir cómo se ve.
 <h3>Education</h3> ||| <h3>Formación</h3>
 <strong>Master's in Digital Marketing</strong> ||| <strong>Máster en Marketing Digital</strong>
 Oct 2025 — present ||| Oct 2025 — actualidad
