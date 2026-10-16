@@ -191,7 +191,7 @@
 }
 .ik-ov-sub { margin-top: 28px; font-size: 18px; line-height: 1.6; color: var(--ik-ink-2); max-width: 44ch; }
 .ik-ov-meta {
-  display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--ik-g);
+  display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: var(--ik-g);
   margin-top: clamp(56px, 7vw, 112px); padding-top: 20px; border-top: 1px solid var(--ik-hair);
 }
 .ik-ov-meta dt { font-family: var(--ik-mono); font-size: 13px; color: var(--ik-ink-2); margin-bottom: 8px; }

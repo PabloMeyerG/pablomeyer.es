@@ -23,7 +23,7 @@ href="../assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" ||| hr
 >Download CV <span class="btn-note">(PDF)</span></a> ||| >Descargar CV <span class="btn-note">(PDF)</span></a>
 aria-label="Availability, location, languages and disciplines" ||| aria-label="Disponibilidad, ubicación, idiomas y disciplinas"
 </span>Available</li> ||| </span>Disponible</li>
-<li class="fact">Spain · Remote</li> ||| <li class="fact">España · En remoto</li>
+<li class="fact">Madrid · Remote</li> ||| <li class="fact">Madrid · En remoto</li>
 <abbr title="Spanish, German and English"> ||| <abbr title="Español, alemán e inglés">
 <li class="fact">Brand Identity · Digital · UX/UI</li> ||| <li class="fact">Identidad de marca · Digital · UX/UI</li>
 # --- Proyectos ---

@@ -25,6 +25,7 @@ The identity explores the balance between contemporary minimalism and a quieter,
 <dt>Scope</dt><dd>Identity / Packaging / Art Direction / Digital</dd> ||| <dt>Alcance</dt><dd>Identidad / Packaging / Dirección de arte / Digital</dd>
 <dt>Project</dt><dd>Conceptual brand</dd> ||| <dt>Proyecto</dt><dd>Marca conceptual</dd>
 <dt>Year</dt> ||| <dt>Año</dt>
+<dt>Tools</dt><dd>Illustrator</dd> ||| <dt>Herramientas</dt><dd>Illustrator</dd>
 # --- 02 El nombre ---
 >02 — The name< ||| >02 — El nombre<
 Understated<br>elegance. ||| Elegancia<br>discreta.
