@@ -22,92 +22,109 @@
     });
   }, 100);
 
+  /* Casos: .is-in descubre la imagen (clip-path en home.css). La tarjeta
+     ya entra con .fade-up; esto solo marca el momento del recorte. */
   const cardObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const row = entry.target;
-        row.classList.add('is-in');
-        cardObs.unobserve(row);
-        /* El escalonado es solo para la entrada: si se queda, tambien
-           retrasa el cambio de tamano de las bandas al pasar de caso. */
-        setTimeout(() => { row.style.transitionDelay = ''; }, 900);
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      cardObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.case').forEach(el => cardObs.observe(el));
+
+  const moving = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* Titulos: cada palabra (o cada span, como el contorno de Designer)
+     va en su mascara y sube al recibir .visible. Ver .mask en home.css. */
+  if (moving) document.querySelectorAll('.hero-title, .section-title, .contact-title').forEach(title => {
+    let i = 0;
+    const mask = () => {
+      const m = document.createElement('span'); m.className = 'mask';
+      const inner = document.createElement('span'); inner.className = 'mask-in';
+      inner.style.setProperty('--i', i++);
+      m.appendChild(inner);
+      return [m, inner];
+    };
+    [...title.childNodes].forEach(node => {
+      if (node.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const [m, inner] = mask(); inner.textContent = part; frag.appendChild(m);
+        });
+        title.replaceChild(frag, node);
+      } else if (node.nodeType === 1) {
+        const [m, inner] = mask(); title.replaceChild(m, node); inner.appendChild(node);
       }
     });
-  }, { threshold: 0.08 });
+    title.classList.add('is-split');
+  });
 
-  document.querySelectorAll('.project-row').forEach((el, i) => {
-    el.classList.add('reveal');
-    el.style.transitionDelay = (i % 3) * 90 + 'ms';
-    cardObs.observe(el);
+  /* Nombre del caso: las letras se descifran de izquierda a derecha.
+     El lector de pantalla oye el nombre real (aria-label) mientras dura. */
+  function scramble(el) {
+    if (!moving || el.dataset.busy) return;
+    const text = el.dataset.text || (el.dataset.text = el.textContent);
+    const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const oneLine = el.offsetHeight < parseFloat(getComputedStyle(el).lineHeight) * 1.5;
+    el.dataset.busy = '1';
+    el.setAttribute('aria-label', text);
+    if (oneLine) el.classList.add('is-scrambling');
+    const t0 = performance.now(), dur = 560;
+    const step = now => {
+      const t = Math.min((now - t0) / dur, 1);
+      const done = Math.floor(t * text.length);
+      el.textContent = text.slice(0, done) + [...text.slice(done)].map(c => {
+        if (!/[a-z]/i.test(c)) return c;
+        const r = ABC[Math.random() * 26 | 0];
+        return c === c.toLowerCase() ? r.toLowerCase() : r;
+      }).join('');
+      if (t < 1) { requestAnimationFrame(step); return; }
+      el.textContent = text;
+      el.classList.remove('is-scrambling');
+      el.removeAttribute('aria-label');
+      delete el.dataset.busy;
+    };
+    requestAnimationFrame(step);
+  }
+
+  /* Casos con raton: la foto sigue un poco al cursor con un muelle
+     (rigidez + amortiguacion, con un leve rebote) y se acerca un 4 %. */
+  if (moving && finePointer) document.querySelectorAll('.case').forEach(row => {
+    const pic = row.querySelector('.case-media picture');
+    const name = row.querySelector('.case-link');
+    if (!pic) return;
+    const K = 0.08, DAMP = 0.78;
+    const s = { x: [0, 0, 0], y: [0, 0, 0], z: [1, 1, 0] }; // [destino, valor, velocidad]
+    let raf = 0;
+    const loop = () => {
+      let quieto = true;
+      Object.values(s).forEach(a => {
+        a[2] = (a[2] + (a[0] - a[1]) * K) * DAMP;
+        a[1] += a[2];
+        if (Math.abs(a[0] - a[1]) + Math.abs(a[2]) > 0.0005) quieto = false;
+      });
+      pic.style.setProperty('--px', s.x[1].toFixed(3) + '%');
+      pic.style.setProperty('--py', s.y[1].toFixed(3) + '%');
+      pic.style.setProperty('--pz', s.z[1].toFixed(4));
+      raf = quieto ? 0 : requestAnimationFrame(loop);
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+    row.addEventListener('pointerenter', () => { s.z[0] = 1.04; kick(); if (name) scramble(name); });
+    row.addEventListener('pointermove', e => {
+      const r = row.getBoundingClientRect();
+      s.x[0] = ((e.clientX - r.left) / r.width - 0.5) * -3;
+      s.y[0] = ((e.clientY - r.top) / r.height - 0.5) * -3;
+      kick();
+    });
+    row.addEventListener('pointerleave', () => { s.x[0] = 0; s.y[0] = 0; s.z[0] = 1; kick(); });
   });
 
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-
-  /* Work: escenario clavado. El caso activo sale de la posicion de
-     scroll — scroll normal, sin interceptar la rueda: antes cada golpe
-     de rueda saltaba a la siguiente parada y la pagina dejaba de
-     responder como el usuario espera. */
-  (function () {
-    const scroller = document.querySelector('.work-scroll');
-    const sticky = document.querySelector('.work-sticky');
-    const rows = Array.prototype.slice.call(document.querySelectorAll('.project-row'));
-    if (!scroller || !sticky || rows.length < 2) return;
-    const last = rows.length - 1;
-    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let index = 0, ticking = false;
-
-    // Todo en medidas de getBoundingClientRect: con el zoom de pantallas
-    // grandes (scale.js) offsetHeight va en otra escala que el scroll.
-    function metrics() {
-      const box = scroller.getBoundingClientRect();
-      return { top: box.top, start: box.top + window.pageYOffset, len: box.height - sticky.getBoundingClientRect().height };
-    }
-    function paint(i) {
-      if (i === index) return;
-      index = i;
-      rows.forEach((el, k) => el.classList.toggle('is-lead', k === i));
-    }
-    function apply() {
-      ticking = false;
-      const m = metrics();
-      if (m.len <= 0) return;
-      const p = Math.min(Math.max(-m.top / m.len, 0), 1);
-      paint(Math.round(p * last));
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
-    }, { passive: true });
-    window.addEventListener('resize', apply);
-
-    // Con teclado: al tabular a un caso, el carril se desplaza hasta el
-    // para que no se active un caso que nunca se ha visto en grande.
-    rows.forEach(function (el, i) {
-      el.addEventListener('focus', function () {
-        if (i === index) return;
-        const m = metrics();
-        paint(i);
-        window.scrollTo({ top: m.start + Math.round((i / last) * m.len), behavior: smooth ? 'smooth' : 'auto' });
-      });
-    });
-
-    // Al volver de un caso con #iki / #coach: el ancla nativa caeria en la
-    // banda dentro del escenario (con el primer caso en grande); aqui se
-    // lleva el carril a la parada de ese caso. 'instant' porque el html
-    // tiene scroll-behavior: smooth y la vuelta no debe animarse.
-    function goToHash() {
-      const i = rows.findIndex(el => el.id && '#' + el.id === location.hash);
-      if (i < 0) return;
-      const m = metrics();
-      paint(i);
-      window.scrollTo({ top: m.start + Math.round((i / last) * m.len), behavior: 'instant' });
-    }
-    window.addEventListener('load', goToHash);
-    window.addEventListener('hashchange', goToHash);
-
-    apply();
-  })();
 
   /* Menu movil, capsula .stuck y pildora: assets/js/nav.js */
   const moveIndicator = () => { if (window.pmNav) window.pmNav.moveIndicator(); };

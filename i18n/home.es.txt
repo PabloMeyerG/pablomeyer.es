@@ -3,9 +3,9 @@
 # Si cambia el copy EN, actualizar aqui y regenerar (ver i18n/README.md).
 # --- Metadatos ---
 Pablo Meyer — Graphic &amp; UX/UI Designer ||| Pablo Meyer — Diseñador gráfico y UX/UI
-Pablo Meyer, graphic and UX/UI designer based in Spain, working remotely. Branding, packaging, apps and campaigns. Portfolio and case studies. ||| Pablo Meyer, diseñador gráfico y UX/UI en España, disponible en remoto. Branding, packaging, apps y campañas. Portfolio y proyectos.
-Graphic and UX/UI designer based in Spain. Branding, packaging, apps and campaigns, from the first sketch to the files that go to print. ||| Diseñador gráfico y UX/UI en España. Branding, packaging, apps y campañas, desde el primer boceto hasta los archivos que van a imprenta.
-content="Pablo Meyer, Graphic Designer: the IKI ZenElegance storefront sign" ||| content="Pablo Meyer, diseñador gráfico: el rótulo de la tienda IKI ZenElegance"
+Pablo Meyer, graphic and UX/UI designer based in Madrid, also open to remote work. Branding, packaging, apps and campaigns. Portfolio and case studies. ||| Pablo Meyer, diseñador gráfico y UX/UI en Madrid, también disponible en remoto. Branding, packaging, apps y campañas. Portfolio y proyectos.
+Graphic and UX/UI designer based in Madrid. Branding, packaging, apps and campaigns, from the first sketch to the files that go to print. ||| Diseñador gráfico y UX/UI en Madrid. Branding, packaging, apps y campañas, desde el primer boceto hasta los archivos que van a imprenta.
+content="Pablo Meyer, graphic and UX/UI designer: the IKI ZenElegance storefront sign" ||| content="Pablo Meyer, diseñador gráfico y UX/UI: el rótulo de la tienda IKI ZenElegance"
 Graphic and UX/UI designer. Branding, packaging, apps and campaigns. ||| Diseñador gráfico y UX/UI. Branding, packaging, apps y campañas.
 "jobTitle": "Graphic & UX/UI Designer" ||| "jobTitle": "Diseñador gráfico y UX/UI"
 ["Brand identity", "Graphic design", "UX/UI", "Digital design", "Packaging", "Digital marketing"] ||| ["Identidad de marca", "Diseño gráfico", "UX/UI", "Diseño digital", "Packaging", "Marketing digital"]
@@ -15,8 +15,8 @@ href="#about">About</a> ||| href="#about">Sobre mí</a>
 href="#experience">Experience</a> ||| href="#experience">Experiencia</a>
 href="#contact">Contact</a> ||| href="#contact">Contacto</a>
 # --- Hero ---
-<span>Graphic</span> <span class="outline">Designer</span> ||| <span>Diseñador</span> <span class="outline">gráfico</span>
-I'm <strong>Pablo</strong>, a graphic and UX/UI designer. I design brands, packaging, campaigns and apps, most of it in-house for companies like Porcelanosa Grupo. ||| Soy <strong>Pablo</strong>, diseñador gráfico y UX/UI. Diseño marcas, packaging, campañas y apps, casi siempre en plantilla, para empresas como Porcelanosa Grupo.
+<span>Pablo</span> <span class="outline">Meyer</span> ||| <span>Pablo</span> <span class="outline">Meyer</span>
+<strong>Graphic and UX/UI designer.</strong> I design brands, packaging, campaigns and apps, most of it in-house for companies like Porcelanosa Grupo. ||| <strong>Diseñador gráfico y UX/UI.</strong> Diseño marcas, packaging, campañas y apps, casi siempre en plantilla, para empresas como Porcelanosa Grupo.
 >View projects →< ||| >Ver proyectos →<
 # CV en castellano
 href="../assets/downloads/CV-PabloMeyer.pdf" download="CV-PabloMeyer.pdf" ||| href="../assets/downloads/CV-PabloMeyer-ES.pdf" download="CV-PabloMeyer-ES.pdf"
@@ -28,15 +28,23 @@ aria-label="Availability, location, languages and disciplines" ||| aria-label="D
 <li class="fact">Brand Identity · Digital · UX/UI</li> ||| <li class="fact">Identidad de marca · Digital · UX/UI</li>
 # --- Proyectos ---
 >Work.</h2> ||| >Proyectos.</h2>
+>2 case studies · Playground< ||| >2 casos de estudio · Playground<
+IKI is a conceptual fashion identity exploring understated elegance through branding, packaging, art direction and digital design. ||| IKI es una identidad de moda conceptual que explora la elegancia discreta a través del branding, el packaging, la dirección de arte y el diseño digital.
+A redesign of Coach, an adaptive fitness app focused on training, nutrition and progress. ||| Rediseño de Coach, una app de fitness adaptativa centrada en entrenamiento, nutrición y progreso.
+<dt>Role</dt> ||| <dt>Rol</dt>
+<dt>Year</dt> ||| <dt>Año</dt>
+<dt>Type</dt> ||| <dt>Tipo</dt>
+>Brand Designer< ||| >Diseñador de marca<
+>Product design, solo< ||| >Diseño de producto, en solitario<
+>Conceptual brand< ||| >Marca conceptual<
+>Product redesign< ||| >Rediseño de producto<
 alt="IKI · ZenElegance — brand signage" ||| alt="IKI · ZenElegance — rótulo de la marca"
 <span class="tag">Brand Identity</span> ||| <span class="tag">Identidad de marca</span>
 <span class="tag">Art Direction</span> ||| <span class="tag">Dirección de arte</span>
 <span class="tag">Product Design</span> ||| <span class="tag">Diseño de producto</span>
 <span class="tag">Mobile App</span> ||| <span class="tag">App móvil</span>
-2025 · Conceptual brand<br>Brand Identity &amp; Packaging ||| 2025 · Marca conceptual<br>Identidad de marca y packaging
 >View case <span class="project-arrow"> ||| >Ver proyecto <span class="project-arrow">
 alt="Coach — Today, active workout and rest screens" ||| alt="Coach — pantallas de Hoy, entreno en curso y descanso"
-2026 · Product redesign<br>Product Design · UX/UI ||| 2026 · Rediseño de producto<br>Diseño de producto · UX/UI
 # --- Playground ---
 >Posters, packaging &amp; visual experiments< ||| >Carteles, packaging y experimentación visual<
 One-off pieces, experiments and personal work, 2023&nbsp;—&nbsp;2025. ||| Piezas sueltas, experimentos y trabajo personal, 2023&nbsp;—&nbsp;2025.
@@ -54,14 +62,13 @@ I work on both brand and product, from packaging and print files to user flows a
 Most of my work so far has been in-house: packaging, sales presentations, Meta Ads campaigns and video edits, usually with a deadline attached. It taught me to ask what a piece is for before deciding how it looks. ||| Hasta ahora, casi todo mi trabajo ha sido en plantilla: packaging, presentaciones comerciales, campañas de Meta Ads y montajes de vídeo, normalmente con la fecha de entrega encima. Eso me enseñó a preguntarme para qué sirve una pieza antes de decidir cómo se ve.
 <h3>Education</h3> ||| <h3>Formación</h3>
 <strong>Master's in Digital Marketing</strong> ||| <strong>Máster en Marketing Digital</strong>
-Oct 2025 — present ||| Oct 2025 — actualidad
 <strong>Higher Diploma in Digital Design</strong> ||| <strong>Título Superior en Diseño Digital</strong>
 <strong>Higher Technician in 3D Animation, Games and Interactive Environments</strong> ||| <strong>Técnico Superior en Animaciones 3D, Juegos y Entornos Interactivos</strong>
 <h3>Tools</h3> ||| <h3>Herramientas</h3>
 <h3>Languages</h3> ||| <h3>Idiomas</h3>
 <li>Spanish <span>· Native</span></li> ||| <li>Español <span>· Nativo</span></li>
 <li>English <span>· Professional</span></li> ||| <li>Inglés <span>· Profesional</span></li>
-<li>German <span>· Professional</span></li> ||| <li>Alemán <span>· Profesional</span></li>
+<li>German <span>· Intermediate</span></li> ||| <li>Alemán <span>· Intermedio</span></li>
 # --- Experiencia ---
 >Experience.</h2> ||| >Experiencia.</h2>
 >Aug 2025 — Nov 2025< ||| >Ago 2025 — Nov 2025<

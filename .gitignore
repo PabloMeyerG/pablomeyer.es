@@ -16,3 +16,6 @@
 
 # Claude / Cowork
 .claude/
+
+# Restos de ediciones a traves de FUSE
+.fuse_hidden*

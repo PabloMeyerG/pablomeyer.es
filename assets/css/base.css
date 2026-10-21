@@ -54,6 +54,9 @@
 
   /* Movimiento — una sola curva en todo el sitio */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Entradas: arranque lento y frenada muy larga. La de --ease (salida
+     rapida) se queda para hover y cambios de interfaz. */
+  --ease-enter: cubic-bezier(0.625, 0.05, 0, 1);
   --dur-fast: 0.25s;
   --dur:      0.5s;
   --dur-slow: 0.8s;
@@ -444,9 +447,9 @@ section { display: block; padding: var(--s-section) 24px; }
 /* ---------- Revelado al scroll ----------
    En CSS y no en estilos inline desde JS, para que
    prefers-reduced-motion pueda anularlo de verdad. */
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease-enter), transform 0.9s var(--ease-enter); }
 .fade-up.visible { opacity: 1; transform: none; }
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease-enter), transform 0.9s var(--ease-enter); }
 .reveal.is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
