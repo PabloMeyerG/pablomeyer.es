@@ -21,3 +21,4 @@ build index.html             es/index.html            home.es.txt
 build projects/iki.html      es/projects/iki.html     iki.es.txt
 build projects/coach.html    es/projects/coach.html   coach.es.txt
 build projects/galeria.html  es/projects/galeria.html galeria.es.txt
+build projects/educa.html    es/projects/educa.html   educa.es.txt

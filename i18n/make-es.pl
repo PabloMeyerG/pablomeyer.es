@@ -21,7 +21,7 @@ if ($src eq 'index.html') {
   $s =~ s{"url": "$base/projects/$page\.html"}{"url": "$base/es/projects/$page.html"} or die "ldurl";
   $s =~ s{(href|src)="\.\./(assets/|favicon|icon-192|apple-touch)}{$1="../../$2}g;
   $s =~ s{(srcset="|imagesrcset="|, )\.\./assets/}{$1../../assets/}g;
-  $s =~ s{href="(project|iki|playground|coach)\.css"}{href="../../projects/$1.css"}g;
+  $s =~ s{href="(project|iki|playground|coach|educa)\.css"}{href="../../projects/$1.css"}g;
   $s =~ s{src="(iki|coach)\.js"}{src="../../projects/$1.js"}g;
   $s =~ s{(data-src|poster)="\.\./assets/}{$1="../../assets/}g;
   $s =~ s{<a href="$page\.html" hreflang="en" lang="en" title="English" aria-current="true" data-lang-switch>EN</a><span class="nav-lang-sep" aria-hidden="true">/</span><a href="\.\./es/projects/$page\.html" hreflang="es" lang="es" title="Español" data-lang-switch>ES</a>}{<a href="../../projects/$page.html" hreflang="en" lang="en" title="English" data-lang-switch>EN</a><span class="nav-lang-sep" aria-hidden="true">/</span><a href="$page.html" hreflang="es" lang="es" title="Español" aria-current="true" data-lang-switch>ES</a>} or die "switch";

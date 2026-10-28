@@ -116,3 +116,5 @@ placeholder="Tell me briefly what you have in mind…" ||| placeholder="Cuéntam
 >Send →< ||| >Enviar →<
 >Message sent. I'll get back to you soon.< ||| >Mensaje enviado. Te responderé lo antes posible.<
 alt="Portrait of Pablo Meyer" ||| alt="Retrato de Pablo Meyer"
+# --- Enlace discreto en Experiencia ---
+class="cv-link">See the work < ||| class="cv-link">Ver el trabajo <

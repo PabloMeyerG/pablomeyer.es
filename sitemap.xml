@@ -72,4 +72,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://pablomeyer.es/projects/educa.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pablomeyer.es/projects/educa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pablomeyer.es/es/projects/educa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pablomeyer.es/projects/educa.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pablomeyer.es/es/projects/educa.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pablomeyer.es/projects/educa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pablomeyer.es/es/projects/educa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pablomeyer.es/projects/educa.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

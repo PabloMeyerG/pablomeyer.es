@@ -148,6 +148,12 @@
 .cv-tasks { list-style: none; display: flex; flex-direction: column; gap: 8px; max-width: 64ch; }
 .cv-tasks li { font-size: 15px; line-height: 1.55; color: var(--ink-soft); letter-spacing: -0.006em; display: flex; gap: 10px; }
 .cv-tasks li::before { content: '\2014'; color: var(--gray); flex-shrink: 0; }
+/* Enlace discreto a las piezas de un puesto: cae en la celda libre
+   bajo el cargo (en movil, debajo de las tareas) */
+.cv-link { align-self: start; justify-self: start; font-size: 13px; font-weight: 600; color: var(--black); text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: 4px; transition: text-decoration-color var(--dur-fast); }
+.cv-link span { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.cv-link:hover { text-decoration-color: currentColor; }
+.cv-link:hover span { transform: translateX(3px); }
 
 /* ================= PROYECTOS =================
    Lista editorial (2026-10-20): cada caso es una tarjeta a dos columnas

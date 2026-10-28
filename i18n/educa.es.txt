@@ -1,0 +1,89 @@
+# Educa Projects — EN ||| ES
+# Los titulos de las piezas en español (Arraigo, Maquillaje...) ya estan
+# en castellano en la pagina inglesa: se quedan como estan.
+# --- Metadatos ---
+<title>Educa Projects — In-house Design &amp; Campaigns · Pablo Meyer</title> ||| <title>Educa Projects — Diseño in-house y campañas · Pablo Meyer</title>
+A year as in-house designer at Educa Projects, a vocational training school: social posts, Meta Ads and print dossiers on one visual system. ||| Un año como diseñador in-house en Educa Projects, un centro de formación profesional: posts, Meta Ads y dosieres impresos con un mismo sistema visual.
+content="Educa Projects — In-house Design · Pablo Meyer" ||| content="Educa Projects — Diseño in-house · Pablo Meyer"
+Social posts, Meta Ads and print dossiers for a vocational training school in Valencia and Barcelona. ||| Posts, Meta Ads y dosieres impresos para un centro de formación profesional en Valencia y Barcelona.
+Social posts, Meta Ads and print dossiers for a vocational training school. ||| Posts, Meta Ads y dosieres impresos para un centro de formación profesional.
+content="Educa Projects dossier, a spread from it and an Instagram post on a phone" ||| content="Dosier de Educa Projects, una doble página y un post de Instagram en un móvil"
+"headline": "Educa Projects — in-house design for a vocational training school" ||| "headline": "Educa Projects — diseño in-house para un centro de formación profesional"
+"description": "Social posts, Meta Ads and print dossiers built on one visual system for Educa Projects, 2024 — 2025." ||| "description": "Posts, Meta Ads y dosieres impresos con un mismo sistema visual para Educa Projects, 2024 — 2025."
+["Graphic design", "Social media", "Meta Ads", "Editorial design"] ||| ["Diseño gráfico", "Redes sociales", "Meta Ads", "Diseño editorial"]
+# --- Hero ---
+Experience · In-house · Education ||| Experiencia · In-house · Educación
+A year as the in-house designer of a vocational training school in Valencia and Barcelona. ||| Un año como diseñador in-house de un centro de formación profesional en Valencia y Barcelona.
+aria-label="Project details" ||| aria-label="Ficha del proyecto"
+<dt>Role</dt><dd>Graphic design &amp; visual marketing</dd> ||| <dt>Rol</dt><dd>Diseño gráfico y marketing visual</dd>
+<dt>When</dt><dd>Aug 2024 — Aug 2025</dd> ||| <dt>Cuándo</dt><dd>Ago 2024 — Ago 2025</dd>
+<dt>Channels</dt><dd>Instagram · Meta Ads · Print</dd> ||| <dt>Canales</dt><dd>Instagram · Meta Ads · Impresión</dd>
+<dt>Tools</dt><dd>Illustrator · InDesign · Photoshop · Ads Manager</dd> ||| <dt>Herramientas</dt><dd>Illustrator · InDesign · Photoshop · Ads Manager</dd>
+data-meta="Dossier, spread and Instagram post" ||| data-meta="Dosier, doble página y post de Instagram"
+alt="The Correos exam-prep dossier cover, its contents spread and an Educa Projects Instagram post on a phone, on a pale grey background" ||| alt="Portada del dosier de oposiciones a Correos, su doble página de contenido y un post de Instagram de Educa Projects en un móvil, sobre fondo gris claro"
+# --- 01 Contexto ---
+01 — Context ||| 01 — Contexto
+Official courses, many of them free. Still a hard sell in a feed. ||| Cursos oficiales, muchos gratis. Aun así, difíciles de vender en un feed.
+Educa Projects teaches <em>Certificados de Profesionalidad</em> and exam preparation from two centres, one in Valencia and one in L’Hospitalet. A good part of the catalogue is free for unemployed students, funded through LABORA. The people on the other side of the ad are career changers and over-45s looking for an official qualification. ||| Educa Projects imparte <em>Certificados de Profesionalidad</em> y preparación de oposiciones en dos centros, uno en Valencia y otro en L’Hospitalet. Buena parte del catálogo es gratis para personas en paro, con financiación de LABORA. Al otro lado del anuncio hay gente que cambia de sector y mayores de 45 que buscan una titulación oficial.
+I joined in August 2024 and worked on the redesign of the brand and its rollout, alongside an outside agency. This page is about the rollout: getting the identity to hold up on a 1080 px post, on an ad seen for a second between two reels, and on an A4 dossier someone reads at home before calling to enrol. ||| Entré en agosto de 2024 y trabajé en el rediseño de la marca y su despliegue, junto a una agencia externa. Esta página va del despliegue: que la identidad aguante en un post de 1080 px, en un anuncio que se ve un segundo entre dos reels y en un dosier A4 que alguien lee en casa antes de llamar para matricularse.
+<h3>Details</h3> ||| <h3>Ficha</h3>
+<dt>Company</dt> ||| <dt>Empresa</dt>
+<dt>Sector</dt><dd>Vocational training</dd> ||| <dt>Sector</dt><dd>Formación profesional</dd>
+<dt>Centres</dt> ||| <dt>Centros</dt>
+<dt>Team</dt><dd>In-house, plus agency</dd> ||| <dt>Equipo</dt><dd>In-house, con agencia</dd>
+<dt>Output</dt><dd>Posts, ads, dossiers, web</dd> ||| <dt>Piezas</dt><dd>Posts, anuncios, dosieres, web</dd>
+# --- 02 Kit ---
+02 — The kit ||| 02 — El kit
+Four colours and a marker pen. ||| Cuatro colores y un rotulador.
+Navy carries the text. Electric blue comes in as a wave across the photo. Mint and yellow are rationed: mint for the offer, yellow for whatever line has to be read first. On top sits a hand-drawn layer that keeps the pieces from looking like a government form. ||| El azul marino lleva el texto. El azul eléctrico entra como una ola que cruza la foto. El menta y el amarillo van racionados: menta para la oferta, amarillo para la línea que hay que leer primero. Encima va una capa dibujada a mano para que las piezas no parezcan un impreso de la administración.
+aria-label="Educa Projects palette" ||| aria-label="Paleta de Educa Projects"
+<span class="ed-sw-name">Navy</span> ||| <span class="ed-sw-name">Azul marino</span>
+<span class="ed-sw-use">Backgrounds, text</span> ||| <span class="ed-sw-use">Fondos, texto</span>
+<span class="ed-sw-name">Electric blue</span> ||| <span class="ed-sw-name">Azul eléctrico</span>
+<span class="ed-sw-use">Waves, icons</span> ||| <span class="ed-sw-use">Olas, iconos</span>
+<span class="ed-sw-name">Mint</span> ||| <span class="ed-sw-name">Menta</span>
+<span class="ed-sw-use">Offers, stickers</span> ||| <span class="ed-sw-use">Ofertas, pegatinas</span>
+<span class="ed-sw-name">Yellow</span> ||| <span class="ed-sw-name">Amarillo</span>
+<span class="ed-sw-use">Underlines, arrows</span> ||| <span class="ed-sw-use">Subrayados, flechas</span>
+alt="Detail: white headline on navy with a hand-drawn yellow line under each row" ||| alt="Detalle: titular blanco sobre azul marino con una línea amarilla dibujada a mano bajo cada fila"
+<strong>Underline</strong>One loose yellow stroke per line of the headline. It reads as someone marking the important bit. ||| <strong>Subrayado</strong>Un trazo amarillo suelto por cada línea del titular. Se lee como alguien marcando lo importante.
+alt="Detail: mint oval sticker reading “¡Ahora con −20% descuento!” with blue doodles" ||| alt="Detalle: pegatina ovalada menta con «¡Ahora con −20% descuento!» y garabatos azules"
+<strong>Sticker</strong>The offer always goes in the mint oval, so it can be found without reading. ||| <strong>Pegatina</strong>La oferta va siempre en el óvalo menta, así se encuentra sin leer.
+alt="Detail: two hand-drawn yellow arrows crossing a blue wave" ||| alt="Detalle: dos flechas amarillas dibujadas a mano cruzando una ola azul"
+<strong>Arrows</strong>Drawn by hand and pointing at one thing only: the sticker. ||| <strong>Flechas</strong>Dibujadas a mano y apuntando a una sola cosa: la pegatina.
+# --- 03 Redes ---
+03 — Social ||| 03 — Redes
+Start with the question they typed into Google. ||| Empezar por la pregunta que escribieron en Google.
+The arraigo socioformativo post opens with the exact question people bring: <em>is there a course that counts for this?</em> The answer is one line of body copy. Below it, the photo is cut by the blue wave and the arrows walk the eye down to the discount. ||| El post del arraigo socioformativo abre con la pregunta exacta que trae la gente: <em>¿hay algún curso que valga para esto?</em> La respuesta es una línea de texto. Debajo, la ola azul corta la foto y las flechas bajan la mirada hasta el descuento.
+The post is built to be repeated. Headline, photo and offer can change from course to course; the wave, the underline and the corner the logo sits in stay where they are. ||| El post está pensado para repetirse. Titular, foto y oferta cambian de un curso a otro; la ola, el subrayado y la esquina del logo se quedan donde están.
+<dt>Format</dt><dd>1080 × 1350 px, 4:5</dd> ||| <dt>Formato</dt><dd>1080 × 1350 px, 4:5</dd>
+<dt>Tools</dt><dd>Illustrator, Photoshop</dd> ||| <dt>Herramientas</dt><dd>Illustrator, Photoshop</dd>
+alt="The arraigo socioformativo post shown in an Instagram feed on a phone" ||| alt="El post del arraigo socioformativo en un feed de Instagram, en un móvil"
+# --- 04 Anuncios ---
+04 — Paid ||| 04 — Anuncios
+Ten places left, and the ad has to say so before the scroll. ||| Quedan diez plazas, y el anuncio tiene que decirlo antes del scroll.
+Many of the ads were for free courses funded through LABORA, and each one came with the same must-haves: the official title and its code, who can apply, the start date and the logos of the funders. That leaves little room, so the hierarchy was fixed. Course name at the top, conditions in a yellow block, <em>Gratuito</em> circled in the corner. ||| Muchos anuncios eran de cursos gratuitos financiados por LABORA, y todos traían lo mismo obligatorio: el título oficial con su código, quién puede apuntarse, la fecha de inicio y los logos de quien financia. Queda poco sitio, así que la jerarquía era fija. Nombre del curso arriba, condiciones en un bloque amarillo y <em>Gratuito</em> rodeado en la esquina.
+Beyond the creative, I ran the campaigns in Ads Manager and tracked how each one performed. ||| Además de la creatividad, llevaba las campañas en Ads Manager y seguía cómo funcionaba cada una.
+alt="Meta ad for a free Maquillaje Integral course: two women at a make-up lesson, a yellow block listing who can apply and the start date, and “Gratuito, últimas 10 plazas”" ||| alt="Anuncio de Meta del curso gratuito de Maquillaje Integral: dos mujeres en una clase de maquillaje, un bloque amarillo con quién puede apuntarse y la fecha de inicio, y «Gratuito, últimas 10 plazas»"
+As it ran, from the Meta Ad Library ||| Tal como salió, desde la Biblioteca de anuncios de Meta
+# --- 05 Impresion ---
+05 — Print ||| 05 — Impresión
+Course dossiers. ||| Dosieres de curso.
+One example of the course dossiers, this one for the Correos exam prep. A4, laid out in InDesign. The course information is ordered around the questions a future student asks, from the one that matters most to the one that matters least. Every section opens with a navy title band and its own icon, the same icons used on the contents page. Inside, the key words of each point are highlighted: yellow for what the job offers, mint for what you need to apply. A quick look is enough to get the gist. ||| Un ejemplo de los dosieres de curso, en este caso el de oposiciones a Correos. A4, maquetado en InDesign. La información del curso se ordenó según las preguntas que se hace un futuro alumno, de la más importante a la menos. Cada sección abre con una banda azul marino y su propio icono, los mismos que aparecen en el índice. Dentro, las palabras clave de cada punto van marcadas: amarillo para lo que ofrece el puesto, menta para lo que necesitas para presentarte. Con un vistazo ya se entiende lo esencial.
+data-title="Introduction and contents" data-meta="Dossier · spread 1" ||| data-title="Introducción y contenido" data-meta="Dosier · doble página 1"
+alt="Dossier spread: introduction page with a photo and three info chips, facing a contents page with four icon-led questions" ||| alt="Doble página del dosier: introducción con una foto y tres etiquetas de datos, frente al índice con cuatro preguntas acompañadas de iconos"
+<span>Introduction &amp; contents</span><span>Spread 1</span> ||| <span>Introducción y contenido</span><span>Doble página 1</span>
+data-title="Why Correos · Requirements" data-meta="Dossier · spread 2" ||| data-title="Por qué Correos · Requisitos" data-meta="Dosier · doble página 2"
+alt="Dossier spread: “¿Por qué trabajar en Correos?” with benefits highlighted in yellow, and “Requisitos para presentarse” with requirements highlighted in mint" ||| alt="Doble página del dosier: «¿Por qué trabajar en Correos?» con las ventajas subrayadas en amarillo, y «Requisitos para presentarse» con los requisitos subrayados en menta"
+<span>Why Correos · Requirements</span><span>Spread 2</span> ||| <span>Por qué Correos · Requisitos</span><span>Doble página 2</span>
+data-title="What we offer · Syllabus" data-meta="Dossier · spread 3" ||| data-title="Qué ofrecemos · Temario" data-meta="Dosier · doble página 3"
+alt="Dossier spread: “¿Qué ofrecemos?” listing what the course includes, and the twelve-topic syllabus" ||| alt="Doble página del dosier: «¿Qué ofrecemos?» con lo que incluye el curso, y el temario de doce temas"
+<span>What we offer · Syllabus</span><span>Spread 3</span> ||| <span>Qué ofrecemos · Temario</span><span>Doble página 3</span>
+data-title="Front and back cover" data-meta="Dossier" ||| data-title="Portada y contraportada" data-meta="Dosier"
+alt="Front cover with a postal worker inside a large Educa brand shape, next to the back cover with the logo and centre addresses" ||| alt="Portada con un cartero dentro de una gran forma de la marca Educa, junto a la contraportada con el logo y las direcciones de los centros"
+<span>Front &amp; back cover</span><span>A4 · 5 pages</span> ||| <span>Portada y contraportada</span><span>A4 · 5 páginas</span>
+# --- Siguiente ---
+>Next project< ||| >Siguiente proyecto<
+<span>Posters · Packaging · Social · 2023 — 2025</span> ||| <span>Carteles · Packaging · Social · 2023 — 2025</span>
+<span>View project →</span> ||| <span>Ver proyecto →</span>
+alt="Playground preview" ||| alt="Vista previa de Playground"
