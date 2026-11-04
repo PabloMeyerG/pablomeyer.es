@@ -18,22 +18,6 @@
 }
 #hero .container { display: grid; grid-template-rows: 1fr auto 1fr; flex: 1; }
 #hero .factbar { grid-row: 3; align-self: end; }
-/* Fondo con three.js (home-3d.js): mancha amarilla detras del titular,
-   solo en escritorio. Aparece con un fundido y no recibe clics. */
-.hero-glow { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1.4s var(--ease-enter); }
-#hero.has-glow .hero-glow { opacity: 1; }
-/* Sin z-index: el contenido pinta encima de la mancha (.hero-glow, z-index 0) */
-#hero > .container { position: relative; }
-
-/* Avatar (2026-10-20): detras del titular, que le cruza el pecho.
-   Imagen fija: PNG ya recortado, con fondo transparente. */
-.hero-avatar {
-  position: relative; height: min(46vh, 32vw, 460px); aspect-ratio: 634 / 423; max-width: 100%;
-  margin-bottom: calc(-36px - clamp(46px, 10.56vw, 152px) * 0.3);
-}
-.hero-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
-.hero-title { position: relative; }
-
 .hero-stage { grid-row: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
 
 /* Titular a una línea: una palabra maciza y otra en contorno */
@@ -339,7 +323,6 @@
   /* Movil: cabecera a 10px + 56 de alto = 66 */
   #hero { padding: 24px 20px; min-height: calc(100vh - 66px); min-height: calc(100dvh - 66px); }
   .hero-title { font-size: clamp(42px, 13vw, 76px); gap: 12px; }
-  .hero-avatar { height: auto; width: min(100%, 520px); margin-bottom: calc(-36px - clamp(42px, 13vw, 76px) * 0.3); }
   .hero-aside { align-items: flex-start; }
   .hero-desc { text-align: left; max-width: 100%; }
   .hero-buttons { justify-content: flex-start; }
